@@ -1,4 +1,5 @@
-// Root path is handled by next-intl middleware (rewrites to default locale)
+import { redirect } from 'next/navigation'
+
 export default function RootPage() {
-  return null
+  redirect('/ko')
 }
