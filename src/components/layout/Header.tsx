@@ -72,11 +72,11 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-4">
               <LanguageSwitcher />
               <a
-                href="tel:031-000-0000"
+                href="tel:1555-3534"
                 className="flex items-center gap-1.5 text-text-secondary hover:text-gold-500 transition-colors text-sm"
               >
                 <Phone className="w-4 h-4" />
-                <span>031-000-0000</span>
+                <span>1555-3534</span>
               </a>
               <Link
                 href="/contact"

@@ -1,11 +1,36 @@
 'use client'
 
+import { useState } from 'react'
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { getFeaturedProducts } from '@/lib/products'
+
+function ProductImage({ src, alt }: { src: string; alt: string }) {
+  const [error, setError] = useState(false)
+  if (error) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-20 h-20 bg-gold-500/10 rounded-full flex items-center justify-center">
+          <span className="text-gold-500 text-3xl font-bold">W</span>
+        </div>
+      </div>
+    )
+  }
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-cover"
+      onError={() => setError(true)}
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+    />
+  )
+}
 
 export default function ProductHighlight() {
   const t = useTranslations('product_highlight')
@@ -40,14 +65,8 @@ export default function ProductHighlight() {
                 <div className="bg-navy-800 border border-white/10 rounded-2xl overflow-hidden hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/5 h-full">
                   {/* 이미지 영역 */}
                   <div className="aspect-[4/3] bg-navy-700 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-20 h-20 bg-gold-500/10 rounded-full flex items-center justify-center">
-                        <span className="text-gold-500 text-3xl font-bold">W</span>
-                      </div>
-                    </div>
-                    {/* 제품 이미지 (실제 이미지 추가 시) */}
-                    {/* <Image src={product.image} alt={product.name} fill className="object-cover" /> */}
-                    <div className="absolute top-3 left-3">
+                    <ProductImage src={product.image} alt={product.name} />
+                    <div className="absolute top-3 left-3 z-10">
                       <span className="bg-gold-500/20 border border-gold-500/30 text-gold-500 text-xs font-medium px-2.5 py-1 rounded-full">
                         {product.category}
                       </span>

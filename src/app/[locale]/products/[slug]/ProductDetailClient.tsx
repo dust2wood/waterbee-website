@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { Link } from '@/i18n/navigation'
@@ -11,6 +12,32 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 
 type TabKey = 'overview' | 'specs' | 'features'
+
+function ProductImageWithFallback({ src, alt, model }: { src: string; alt: string; model: string }) {
+  const [error, setError] = useState(false)
+  if (error) {
+    return (
+      <>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="w-32 h-32 bg-gold-500/10 rounded-full flex items-center justify-center border border-gold-500/20">
+            <span className="text-gold-500 text-5xl font-black">W</span>
+          </div>
+        </div>
+        <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
+          <span className="text-gold-500 font-mono font-bold text-sm">{model}</span>
+        </div>
+      </>
+    )
+  }
+  return (
+    <>
+      <Image src={src} alt={alt} fill className="object-contain p-4" onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
+      <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
+        <span className="text-gold-500 font-mono font-bold text-sm">{model}</span>
+      </div>
+    </>
+  )
+}
 
 export default function ProductDetailClient({ product }: { product: Product }) {
   const locale = useLocale()
@@ -46,14 +73,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           {/* 이미지 갤러리 */}
           <AnimatedSection direction="left">
             <div className="aspect-[4/3] bg-navy-800 rounded-2xl border border-white/10 relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 bg-gold-500/10 rounded-full flex items-center justify-center border border-gold-500/20">
-                  <span className="text-gold-500 text-5xl font-black">W</span>
-                </div>
-              </div>
-              <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
-                <span className="text-gold-500 font-mono font-bold text-sm">{product.model}</span>
-              </div>
+              <ProductImageWithFallback src={product.image} alt={isKo ? product.name : product.nameEn} model={product.model} />
             </div>
           </AnimatedSection>
 
@@ -95,9 +115,9 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                   <Mail className="w-4 h-4" />
                   {t('inquiry')}
                 </Link>
-                <a href="tel:031-000-0000" className="btn-secondary flex-1 justify-center">
+                <a href="tel:1555-3534" className="btn-secondary flex-1 justify-center">
                   <Phone className="w-4 h-4" />
-                  031-000-0000
+                  1555-3534
                 </a>
               </div>
             </div>

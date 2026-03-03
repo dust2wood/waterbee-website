@@ -236,8 +236,8 @@ export default function ContactForm() {
                     </div>
                     <div>
                       <div className="text-text-secondary text-xs mb-0.5">{t('info.phone')}</div>
-                      <a href="tel:031-000-0000" className="text-white font-semibold hover:text-gold-500 transition-colors">
-                        031-000-0000
+                      <a href="tel:1555-3534" className="text-white font-semibold hover:text-gold-500 transition-colors">
+                        1555-3534
                       </a>
                     </div>
                   </div>
@@ -259,8 +259,7 @@ export default function ContactForm() {
                     <div>
                       <div className="text-text-secondary text-xs mb-0.5">{t('info.address')}</div>
                       <p className="text-white text-sm leading-relaxed">
-                        {isKo ? '경기도 화성시' : 'Hwaseong-si, Gyeonggi-do'}<br />
-                        {isKo ? '(상세 주소 입력)' : 'South Korea'}
+                        {t('info.address_value')}
                       </p>
                     </div>
                   </div>

@@ -29,9 +29,9 @@ export default function CtaBanner() {
 
       <div className="container-custom relative z-10">
         <AnimatedSection>
-          <div className="bg-gradient-to-r from-navy-800 to-navy-700 border border-gold-500/20 rounded-3xl p-10 lg:p-16 text-center">
-            {/* 골드 라인 */}
-            <div className="w-16 h-1 bg-gradient-to-r from-gold-500 to-gold-400 rounded-full mx-auto mb-8" />
+          <div className="bg-gradient-to-br from-navy-800 to-navy-800/90 border border-white/10 rounded-3xl p-10 lg:p-16 text-center shadow-xl">
+            {/* 골드 악센트 라인 */}
+            <div className="w-12 h-0.5 bg-gold-500/80 rounded-full mx-auto mb-8" />
 
             <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4">
               {t('title')}
@@ -49,11 +49,11 @@ export default function CtaBanner() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="tel:031-000-0000"
+                href="tel:1555-3534"
                 className="border border-white/20 text-white font-semibold px-10 py-4 rounded-xl hover:bg-white/10 transition-all duration-200 inline-flex items-center gap-2 text-base"
               >
                 <Phone className="w-5 h-5" />
-                {t('phone')}: 031-000-0000
+                {t('phone')}: 1555-3534
               </a>
             </div>
           </div>

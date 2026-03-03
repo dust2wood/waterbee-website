@@ -220,8 +220,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   <Phone className="w-5 h-5 text-gold-500 shrink-0" />
                   <div>
                     <div className="text-text-secondary text-xs mb-0.5">{t('info.phone')}</div>
-                    <a href="tel:031-000-0000" className="text-white hover:text-gold-500 transition-colors text-sm">
-                      031-000-0000
+                    <a href="tel:1555-3534" className="text-white hover:text-gold-500 transition-colors text-sm">
+                      1555-3534
                     </a>
                   </div>
                 </div>

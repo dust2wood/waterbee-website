@@ -10,15 +10,15 @@
   "hero": {
     "badge": "Water Quality Monitoring Specialist",
     "title": "Safe Water Environment\nThrough Precise Measurement",
-    "subtitle": "Waterbee leads automated water quality monitoring for waterworks and wastewater treatment plants with rotating electrode residual chlorine, turbidity, and pH/EC measurement technology.",
+    "subtitle": "Leading automated water quality monitoring at waterworks and wastewater treatment plants with rotating electrode residual chlorine, turbidity, and pH/EC technology.",
     "cta_primary": "View Products",
     "cta_secondary": "Technical Inquiry",
-    "scroll": "Scroll Down"
+    "scroll": "Scroll"
   },
   "tech_features": {
     "badge": "Core Technology",
     "title": "Waterbee's Proprietary Technology",
-    "subtitle": "Realizing reliable water quality measurement with our patented rotating electrode method",
+    "subtitle": "Long-term stable water quality measurement with our patented rotating electrode method.",
     "items": [
       {
         "title": "Rotating Electrode Method",
@@ -37,7 +37,7 @@
   "product_highlight": {
     "badge": "Product Lineup",
     "title": "Water Quality Measurement Solutions",
-    "subtitle": "Waterbee instruments optimized for field applications",
+    "subtitle": "Waterbee instruments tailored to your field conditions",
     "view_all": "View All Products",
     "view_detail": "View Details"
   },
@@ -48,9 +48,9 @@
   },
   "cta_banner": {
     "title": "Need a Water Quality Measurement Solution?",
-    "subtitle": "Get a customized proposal from Waterbee experts.",
+    "subtitle": "Get a proposal tailored to your site and requirements.",
     "cta": "Free Technical Consultation",
-    "phone": "Call Us"
+    "phone": "Call"
   },
   "products": {
     "title": "Product Catalog",
@@ -126,7 +126,7 @@
     "info": {
       "company": "Waterbee Co., Ltd.",
       "company_name_label": "Company Name",
-      "address_value": "Hwaseong-si, Gyeonggi-do, South Korea",
+      "address_value": "39, Ecodeltasmart-ro, Gangseo-gu, Busan, 3-dong 2-ho",
       "ceo": "CEO",
       "address": "Address",
       "phone": "Phone",
@@ -176,6 +176,7 @@
       "phone": "Phone",
       "email": "Email",
       "address": "Address",
+      "address_value": "39, Ecodeltasmart-ro, Gangseo-gu, Busan, 3-dong 2-ho",
       "hours": "Business Hours",
       "hours_value": "Weekdays 09:00 ~ 18:00 (Closed on weekends & holidays)",
       "emergency": "For urgent technical support, please contact us by phone for prompt assistance."
@@ -184,8 +185,8 @@
   "footer": {
     "company": "Waterbee Co., Ltd.",
     "tagline": "Water Quality Measurement Specialist",
-    "description": "We protect safe water environments at waterworks and wastewater treatment plants with rotating electrode water quality measurement technology.",
-    "address_value": "Hwaseong-si, Gyeonggi-do, South Korea",
+    "description": "Protecting safe water environments at waterworks and wastewater treatment plants with rotating electrode measurement technology.",
+    "address_value": "39, Ecodeltasmart-ro, Gangseo-gu, Busan, 3-dong 2-ho",
     "links": "Quick Links",
     "legal": "Legal",
     "privacy": "Privacy Policy",
