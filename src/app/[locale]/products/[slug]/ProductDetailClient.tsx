@@ -103,7 +103,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                       <div className="text-text-secondary text-xs mb-0.5">
                         {isKo ? spec.label : spec.labelEn}
                       </div>
-                      <div className="text-white font-semibold">{spec.value}</div>
+                      <div className="text-white font-semibold">{isKo ? spec.value : spec.valueEn}</div>
                     </div>
                   ))}
                 </div>

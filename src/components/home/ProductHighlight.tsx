@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
@@ -34,6 +34,8 @@ function ProductImage({ src, alt }: { src: string; alt: string }) {
 
 export default function ProductHighlight() {
   const t = useTranslations('product_highlight')
+  const locale = useLocale()
+  const isKo = locale === 'ko'
   const products = getFeaturedProducts()
 
   return (
@@ -65,10 +67,10 @@ export default function ProductHighlight() {
                 <div className="bg-navy-800 border border-white/10 rounded-2xl overflow-hidden hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/5 h-full">
                   {/* 이미지 영역 */}
                   <div className="aspect-[4/3] bg-navy-700 relative overflow-hidden">
-                    <ProductImage src={product.image} alt={product.name} />
+                    <ProductImage src={product.image} alt={isKo ? product.name : product.nameEn} />
                     <div className="absolute top-3 left-3 z-10">
                       <span className="bg-gold-500/20 border border-gold-500/30 text-gold-500 text-xs font-medium px-2.5 py-1 rounded-full">
-                        {product.category}
+                        {isKo ? product.category : product.categoryEn}
                       </span>
                     </div>
                   </div>
@@ -77,10 +79,10 @@ export default function ProductHighlight() {
                   <div className="p-5">
                     <div className="text-text-secondary text-xs font-mono mb-1">{product.model}</div>
                     <h3 className="text-white font-semibold text-base mb-2 group-hover:text-gold-500 transition-colors">
-                      {product.name}
+                      {isKo ? product.name : product.nameEn}
                     </h3>
                     <p className="text-text-secondary text-xs leading-relaxed mb-4 line-clamp-2">
-                      {product.shortDescription}
+                      {isKo ? product.shortDescription : product.shortDescriptionEn}
                     </p>
                     <div className="flex items-center justify-between">
                       <span className="text-gold-500 text-xs font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">

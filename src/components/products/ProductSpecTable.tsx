@@ -30,7 +30,7 @@ export default function ProductSpecTable({ specs }: ProductSpecTableProps) {
                   {isKo ? spec.label : spec.labelEn}
                 </td>
                 <td className="py-3 px-5 text-white text-sm font-medium">
-                  {spec.value}
+                  {isKo ? spec.value : spec.valueEn}
                 </td>
               </tr>
             ))}

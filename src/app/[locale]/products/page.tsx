@@ -36,7 +36,7 @@ export default async function ProductsPage({
       <div className="bg-navy-800 border-b border-white/10 py-12">
         <div className="container-custom">
           <SectionTitle
-            badge="Products"
+            badge={t('badge')}
             title={t('title')}
             subtitle={t('subtitle')}
             align="left"

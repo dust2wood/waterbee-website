@@ -50,7 +50,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
             {product.specs.slice(0, 2).map((spec) => (
               <div key={spec.label} className="flex items-center justify-between text-xs">
                 <span className="text-text-secondary">{isKo ? spec.label : spec.labelEn}</span>
-                <span className="text-white font-medium">{spec.value}</span>
+                <span className="text-white font-medium">{isKo ? spec.value : spec.valueEn}</span>
               </div>
             ))}
           </div>

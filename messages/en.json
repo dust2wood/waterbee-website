@@ -53,6 +53,7 @@
     "phone": "Call"
   },
   "products": {
+    "badge": "Products",
     "title": "Product Catalog",
     "subtitle": "Full lineup of Waterbee water quality measurement solutions",
     "filter": {

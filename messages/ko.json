@@ -53,6 +53,7 @@
     "phone": "전화 문의"
   },
   "products": {
+    "badge": "제품",
     "title": "제품 카탈로그",
     "subtitle": "워터비의 수질 측정 솔루션 전 제품",
     "filter": {
