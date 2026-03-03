@@ -22,6 +22,14 @@ export async function generateMetadata({
 
 const historyItemsKo = [
   {
+    year: '2025',
+    events: [
+      'HSCMT와 스마트 여과드레인 시스템 기술 고도화·유지관리 협력 MOU 체결',
+      '필리핀 뉴클락시티(NCC) 취수장 스마트 여과드레인·수질계측 설치·운영',
+      '우즈베키스탄 보일러·지역난방 여과기 적용 협력 협의',
+    ],
+  },
+  {
     year: '2024',
     events: [
       'ICT 정밀여과기기 공동특허 등록',
@@ -69,6 +77,14 @@ const historyItemsKo = [
 ]
 
 const historyItemsEn = [
+  {
+    year: '2025',
+    events: [
+      'Signed MOU with HSCMT for smart filter-drain system technology advancement and maintenance cooperation',
+      'Smart filter-drain and water quality measurement system installed and operating at Philippines New Clark City (NCC) intake facility',
+      'Discussions for boiler and district heating filter application cooperation in Uzbekistan',
+    ],
+  },
   {
     year: '2024',
     events: [
