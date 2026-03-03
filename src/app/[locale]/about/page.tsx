@@ -56,22 +56,9 @@ const historyItemsKo = [
   {
     year: '2021',
     events: [
+      '법인 설립 (2021년 10월)',
       '스마트 컨트롤러 고도화 (이더넷·LTE·WiFi 통합 통신 지원)',
       '에코델타시티 어반테크하우스 리빙랩 실증',
-    ],
-  },
-  {
-    year: '2020',
-    events: [
-      '이온전극 코팅 기술 적용으로 측정 안정성 6개월 이상 달성',
-      'K-water 정수장·재이용수 현장 납품 확대',
-    ],
-  },
-  {
-    year: '2018',
-    events: [
-      '회전전극식 잔류염소계 1세대 양산 및 판매 개시',
-      '부산시 상수도사업본부 공급 실적 달성',
     ],
   },
 ]
@@ -112,22 +99,9 @@ const historyItemsEn = [
   {
     year: '2021',
     events: [
+      'Company founded (October 2021)',
       'Smart controller enhanced (unified Ethernet/LTE/WiFi communication support)',
       'Living Lab demonstration at Eco Delta City Urban Tech House',
-    ],
-  },
-  {
-    year: '2020',
-    events: [
-      'Achieved measurement stability of 6+ months with ion electrode coating technology',
-      'Expanded delivery to K-water waterworks and reclaimed water sites',
-    ],
-  },
-  {
-    year: '2018',
-    events: [
-      'Mass production and sales launch of 1st generation rotating electrode residual chlorine analyzer',
-      'Achieved supply record with Busan City Waterworks Authority',
     ],
   },
 ]
