@@ -65,7 +65,8 @@
       "chlorine": "Residual Chlorine",
       "turbidity": "Turbidity",
       "ph_ec": "pH/EC",
-      "sampling": "Sampling"
+      "sampling": "Sampling",
+      "filtration": "Filtration/Drain"
     },
     "no_results": "No products found for the selected criteria.",
     "spec_table": "Specifications",

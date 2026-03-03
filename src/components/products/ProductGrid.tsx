@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Product } from '@/lib/products'
 import ProductCard from './ProductCard'
@@ -14,12 +14,14 @@ interface ProductGridProps {
 
 export default function ProductGrid({ products }: ProductGridProps) {
   const t = useTranslations('products')
+  const locale = useLocale()
+  const isKo = locale === 'ko'
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedApplication, setSelectedApplication] = useState('all')
 
   const filtered = products.filter((p) => {
-    const catMatch =
-      selectedCategory === 'all' || p.category === selectedCategory
+    const catValue = isKo ? p.category : p.categoryEn
+    const catMatch = selectedCategory === 'all' || catValue === selectedCategory
     const appMatch =
       selectedApplication === 'all' || p.application.includes(selectedApplication)
     return catMatch && appMatch

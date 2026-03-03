@@ -65,7 +65,8 @@
       "chlorine": "잔류염소",
       "turbidity": "탁도",
       "ph_ec": "pH/EC",
-      "sampling": "샘플링"
+      "sampling": "샘플링",
+      "filtration": "여과/드레인"
     },
     "no_results": "해당 조건의 제품이 없습니다.",
     "spec_table": "제품 사양",

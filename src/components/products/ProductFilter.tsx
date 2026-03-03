@@ -1,10 +1,10 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useTranslations, useLocale } from 'next-intl'
 import { clsx } from 'clsx'
 import { Filter } from 'lucide-react'
+import { getAllProducts } from '@/lib/products'
 
-const categories = ['all', '잔류염소', '탁도', 'pH/EC', '샘플링']
 const applications = ['all', 'water_treatment', 'wastewater', 'industrial']
 
 interface ProductFilterProps {
@@ -23,6 +23,10 @@ export default function ProductFilter({
   resultCount,
 }: ProductFilterProps) {
   const t = useTranslations('products.filter')
+  const locale = useLocale()
+  const isKo = locale === 'ko'
+  const allProducts = getAllProducts()
+  const categories = ['all', ...Array.from(new Set(allProducts.map((p) => isKo ? p.category : p.categoryEn)))]
 
   return (
     <aside className="w-full lg:w-64 shrink-0">

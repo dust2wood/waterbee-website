@@ -256,6 +256,113 @@ Made of SUS 304 stainless steel for excellent corrosion resistance and durabilit
       '/images/products/sampling-tank-main.jpg',
     ],
   },
+  {
+    slug: 'filter-drain',
+    model: 'WB-FDS',
+    name: '여과드레인시스템',
+    nameEn: 'Filter Drain System',
+    category: '여과/드레인',
+    categoryEn: 'Filtration/Drain',
+    application: ['water_treatment', 'wastewater', 'industrial'],
+    featured: false,
+    shortDescription: '성과공유제 협력 제품 — ICT 연동 자동 역세척·드레인 여과 시스템',
+    shortDescriptionEn: 'Performance-sharing collaboration product — ICT-connected auto backwash & drain filtration system',
+    description: `WB-FDS는 성과공유제(공공기관 협력) 사업을 통해 개발된 ICT 연동 자동 여과드레인 시스템입니다.
+수질 측정값과 연동하여 탁도·잔류물이 기준치를 초과하면 자동으로 역세척 및 드레인 동작을 수행합니다.
+기존 수동 운영 방식 대비 운영 인력을 최소화하고, 클라우드 서버를 통한 원격 모니터링 및 제어가 가능합니다.`,
+    descriptionEn: `The WB-FDS is an ICT-connected automatic filter drain system developed through the performance-sharing (public institution collaboration) program.
+Linked with water quality measurements, it automatically triggers backwash and drain operations when turbidity or residual values exceed thresholds.
+Compared to conventional manual operation, it minimizes operating personnel and enables remote monitoring and control through a cloud server.`,
+    features: [
+      '성과공유제 협력 개발 제품',
+      'ICT 수질 데이터 연동 자동 제어',
+      '탁도·잔류염소 기준 초과 시 자동 역세척 구동',
+      '원격 모니터링 및 수동 제어 (클라우드/앱)',
+      'LTE·WiFi·이더넷 통신 지원',
+      'RS-485 Modbus 기존 설비 연동',
+      '알람 기록 및 이력 관리',
+      '현장 조건별 맞춤 사양 제작 가능',
+    ],
+    featuresEn: [
+      'Developed under performance-sharing collaboration program',
+      'Automatic control linked with ICT water quality data',
+      'Auto backwash trigger on turbidity/chlorine threshold',
+      'Remote monitoring and manual control (cloud/app)',
+      'LTE/WiFi/Ethernet communication',
+      'RS-485 Modbus integration with existing facilities',
+      'Alarm log and history management',
+      'Custom specifications available per site conditions',
+    ],
+    specs: [
+      { label: '제어 방식', labelEn: 'Control Method', value: 'ICT 자동 연동 / 수동 선택' },
+      { label: '연동 센서', labelEn: 'Linked Sensors', value: '탁도계, 잔류염소계 (워터비 제품)' },
+      { label: '통신', labelEn: 'Communication', value: 'LTE / WiFi / 이더넷 / RS-485' },
+      { label: '제어 출력', labelEn: 'Control Output', value: '릴레이 4점 (역세척/드레인/경보)' },
+      { label: '데이터 관리', labelEn: 'Data Management', value: '클라우드 서버 + 앱 연동' },
+      { label: '전원', labelEn: 'Power Supply', value: 'AC 220V, 50/60Hz' },
+      { label: '보호 등급', labelEn: 'Protection Rating', value: 'IP65' },
+      { label: '설치 방식', labelEn: 'Installation', value: '벽걸이형 / 패널 내장형' },
+    ],
+    image: '/images/products/filter-drain-main.jpg',
+    gallery: [
+      '/images/products/filter-drain-main.jpg',
+    ],
+  },
+  {
+    slug: 'ph-ec-board',
+    model: 'WB-PES',
+    name: 'pH/EC 센서보드',
+    nameEn: 'pH/EC Sensor Board',
+    category: 'pH/EC',
+    categoryEn: 'pH/EC',
+    application: ['water_treatment', 'wastewater', 'industrial'],
+    featured: false,
+    shortDescription: '윌로펌프 협업 — 펌프 일체형 pH·전기전도도 측정 센서보드',
+    shortDescriptionEn: 'Wilo Pump collaboration — pump-integrated pH & conductivity sensor board',
+    description: `WB-PES는 윌로펌프(Wilo)와 공동 개발한 pH·전기전도도(EC) 측정 센서보드입니다.
+펌프 제어반 내장형으로 설계되어 별도의 분석기 설치 없이 펌프 시스템과 수질 측정을 하나의 패키지로 제공합니다.
+낮은 전기전도도(10~200 μS/cm) 환경에서도 정밀 측정이 가능하여 정수 처리·순수 제조 공정에 적합합니다.`,
+    descriptionEn: `The WB-PES is a pH and electrical conductivity (EC) measurement sensor board co-developed with Wilo Pump.
+Designed to be built into pump control panels, it delivers water quality measurement and pump control as a single package without a separate analyzer.
+Capable of precise measurement in low-conductivity environments (10–200 μS/cm), making it ideal for water treatment and ultrapure water processes.`,
+    features: [
+      '윌로펌프(Wilo) 공동 개발·공동 판매 제품',
+      '펌프 제어반 내장형 — 별도 분석기 불필요',
+      '저전도도(10~200 μS/cm) 정밀 측정',
+      'pH + EC 동시 측정 (단일 보드)',
+      '온도 자동 보정 내장',
+      'RS-485 Modbus RTU 출력',
+      '4~20mA 아날로그 출력 (선택)',
+      '소형 보드 설계로 제어반 내 공간 최소화',
+    ],
+    featuresEn: [
+      'Co-developed and co-marketed with Wilo Pump',
+      'Built into pump control panel — no separate analyzer needed',
+      'Precise low-conductivity measurement (10–200 μS/cm)',
+      'Simultaneous pH + EC measurement on a single board',
+      'Built-in automatic temperature compensation',
+      'RS-485 Modbus RTU output',
+      '4~20mA analog output (optional)',
+      'Compact board design minimizes panel space',
+    ],
+    specs: [
+      { label: 'pH 측정 범위', labelEn: 'pH Range', value: '0.00 ~ 14.00 pH' },
+      { label: 'pH 정확도', labelEn: 'pH Accuracy', value: '±0.01 pH' },
+      { label: 'EC 측정 범위', labelEn: 'EC Range', value: '10 ~ 20,000 μS/cm' },
+      { label: '저전도도 특화', labelEn: 'Low Conductivity', value: '10 ~ 200 μS/cm 정밀 측정' },
+      { label: 'EC 정확도', labelEn: 'EC Accuracy', value: '±1% FS' },
+      { label: '온도 보정', labelEn: 'Temp. Compensation', value: '0 ~ 60°C (자동)' },
+      { label: '통신', labelEn: 'Communication', value: 'RS-485 Modbus RTU' },
+      { label: '아날로그 출력', labelEn: 'Analog Output', value: '4~20mA (선택 사양)' },
+      { label: '전원', labelEn: 'Power Supply', value: 'DC 12V / 24V' },
+      { label: '폼팩터', labelEn: 'Form Factor', value: 'DIN Rail 모듈 / 기판 내장형' },
+      { label: '협업사', labelEn: 'Partner', value: 'Wilo Pump (윌로펌프)' },
+    ],
+    image: '/images/products/ph-ec-board-main.jpg',
+    gallery: [
+      '/images/products/ph-ec-board-main.jpg',
+    ],
+  },
 ]
 
 export function getAllProducts(): Product[] {
