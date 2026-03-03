@@ -1,0 +1,110 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
+import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react'
+
+const navLinks = [
+  { key: 'products', href: '/products' },
+  { key: 'technology', href: '/technology' },
+  { key: 'about', href: '/about' },
+  { key: 'contact', href: '/contact' },
+]
+
+export default function Footer() {
+  const t = useTranslations('footer')
+  const tNav = useTranslations('nav')
+
+  return (
+    <footer className="bg-navy-900 border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* 브랜드 */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 bg-gold-500 rounded-sm flex items-center justify-center">
+                <span className="text-navy-900 font-black text-sm">W</span>
+              </div>
+              <span className="text-white font-bold text-lg tracking-wider">WATERBEE</span>
+            </div>
+            <p className="text-text-secondary text-sm mb-6 max-w-sm leading-relaxed">
+              {t('tagline')} — 회전전극식 수질측정 기술로 정수장과 하폐수처리장의 안전한 물 환경을 지킵니다.
+            </p>
+            <div className="space-y-2 text-sm text-text-secondary">
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-gold-500 shrink-0" />
+                <span>031-000-0000</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-gold-500 shrink-0" />
+                <a href="mailto:support@waterbee.co.kr" className="hover:text-gold-500 transition-colors">
+                  support@waterbee.co.kr
+                </a>
+              </div>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
+                <span>경기도 화성시 (주소 입력)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* 바로가기 */}
+          <div>
+            <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">{t('links')}</h3>
+            <ul className="space-y-2">
+              {navLinks.map((link) => (
+                <li key={link.key}>
+                  <Link
+                    href={link.href}
+                    className="text-text-secondary text-sm hover:text-gold-500 transition-colors"
+                  >
+                    {tNav(link.key)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 법적 고지 */}
+          <div>
+            <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">{t('legal')}</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/privacy" className="text-text-secondary text-sm hover:text-gold-500 transition-colors">
+                  {t('privacy')}
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-text-secondary text-sm hover:text-gold-500 transition-colors">
+                  {t('terms')}
+                </Link>
+              </li>
+            </ul>
+            <div className="mt-6 pt-4 border-t border-white/10">
+              <p className="text-text-secondary text-xs">
+                {t('business_number')}
+                <br />
+                000-00-00000
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-text-secondary text-xs">{t('copyright')}</p>
+          <div className="flex items-center gap-1 text-text-secondary text-xs">
+            <span>Powered by</span>
+            <a
+              href="https://vercel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold-500 transition-colors flex items-center gap-1"
+            >
+              Vercel <ExternalLink className="w-3 h-3" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}

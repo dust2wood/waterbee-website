@@ -1,0 +1,179 @@
+{
+  "nav": {
+    "home": "Home",
+    "products": "Products",
+    "technology": "Technology",
+    "about": "About",
+    "contact": "Contact",
+    "catalog": "Catalog"
+  },
+  "hero": {
+    "badge": "Water Quality Monitoring Specialist",
+    "title": "Safe Water Environment\nThrough Precise Measurement",
+    "subtitle": "Waterbee leads automated water quality monitoring for waterworks and wastewater treatment plants with rotating electrode residual chlorine, turbidity, and pH/EC measurement technology.",
+    "cta_primary": "View Products",
+    "cta_secondary": "Technical Inquiry",
+    "scroll": "Scroll Down"
+  },
+  "tech_features": {
+    "badge": "Core Technology",
+    "title": "Waterbee's Proprietary Technology",
+    "subtitle": "Realizing reliable water quality measurement with our patented rotating electrode method",
+    "items": [
+      {
+        "title": "Rotating Electrode Method",
+        "description": "Our patented rotating electrode method minimizes electrode contamination and maintains stable measurements over long periods."
+      },
+      {
+        "title": "Auto-Cleaning System",
+        "description": "Periodic automatic cleaning significantly reduces maintenance burden and improves continuous measurement reliability."
+      },
+      {
+        "title": "Real-time Remote Monitoring",
+        "description": "RS-485 / Modbus communication integrates with SCADA and PLC systems for real-time field data collection."
+      }
+    ]
+  },
+  "product_highlight": {
+    "badge": "Product Lineup",
+    "title": "Water Quality Measurement Solutions",
+    "subtitle": "Waterbee instruments optimized for field applications",
+    "view_all": "View All Products",
+    "view_detail": "View Details"
+  },
+  "client_logos": {
+    "badge": "Delivery Record",
+    "title": "Trusted Clients",
+    "subtitle": "Waterbee solutions delivered to waterworks, wastewater treatment plants, and industrial facilities nationwide"
+  },
+  "cta_banner": {
+    "title": "Need a Water Quality Measurement Solution?",
+    "subtitle": "Get a customized proposal from Waterbee experts.",
+    "cta": "Free Technical Consultation",
+    "phone": "Call Us"
+  },
+  "products": {
+    "title": "Product Catalog",
+    "subtitle": "Full lineup of Waterbee water quality measurement solutions",
+    "filter": {
+      "all": "All",
+      "category": "Category",
+      "application": "Application",
+      "water_treatment": "Water Treatment",
+      "wastewater": "Wastewater Treatment",
+      "industrial": "Industrial",
+      "chlorine": "Residual Chlorine",
+      "turbidity": "Turbidity",
+      "ph_ec": "pH/EC",
+      "sampling": "Sampling"
+    },
+    "no_results": "No products found for the selected criteria.",
+    "spec_table": "Specifications",
+    "features": "Key Features",
+    "overview": "Overview",
+    "inquiry": "Product Inquiry",
+    "download": "Download Catalog"
+  },
+  "technology": {
+    "badge": "Technology",
+    "title": "Waterbee Core Technology",
+    "subtitle": "Over 20 years of R&D expertise in water quality measurement",
+    "rotating_electrode": {
+      "title": "Rotating Electrode Residual Chlorine Measurement",
+      "description": "Waterbee's patented rotating electrode technology mechanically removes electrode surface contamination, dramatically improving measurement stability and lifespan compared to conventional fixed electrodes. High accuracy within ±0.02 mg/L is guaranteed in the 0.01~5.00 mg/L residual chlorine range."
+    },
+    "scattering": {
+      "title": "90° Scattered Light Turbidity Measurement",
+      "description": "Following ISO 7027 standards, the 90° scattered light method enables linear and precise measurement from low to high turbidity. Automatic correction of light source drift ensures long-term accuracy."
+    },
+    "communication": {
+      "title": "Industrial Communication Protocols",
+      "description": "Standard support for RS-485, Modbus RTU/TCP, and 4~20mA analog output enables easy integration with existing SCADA, PLC, and DCS systems."
+    },
+    "patents": {
+      "title": "Patents & Certifications",
+      "subtitle": "Patents and certifications that prove our technology"
+    }
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "Waterbee Co., Ltd.",
+    "subtitle": "As a specialized water quality measurement company, we supply accurate and reliable water quality monitoring solutions.",
+    "mission": {
+      "title": "Mission",
+      "description": "Creating a safer water environment through technological innovation."
+    },
+    "vision": {
+      "title": "Vision",
+      "description": "A global leader in automated water quality monitoring"
+    },
+    "history": {
+      "title": "History",
+      "subtitle": "Waterbee's growth journey"
+    },
+    "info": {
+      "company": "Waterbee Co., Ltd.",
+      "ceo": "CEO",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "business_number": "Business Registration No."
+    }
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Technical Consultation Inquiry",
+    "subtitle": "Leave your inquiry about products and solutions, and our specialist will contact you promptly.",
+    "form": {
+      "name": "Name",
+      "name_placeholder": "John Doe",
+      "company": "Company",
+      "company_placeholder": "Example Corp.",
+      "email": "Email",
+      "email_placeholder": "example@company.com",
+      "phone": "Phone",
+      "phone_placeholder": "+82-10-0000-0000",
+      "subject": "Inquiry Type",
+      "subject_placeholder": "Select inquiry type",
+      "subjects": {
+        "product": "Product Inquiry",
+        "quote": "Quote Request",
+        "technical": "Technical Support",
+        "partnership": "Partnership",
+        "other": "Other"
+      },
+      "message": "Message",
+      "message_placeholder": "Please enter your inquiry details.",
+      "submit": "Send Inquiry",
+      "submitting": "Sending...",
+      "success": "Your inquiry has been received. We will contact you shortly.",
+      "error": "An error occurred. Please try again later."
+    },
+    "info": {
+      "title": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "hours": "Business Hours",
+      "hours_value": "Weekdays 09:00 ~ 18:00 (Closed on weekends & holidays)"
+    }
+  },
+  "footer": {
+    "company": "Waterbee Co., Ltd.",
+    "tagline": "Water Quality Measurement Specialist",
+    "links": "Quick Links",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "copyright": "© 2024 Waterbee Co., Ltd. All rights reserved.",
+    "business_number": "Business Registration No."
+  },
+  "common": {
+    "loading": "Loading...",
+    "back": "Back",
+    "more": "More",
+    "close": "Close",
+    "menu": "Menu",
+    "language": "Language"
+  }
+}
