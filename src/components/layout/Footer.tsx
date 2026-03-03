@@ -28,7 +28,7 @@ export default function Footer() {
               <span className="text-white font-bold text-lg tracking-wider">WATERBEE</span>
             </div>
             <p className="text-text-secondary text-sm mb-6 max-w-sm leading-relaxed">
-              {t('tagline')} — 회전전극식 수질측정 기술로 정수장과 하폐수처리장의 안전한 물 환경을 지킵니다.
+              {t('tagline')} — {t('description')}
             </p>
             <div className="space-y-2 text-sm text-text-secondary">
               <div className="flex items-center gap-2">
@@ -43,7 +43,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
-                <span>경기도 화성시 (주소 입력)</span>
+                <span>{t('address_value')}</span>
               </div>
             </div>
           </div>

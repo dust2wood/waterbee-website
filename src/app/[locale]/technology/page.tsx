@@ -19,22 +19,37 @@ export async function generateMetadata({
   }
 }
 
-const patents = [
+const patentsKo = [
   { no: '제10-0000000호', name: '회전전극을 이용한 잔류염소 측정 장치 및 방법' },
   { no: '제10-0000001호', name: '수질 측정기용 자동 세정 시스템' },
   { no: '제10-0000002호', name: '연속식 탁도 측정기의 광원 보정 방법' },
 ]
 
-const certifications = [
+const patentsEn = [
+  { no: 'Patent No. 10-0000000', name: 'Residual Chlorine Measurement Device and Method Using Rotating Electrode' },
+  { no: 'Patent No. 10-0000001', name: 'Automatic Cleaning System for Water Quality Meters' },
+  { no: 'Patent No. 10-0000002', name: 'Light Source Correction Method for Continuous Turbidity Meters' },
+]
+
+const certificationsKo = [
   { name: 'ISO 9001:2015', desc: '품질경영시스템 인증' },
   { name: 'KS 인증', desc: '한국산업표준 인증' },
   { name: '환경부 형식승인', desc: '수질측정기기 형식승인' },
+]
+
+const certificationsEn = [
+  { name: 'ISO 9001:2015', desc: 'Quality Management System Certification' },
+  { name: 'KS Certification', desc: 'Korean Industrial Standards Certification' },
+  { name: 'MOE Type Approval', desc: 'Ministry of Environment Water Quality Meter Type Approval' },
 ]
 
 export default async function TechnologyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'technology' })
+  const isKo = locale === 'ko'
+  const patents = isKo ? patentsKo : patentsEn
+  const certifications = isKo ? certificationsKo : certificationsEn
 
   return (
     <div className="pt-20 lg:pt-24 min-h-screen bg-navy-900">
@@ -71,8 +86,8 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
                 <div className="w-24 h-24 bg-gold-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold-500/20">
                   <RotateCcw className="w-12 h-12 text-gold-500" />
                 </div>
-                <p className="text-text-secondary text-sm">회전전극 단면도 이미지</p>
-                <p className="text-text-secondary/50 text-xs">(이미지 추가 예정)</p>
+                <p className="text-text-secondary text-sm">{isKo ? '회전전극 단면도 이미지' : 'Rotating electrode cross-section'}</p>
+                <p className="text-text-secondary/50 text-xs">{isKo ? '(이미지 추가 예정)' : '(Image coming soon)'}</p>
               </div>
             </div>
           </div>
@@ -85,8 +100,8 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
                 <div className="w-24 h-24 bg-gold-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold-500/20">
                   <Eye className="w-12 h-12 text-gold-500" />
                 </div>
-                <p className="text-text-secondary text-sm">90° 산란광 광학계 다이어그램</p>
-                <p className="text-text-secondary/50 text-xs">(이미지 추가 예정)</p>
+                <p className="text-text-secondary text-sm">{isKo ? '90° 산란광 광학계 다이어그램' : '90° scattered light optical diagram'}</p>
+                <p className="text-text-secondary/50 text-xs">{isKo ? '(이미지 추가 예정)' : '(Image coming soon)'}</p>
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -116,7 +131,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
                 {t('communication.description')}
               </p>
               <div className="grid grid-cols-3 gap-3">
-                {['RS-485 / Modbus', 'LTE · WiFi · 이더넷', '4~20mA'].map((proto) => (
+                {['RS-485 / Modbus', 'LTE · WiFi · Ethernet', '4~20mA'].map((proto) => (
                   <div key={proto} className="bg-navy-800 border border-white/10 rounded-xl p-3 text-center">
                     <span className="text-gold-500 font-mono text-sm font-semibold">{proto}</span>
                   </div>
@@ -128,8 +143,8 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
                 <div className="w-24 h-24 bg-gold-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold-500/20">
                   <Radio className="w-12 h-12 text-gold-500" />
                 </div>
-                <p className="text-text-secondary text-sm">시스템 연동 다이어그램</p>
-                <p className="text-text-secondary/50 text-xs">(이미지 추가 예정)</p>
+                <p className="text-text-secondary text-sm">{isKo ? '시스템 연동 다이어그램' : 'System integration diagram'}</p>
+                <p className="text-text-secondary/50 text-xs">{isKo ? '(이미지 추가 예정)' : '(Image coming soon)'}</p>
               </div>
             </div>
           </div>
@@ -146,7 +161,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <Award className="w-5 h-5 text-gold-500" />
-                  <h3 className="text-white font-semibold">특허 등록</h3>
+                  <h3 className="text-white font-semibold">{t('patents_section')}</h3>
                 </div>
                 <div className="space-y-3">
                   {patents.map((p) => (
@@ -160,7 +175,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
               <div>
                 <div className="flex items-center gap-2 mb-4">
                   <Shield className="w-5 h-5 text-gold-500" />
-                  <h3 className="text-white font-semibold">인증</h3>
+                  <h3 className="text-white font-semibold">{t('certifications_section')}</h3>
                 </div>
                 <div className="space-y-3">
                   {certifications.map((c) => (

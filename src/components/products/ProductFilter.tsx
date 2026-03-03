@@ -33,8 +33,8 @@ export default function ProductFilter({
       <div className="bg-navy-800 border border-white/10 rounded-2xl p-6 sticky top-24">
         <div className="flex items-center gap-2 mb-6">
           <Filter className="w-4 h-4 text-gold-500" />
-          <h2 className="text-white font-semibold text-sm">필터</h2>
-          <span className="ml-auto text-text-secondary text-xs">{resultCount}개</span>
+          <h2 className="text-white font-semibold text-sm">{t('filter_title')}</h2>
+          <span className="ml-auto text-text-secondary text-xs">{t('result_count', { count: resultCount })}</span>
         </div>
 
         {/* 카테고리 */}
@@ -102,7 +102,7 @@ export default function ProductFilter({
             }}
             className="mt-6 w-full text-center text-text-secondary text-xs hover:text-gold-500 transition-colors py-2 border border-white/10 rounded-lg hover:border-gold-500/30"
           >
-            필터 초기화
+            {t('reset')}
           </button>
         )}
       </div>

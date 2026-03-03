@@ -66,7 +66,10 @@
       "turbidity": "Turbidity",
       "ph_ec": "pH/EC",
       "sampling": "Sampling",
-      "filtration": "Filtration/Drain"
+      "filtration": "Filtration/Drain",
+      "filter_title": "Filter",
+      "result_count": "{count} results",
+      "reset": "Reset Filters"
     },
     "no_results": "No products found for the selected criteria.",
     "spec_table": "Specifications",
@@ -94,7 +97,9 @@
     "patents": {
       "title": "Patents & Certifications",
       "subtitle": "Patents and certifications that prove our technology"
-    }
+    },
+    "patents_section": "Registered Patents",
+    "certifications_section": "Certifications"
   },
   "about": {
     "badge": "About Us",
@@ -112,8 +117,16 @@
       "title": "History",
       "subtitle": "Waterbee's growth journey"
     },
+    "info_section": "Company Info",
+    "contact_card": {
+      "title": "Contact Us",
+      "description": "Submit all inquiries including product questions, technical support, and quote requests through the button below.",
+      "button": "Go to Inquiry Form"
+    },
     "info": {
       "company": "Waterbee Co., Ltd.",
+      "company_name_label": "Company Name",
+      "address_value": "Hwaseong-si, Gyeonggi-do, South Korea",
       "ceo": "CEO",
       "address": "Address",
       "phone": "Phone",
@@ -148,7 +161,15 @@
       "submit": "Send Inquiry",
       "submitting": "Sending...",
       "success": "Your inquiry has been received. We will contact you shortly.",
-      "error": "An error occurred. Please try again later."
+      "error": "An error occurred. Please try again later.",
+      "validation": {
+        "name_min": "Please enter your name (min. 2 characters)",
+        "company_required": "Please enter your company name",
+        "email_invalid": "Please enter a valid email address",
+        "phone_required": "Please enter your phone number",
+        "subject_required": "Please select an inquiry type",
+        "message_min": "Please enter at least 10 characters"
+      }
     },
     "info": {
       "title": "Contact Information",
@@ -156,12 +177,15 @@
       "email": "Email",
       "address": "Address",
       "hours": "Business Hours",
-      "hours_value": "Weekdays 09:00 ~ 18:00 (Closed on weekends & holidays)"
+      "hours_value": "Weekdays 09:00 ~ 18:00 (Closed on weekends & holidays)",
+      "emergency": "For urgent technical support, please contact us by phone for prompt assistance."
     }
   },
   "footer": {
     "company": "Waterbee Co., Ltd.",
     "tagline": "Water Quality Measurement Specialist",
+    "description": "We protect safe water environments at waterworks and wastewater treatment plants with rotating electrode water quality measurement technology.",
+    "address_value": "Hwaseong-si, Gyeonggi-do, South Korea",
     "links": "Quick Links",
     "legal": "Legal",
     "privacy": "Privacy Policy",

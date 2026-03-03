@@ -66,7 +66,10 @@
       "turbidity": "탁도",
       "ph_ec": "pH/EC",
       "sampling": "샘플링",
-      "filtration": "여과/드레인"
+      "filtration": "여과/드레인",
+      "filter_title": "필터",
+      "result_count": "{count}개",
+      "reset": "필터 초기화"
     },
     "no_results": "해당 조건의 제품이 없습니다.",
     "spec_table": "제품 사양",
@@ -94,7 +97,9 @@
     "patents": {
       "title": "특허 및 인증",
       "subtitle": "기술력을 입증하는 특허와 인증"
-    }
+    },
+    "patents_section": "특허 등록",
+    "certifications_section": "인증"
   },
   "about": {
     "badge": "회사 소개",
@@ -112,8 +117,16 @@
       "title": "연혁",
       "subtitle": "워터비의 성장 여정"
     },
+    "info_section": "회사 정보",
+    "contact_card": {
+      "title": "문의하기",
+      "description": "제품 문의, 기술 지원, 견적 요청 등 모든 문의사항은 아래 버튼을 통해 접수해 주세요.",
+      "button": "문의 폼으로 이동"
+    },
     "info": {
       "company": "주식회사 워터비",
+      "company_name_label": "법인명",
+      "address_value": "경기도 화성시 (상세 주소 입력)",
       "ceo": "대표이사",
       "address": "주소",
       "phone": "전화",
@@ -148,7 +161,15 @@
       "submit": "문의 보내기",
       "submitting": "전송 중...",
       "success": "문의가 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.",
-      "error": "전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요."
+      "error": "전송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
+      "validation": {
+        "name_min": "성함을 2자 이상 입력해주세요",
+        "company_required": "회사명을 입력해주세요",
+        "email_invalid": "올바른 이메일 주소를 입력해주세요",
+        "phone_required": "연락처를 입력해주세요",
+        "subject_required": "문의 유형을 선택해주세요",
+        "message_min": "문의 내용을 10자 이상 입력해주세요"
+      }
     },
     "info": {
       "title": "연락처 정보",
@@ -156,12 +177,15 @@
       "email": "이메일",
       "address": "주소",
       "hours": "운영 시간",
-      "hours_value": "평일 09:00 ~ 18:00 (주말·공휴일 휴무)"
+      "hours_value": "평일 09:00 ~ 18:00 (주말·공휴일 휴무)",
+      "emergency": "긴급 기술 지원이 필요하신 경우 전화 문의를 통해 신속히 지원받으실 수 있습니다."
     }
   },
   "footer": {
     "company": "주식회사 워터비",
     "tagline": "수질 측정 전문기업",
+    "description": "회전전극식 수질측정 기술로 정수장과 하폐수처리장의 안전한 물 환경을 지킵니다.",
+    "address_value": "경기도 화성시 (주소 입력)",
     "links": "바로가기",
     "legal": "법적 고지",
     "privacy": "개인정보처리방침",

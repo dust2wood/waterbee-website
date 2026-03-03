@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useState, useMemo } from 'react'
+import { useTranslations, useLocale } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -11,16 +11,14 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 import { sendContactEmail } from '@/lib/sendEmail'
 import { clsx } from 'clsx'
 
-const schema = z.object({
-  name: z.string().min(2, '성함을 2자 이상 입력해주세요'),
-  company: z.string().min(1, '회사명을 입력해주세요'),
-  email: z.string().email('올바른 이메일 주소를 입력해주세요'),
-  phone: z.string().min(9, '연락처를 입력해주세요'),
-  subject: z.string().min(1, '문의 유형을 선택해주세요'),
-  message: z.string().min(10, '문의 내용을 10자 이상 입력해주세요'),
-})
-
-type FormData = z.infer<typeof schema>
+type FormData = {
+  name: string
+  company: string
+  email: string
+  phone: string
+  subject: string
+  message: string
+}
 
 const inputClass = clsx(
   'w-full bg-navy-900 border border-white/20 rounded-xl px-4 py-3 text-white text-sm',
@@ -33,7 +31,22 @@ const errorClass = 'border-red-500/50 focus:border-red-500'
 
 export default function ContactForm() {
   const t = useTranslations('contact')
+  const locale = useLocale()
+  const isKo = locale === 'ko'
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  const schema = useMemo(
+    () =>
+      z.object({
+        name: z.string().min(2, t('form.validation.name_min')),
+        company: z.string().min(1, t('form.validation.company_required')),
+        email: z.string().email(t('form.validation.email_invalid')),
+        phone: z.string().min(9, t('form.validation.phone_required')),
+        subject: z.string().min(1, t('form.validation.subject_required')),
+        message: z.string().min(10, t('form.validation.message_min')),
+      }),
+    [t],
+  )
 
   const {
     register,
@@ -153,11 +166,11 @@ export default function ContactForm() {
                     <option value="" disabled>
                       {t('form.subject_placeholder')}
                     </option>
-                    <option value="제품 문의">{t('form.subjects.product')}</option>
-                    <option value="견적 요청">{t('form.subjects.quote')}</option>
-                    <option value="기술 지원">{t('form.subjects.technical')}</option>
-                    <option value="파트너십">{t('form.subjects.partnership')}</option>
-                    <option value="기타">{t('form.subjects.other')}</option>
+                    <option value="product">{t('form.subjects.product')}</option>
+                    <option value="quote">{t('form.subjects.quote')}</option>
+                    <option value="technical">{t('form.subjects.technical')}</option>
+                    <option value="partnership">{t('form.subjects.partnership')}</option>
+                    <option value="other">{t('form.subjects.other')}</option>
                   </select>
                   {errors.subject && (
                     <p className="mt-1 text-red-400 text-xs">{errors.subject.message}</p>
@@ -245,7 +258,10 @@ export default function ContactForm() {
                     </div>
                     <div>
                       <div className="text-text-secondary text-xs mb-0.5">{t('info.address')}</div>
-                      <p className="text-white text-sm leading-relaxed">경기도 화성시<br />(상세 주소 입력)</p>
+                      <p className="text-white text-sm leading-relaxed">
+                        {isKo ? '경기도 화성시' : 'Hwaseong-si, Gyeonggi-do'}<br />
+                        {isKo ? '(상세 주소 입력)' : 'South Korea'}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
@@ -262,7 +278,7 @@ export default function ContactForm() {
                 {/* 구분선 */}
                 <div className="border-t border-white/10 mt-6 pt-6">
                   <p className="text-text-secondary text-xs leading-relaxed">
-                    긴급 기술 지원이 필요하신 경우 전화 문의를 통해 신속히 지원받으실 수 있습니다.
+                    {t('info.emergency')}
                   </p>
                 </div>
               </div>

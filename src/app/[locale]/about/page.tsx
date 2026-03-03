@@ -20,7 +20,7 @@ export async function generateMetadata({
   }
 }
 
-const historyItems = [
+const historyItemsKo = [
   {
     year: '2024',
     events: [
@@ -68,10 +68,60 @@ const historyItems = [
   },
 ]
 
+const historyItemsEn = [
+  {
+    year: '2024',
+    events: [
+      'ICT precision filtration device joint patent registered',
+      'Selected for Eco-Startup, Large-SME Innovation Partnership, and Technology Development Product Pilot Purchase programs',
+      'Achieved 6 patent registrations and 1 trademark registration',
+    ],
+  },
+  {
+    year: '2023',
+    events: [
+      'SK Hynix 2nd Water Treatment Plant K-Testbed demonstration completed (Sep 2023 – Feb 2024)',
+      'Obtained environmental measurement equipment type approval',
+      'Registered on BenturaNara marketplace and confirmed direct production',
+    ],
+  },
+  {
+    year: '2022',
+    events: [
+      'Selected for MSS R&D Stepping Stone project (water quality sensor core R&D)',
+      'Launched cloud-based water quality monitoring service (WATERROUND) linked with Naver Cloud',
+      'Selected as K-water partner startup',
+    ],
+  },
+  {
+    year: '2021',
+    events: [
+      'Smart controller enhanced (unified Ethernet/LTE/WiFi communication support)',
+      'Living Lab demonstration at Eco Delta City Urban Tech House',
+    ],
+  },
+  {
+    year: '2020',
+    events: [
+      'Achieved measurement stability of 6+ months with ion electrode coating technology',
+      'Expanded delivery to K-water waterworks and reclaimed water sites',
+    ],
+  },
+  {
+    year: '2018',
+    events: [
+      'Mass production and sales launch of 1st generation rotating electrode residual chlorine analyzer',
+      'Achieved supply record with Busan City Waterworks Authority',
+    ],
+  },
+]
+
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'about' })
+  const isKo = locale === 'ko'
+  const historyItems = isKo ? historyItemsKo : historyItemsEn
 
   return (
     <div className="pt-20 lg:pt-24 min-h-screen bg-navy-900">
@@ -149,27 +199,27 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
         <AnimatedSection>
           <div className="border-t border-white/10 pt-16">
-            <SectionTitle badge="Company Info" title="회사 정보" align="left" />
+            <SectionTitle badge="Company Info" title={t('info_section')} align="left" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-navy-800 border border-white/10 rounded-2xl p-6 space-y-4">
                 <div className="flex items-center gap-3">
                   <Building2 className="w-5 h-5 text-gold-500 shrink-0" />
                   <div>
-                    <div className="text-text-secondary text-xs mb-0.5">법인명</div>
-                    <div className="text-white font-semibold">주식회사 워터비</div>
+                    <div className="text-text-secondary text-xs mb-0.5">{t('info.company_name_label')}</div>
+                    <div className="text-white font-semibold">{t('info.company')}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-gold-500 shrink-0" />
                   <div>
-                    <div className="text-text-secondary text-xs mb-0.5">주소</div>
-                    <div className="text-white text-sm">경기도 화성시 (상세 주소 입력)</div>
+                    <div className="text-text-secondary text-xs mb-0.5">{t('info.address')}</div>
+                    <div className="text-white text-sm">{t('info.address_value')}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-gold-500 shrink-0" />
                   <div>
-                    <div className="text-text-secondary text-xs mb-0.5">전화</div>
+                    <div className="text-text-secondary text-xs mb-0.5">{t('info.phone')}</div>
                     <a href="tel:031-000-0000" className="text-white hover:text-gold-500 transition-colors text-sm">
                       031-000-0000
                     </a>
@@ -178,7 +228,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-gold-500 shrink-0" />
                   <div>
-                    <div className="text-text-secondary text-xs mb-0.5">이메일</div>
+                    <div className="text-text-secondary text-xs mb-0.5">{t('info.email')}</div>
                     <a href="mailto:support@waterbee.co.kr" className="text-white hover:text-gold-500 transition-colors text-sm">
                       support@waterbee.co.kr
                     </a>
@@ -186,13 +236,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 </div>
               </div>
               <div className="bg-navy-800 border border-white/10 rounded-2xl p-6">
-                <h4 className="text-white font-semibold mb-4">문의하기</h4>
+                <h4 className="text-white font-semibold mb-4">{t('contact_card.title')}</h4>
                 <p className="text-text-secondary text-sm mb-6 leading-relaxed">
-                  제품 문의, 기술 지원, 견적 요청 등 모든 문의사항은 아래 버튼을 통해 접수해 주세요.
+                  {t('contact_card.description')}
                 </p>
                 <Link href="/contact" className="btn-primary">
                   <Mail className="w-4 h-4" />
-                  문의 폼으로 이동
+                  {t('contact_card.button')}
                 </Link>
               </div>
             </div>
