@@ -31,9 +31,16 @@
 | 잔류염소계 (WBCL10) | wbcl10-main.png | wbcl10-side.png, wbcl10-install.png |
 | 탁도계 (WBTU10) | wbtu10-main.png | wbtu10-side.png |
 | pH계 (WBPH10) | wbph10-main.png | — |
+| pH 복합전극 (HT35-PBS01) | wbph-pbs01-main.png | — |
 | EC계 (WBEC10) | wbec10-main.png | — |
+| 전도도 전극 (WBEC-COND) | wbec-cond-main.png | — |
+| 고농도 탁도계 (WBTU-PRO) | wbtu-pro-main.png | — |
+| 광학식 용존산소계 (WBDO10) | wbdo10-main.png | — |
+| 질산성 질소 이온계 (WBNO3) | wbno3-main.png | — |
+| 암모늄 이온계 (WBNH4) | wbnh4-main.png | — |
 | 샘플링수조 (WB-ST) | sampling-tank-main.png | — |
 | 여과드레인시스템 (WB-FDS) | filter-drain-main.png | — |
 | pH/EC 센서보드 (WB-PES) | ph-ec-board-main.png | — |
+| 스마트팜 수질 통합 보드 (WB-SFIO) | smartfarm-io-main.png | — |
 
 이미지 형식: PNG. 가로 800px 이상 권장.

@@ -29,7 +29,11 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               src={product.image}
               alt={isKo ? product.name : product.nameEn}
               fill
-              className="object-contain p-4"
+              className={
+                ['wbph10', 'wbec10', 'wbph-pbs01', 'wbec-cond'].includes(product.slug)
+                  ? 'object-contain p-10'
+                  : 'object-contain p-4'
+              }
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               onError={() => setImgError(true)}
             />

@@ -9,8 +9,9 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { getFeaturedProducts } from '@/lib/products'
 
-function ProductImage({ src, alt }: { src: string; alt: string }) {
+function ProductImage({ src, alt, slug }: { src: string; alt: string; slug: string }) {
   const [error, setError] = useState(false)
+  const isCompact = ['wbph10', 'wbec10', 'wbph-pbs01', 'wbec-cond'].includes(slug)
   if (error) {
     return (
       <div className="absolute inset-0 flex items-center justify-center">
@@ -25,7 +26,7 @@ function ProductImage({ src, alt }: { src: string; alt: string }) {
       src={src}
       alt={alt}
       fill
-      className="object-cover"
+      className={isCompact ? 'object-contain p-12' : 'object-cover'}
       onError={() => setError(true)}
       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
     />
@@ -67,7 +68,7 @@ export default function ProductHighlight() {
                 <div className="bg-navy-800 border border-white/10 rounded-2xl overflow-hidden hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/5 h-full">
                   {/* 이미지 영역 */}
                   <div className="aspect-[4/3] bg-navy-700 relative overflow-hidden">
-                    <ProductImage src={product.image} alt={isKo ? product.name : product.nameEn} />
+                    <ProductImage src={product.image} alt={isKo ? product.name : product.nameEn} slug={product.slug} />
                     <div className="absolute top-3 left-3 z-10">
                       <span className="bg-gold-500/20 border border-gold-500/30 text-gold-500 text-xs font-medium px-2.5 py-1 rounded-full">
                         {isKo ? product.category : product.categoryEn}

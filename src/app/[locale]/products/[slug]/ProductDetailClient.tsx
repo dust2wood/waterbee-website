@@ -13,8 +13,9 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 
 type TabKey = 'overview' | 'specs' | 'features'
 
-function ProductImageWithFallback({ src, alt, model }: { src: string; alt: string; model: string }) {
+function ProductImageWithFallback({ src, alt, model, slug }: { src: string; alt: string; model: string; slug: string }) {
   const [error, setError] = useState(false)
+  const isCompact = ['wbph10', 'wbec10', 'wbph-pbs01', 'wbec-cond'].includes(slug)
   if (error) {
     return (
       <>
@@ -31,7 +32,7 @@ function ProductImageWithFallback({ src, alt, model }: { src: string; alt: strin
   }
   return (
     <>
-      <Image src={src} alt={alt} fill className="object-contain p-4" onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
+      <Image src={src} alt={alt} fill className={isCompact ? 'object-contain p-8' : 'object-contain p-4'} onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
       <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
         <span className="text-gold-500 font-mono font-bold text-sm uppercase">{model}</span>
       </div>
@@ -73,7 +74,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           {/* 이미지 갤러리 */}
           <AnimatedSection direction="left">
             <div className="aspect-[4/3] bg-navy-800 rounded-2xl border border-white/10 relative overflow-hidden">
-              <ProductImageWithFallback src={product.image} alt={isKo ? product.name : product.nameEn} model={product.model} />
+              <ProductImageWithFallback src={product.image} alt={isKo ? product.name : product.nameEn} model={product.model} slug={product.slug} />
             </div>
           </AnimatedSection>
 

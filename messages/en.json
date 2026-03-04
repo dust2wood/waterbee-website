@@ -44,27 +44,22 @@
   "applications": {
     "badge": "Applications",
     "title": "Waterbee Business Areas",
-    "subtitle": "Water treatment, smart farm, filter-drain, and wastewater — field-tailored water quality solutions",
+    "subtitle": "Drinking water, wastewater & industrial process, and specialized solutions",
     "items": [
       {
-        "title": "Water Treatment",
-        "description": "Residual chlorine and turbidity sensors for waterworks and treatment facilities. Rotating-electrode WBCL10 and ISO 7027-based WBTU10 deliver stable continuous measurement.",
+        "title": "Drinking Water (Water Treatment)",
+        "description": "Residual chlorine analyzer WBCL10 (patented polarograph, auto-cleaning electrode, ±0.02 mg/L) and low-range turbidity meter WBTU10 (0–10 NTU, 90° scattered light EPA 180.1, clearwell and waterworks optimized) for waterworks and drinking water monitoring.",
         "products": "WBCL10, WBTU10"
       },
       {
-        "title": "Smart Farm",
-        "description": "pH/EC sensors and smart-farm integrated boards (cost-effective) for nutrient and irrigation water management.",
-        "products": "WBPH10, WBEC10, Smart Farm Board"
+        "title": "Wastewater & Industrial Process",
+        "description": "High-range turbidity WBTU-PRO (0.01–4,000 NTU, SS316, auto wiper), optical DO WBDO10 (luminescence, IP68, low maintenance), nitrate ion meter WBNO3 (NO61), ammonium ion meter WBNH4 (NH61) for wastewater and industrial process.",
+        "products": "WBTU-PRO, WBDO10, WBNO3, WBNH4"
       },
       {
-        "title": "Smart Filter Drain",
-        "description": "Smart drainage integrated with water quality monitoring. Pre/post turbidity and residual chlorine data support filter diagnosis and no-shutdown operation.",
-        "products": "WB-FDS"
-      },
-      {
-        "title": "Industrial & Wastewater",
-        "description": "Nitrate (NO3-) and ammonium (NH4) ion sensor lineup; SS316 body sensors for high-load and harsh environments. Custom sensor sets for wastewater process (pH, EC, DO, etc.).",
-        "products": "NO3-/NH4 ion sensors, SS316 sensors, WBPH10, WBEC10"
+        "title": "Specialized Solutions",
+        "description": "Smart Filter Drain System: water quality sensor–linked automatic drain control and early stormwater/storage tank pollution management. SmartFarm IO Board: integrated pH/EC and environmental data monitoring, low-cost control system.",
+        "products": "WB-FDS, WB-SFIO"
       }
     ]
   },

@@ -5,12 +5,12 @@ import { Droplets, Sprout, Filter, Factory } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionTitle from '@/components/ui/SectionTitle'
 
-const icons = [Droplets, Sprout, Filter, Factory]
+const icons = [Droplets, Factory, Filter]
 
 export default function ApplicationsSection() {
   const t = useTranslations('applications')
 
-  const items = [0, 1, 2, 3].map((i) => ({
+  const items = [0, 1, 2].map((i) => ({
     title: t(`items.${i}.title`),
     description: t(`items.${i}.description`),
     products: t(`items.${i}.products`),
@@ -28,7 +28,7 @@ export default function ApplicationsSection() {
           />
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {items.map(({ title, description, products, Icon }, index) => (
             <AnimatedSection key={index} delay={index * 0.1}>
               <div className="group relative bg-navy-800 border border-white/10 rounded-2xl p-8 h-full flex flex-col hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/5">
