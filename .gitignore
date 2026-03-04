@@ -27,3 +27,9 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# 작업용 원본 이미지 (처리 전 소스 파일)
+public/images/products/DO.png
+public/images/products/TU*
+public/images/products/WBTU*고동도*
+*.py
