@@ -88,8 +88,8 @@ Ion-coated electrodes maintain measurement stability for over 6 months, with acc
     ],
   },
   {
-    slug: 'wbtb10',
-    model: 'WBTB10',
+    slug: 'wbtu10',
+    model: 'WBTU10',
     name: '탁도계',
     nameEn: 'Turbidity Meter',
     category: '탁도',
@@ -98,10 +98,10 @@ Ion-coated electrodes maintain measurement stability for over 6 months, with acc
     featured: true,
     shortDescription: 'ISO 7027 기반 90도 산란광식 연속 탁도 측정기 (텅스텐 램프, 미세기포 제거)',
     shortDescriptionEn: 'ISO 7027 compliant 90° scattered light continuous turbidity meter with bubble elimination',
-    description: `WBTB10은 ISO 7027 규격에 준거한 90도 산란광 방식의 연속식 탁도계입니다.
+    description: `WBTU10은 ISO 7027 규격에 준거한 90도 산란광 방식의 연속식 탁도계입니다.
 텅스텐 램프(Tungsten Lamp) 광원을 채용하여 정밀하고 안정적인 측정값을 제공하며, 특허 적용 미세기포 제거 기능으로 간섭 오차를 원천 차단합니다.
 자동 세정 기능으로 광학계 오염에 의한 측정 오류를 방지하고 장기간 안정적인 운전이 가능합니다.`,
-    descriptionEn: `The WBTB10 is a continuous turbidity meter based on the ISO 7027 standard using 90° scattered light measurement.
+    descriptionEn: `The WBTU10 is a continuous turbidity meter based on the ISO 7027 standard using 90° scattered light measurement.
 Equipped with a Tungsten Lamp light source for precise and stable readings, and features a patented micro-bubble elimination system to prevent measurement interference.
 The auto-cleaning function prevents optical contamination errors for long-term stable operation.`,
     features: [
@@ -141,10 +141,10 @@ The auto-cleaning function prevents optical contamination errors for long-term s
       { label: '구조', labelEn: 'Structure', value: '기포제거 유동 구조 (탈부착 가능)', valueEn: 'Bubble-removal flow structure (removable)' },
       { label: '사용환경', labelEn: 'Operating Environment', value: '수중 -5~50℃, 대기 -20~60℃, 최대압력 65 Psig (50℃)', valueEn: 'In water -5~50℃, ambient -20~60℃, max 65 Psig (50℃)' },
     ],
-    image: '/images/products/wbtb10-main.jpg',
+    image: '/images/products/wbtu10-main.jpg',
     gallery: [
-      '/images/products/wbtb10-main.jpg',
-      '/images/products/wbtb10-side.jpg',
+      '/images/products/wbtu10-main.jpg',
+      '/images/products/wbtu10-side.jpg',
     ],
   },
   {

@@ -77,7 +77,7 @@ export default function ProductHighlight() {
 
                   {/* 콘텐츠 */}
                   <div className="p-5">
-                    <div className="text-text-secondary text-xs font-mono mb-1">{product.model}</div>
+                    <div className="text-text-secondary text-xs font-mono mb-1 uppercase">{product.model}</div>
                     <h3 className="text-white font-semibold text-base mb-2 group-hover:text-gold-500 transition-colors">
                       {isKo ? product.name : product.nameEn}
                     </h3>

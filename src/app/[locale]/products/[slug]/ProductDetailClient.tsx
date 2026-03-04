@@ -24,7 +24,7 @@ function ProductImageWithFallback({ src, alt, model }: { src: string; alt: strin
           </div>
         </div>
         <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
-          <span className="text-gold-500 font-mono font-bold text-sm">{model}</span>
+          <span className="text-gold-500 font-mono font-bold text-sm uppercase">{model}</span>
         </div>
       </>
     )
@@ -33,7 +33,7 @@ function ProductImageWithFallback({ src, alt, model }: { src: string; alt: strin
     <>
       <Image src={src} alt={alt} fill className="object-contain p-4" onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
       <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
-        <span className="text-gold-500 font-mono font-bold text-sm">{model}</span>
+        <span className="text-gold-500 font-mono font-bold text-sm uppercase">{model}</span>
       </div>
     </>
   )
@@ -87,7 +87,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
               </div>
               <h1 className="text-3xl lg:text-4xl font-bold text-white mt-3 mb-4">
                 {isKo ? product.name : product.nameEn}
-                <span className="block text-base text-text-secondary font-normal mt-1 font-mono">
+                <span className="block text-base text-text-secondary font-normal mt-1 font-mono uppercase">
                   {product.model}
                 </span>
               </h1>

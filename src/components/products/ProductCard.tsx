@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
@@ -15,24 +17,37 @@ export default function ProductCard({ product, className }: ProductCardProps) {
   const t = useTranslations('products')
   const locale = useLocale()
   const isKo = locale === 'ko'
+  const [imgError, setImgError] = useState(false)
 
   return (
     <Link href={`/products/${product.slug}`} className={clsx('block group', className)}>
       <div className="bg-navy-800 border border-white/10 rounded-2xl overflow-hidden hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/5 h-full flex flex-col">
-        {/* 이미지 */}
+        {/* 이미지: 해당 경로에 이미지가 있으면 표시, 없으면 W 플레이스홀더 */}
         <div className="aspect-[4/3] bg-navy-700 relative overflow-hidden">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-24 h-24 bg-gold-500/10 rounded-full flex items-center justify-center border border-gold-500/20">
-              <span className="text-gold-500 text-4xl font-black">W</span>
+          {!imgError && (
+            <Image
+              src={product.image}
+              alt={isKo ? product.name : product.nameEn}
+              fill
+              className="object-contain p-4"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              onError={() => setImgError(true)}
+            />
+          )}
+          {imgError && (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-24 h-24 bg-gold-500/10 rounded-full flex items-center justify-center border border-gold-500/20">
+                <span className="text-gold-500 text-4xl font-black">W</span>
+              </div>
             </div>
-          </div>
+          )}
           <div className="absolute top-3 left-3">
             <span className="bg-gold-500/20 border border-gold-500/30 text-gold-500 text-xs font-medium px-2.5 py-1 rounded-full">
               {isKo ? product.category : product.categoryEn}
             </span>
           </div>
           <div className="absolute top-3 right-3 bg-navy-900/80 backdrop-blur-sm rounded-md px-2 py-1">
-            <span className="text-text-secondary font-mono text-xs">{product.model}</span>
+            <span className="text-text-secondary font-mono text-xs uppercase">{product.model}</span>
           </div>
         </div>
 
