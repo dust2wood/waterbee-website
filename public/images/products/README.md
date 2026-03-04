@@ -22,7 +22,7 @@
 |-------------|----------------|
 | 탁도 | wbtu10-main.jpg |
 | 잔류염소 | wbcl10-main.jpg |
-| 컨트롤러 | wbsc10-main.jpg (pH/EC계·공용 컨트롤러) |
+| 컨트롤러 | wbsc10-main.jpg (공용 컨트롤러) |
 
 ## 전체 권장 파일명
 
@@ -30,7 +30,8 @@
 |------|-------------|----------------|
 | 잔류염소계 (WBCL10) | wbcl10-main.jpg | wbcl10-side.jpg, wbcl10-install.jpg |
 | 탁도계 (WBTU10) | wbtu10-main.jpg | wbtu10-side.jpg |
-| pH/EC계 (WBSC10) | wbsc10-main.jpg | — |
+| pH계 (WBPH10) | wbph10-main.jpg | — |
+| EC계 (WBEC10) | wbec10-main.jpg | — |
 | 샘플링수조 (WB-ST) | sampling-tank-main.jpg | — |
 | 여과드레인시스템 (WB-FDS) | filter-drain-main.jpg | — |
 | pH/EC 센서보드 (WB-PES) | ph-ec-board-main.jpg | — |

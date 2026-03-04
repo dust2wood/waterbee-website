@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import { getProductBySlug, getAllProducts } from '@/lib/products'
 import ProductDetailClient from './ProductDetailClient'
@@ -29,6 +29,11 @@ export default async function ProductDetailPage({
 }) {
   const { locale, slug } = await params
   setRequestLocale(locale)
+
+  // 기존 통합 제품(wbsc10)은 pH/EC 분리 이후 pH 제품으로 안내
+  if (slug === 'wbsc10') {
+    redirect(`/products/wbph10`)
+  }
 
   const product = getProductBySlug(slug)
   if (!product) notFound()
