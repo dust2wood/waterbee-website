@@ -15,7 +15,16 @@ type TabKey = 'overview' | 'specs' | 'features'
 
 function ProductImageWithFallback({ src, alt, model, slug }: { src: string; alt: string; model: string; slug: string }) {
   const [error, setError] = useState(false)
-  const isCompact = ['wbph10', 'wbec10', 'wbph-pbs01', 'wbec-cond'].includes(slug)
+  const detailPadding: Record<string, string> = {
+    'wbcl10':    'p-2',
+    'wbtu10':    'p-2',
+    'wbtu-pro':  'p-10',
+    'wbph10':    'p-8',
+    'wbec10':    'p-8',
+    'wbph-pbs01':'p-8',
+    'wbec-cond': 'p-8',
+  }
+  const imgPad = detailPadding[slug] ?? 'p-4'
   if (error) {
     return (
       <>
@@ -32,7 +41,7 @@ function ProductImageWithFallback({ src, alt, model, slug }: { src: string; alt:
   }
   return (
     <>
-      <Image src={src} alt={alt} fill className={isCompact ? 'object-contain p-8' : 'object-contain p-4'} onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
+      <Image src={src} alt={alt} fill className={`object-contain ${imgPad}`} onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
       <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
         <span className="text-gold-500 font-mono font-bold text-sm uppercase">{model}</span>
       </div>

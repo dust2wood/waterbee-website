@@ -9,9 +9,18 @@ import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { getFeaturedProducts } from '@/lib/products'
 
+const slugPadding: Record<string, string> = {
+  'wbcl10':    'p-2',
+  'wbtu10':    'p-2',
+  'wbtu-pro':  'p-10',
+  'wbph10':    'p-12',
+  'wbec10':    'p-12',
+  'wbph-pbs01':'p-12',
+  'wbec-cond': 'p-12',
+}
+
 function ProductImage({ src, alt, slug }: { src: string; alt: string; slug: string }) {
   const [error, setError] = useState(false)
-  const isCompact = ['wbph10', 'wbec10', 'wbph-pbs01', 'wbec-cond'].includes(slug)
   if (error) {
     return (
       <div className="absolute inset-0 flex items-center justify-center">
@@ -21,12 +30,13 @@ function ProductImage({ src, alt, slug }: { src: string; alt: string; slug: stri
       </div>
     )
   }
+  const pad = slugPadding[slug] ?? 'p-4'
   return (
     <Image
       src={src}
       alt={alt}
       fill
-      className={isCompact ? 'object-contain p-12' : 'object-cover'}
+      className={`object-contain ${pad}`}
       onError={() => setError(true)}
       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
     />
