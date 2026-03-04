@@ -80,11 +80,11 @@ Ion-coated electrodes maintain measurement stability for over 6 months, with acc
       { label: '크기 (컨트롤러)', labelEn: 'Dimensions (Controller)', value: '210 × 180 × 86.5 mm', valueEn: '210 × 180 × 86.5 mm' },
       { label: '사용환경', labelEn: 'Operating Environment', value: '수중 -5~50℃, 대기 -20~60℃, 최대압력 65 Psig', valueEn: 'In water -5~50℃, ambient -20~60℃, max 65 Psig' },
     ],
-    image: '/images/products/wbcl10-main.jpg',
+    image: '/images/products/wbcl10-main.png',
     gallery: [
-      '/images/products/wbcl10-main.jpg',
-      '/images/products/wbcl10-side.jpg',
-      '/images/products/wbcl10-install.jpg',
+      '/images/products/wbcl10-main.png',
+      '/images/products/wbcl10-side.png',
+      '/images/products/wbcl10-install.png',
     ],
   },
   {
@@ -141,10 +141,10 @@ The auto-cleaning function prevents optical contamination errors for long-term s
       { label: '구조', labelEn: 'Structure', value: '기포제거 유동 구조 (탈부착 가능)', valueEn: 'Bubble-removal flow structure (removable)' },
       { label: '사용환경', labelEn: 'Operating Environment', value: '수중 -5~50℃, 대기 -20~60℃, 최대압력 65 Psig (50℃)', valueEn: 'In water -5~50℃, ambient -20~60℃, max 65 Psig (50℃)' },
     ],
-    image: '/images/products/wbtu10-main.jpg',
+    image: '/images/products/wbtu10-main.png',
     gallery: [
-      '/images/products/wbtu10-main.jpg',
-      '/images/products/wbtu10-side.jpg',
+      '/images/products/wbtu10-main.png',
+      '/images/products/wbtu10-side.png',
     ],
   },
   {
@@ -187,9 +187,9 @@ It supports automatic temperature compensation and easy calibration, suitable fo
       { label: '출력', labelEn: 'Output', value: '4~20mA, RS-485', valueEn: '4~20mA, RS-485' },
       { label: '보호 등급', labelEn: 'Protection Rating', value: 'IP65', valueEn: 'IP65' },
     ],
-    image: '/images/products/wbph10-main.jpg',
+    image: '/images/products/wbph10-main.png',
     gallery: [
-      '/images/products/wbph10-main.jpg',
+      '/images/products/wbph10-main.png',
     ],
   },
   {
@@ -230,9 +230,9 @@ With automatic temperature compensation and stable performance, it is used for w
       { label: '출력', labelEn: 'Output', value: '4~20mA, RS-485', valueEn: '4~20mA, RS-485' },
       { label: '보호 등급', labelEn: 'Protection Rating', value: 'IP65', valueEn: 'IP65' },
     ],
-    image: '/images/products/wbec10-main.jpg',
+    image: '/images/products/wbec10-main.png',
     gallery: [
-      '/images/products/wbec10-main.jpg',
+      '/images/products/wbec10-main.png',
     ],
   },
   {
@@ -284,9 +284,9 @@ Made of SUS 304 stainless steel for excellent corrosion resistance and durabilit
       { label: '크기 (W×H×D)', labelEn: 'Dimensions (W×H×D)', value: '300 × 400 × 200 mm (표준형)', valueEn: '300 × 400 × 200 mm (standard)' },
       { label: '중량', labelEn: 'Weight', value: '약 4.5 kg (표준형)', valueEn: 'Approx. 4.5 kg (standard)' },
     ],
-    image: '/images/products/sampling-tank-main.jpg',
+    image: '/images/products/sampling-tank-main.png',
     gallery: [
-      '/images/products/sampling-tank-main.jpg',
+      '/images/products/sampling-tank-main.png',
     ],
   },
   {
@@ -338,9 +338,9 @@ The modular, linear design combines automatic drain and filtration in one system
       { label: '보호 등급', labelEn: 'Protection Rating', value: 'IP65', valueEn: 'IP65' },
       { label: '설치 방식', labelEn: 'Installation', value: '모듈형·직선형 설계', valueEn: 'Modular, linear design' },
     ],
-    image: '/images/products/filter-drain-main.jpg',
+    image: '/images/products/filter-drain-main.png',
     gallery: [
-      '/images/products/filter-drain-main.jpg',
+      '/images/products/filter-drain-main.png',
     ],
   },
   {
@@ -393,9 +393,9 @@ Capable of precise measurement in low-conductivity environments (10–200 μS/cm
       { label: '폼팩터', labelEn: 'Form Factor', value: 'DIN Rail 모듈 / 기판 내장형', valueEn: 'DIN Rail module / board mount' },
       { label: '협업사', labelEn: 'Partner', value: 'Wilo Pump (윌로펌프)', valueEn: 'Wilo Pump' },
     ],
-    image: '/images/products/ph-ec-board-main.jpg',
+    image: '/images/products/ph-ec-board-main.png',
     gallery: [
-      '/images/products/ph-ec-board-main.jpg',
+      '/images/products/ph-ec-board-main.png',
     ],
   },
 ]

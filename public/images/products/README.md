@@ -20,20 +20,20 @@
 
 | 렌더링 종류 | 저장할 파일명 |
 |-------------|----------------|
-| 탁도 | wbtu10-main.jpg |
-| 잔류염소 | wbcl10-main.jpg |
-| 컨트롤러 | wbsc10-main.jpg (공용 컨트롤러) |
+| 탁도 | wbtu10-main.png |
+| 잔류염소 | wbcl10-main.png |
+| 컨트롤러 | wbsc10-main.png (공용 컨트롤러) |
 
 ## 전체 권장 파일명
 
 | 제품 | 메인 이미지 | 갤러리 (선택) |
 |------|-------------|----------------|
-| 잔류염소계 (WBCL10) | wbcl10-main.jpg | wbcl10-side.jpg, wbcl10-install.jpg |
-| 탁도계 (WBTU10) | wbtu10-main.jpg | wbtu10-side.jpg |
-| pH계 (WBPH10) | wbph10-main.jpg | — |
-| EC계 (WBEC10) | wbec10-main.jpg | — |
-| 샘플링수조 (WB-ST) | sampling-tank-main.jpg | — |
-| 여과드레인시스템 (WB-FDS) | filter-drain-main.jpg | — |
-| pH/EC 센서보드 (WB-PES) | ph-ec-board-main.jpg | — |
+| 잔류염소계 (WBCL10) | wbcl10-main.png | wbcl10-side.png, wbcl10-install.png |
+| 탁도계 (WBTU10) | wbtu10-main.png | wbtu10-side.png |
+| pH계 (WBPH10) | wbph10-main.png | — |
+| EC계 (WBEC10) | wbec10-main.png | — |
+| 샘플링수조 (WB-ST) | sampling-tank-main.png | — |
+| 여과드레인시스템 (WB-FDS) | filter-drain-main.png | — |
+| pH/EC 센서보드 (WB-PES) | ph-ec-board-main.png | — |
 
-이미지 형식: JPG 또는 PNG. 가로 800px 이상 권장.
+이미지 형식: PNG. 가로 800px 이상 권장.
