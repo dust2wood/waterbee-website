@@ -33,7 +33,7 @@ export const products: Product[] = [
     nameEn: 'Residual Chlorine Analyzer',
     category: '잔류염소',
     categoryEn: 'Residual Chlorine',
-    application: ['water_treatment', 'industrial_wastewater'],
+    application: ['water_treatment', 'smart_filter_drain', 'industrial_wastewater'],
     featured: true,
     shortDescription: '특허 회전전극(Polarograph) 방식, 전극 자동 세척, ±0.02 mg/L 고정밀 연속식 잔류염소계',
     shortDescriptionEn: 'Patented polarograph rotating electrode, auto-cleaning electrode, ±0.02 mg/L high-precision residual chlorine analyzer',
