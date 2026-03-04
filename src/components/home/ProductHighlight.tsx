@@ -10,8 +10,8 @@ import SectionTitle from '@/components/ui/SectionTitle'
 import { getFeaturedProducts } from '@/lib/products'
 
 const slugPadding: Record<string, string> = {
-  'wbcl10':    'p-2',
-  'wbtu10':    'p-2',
+  'wbcl10':    'p-0',
+  'wbtu10':    'p-0',
   'wbtu-pro':  'p-10',
   'wbph10':    'p-12',
   'wbec10':    'p-12',
