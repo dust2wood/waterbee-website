@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { RotateCcw, Eye, Radio, Award, Shield } from 'lucide-react'
 import SectionTitle from '@/components/ui/SectionTitle'
@@ -95,14 +96,14 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
 
         <AnimatedSection>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="order-2 lg:order-1 bg-navy-800 border border-white/10 rounded-2xl p-8 h-64 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-24 h-24 bg-gold-500/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-gold-500/20">
-                  <Eye className="w-12 h-12 text-gold-500" />
-                </div>
-                <p className="text-text-secondary text-sm">{isKo ? '90° 산란광 광학계 다이어그램' : '90° scattered light optical diagram'}</p>
-                <p className="text-text-secondary/50 text-xs">{isKo ? '(이미지 추가 예정)' : '(Image coming soon)'}</p>
-              </div>
+            <div className="order-2 lg:order-1 bg-navy-800 border border-white/10 rounded-2xl overflow-hidden flex items-center justify-center">
+              <Image
+                src="/images/technology/tu-scattering.png"
+                alt={isKo ? '90° 산란광식 탁도 측정 원리' : '90° Scattered Light Turbidity Measurement Principle'}
+                width={600}
+                height={400}
+                className="w-full h-full object-contain p-4"
+              />
             </div>
             <div className="order-1 lg:order-2">
               <div className="w-14 h-14 bg-gold-500/10 border border-gold-500/20 rounded-xl flex items-center justify-center mb-6">
