@@ -7,10 +7,10 @@ import SectionTitle from '@/components/ui/SectionTitle'
 const clients = [
   { name: '수도권 정수사업소', category: '정수 처리' },
   { name: '한국수자원공사', category: '정수 처리' },
-  { name: '지방 환경청', category: '하폐수 처리' },
-  { name: '산업단지 공단', category: '산업용' },
-  { name: '지자체 하수처리장', category: '하폐수 처리' },
-  { name: '식품·제약 업체', category: '산업용' },
+  { name: '지방 환경청', category: '산업용 및 하폐수' },
+  { name: '산업단지 공단', category: '산업용 및 하폐수' },
+  { name: '지자체 하수처리장', category: '산업용 및 하폐수' },
+  { name: '식품·제약 업체', category: '산업용 및 하폐수' },
 ]
 
 export default function ClientLogos() {

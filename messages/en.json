@@ -41,6 +41,33 @@
     "view_all": "View All Products",
     "view_detail": "View Details"
   },
+  "applications": {
+    "badge": "Applications",
+    "title": "Waterbee Business Areas",
+    "subtitle": "Water treatment, smart farm, filter-drain, and wastewater — field-tailored water quality solutions",
+    "items": [
+      {
+        "title": "Water Treatment",
+        "description": "Residual chlorine and turbidity sensors for waterworks and treatment facilities. Rotating-electrode WBCL10 and ISO 7027-based WBTU10 deliver stable continuous measurement.",
+        "products": "WBCL10, WBTU10"
+      },
+      {
+        "title": "Smart Farm",
+        "description": "pH/EC sensors and smart-farm integrated boards (cost-effective) for nutrient and irrigation water management.",
+        "products": "WBPH10, WBEC10, Smart Farm Board"
+      },
+      {
+        "title": "Smart Filter Drain",
+        "description": "Smart drainage integrated with water quality monitoring. Pre/post turbidity and residual chlorine data support filter diagnosis and no-shutdown operation.",
+        "products": "WB-FDS"
+      },
+      {
+        "title": "Industrial & Wastewater",
+        "description": "Nitrate (NO3-) and ammonium (NH4) ion sensor lineup; SS316 body sensors for high-load and harsh environments. Custom sensor sets for wastewater process (pH, EC, DO, etc.).",
+        "products": "NO3-/NH4 ion sensors, SS316 sensors, WBPH10, WBEC10"
+      }
+    ]
+  },
   "client_logos": {
     "badge": "Delivery Record",
     "title": "Trusted Clients",
@@ -61,8 +88,9 @@
       "category": "Category",
       "application": "Application",
       "water_treatment": "Water Treatment",
-      "wastewater": "Wastewater Treatment",
-      "industrial": "Industrial",
+      "smart_farm": "Smart Farm",
+      "smart_filter_drain": "Smart Filter Drain",
+      "industrial_wastewater": "Industrial & Wastewater",
       "chlorine": "Residual Chlorine",
       "turbidity": "Turbidity",
       "ph_ec": "pH/EC",

@@ -5,7 +5,7 @@ import { clsx } from 'clsx'
 import { Filter } from 'lucide-react'
 import { getAllProducts } from '@/lib/products'
 
-const applications = ['all', 'water_treatment', 'wastewater', 'industrial']
+const applications = ['all', 'water_treatment', 'smart_farm', 'smart_filter_drain', 'industrial_wastewater']
 
 interface ProductFilterProps {
   selectedCategory: string
@@ -72,9 +72,11 @@ export default function ProductFilter({
                   ? t('all')
                   : app === 'water_treatment'
                   ? t('water_treatment')
-                  : app === 'wastewater'
-                  ? t('wastewater')
-                  : t('industrial')
+                  : app === 'smart_farm'
+                  ? t('smart_farm')
+                  : app === 'smart_filter_drain'
+                  ? t('smart_filter_drain')
+                  : t('industrial_wastewater')
               return (
                 <button
                   key={app}

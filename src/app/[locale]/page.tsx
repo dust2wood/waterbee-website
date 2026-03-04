@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import HeroSection from '@/components/home/HeroSection'
 import TechFeatures from '@/components/home/TechFeatures'
+import ApplicationsSection from '@/components/home/ApplicationsSection'
 import ProductHighlight from '@/components/home/ProductHighlight'
 import ClientLogos from '@/components/home/ClientLogos'
 import CtaBanner from '@/components/home/CtaBanner'
@@ -29,6 +30,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
     <>
       <HeroSection />
       <TechFeatures />
+      <ApplicationsSection />
       <ProductHighlight />
       <ClientLogos />
       <CtaBanner />

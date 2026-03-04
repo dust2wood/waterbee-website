@@ -41,6 +41,33 @@
     "view_all": "전체 제품 보기",
     "view_detail": "제품 상세 보기"
   },
+  "applications": {
+    "badge": "적용 분야",
+    "title": "워터비 비즈니스 영역",
+    "subtitle": "정수·스마트팜·여과드레인·하폐수까지 현장 맞춤 수질 측정 솔루션",
+    "items": [
+      {
+        "title": "정수 처리",
+        "description": "잔류염소 및 탁도 센서를 중심으로 정수장·정수시설의 수질 자동 모니터링을 지원합니다. 회전전극식 WBCL10, ISO 7027 기반 WBTU10으로 안정적인 연속 측정을 제공합니다.",
+        "products": "WBCL10, WBTU10"
+      },
+      {
+        "title": "스마트팜",
+        "description": "pH/EC 센서와 스마트팜 전용 통합 보드(저가형·보급형)로 양액·재배수 관리에 최적화된 수질 측정 솔루션을 제공합니다.",
+        "products": "WBPH10, WBEC10, 스마트팜 통합보드"
+      },
+      {
+        "title": "스마트 여과드레인",
+        "description": "수질 모니터링과 연동된 스마트 배수 시스템. 전·후단 탁도·잔류염소 데이터 기반 필터 상태 진단 및 무단수 운영을 지원합니다.",
+        "products": "WB-FDS"
+      },
+      {
+        "title": "산업용 및 하폐수",
+        "description": "질산성 질소(NO3-)·암모늄(NH4) 이온 센서 라인업, 고농도·열악한 환경용 SS316 바디 센서를 적용합니다. 하수 처리공정용 pH/EC/용존산소 등 현장 맞춤 센서 구성을 지원합니다.",
+        "products": "NO3-/NH4 이온센서, SS316 센서, WBPH10, WBEC10"
+      }
+    ]
+  },
   "client_logos": {
     "badge": "납품 실적",
     "title": "신뢰하는 고객사",
@@ -61,8 +88,9 @@
       "category": "카테고리",
       "application": "적용 분야",
       "water_treatment": "정수 처리",
-      "wastewater": "하폐수 처리",
-      "industrial": "산업용",
+      "smart_farm": "스마트팜",
+      "smart_filter_drain": "스마트 여과드레인",
+      "industrial_wastewater": "산업용 및 하폐수",
       "chlorine": "잔류염소",
       "turbidity": "탁도",
       "ph_ec": "pH/EC",
