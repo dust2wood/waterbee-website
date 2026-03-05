@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { RotateCcw, Eye, Radio, Award, Shield } from 'lucide-react'
+import { Eye, Radio, Award, Shield } from 'lucide-react'
 import SectionTitle from '@/components/ui/SectionTitle'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 
@@ -80,58 +80,6 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
       </div>
 
       <div className="container-custom py-16 space-y-20">
-        <AnimatedSection>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="w-14 h-14 bg-gold-500/10 border border-gold-500/20 rounded-xl flex items-center justify-center mb-6">
-                <RotateCcw className="w-7 h-7 text-gold-500" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-                {t('rotating_electrode.title')}
-              </h2>
-              <p className="text-text-secondary leading-relaxed text-base">
-                {t('rotating_electrode.description')}
-              </p>
-            </div>
-            {/* 회전전극 측정셀 단면도 */}
-            <div className="bg-navy-800 border border-white/10 rounded-2xl p-6 flex items-center justify-center">
-              <svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" className="w-full max-h-56">
-                {/* 측정셀 외함 */}
-                <rect x="120" y="20" width="140" height="210" rx="12" fill="#071726" stroke="#1e4060" strokeWidth="1.5"/>
-                {/* 전극 바디 */}
-                <rect x="160" y="38" width="60" height="158" rx="30" fill="#0d2d4a" stroke="#1e5080" strokeWidth="1.5"/>
-                {/* 작용전극 (Au) */}
-                <ellipse cx="190" cy="187" rx="20" ry="7" fill="#c49a10"/>
-                <text x="190" y="191" textAnchor="middle" fill="#fff8e1" fontSize="9" fontWeight="bold">Au</text>
-                {/* 기준전극 (Ag) */}
-                <ellipse cx="190" cy="47" rx="15" ry="5" fill="#b0b0b0"/>
-                <text x="190" y="51" textAnchor="middle" fill="#111" fontSize="8">Ag</text>
-                {/* 회전 방향 화살표 */}
-                <path d="M 153 118 A 37 37 0 0 1 227 118" fill="none" stroke="#D4A017" strokeWidth="2.5" strokeLinecap="round"/>
-                <polygon points="227,118 218,110 230,108" fill="#D4A017"/>
-                <text x="190" y="138" textAnchor="middle" fill="#D4A017" fontSize="9" fontWeight="600">AUTO ROTATION</text>
-                {/* 유입 화살표 */}
-                <line x1="40" y1="95" x2="115" y2="95" stroke="#3a8fc0" strokeWidth="2"/>
-                <polygon points="115,95 106,90 106,100" fill="#3a8fc0"/>
-                <text x="35" y="92" textAnchor="end" fill="#3a8fc0" fontSize="10" fontWeight="500">{isKo ? '유입' : 'IN'}</text>
-                {/* 배출 화살표 */}
-                <line x1="265" y1="155" x2="340" y2="155" stroke="#3a8fc0" strokeWidth="2"/>
-                <polygon points="340,155 331,150 331,160" fill="#3a8fc0"/>
-                <text x="345" y="159" fill="#3a8fc0" fontSize="10" fontWeight="500">{isKo ? '배출' : 'OUT'}</text>
-                {/* 라벨 주석선 */}
-                <line x1="205" y1="47" x2="270" y2="42" stroke="#444" strokeWidth="1" strokeDasharray="3 2"/>
-                <text x="272" y="40" fill="#888" fontSize="9">Ag/AgCl</text>
-                <text x="272" y="51" fill="#888" fontSize="9">{isKo ? '기준전극' : 'Reference'}</text>
-                <line x1="210" y1="187" x2="270" y2="192" stroke="#444" strokeWidth="1" strokeDasharray="3 2"/>
-                <text x="272" y="190" fill="#D4A017" fontSize="9">Au</text>
-                <text x="272" y="201" fill="#D4A017" fontSize="9">{isKo ? '작용전극' : 'Working'}</text>
-                {/* 하단 캡션 */}
-                <text x="190" y="248" textAnchor="middle" fill="#445566" fontSize="9">{isKo ? 'Polarograph 회전전극식 측정셀 단면' : 'Polarograph Rotating Electrode Cell Cross-section'}</text>
-              </svg>
-            </div>
-          </div>
-        </AnimatedSection>
-
         <AnimatedSection>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             {/* 90° 산란광 측정 원리 다이어그램 */}
