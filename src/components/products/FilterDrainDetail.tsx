@@ -141,7 +141,16 @@ const FEATURES = [
   },
 ]
 
-const COMPARE_ROWS = [
+type CompareRow = {
+  label: string
+  labelEn: string
+  competitor: boolean | string
+  competitorEn?: string
+  waterbee: string
+  waterbeeEn: string
+}
+
+const COMPARE_ROWS: CompareRow[] = [
   { label: '여과 기능', labelEn: 'Filtration', competitor: false, waterbee: '정밀여과 + 자동드레인', waterbeeEn: 'Precision filtration + auto-drain' },
   { label: '탁도계 위치', labelEn: 'Turbidity Meters', competitor: '1개소', competitorEn: '1 point', waterbee: '전단 + 후단 2개소', waterbeeEn: 'Pre + post (2 points)' },
   { label: '잔류염소 감시', labelEn: 'Residual Cl₂', competitor: true, waterbee: '후단 잔류염소계 기본', waterbeeEn: 'Post-filter Cl₂ meter standard' },
