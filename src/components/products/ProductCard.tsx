@@ -31,9 +31,9 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               fill
               className={(() => {
                 const pad: Record<string, string> = {
-                  'wbcl10': 'p-1',
-                  'wbtu10': 'p-1',
-                  'wbtu-pro': 'p-8',
+                  'wbcl10': 'p-0',
+                  'wbtu10': 'p-0',
+                  'wbtu-pro': 'p-12',
                   'wbph10': 'p-10',
                   'wbec10': 'p-10',
                   'wbph-pbs01': 'p-10',
