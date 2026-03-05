@@ -43,11 +43,12 @@ export default function Header() {
             {/* 로고 */}
             <Link href="/" className="flex items-center group">
               <Image
-                src="/images/logo-transparent.png"
+                src="/images/logo.svg"
                 alt="WATERBEE"
                 width={160}
-                height={81}
+                height={36}
                 className="h-9 w-auto"
+                unoptimized
                 priority
               />
             </Link>
