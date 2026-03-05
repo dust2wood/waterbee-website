@@ -8,9 +8,9 @@
     "catalog": "Catalog"
   },
   "hero": {
-    "badge": "Water Quality Monitoring Specialist",
-    "title": "Minimum Maintenance, Maximum Accuracy.\nLeading Smart Water Monitoring with Patented Rotating Electrode Technology.",
-    "subtitle": "Leading automated water quality monitoring at waterworks and wastewater treatment plants with rotating electrode residual chlorine, turbidity, and pH/EC technology.",
+    "badge": "Water Quality Measurement Specialist",
+    "title": "Clear Water,\nClear Future",
+    "subtitle": "Waterbee's high-precision analysis technology goes beyond measuring numbers — it sets the standard for water that everyone can trust.",
     "cta_primary": "View Products",
     "cta_secondary": "Technical Inquiry",
     "scroll": "Scroll"
@@ -108,7 +108,7 @@
     "subtitle": "Over 20 years of R&D expertise in water quality measurement",
     "rotating_electrode": {
       "title": "Rotating Electrode Residual Chlorine Measurement",
-      "description": "Waterbee's patented rotating electrode technology mechanically removes electrode surface contamination, dramatically improving measurement stability and lifespan compared to conventional fixed electrodes. High accuracy within ±0.02 mg/L is guaranteed in the 0.01~5.00 mg/L residual chlorine range."
+      "description": "Waterbee's patented rotating electrode technology mechanically removes electrode surface contamination, dramatically improving measurement stability and lifespan compared to conventional fixed electrodes. High accuracy within ±0.02 mg/L is guaranteed in the 0.01~2.00 mg/L residual chlorine range."
     },
     "scattering": {
       "title": "90° Scattered Light Turbidity Measurement",

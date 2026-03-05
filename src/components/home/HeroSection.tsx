@@ -50,7 +50,8 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6"
+          className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white leading-none tracking-tight mb-8 uppercase"
+          style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
         >
           {t('title').split('\n').map((line, i) => (
             <span key={i}>
@@ -71,7 +72,8 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-text-secondary text-base sm:text-lg lg:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-text-secondary text-base sm:text-lg lg:text-xl max-w-xl mx-auto mb-12 leading-relaxed font-light"
+          style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
         >
           {t('subtitle')}
         </motion.p>
@@ -104,7 +106,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
+          className="mt-20 grid grid-cols-3 gap-10 max-w-lg mx-auto border-t border-white/10 pt-10"
         >
           {[
             { value: '500+', label: '납품 실적' },
@@ -112,8 +114,8 @@ export default function HeroSection() {
             { value: '99.9%', label: '측정 신뢰성' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="text-2xl sm:text-3xl font-bold text-gold-500">{stat.value}</div>
-              <div className="text-text-secondary text-xs sm:text-sm mt-1">{stat.label}</div>
+              <div className="text-3xl sm:text-4xl font-black text-gold-500 tracking-tight">{stat.value}</div>
+              <div className="text-text-secondary text-xs mt-2 leading-snug" style={{ wordBreak: 'keep-all' }}>{stat.label}</div>
             </div>
           ))}
         </motion.div>
