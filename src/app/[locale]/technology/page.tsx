@@ -38,15 +38,21 @@ const patentsEn = [
 ]
 
 const certificationsKo = [
-  { name: 'ISO 9001:2015', desc: '품질경영시스템 인증' },
-  { name: 'KS 인증', desc: '한국산업표준 인증' },
-  { name: '환경부 형식승인', desc: '수질측정기기 형식승인' },
+  { name: '환경부 형식승인 — 잔류염소계', desc: '수질오염공정시험기준 형식승인 (국립환경과학원)' },
+  { name: '환경부 형식승인 — 탁도계', desc: '수질오염공정시험기준 형식승인 (국립환경과학원)' },
+  { name: 'EMC 인증', desc: '전자파 적합성 인증 (KC 인증)' },
+  { name: '벤처기업 확인', desc: '중소벤처기업부 벤처기업 인증' },
+  { name: '혁신조달상품 지정', desc: '조달청 벤처나라 혁신조달상품' },
+  { name: '시범구매제품 선정', desc: '중소벤처기업부 공공구매 시범제품 (잔류염소계·탁도계)' },
 ]
 
 const certificationsEn = [
-  { name: 'ISO 9001:2015', desc: 'Quality Management System Certification' },
-  { name: 'KS Certification', desc: 'Korean Industrial Standards Certification' },
-  { name: 'MOE Type Approval', desc: 'Ministry of Environment Water Quality Meter Type Approval' },
+  { name: 'MOE Type Approval — Residual Cl₂', desc: 'Type approval under Korean water quality testing standards (NIER)' },
+  { name: 'MOE Type Approval — Turbidity Meter', desc: 'Type approval under Korean water quality testing standards (NIER)' },
+  { name: 'EMC Certification', desc: 'Electromagnetic Compatibility Certification (KC Mark)' },
+  { name: 'Venture Company Certification', desc: 'Certified venture company by Ministry of SMEs and Startups' },
+  { name: 'Innovative Procurement Product', desc: 'Designated by PPS VenturaNara as innovative procurement product' },
+  { name: 'Pilot Purchase Product', desc: 'Selected by Ministry of SMEs and Startups (residual Cl₂ & turbidity)' },
 ]
 
 export default async function TechnologyPage({ params }: { params: Promise<{ locale: string }> }) {
