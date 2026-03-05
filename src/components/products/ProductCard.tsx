@@ -31,15 +31,18 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               fill
               className={(() => {
                 const pad: Record<string, string> = {
-                  'wbcl10': 'p-3',
-                  'wbtu10': 'p-3',
+                  'wbcl10': 'p-1',
+                  'wbtu10': 'p-1',
                   'wbtu-pro': 'p-8',
                   'wbph10': 'p-10',
                   'wbec10': 'p-10',
                   'wbph-pbs01': 'p-10',
                   'wbec-cond': 'p-10',
                 }
-                return `object-contain ${pad[product.slug] ?? 'p-4'}`
+                const pos: Record<string, string> = {
+                  'wbtu10': 'object-left',
+                }
+                return `object-contain ${pad[product.slug] ?? 'p-4'} ${pos[product.slug] ?? ''}`
               })()}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               onError={() => setImgError(true)}
