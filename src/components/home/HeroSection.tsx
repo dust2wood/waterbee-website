@@ -4,17 +4,12 @@ import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, ChevronDown, Phone } from 'lucide-react'
-import Image from 'next/image'
-
-// 깨끗한 물결 — Unsplash 고해상도 이미지
-const HERO_IMAGE_URL =
-  'https://images.unsplash.com/photo-1548919973-5cdf5916ad7a?q=80&w=1800&auto=format&fit=crop'
 
 export default function HeroSection() {
   const t = useTranslations('hero')
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-hero-gradient">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-hero-gradient">
       {/* 미세 그리드 배경 */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -26,115 +21,83 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* ── 우측 이미지 (데스크탑 전용) ── */}
-      <div className="absolute inset-y-0 right-0 w-[55%] hidden lg:block pointer-events-none">
-        <Image
-          src={HERO_IMAGE_URL}
-          alt="clean water"
-          fill
-          className="object-cover object-center"
-          style={{ opacity: 0.25 }}
-          priority
-          sizes="55vw"
-        />
-        {/* 왼쪽 페이드 — 텍스트 영역과 블렌딩 */}
-        <div
-          className="absolute inset-0"
+      {/* 콘텐츠 */}
+      <div className="relative z-10 max-w-3xl mx-auto px-6 sm:px-8 text-center py-32">
+
+        {/* 배지 */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8"
+        >
+          <span className="inline-flex items-center gap-2 bg-gold-500/10 border border-gold-500/30 text-gold-500 text-xs font-semibold px-4 py-1.5 rounded-full tracking-widest uppercase">
+            <span className="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse" />
+            {t('badge')}
+          </span>
+        </motion.div>
+
+        {/* 타이틀 */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.1 }}
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-7"
           style={{
-            background:
-              'linear-gradient(to right, #0B1929 0%, rgba(11,25,41,0.85) 20%, rgba(11,25,41,0.3) 55%, transparent 85%)',
+            letterSpacing: '-0.02em',
+            lineHeight: '1.22',
+            wordBreak: 'keep-all',
+            overflowWrap: 'break-word',
           }}
-        />
-        {/* 상단·하단 페이드 */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(to bottom, #0B1929 0%, transparent 15%, transparent 85%, #0B1929 100%)',
-          }}
-        />
-      </div>
+        >
+          {t('title').split('\n').map((line, i) => (
+            <span key={i}>
+              {i === 0 ? (
+                line
+              ) : (
+                <>
+                  <br />
+                  <span className="text-gold-500">{line}</span>
+                </>
+              )}
+            </span>
+          ))}
+        </motion.h1>
 
-      {/* ── 텍스트 콘텐츠 ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="min-h-screen flex items-center py-32">
-          <div className="max-w-xl">
+        {/* 서브타이틀 */}
+        <motion.p
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.2 }}
+          className="text-text-secondary text-base sm:text-lg max-w-xl mx-auto mb-12 leading-[1.8] font-normal"
+          style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
+        >
+          {t('subtitle')}
+        </motion.p>
 
-            {/* 배지 */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-8"
-            >
-              <span className="inline-flex items-center text-gold-500 text-xs font-semibold tracking-widest uppercase border-l-2 border-gold-500 pl-3">
-                {t('badge')}
-              </span>
-            </motion.div>
+        {/* CTA 버튼 */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+        >
+          <Link
+            href="/products"
+            className="bg-gold-500 text-navy-900 font-bold px-8 py-3.5 rounded-lg hover:bg-gold-400 transition-all duration-200 inline-flex items-center gap-2 text-sm tracking-wide shadow-lg shadow-gold-500/20 group"
+          >
+            {t('cta_primary')}
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <Link
+            href="/contact"
+            className="border border-white/20 text-white font-medium px-8 py-3.5 rounded-lg hover:bg-white/[0.07] transition-all duration-200 inline-flex items-center gap-2 text-sm"
+          >
+            <Phone className="w-4 h-4" />
+            {t('cta_secondary')}
+          </Link>
+        </motion.div>
 
-            {/* 타이틀 */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.65, delay: 0.1 }}
-              className="text-4xl sm:text-[2.75rem] lg:text-5xl font-bold text-white mb-7"
-              style={{
-                letterSpacing: '-0.02em',
-                lineHeight: '1.22',
-                wordBreak: 'keep-all',
-                overflowWrap: 'break-word',
-              }}
-            >
-              {t('title').split('\n').map((line, i) => (
-                <span key={i}>
-                  {i === 0 ? (
-                    line
-                  ) : (
-                    <>
-                      <br />
-                      <span className="text-gold-500">{line}</span>
-                    </>
-                  )}
-                </span>
-              ))}
-            </motion.h1>
-
-            {/* 서브타이틀 */}
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.2 }}
-              className="text-text-secondary text-base sm:text-lg max-w-md mb-12 leading-[1.8] font-normal"
-              style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
-            >
-              {t('subtitle')}
-            </motion.p>
-
-            {/* CTA 버튼 */}
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row items-start gap-3"
-            >
-              <Link
-                href="/products"
-                className="bg-gold-500 text-navy-900 font-bold px-7 py-3.5 rounded-lg hover:bg-gold-400 transition-all duration-200 inline-flex items-center gap-2 text-sm tracking-wide shadow-lg shadow-gold-500/20 group"
-              >
-                {t('cta_primary')}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link
-                href="/contact"
-                className="border border-white/20 text-white font-medium px-7 py-3.5 rounded-lg hover:bg-white/[0.07] transition-all duration-200 inline-flex items-center gap-2 text-sm"
-              >
-                <Phone className="w-4 h-4" />
-                {t('cta_secondary')}
-              </Link>
-            </motion.div>
-
-          </div>
-        </div>
       </div>
 
       {/* 스크롤 인디케이터 */}
@@ -142,7 +105,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-8 sm:left-12 lg:left-16 flex flex-col items-start gap-2 text-text-secondary z-20"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-secondary z-20"
       >
         <span className="tracking-widest uppercase text-[10px]">{t('scroll')}</span>
         <motion.div
