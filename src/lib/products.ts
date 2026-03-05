@@ -87,11 +87,7 @@ Ion-coated electrodes maintain measurement stability for over 6 months, with acc
       { label: '사용환경', labelEn: 'Operating Environment', value: '수중 -5~50℃, 대기 -20~60℃, 최대압력 65 Psig', valueEn: 'In water -5~50℃, ambient -20~60℃, max 65 Psig' },
     ],
     image: '/images/products/wbcl10-main.png',
-    gallery: [
-      '/images/products/wbcl10-main.png',
-      '/images/products/wbcl10-side.png',
-      '/images/products/wbcl10-install.png',
-    ],
+    gallery: ['/images/products/wbcl10-main.png'],
   },
   {
     slug: 'wbtu10',
@@ -148,10 +144,7 @@ The auto-cleaning function prevents optical contamination errors for long-term s
       { label: '사용환경', labelEn: 'Operating Environment', value: '수중 -5~50℃, 대기 -20~60℃, 최대압력 65 Psig (50℃)', valueEn: 'In water -5~50℃, ambient -20~60℃, max 65 Psig (50℃)' },
     ],
     image: '/images/products/wbtu10-main.png',
-    gallery: [
-      '/images/products/wbtu10-main.png',
-      '/images/products/wbtu10-side.png',
-    ],
+    gallery: ['/images/products/wbtu10-main.png'],
   },
   {
     slug: 'wbtu-pro',
