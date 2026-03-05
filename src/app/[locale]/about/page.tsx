@@ -22,11 +22,16 @@ export async function generateMetadata({
 
 const historyItemsKo = [
   {
+    year: '2026',
+    events: [
+      '우즈베키스탄 지역난방 시스템용 정밀 여과 솔루션 공급 및 설치',
+    ],
+  },
+  {
     year: '2025',
     events: [
-      'HSCMT와 스마트 여과드레인 시스템 기술 고도화·유지관리 협력 MOU 체결',
-      '필리핀 뉴클락시티(NCC) 취수장 스마트 여과드레인·수질계측 설치·운영',
-      '우즈베키스탄 보일러·지역난방 여과기 적용 협력 협의',
+      'HSCMT-워터비 스마트 여과드레인 기술 고도화 및 유지관리 협력 MOU 체결',
+      '필리핀 뉴클락시티(NCC) 취수장 스마트 여과드레인 및 수질계측 시스템 구축',
     ],
   },
   {
@@ -66,11 +71,16 @@ const historyItemsKo = [
 
 const historyItemsEn = [
   {
+    year: '2026',
+    events: [
+      'Supply and installation of precision filtration solution for Uzbekistan district heating system',
+    ],
+  },
+  {
     year: '2025',
     events: [
-      'Signed MOU with HSCMT for smart filter-drain system technology advancement and maintenance cooperation',
-      'Smart filter-drain and water quality measurement system installed and operating at Philippines New Clark City (NCC) intake facility',
-      'Discussions for boiler and district heating filter application cooperation in Uzbekistan',
+      'HSCMT–Waterbee Smart Filter-Drain Technology Advancement and Maintenance Cooperation MOU signed',
+      'Smart filter-drain and water quality measurement system built at Philippines New Clark City (NCC) intake facility',
     ],
   },
   {
@@ -176,7 +186,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   <div className="flex-1 bg-navy-800 border border-white/10 rounded-xl p-5">
                     <ul className="space-y-1.5">
                       {item.events.map((event, i) => (
-                        <li key={i} className="text-text-secondary text-sm flex items-start gap-2">
+                        <li key={i} className="text-text-secondary text-sm flex items-start gap-2" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
                           <span className="text-gold-500 mt-1.5 shrink-0">·</span>
                           {event}
                         </li>
