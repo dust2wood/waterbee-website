@@ -57,9 +57,11 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               {isKo ? product.category : product.categoryEn}
             </span>
           </div>
-          <div className="absolute top-3 right-3 bg-navy-900/80 backdrop-blur-sm rounded-md px-2 py-1">
-            <span className="text-text-secondary font-mono text-xs uppercase">{product.model}</span>
-          </div>
+          {product.slug !== 'sampling-tank' && (
+            <div className="absolute top-3 right-3 bg-navy-900/80 backdrop-blur-sm rounded-md px-2 py-1">
+              <span className="text-text-secondary font-mono text-xs uppercase">{product.model}</span>
+            </div>
+          )}
         </div>
 
         {/* 콘텐츠 */}

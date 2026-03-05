@@ -603,6 +603,8 @@ Made of SUS 304 stainless steel for excellent corrosion resistance and durabilit
       'Custom fabrication available',
     ],
     specs: [
+      { label: '적용 관경', labelEn: 'Pipe Size', value: '50A ~ 200A (DN50~DN200)', valueEn: '50A ~ 200A (DN50~DN200)' },
+      { label: '필터 정밀도', labelEn: 'Filter Rating', value: '10μm / 50μm / 100μm (선택)', valueEn: '10μm / 50μm / 100μm (selectable)' },
       { label: '재질', labelEn: 'Material', value: 'SUS 304 (경면 연마)', valueEn: 'SUS 304 (mirror finish)' },
       { label: '수조 용량', labelEn: 'Tank Capacity', value: '5L / 10L (선택)', valueEn: '5L / 10L (optional)' },
       { label: '유입 연결', labelEn: 'Inlet Connection', value: '1/2" PT 내나사', valueEn: '1/2" PT female' },
