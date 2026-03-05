@@ -29,6 +29,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               src={product.image}
               alt={isKo ? product.name : product.nameEn}
               fill
+              unoptimized={product.image.endsWith('.svg')}
               className={(() => {
                 const pad: Record<string, string> = {
                   'wbcl10': 'p-3',

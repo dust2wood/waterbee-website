@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { Product } from '@/lib/products'
@@ -19,6 +19,18 @@ export default function ProductGrid({ products }: ProductGridProps) {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedApplication, setSelectedApplication] = useState('all')
 
+  const handleCategoryChange = useCallback((cat: string) => {
+    const y = window.scrollY
+    setSelectedCategory(cat)
+    requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior }))
+  }, [])
+
+  const handleApplicationChange = useCallback((app: string) => {
+    const y = window.scrollY
+    setSelectedApplication(app)
+    requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior }))
+  }, [])
+
   const filtered = products.filter((p) => {
     const catValue = isKo ? p.category : p.categoryEn
     const catMatch = selectedCategory === 'all' || catValue === selectedCategory
@@ -32,8 +44,8 @@ export default function ProductGrid({ products }: ProductGridProps) {
       <ProductFilter
         selectedCategory={selectedCategory}
         selectedApplication={selectedApplication}
-        onCategoryChange={setSelectedCategory}
-        onApplicationChange={setSelectedApplication}
+        onCategoryChange={handleCategoryChange}
+        onApplicationChange={handleApplicationChange}
         resultCount={filtered.length}
       />
 

@@ -46,6 +46,7 @@ export default function ProductFilter({
             {categories.map((cat) => (
               <button
                 key={cat}
+                type="button"
                 onClick={() => onCategoryChange(cat)}
                 className={clsx(
                   'w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-150',
@@ -80,6 +81,7 @@ export default function ProductFilter({
               return (
                 <button
                   key={app}
+                  type="button"
                   onClick={() => onApplicationChange(app)}
                   className={clsx(
                     'w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-150',
@@ -98,6 +100,7 @@ export default function ProductFilter({
         {/* 초기화 */}
         {(selectedCategory !== 'all' || selectedApplication !== 'all') && (
           <button
+            type="button"
             onClick={() => {
               onCategoryChange('all')
               onApplicationChange('all')

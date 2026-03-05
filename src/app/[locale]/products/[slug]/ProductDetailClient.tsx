@@ -41,7 +41,7 @@ function ProductImageWithFallback({ src, alt, model, slug }: { src: string; alt:
   }
   return (
     <>
-      <Image src={src} alt={alt} fill className={`object-contain ${imgPad}`} onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
+      <Image src={src} alt={alt} fill unoptimized={src.endsWith('.svg')} className={`object-contain ${imgPad}`} onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
       {slug !== 'sampling-tank' && (
         <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
           <span className="text-gold-500 font-mono font-bold text-sm uppercase">{model}</span>
