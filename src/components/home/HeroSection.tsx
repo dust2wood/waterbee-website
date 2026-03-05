@@ -5,85 +5,51 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { ArrowRight, ChevronDown, Phone } from 'lucide-react'
 import Image from 'next/image'
-import { useState } from 'react'
 
-function HeroProductImage() {
-  const [imgError, setImgError] = useState(false)
-
-  if (imgError) {
-    // 이미지 로드 실패 시 — 미세 그라디언트 장식으로 대체
-    return (
-      <div className="relative w-full h-full flex items-center justify-center">
-        <div className="w-64 h-64 rounded-full border border-gold-500/[0.08]" />
-        <div className="absolute w-40 h-40 rounded-full border border-gold-500/[0.14]" />
-        <div className="absolute w-20 h-20 rounded-full bg-gold-500/[0.06] border border-gold-500/20 flex items-center justify-center">
-          <span className="text-gold-500 font-black text-xl">W</span>
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <div className="relative w-full h-full">
-      {/* 제품 이미지 */}
-      <Image
-        src="/images/products/wbcl10-main.png"
-        alt="WBCL10 잔류염소계"
-        fill
-        className="object-contain object-center"
-        style={{ opacity: 0.88 }}
-        sizes="50vw"
-        priority
-        onError={() => setImgError(true)}
-      />
-
-      {/* 왼쪽 페이드 — 텍스트와 자연스럽게 블렌딩 */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'linear-gradient(to right, #0B1929 0%, rgba(11,25,41,0.75) 20%, rgba(11,25,41,0.2) 50%, transparent 75%)',
-        }}
-      />
-      {/* 상단 페이드 */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to bottom, #0B1929 0%, transparent 18%)',
-        }}
-      />
-      {/* 하단 페이드 */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'linear-gradient(to top, #0B1929 0%, transparent 22%)',
-        }}
-      />
-    </div>
-  )
-}
+// 깨끗한 물결 — Unsplash 고해상도 이미지
+const HERO_IMAGE_URL =
+  'https://images.unsplash.com/photo-1548919973-5cdf5916ad7a?q=80&w=2000&auto=format&fit=crop'
 
 export default function HeroSection() {
   const t = useTranslations('hero')
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-hero-gradient">
-      {/* 미세 그리드 배경 */}
-      <div className="absolute inset-0 pointer-events-none">
+    <section className="relative min-h-screen overflow-hidden bg-white">
+
+      {/* ── 우측 배경 이미지 (데스크탑: 우측 60% 커버, 모바일: 전체 배경) ── */}
+      <div className="absolute inset-0 lg:left-[40%]">
+        <Image
+          src={HERO_IMAGE_URL}
+          alt="clean water background"
+          fill
+          className="object-cover object-center"
+          style={{ opacity: 0.72 }}
+          priority
+          sizes="(max-width: 1024px) 100vw, 60vw"
+        />
+        {/* 모바일: 전체를 덮는 흰 오버레이 — 텍스트 가독성 보장 */}
+        <div className="absolute inset-0 bg-white/80 lg:hidden" />
+        {/* 데스크탑: 왼쪽 강한 페이드 — 텍스트 영역과 블렌딩 */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 hidden lg:block"
           style={{
-            backgroundImage: `linear-gradient(rgba(252,201,0,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(252,201,0,0.5) 1px, transparent 1px)`,
-            backgroundSize: '80px 80px',
+            background:
+              'linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.92) 15%, rgba(255,255,255,0.55) 45%, transparent 75%)',
+          }}
+        />
+        {/* 상단·하단 페이드 */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(255,255,255,0.6) 0%, transparent 18%, transparent 78%, rgba(255,255,255,0.4) 100%)',
           }}
         />
       </div>
 
-      {/* 2단 그리드 */}
-      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-screen">
-
-        {/* ── 좌측: 텍스트 콘텐츠 ── */}
-        <div className="flex items-center px-6 sm:px-8 lg:px-12 py-32 lg:py-0">
+      {/* ── 텍스트 콘텐츠 ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="min-h-screen flex items-center py-32">
           <div className="max-w-xl">
 
             {/* 배지 */}
@@ -93,7 +59,7 @@ export default function HeroSection() {
               transition={{ duration: 0.5 }}
               className="mb-8"
             >
-              <span className="inline-flex items-center text-gold-500 text-xs font-semibold tracking-widest uppercase border-l-2 border-gold-500 pl-3">
+              <span className="inline-flex items-center text-gold-600 text-xs font-semibold tracking-widest uppercase border-l-2 border-gold-500 pl-3">
                 {t('badge')}
               </span>
             </motion.div>
@@ -103,7 +69,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="text-4xl sm:text-[2.75rem] lg:text-5xl font-bold text-white mb-7"
+              className="text-4xl sm:text-[2.75rem] lg:text-5xl font-bold text-[#0B1929] mb-7"
               style={{
                 letterSpacing: '-0.02em',
                 lineHeight: '1.22',
@@ -130,7 +96,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.2 }}
-              className="text-text-secondary text-base sm:text-lg max-w-md mb-12 leading-[1.8] font-normal"
+              className="text-gray-500 text-base sm:text-lg max-w-md mb-12 leading-[1.8] font-normal"
               style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
             >
               {t('subtitle')}
@@ -145,14 +111,14 @@ export default function HeroSection() {
             >
               <Link
                 href="/products"
-                className="bg-gold-500 text-navy-900 font-bold px-7 py-3.5 rounded-lg hover:bg-gold-400 transition-all duration-200 inline-flex items-center gap-2 text-sm tracking-wide shadow-lg shadow-gold-500/20 group"
+                className="bg-gold-500 text-[#0B1929] font-bold px-7 py-3.5 rounded-lg hover:bg-gold-400 transition-all duration-200 inline-flex items-center gap-2 text-sm tracking-wide shadow-md shadow-gold-500/25 group"
               >
                 {t('cta_primary')}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/contact"
-                className="border border-white/20 text-white font-medium px-7 py-3.5 rounded-lg hover:bg-white/[0.07] transition-all duration-200 inline-flex items-center gap-2 text-sm"
+                className="border border-[#0B1929]/20 text-[#0B1929] font-medium px-7 py-3.5 rounded-lg hover:bg-[#0B1929]/5 transition-all duration-200 inline-flex items-center gap-2 text-sm"
               >
                 <Phone className="w-4 h-4" />
                 {t('cta_secondary')}
@@ -161,25 +127,22 @@ export default function HeroSection() {
 
           </div>
         </div>
-
-        {/* ── 우측: 제품 이미지 (데스크탑 전용) ── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.4 }}
-          className="hidden lg:block relative"
-        >
-          <HeroProductImage />
-        </motion.div>
-
       </div>
+
+      {/* 하단 전환 — 다음 섹션(dark)으로 자연스럽게 이어지도록 */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
+        style={{
+          background: 'linear-gradient(to bottom, transparent, rgba(11,25,41,0.08))',
+        }}
+      />
 
       {/* 스크롤 인디케이터 */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-8 sm:left-12 lg:left-16 flex flex-col items-start gap-2 text-text-secondary z-20"
+        className="absolute bottom-8 left-8 sm:left-12 lg:left-16 flex flex-col items-start gap-2 text-gray-400 z-20"
       >
         <span className="tracking-widest uppercase text-[10px]">{t('scroll')}</span>
         <motion.div
