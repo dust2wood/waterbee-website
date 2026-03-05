@@ -91,6 +91,7 @@
       "ph_ec": "pH/EC",
       "sampling": "샘플링",
       "filtration": "여과/드레인",
+      "consumables": "소모품",
       "filter_title": "필터",
       "result_count": "{count}개",
       "reset": "필터 초기화"

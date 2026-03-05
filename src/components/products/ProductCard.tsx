@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ShoppingCart } from 'lucide-react'
 import { useTranslations, useLocale } from 'next-intl'
 import type { Product } from '@/lib/products'
 import { clsx } from 'clsx'
@@ -29,19 +29,20 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               src={product.image}
               alt={isKo ? product.name : product.nameEn}
               fill
+              quality={90}
               className={(() => {
                 const pad: Record<string, string> = {
-                  'wbcl10': 'p-3',
-                  'wbtu10': 'p-3',
+                  'wbcl10': 'p-4',
+                  'wbtu10': 'p-4',
                   'wbtu-pro': 'p-8',
                   'wbph10': 'p-10',
                   'wbec10': 'p-10',
                   'wbph-pbs01': 'p-10',
                   'wbec-cond': 'p-10',
                 }
-                return `object-contain ${pad[product.slug] ?? 'p-4'}`
+                return `object-contain ${pad[product.slug] ?? 'p-6'}`
               })()}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw"
               onError={() => setImgError(true)}
             />
           )}
@@ -82,10 +83,22 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           </div>
 
           <div className="flex items-center justify-between">
-            <span className="text-gold-500 text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-              {t('overview')}
-              <ArrowRight className="w-4 h-4" />
-            </span>
+            {product.purchasable ? (
+              <div className="flex items-center justify-between w-full">
+                <span className="text-gold-500 text-sm font-bold">
+                  {isKo ? product.price : product.priceEn}
+                </span>
+                <span className="inline-flex items-center gap-1 text-xs text-text-secondary border border-white/20 rounded-md px-2.5 py-1 group-hover:border-gold-500/40 group-hover:text-gold-500 transition-all">
+                  <ShoppingCart className="w-3.5 h-3.5" />
+                  {isKo ? '구매 문의' : 'Inquire'}
+                </span>
+              </div>
+            ) : (
+              <span className="text-gold-500 text-sm font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                {t('overview')}
+                <ArrowRight className="w-4 h-4" />
+              </span>
+            )}
           </div>
         </div>
       </div>

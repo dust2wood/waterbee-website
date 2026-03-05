@@ -91,6 +91,7 @@
       "ph_ec": "pH/EC",
       "sampling": "Sampling",
       "filtration": "Filtration/Drain",
+      "consumables": "Consumables",
       "filter_title": "Filter",
       "result_count": "{count} results",
       "reset": "Reset Filters"

@@ -41,7 +41,7 @@ function ProductImageWithFallback({ src, alt, model, slug }: { src: string; alt:
   }
   return (
     <>
-      <Image src={src} alt={alt} fill className={`object-contain ${imgPad}`} onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
+      <Image src={src} alt={alt} fill quality={90} className={`object-contain ${imgPad}`} onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
       <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
         <span className="text-gold-500 font-mono font-bold text-sm uppercase">{model}</span>
       </div>
@@ -119,11 +119,33 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 </div>
               </div>
 
+              {/* 소모품 가격 표시 */}
+              {product.purchasable && (
+                <div className="bg-gold-500/10 border border-gold-500/30 rounded-xl px-5 py-4 mb-6">
+                  <div className="text-text-secondary text-xs mb-1">
+                    {isKo ? '호환 기종' : 'Compatible Model'}: {isKo ? product.compatibility : product.compatibilityEn}
+                  </div>
+                  <div className="text-gold-500 font-bold text-xl">
+                    {isKo ? product.price : product.priceEn}
+                  </div>
+                  <div className="text-text-secondary text-xs mt-1">
+                    {isKo ? '정확한 견적은 이메일 또는 전화로 문의해 주세요.' : 'Contact us for an exact quote.'}
+                  </div>
+                </div>
+              )}
+
               {/* CTA 버튼들 */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="mailto:support@waterbee.co.kr" className="btn-primary flex-1 justify-center">
+                <a
+                  href={`mailto:support@waterbee.co.kr?subject=${encodeURIComponent(
+                    isKo
+                      ? `[구매 문의] ${product.name} (${product.model})`
+                      : `[Purchase Inquiry] ${product.nameEn} (${product.model})`
+                  )}`}
+                  className="btn-primary flex-1 justify-center"
+                >
                   <Mail className="w-4 h-4" />
-                  {t('inquiry')}
+                  {product.purchasable ? (isKo ? '구매 문의하기' : 'Purchase Inquiry') : t('inquiry')}
                 </a>
                 <a href="tel:1555-3534" className="btn-secondary flex-1 justify-center">
                   <Phone className="w-4 h-4" />

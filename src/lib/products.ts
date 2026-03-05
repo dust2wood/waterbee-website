@@ -23,6 +23,12 @@ export interface Product {
   specs: ProductSpec[]
   image: string
   gallery: string[]
+  /** 소모품 구매 관련 (선택) */
+  price?: string
+  priceEn?: string
+  purchasable?: boolean
+  compatibility?: string
+  compatibilityEn?: string
 }
 
 export const products: Product[] = [
@@ -676,6 +682,94 @@ Capable of precise measurement in low-conductivity environments (10–200 μS/cm
     ],
     image: '/images/products/smartfarm-io-main.png',
     gallery: ['/images/products/smartfarm-io-main.png'],
+  },
+
+  // ─── 소모품 ───────────────────────────────────────────────────
+  {
+    slug: 'wbcl10-electrode-kit',
+    model: 'WBCL10-EK',
+    name: '잔류염소계 전극 교체 세트',
+    nameEn: 'Residual Chlorine Analyzer Electrode Replacement Kit',
+    category: '소모품',
+    categoryEn: 'Consumables',
+    application: ['water_treatment', 'industrial_wastewater'],
+    featured: false,
+    shortDescription: 'WBCL10 잔류염소계 전용 이온전극 교체 세트 — 측정 안정성 회복을 위한 정품 소모품',
+    shortDescriptionEn: 'Genuine electrode replacement kit for WBCL10 residual chlorine analyzer — restores measurement stability',
+    description: `WBCL10 잔류염소계에 사용되는 정품 이온전극 교체 세트입니다.
+전극 수명(약 6개월~1년)이 다하거나 측정값 드리프트가 발생할 경우 교체하여 새 장비 수준의 측정 성능을 회복합니다.
+워터비 정품 부품만을 사용하여 호환성 및 측정 정확도를 보장합니다.`,
+    descriptionEn: `Genuine ion electrode replacement kit for the WBCL10 residual chlorine analyzer.
+Replace when the electrode lifespan (approx. 6–12 months) is reached or measurement drift occurs to restore factory-level performance.
+Only genuine Waterbee parts are used to ensure compatibility and measurement accuracy.`,
+    features: [
+      'WBCL10 정품 이온전극 세트 (Gold/Silver 전극)',
+      '교체 후 즉시 측정 성능 회복',
+      '간단한 현장 교체 — 공구 불필요',
+      '교체 주기: 6개월~1년 (수질 조건에 따라 상이)',
+    ],
+    featuresEn: [
+      'Genuine WBCL10 ion electrode set (Gold/Silver)',
+      'Immediate performance restoration after replacement',
+      'Easy field replacement — no tools required',
+      'Replacement interval: 6–12 months (varies by water quality)',
+    ],
+    specs: [
+      { label: '호환 기종', labelEn: 'Compatible Model', value: 'WBCL10', valueEn: 'WBCL10' },
+      { label: '전극 재질', labelEn: 'Electrode Material', value: 'Gold / Silver', valueEn: 'Gold / Silver' },
+      { label: '교체 주기', labelEn: 'Replacement Cycle', value: '6개월~1년', valueEn: '6–12 months' },
+      { label: '포함 구성', labelEn: 'Package Contents', value: '전극 세트, 교체 가이드', valueEn: 'Electrode set, replacement guide' },
+    ],
+    image: '/images/products/wbcl10-main.png',
+    gallery: ['/images/products/wbcl10-main.png'],
+    price: '가격 문의',
+    priceEn: 'Contact for Price',
+    purchasable: true,
+    compatibility: 'WBCL10 잔류염소계',
+    compatibilityEn: 'WBCL10 Residual Chlorine Analyzer',
+  },
+  {
+    slug: 'wbtu10-lamp-kit',
+    model: 'WBTU10-LK',
+    name: '탁도계 텅스텐 램프 교체 세트',
+    nameEn: 'Turbidity Meter Tungsten Lamp Replacement Kit',
+    category: '소모품',
+    categoryEn: 'Consumables',
+    application: ['water_treatment', 'industrial_wastewater'],
+    featured: false,
+    shortDescription: 'WBTU10 탁도계 전용 텅스텐 램프(580nm) 교체 세트 — 광원 열화 시 측정 정확도 회복',
+    shortDescriptionEn: 'Genuine tungsten lamp (580nm) replacement kit for WBTU10 turbidity meter — restores accuracy when light source degrades',
+    description: `WBTU10 탁도계에 사용되는 정품 텅스텐 램프(580nm) 교체 세트입니다.
+광원 수명(약 1년)이 다하거나 자동 보정 한계 초과 시 교체하여 ISO 7027 규격 수준의 측정 정확도를 유지합니다.
+워터비 정품 부품 사용으로 광학 특성 및 측정 파장이 정확히 일치합니다.`,
+    descriptionEn: `Genuine tungsten lamp (580nm) replacement kit for the WBTU10 turbidity meter.
+Replace when the lamp lifespan (approx. 1 year) is reached or auto-correction reaches its limit to maintain ISO 7027-level accuracy.
+Genuine Waterbee parts ensure exact optical properties and measurement wavelength match.`,
+    features: [
+      'WBTU10 정품 텅스텐 램프 (580nm)',
+      '교체 후 ISO 7027 기준 측정 정확도 회복',
+      '현장 교체 용이 — 광학계 재조정 불필요',
+      '교체 주기: 약 1년 (운전 환경에 따라 상이)',
+    ],
+    featuresEn: [
+      'Genuine WBTU10 tungsten lamp (580nm)',
+      'ISO 7027 accuracy restored after replacement',
+      'Easy field replacement — no optical recalibration needed',
+      'Replacement interval: approx. 1 year (varies by operating environment)',
+    ],
+    specs: [
+      { label: '호환 기종', labelEn: 'Compatible Model', value: 'WBTU10', valueEn: 'WBTU10' },
+      { label: '램프 파장', labelEn: 'Lamp Wavelength', value: '580 nm (텅스텐)', valueEn: '580 nm (Tungsten)' },
+      { label: '교체 주기', labelEn: 'Replacement Cycle', value: '약 1년', valueEn: 'Approx. 1 year' },
+      { label: '포함 구성', labelEn: 'Package Contents', value: '텅스텐 램프, 교체 가이드', valueEn: 'Tungsten lamp, replacement guide' },
+    ],
+    image: '/images/products/wbtu10-main.png',
+    gallery: ['/images/products/wbtu10-main.png'],
+    price: '가격 문의',
+    priceEn: 'Contact for Price',
+    purchasable: true,
+    compatibility: 'WBTU10 탁도계',
+    compatibilityEn: 'WBTU10 Turbidity Meter',
   },
 ]
 
