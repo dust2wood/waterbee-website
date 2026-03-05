@@ -166,12 +166,27 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </AnimatedSection>
 
         <AnimatedSection>
-          <SectionTitle
-            badge="History"
-            title={t('history.title')}
-            subtitle={t('history.subtitle')}
-            align="left"
-          />
+          {/* 성장여정 헤더 */}
+          <div className="mb-10">
+            <span className="inline-block text-gold-500 text-xs font-semibold tracking-widest uppercase mb-4 border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 rounded-full">
+              History
+            </span>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+              <div>
+                <p className="text-text-secondary text-sm font-medium tracking-wider uppercase mb-1">
+                  {isKo ? '워터비의' : "Waterbee's"}
+                </p>
+                <h2 className="text-3xl lg:text-5xl font-bold text-white leading-tight">
+                  {isKo ? '성장 여정' : 'Growth Journey'}
+                </h2>
+              </div>
+              <div className="text-right hidden sm:block">
+                <span className="text-gold-500/60 font-mono text-sm tracking-widest">2021 — {new Date().getFullYear()}</span>
+              </div>
+            </div>
+            <div className="mt-5 h-px bg-gradient-to-r from-gold-500/40 via-gold-500/10 to-transparent" />
+          </div>
+
           <div className="relative">
             <div className="absolute left-[5.5rem] top-0 bottom-0 w-px bg-white/10 hidden md:block" />
             <div className="space-y-6">
@@ -186,8 +201,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   <div className="flex-1 bg-navy-800 border border-white/10 rounded-xl p-5">
                     <ul className="space-y-1.5">
                       {item.events.map((event, i) => (
-                        <li key={i} className="text-text-secondary text-sm flex items-start gap-2" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
-                          <span className="text-gold-500 mt-1.5 shrink-0">·</span>
+                        <li key={i} className="text-text-secondary text-sm flex items-baseline gap-2" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
+                          <span className="text-gold-500 shrink-0 leading-none">·</span>
                           {event}
                         </li>
                       ))}

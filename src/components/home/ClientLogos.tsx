@@ -43,10 +43,9 @@ export default function ClientLogos() {
 
         {/* 실적 카운터 */}
         <AnimatedSection>
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-12 grid grid-cols-3 gap-6">
             {[
               { value: '6건', label: '등록 특허' },
-              { value: '2015', label: '설립 연도' },
               { value: '100%', label: '품질 보증' },
               { value: '24/7', label: 'A/S 대응' },
             ].map((stat) => (
