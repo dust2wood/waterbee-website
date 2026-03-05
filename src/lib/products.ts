@@ -194,7 +194,7 @@ The auto-cleaning function prevents optical contamination errors for long-term s
     nameEn: 'Suspended Solids Meter',
     category: '탁도',
     categoryEn: 'Turbidity',
-    application: ['water_treatment', 'industrial_wastewater'],
+    application: ['industrial_wastewater'],
     featured: false,
     shortDescription: '광학식 부유물질(SS) 연속 측정기 — 하폐수·공정수 SS 농도 실시간 모니터링',
     shortDescriptionEn: 'Optical suspended solids (SS) continuous analyzer — real-time SS monitoring for wastewater and process water',
@@ -529,12 +529,12 @@ With automatic temperature compensation and stable performance, it is used for w
     shortDescriptionEn: 'Sample supply and overflow tank system for water quality instruments',
     description: `WB-ST 샘플링수조는 잔류염소계, 탁도계, pH/EC계 등 수질 측정기기에 균일한 샘플을 안정적으로 공급하기 위한 전처리 수조입니다.
 오버플로우 방식으로 항상 신선한 샘플이 기기에 공급되며, 부유물 침전 기능이 내장되어 있습니다.
-SUS 304 스테인리스 재질로 내식성과 내구성이 우수합니다.`,
+투명 아크릴 재질로 내부 수위와 수질 상태를 육안으로 확인할 수 있습니다.`,
     descriptionEn: `The WB-ST sampling tank is a pre-treatment tank that stably supplies uniform samples to water quality instruments such as residual chlorine analyzers, turbidity meters, and pH/EC meters.
 The overflow method ensures fresh samples are always supplied to the instruments, with built-in suspended solids settling.
-Made of SUS 304 stainless steel for excellent corrosion resistance and durability.`,
+Made of transparent acrylic for easy visual inspection of water level and quality.`,
     features: [
-      'SUS 304 스테인리스 재질',
+      '투명 아크릴 재질 — 내부 수위·수질 육안 확인 가능',
       '오버플로우 방식으로 신선한 샘플 연속 공급',
       '부유물 침전 기능 내장',
       '다중 기기 동시 연결 가능 (최대 4포트)',
@@ -544,7 +544,7 @@ Made of SUS 304 stainless steel for excellent corrosion resistance and durabilit
       '현장 조건에 따른 맞춤 제작 가능',
     ],
     featuresEn: [
-      'SUS 304 stainless steel construction',
+      'Transparent acrylic body — visual inspection of water level and quality',
       'Continuous fresh sample supply via overflow',
       'Built-in suspended solids settling',
       'Multi-instrument connection (up to 4 ports)',
@@ -554,8 +554,8 @@ Made of SUS 304 stainless steel for excellent corrosion resistance and durabilit
       'Custom fabrication available',
     ],
     specs: [
-      { label: '재질', labelEn: 'Material', value: 'SUS 304 (경면 연마)', valueEn: 'SUS 304 (mirror finish)' },
-      { label: '수조 용량', labelEn: 'Tank Capacity', value: '5L / 10L (선택)', valueEn: '5L / 10L (optional)' },
+      { label: '재질', labelEn: 'Material', value: '투명 아크릴', valueEn: 'Transparent Acrylic' },
+      { label: '수조 용량', labelEn: 'Tank Capacity', value: '500 mL / 10 L (선택)', valueEn: '500 mL / 10 L (optional)' },
       { label: '유입 연결', labelEn: 'Inlet Connection', value: '1/2" PT 내나사', valueEn: '1/2" PT female' },
       { label: '배출 포트', labelEn: 'Outlet Ports', value: '최대 4포트 (1/4" PT)', valueEn: 'Up to 4 ports (1/4" PT)' },
       { label: '오버플로우', labelEn: 'Overflow', value: '1/2" PT 내나사', valueEn: '1/2" PT female' },
@@ -688,7 +688,7 @@ Capable of precise measurement in low-conductivity environments (10–200 μS/cm
     nameEn: 'Residual Chlorine Analyzer Electrode Replacement Kit',
     category: '소모품',
     categoryEn: 'Consumables',
-    application: ['water_treatment', 'industrial_wastewater'],
+    application: ['water_treatment'],
     featured: false,
     shortDescription: 'WBCL10 잔류염소계 전용 이온전극 교체 세트 — 측정 안정성 회복을 위한 정품 소모품',
     shortDescriptionEn: 'Genuine electrode replacement kit for WBCL10 residual chlorine analyzer — restores measurement stability',
@@ -731,7 +731,7 @@ Only genuine Waterbee parts are used to ensure compatibility and measurement acc
     nameEn: 'Turbidity Meter Tungsten Lamp Replacement Kit',
     category: '소모품',
     categoryEn: 'Consumables',
-    application: ['water_treatment', 'industrial_wastewater'],
+    application: ['water_treatment'],
     featured: false,
     shortDescription: 'WBTU10 탁도계 전용 텅스텐 램프(580nm) 교체 세트 — 광원 열화 시 측정 정확도 회복',
     shortDescriptionEn: 'Genuine tungsten lamp (580nm) replacement kit for WBTU10 turbidity meter — restores accuracy when light source degrades',
