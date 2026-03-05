@@ -59,6 +59,8 @@ export default function ProductDetailClient({ product }: { product: Product }) {
   const tNav = useTranslations('nav')
 
   const [activeTab, setActiveTab] = useState<TabKey>('overview')
+  const [activeImg, setActiveImg] = useState(product.image)
+  const hasGallery = product.gallery.length > 1
 
   const tabs: { key: TabKey; label: string }[] = [
     { key: 'overview', label: t('overview') },
@@ -86,8 +88,21 @@ export default function ProductDetailClient({ product }: { product: Product }) {
           {/* 이미지 갤러리 */}
           <AnimatedSection direction="left">
             <div className="aspect-[4/3] bg-navy-800 rounded-2xl border border-white/10 relative overflow-hidden">
-              <ProductImageWithFallback src={product.image} alt={isKo ? product.name : product.nameEn} model={product.model} slug={product.slug} />
+              <ProductImageWithFallback src={activeImg} alt={isKo ? product.name : product.nameEn} model={product.model} slug={product.slug} />
             </div>
+            {hasGallery && (
+              <div className="flex gap-2 mt-3">
+                {product.gallery.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveImg(img)}
+                    className={`relative w-20 h-16 rounded-lg overflow-hidden border-2 transition-all shrink-0 ${activeImg === img ? 'border-gold-500' : 'border-white/10 hover:border-white/30'}`}
+                  >
+                    <Image src={img} alt={`${product.model} ${i + 1}`} fill className="object-cover" sizes="80px" />
+                  </button>
+                ))}
+              </div>
+            )}
           </AnimatedSection>
 
           {/* 제품 기본 정보 */}

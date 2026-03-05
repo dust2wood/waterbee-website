@@ -583,9 +583,11 @@ Made of SUS 304 stainless steel for excellent corrosion resistance and durabilit
       { label: '보호 등급', labelEn: 'Protection Rating', value: 'IP65', valueEn: 'IP65' },
       { label: '설치 방식', labelEn: 'Installation', value: '모듈형·직선형 설계', valueEn: 'Modular, linear design' },
     ],
-    image: '/images/products/filter-drain-main.png',
+    image: '/images/products/filter-drain-1.jpg',
     gallery: [
-      '/images/products/filter-drain-main.png',
+      '/images/products/filter-drain-1.jpg',
+      '/images/products/filter-drain-2.jpg',
+      '/images/products/filter-drain-3.jpg',
     ],
   },
   {
