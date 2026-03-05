@@ -121,10 +121,10 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
               {/* CTA 버튼들 */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <Link href="/contact" className="btn-primary flex-1 justify-center">
+                <a href="mailto:support@waterbee.co.kr" className="btn-primary flex-1 justify-center">
                   <Mail className="w-4 h-4" />
                   {t('inquiry')}
-                </Link>
+                </a>
                 <a href="tel:1555-3534" className="btn-secondary flex-1 justify-center">
                   <Phone className="w-4 h-4" />
                   1555-3534
