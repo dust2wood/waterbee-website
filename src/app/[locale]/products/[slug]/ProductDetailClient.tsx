@@ -186,7 +186,10 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         <AnimatedSection key={activeTab} direction="none">
           {activeTab === 'overview' && (
             <div className="max-w-3xl">
-              <p className="text-text-secondary leading-relaxed text-base whitespace-pre-line">
+              <p
+                className="text-text-secondary leading-relaxed text-base whitespace-pre-line"
+                style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
+              >
                 {isKo ? product.description : product.descriptionEn}
               </p>
             </div>
@@ -197,7 +200,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
               {(isKo ? product.features : product.featuresEn).map((feature, i) => (
                 <div key={i} className="flex items-start gap-3 bg-navy-800 border border-white/10 rounded-xl p-4">
                   <CheckCircle className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
-                  <span className="text-text-secondary text-sm leading-relaxed">{feature}</span>
+                  <span className="text-text-secondary text-sm leading-relaxed" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>{feature}</span>
                 </div>
               ))}
             </div>
