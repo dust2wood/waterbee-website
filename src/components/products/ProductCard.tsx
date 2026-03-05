@@ -74,9 +74,9 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           {/* 주요 스펙 미리보기 (처음 2개) */}
           <div className="border-t border-white/10 pt-4 mb-4 space-y-1.5">
             {product.specs.slice(0, 2).map((spec) => (
-              <div key={spec.label} className="flex items-center justify-between text-xs">
-                <span className="text-text-secondary">{isKo ? spec.label : spec.labelEn}</span>
-                <span className="text-white font-medium">{isKo ? spec.value : spec.valueEn}</span>
+              <div key={spec.label} className="flex items-start justify-between gap-2 text-xs">
+                <span className="text-text-secondary shrink-0">{isKo ? spec.label : spec.labelEn}</span>
+                <span className="text-white font-medium text-right">{isKo ? spec.value : spec.valueEn}</span>
               </div>
             ))}
           </div>
