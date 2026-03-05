@@ -108,7 +108,7 @@ export default function HeroSection() {
         >
           {[
             { value: '500+', label: '납품 실적' },
-            { value: '20+', label: '기술 연구 연수' },
+            { value: '20+', label: '업계 선도 특허 및 기술 인증' },
             { value: '99.9%', label: '측정 신뢰성' },
           ].map((stat) => (
             <div key={stat.label} className="text-center">

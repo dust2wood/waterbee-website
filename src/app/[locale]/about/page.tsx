@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { MapPin, Phone, Mail, Building2, Target, Eye as EyeIcon } from 'lucide-react'
+import { MapPin, Phone, Mail, Building2, Target, Eye as EyeIcon, UserCircle } from 'lucide-react'
 import SectionTitle from '@/components/ui/SectionTitle'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { Link } from '@/i18n/navigation'
@@ -197,6 +197,13 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   <div>
                     <div className="text-text-secondary text-xs mb-0.5">{t('info.company_name_label')}</div>
                     <div className="text-white font-semibold">{t('info.company')}</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <UserCircle className="w-5 h-5 text-gold-500 shrink-0" />
+                  <div>
+                    <div className="text-text-secondary text-xs mb-0.5">{t('info.ceo')}</div>
+                    <div className="text-white text-sm">{t('info.ceo_value')}</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

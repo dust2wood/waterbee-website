@@ -80,11 +80,12 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-            <div className="mt-6 pt-4 border-t border-white/10">
+            <div className="mt-6 pt-4 border-t border-white/10 space-y-1">
               <p className="text-text-secondary text-xs">
-                {t('business_number')}
-                <br />
-                000-00-00000
+                {t('business_number')} 291-87-02513
+              </p>
+              <p className="text-text-secondary text-xs">
+                {t('ceo')} {t('ceo_value')}
               </p>
             </div>
           </div>

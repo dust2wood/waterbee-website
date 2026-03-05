@@ -9,7 +9,7 @@
   },
   "hero": {
     "badge": "수질 모니터링 전문기업",
-    "title": "정확한 수질 측정으로\n안전한 물 환경을",
+    "title": "유지보수는 최소로, 정확도는 최대로.\n특허 받은 회전전극 기술로 스마트 수질 모니터링을 선도합니다.",
     "subtitle": "회전전극식 잔류염소·탁도·pH/EC 측정 기술로 정수장과 하폐수처리장의 수질 자동 모니터링을 이끌어 갑니다.",
     "cta_primary": "제품 보기",
     "cta_secondary": "기술 문의",
@@ -152,6 +152,7 @@
       "company_name_label": "법인명",
       "address_value": "부산광역시 강서구 에코델타스마트로 39, 3동 2호",
       "ceo": "대표이사",
+      "ceo_value": "손호정",
       "address": "주소",
       "phone": "전화",
       "email": "이메일",
@@ -215,8 +216,10 @@
     "legal": "법적 고지",
     "privacy": "개인정보처리방침",
     "terms": "이용약관",
-    "copyright": "© 2024 주식회사 워터비. All rights reserved.",
-    "business_number": "사업자등록번호"
+    "copyright": "© 2026 주식회사 워터비. All rights reserved.",
+    "business_number": "사업자등록번호",
+    "ceo": "대표자",
+    "ceo_value": "손호정"
   },
   "common": {
     "loading": "로딩 중...",

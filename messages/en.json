@@ -9,7 +9,7 @@
   },
   "hero": {
     "badge": "Water Quality Monitoring Specialist",
-    "title": "Safe Water Environment\nThrough Precise Measurement",
+    "title": "Minimum Maintenance, Maximum Accuracy.\nLeading Smart Water Monitoring with Patented Rotating Electrode Technology.",
     "subtitle": "Leading automated water quality monitoring at waterworks and wastewater treatment plants with rotating electrode residual chlorine, turbidity, and pH/EC technology.",
     "cta_primary": "View Products",
     "cta_secondary": "Technical Inquiry",
@@ -152,6 +152,7 @@
       "company_name_label": "Company Name",
       "address_value": "39, Ecodeltasmart-ro, Gangseo-gu, Busan, 3-dong 2-ho",
       "ceo": "CEO",
+      "ceo_value": "Son Ho-jeong",
       "address": "Address",
       "phone": "Phone",
       "email": "Email",
@@ -215,8 +216,10 @@
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "copyright": "© 2024 Waterbee Co., Ltd. All rights reserved.",
-    "business_number": "Business Registration No."
+    "copyright": "© 2026 Waterbee Co., Ltd. All rights reserved.",
+    "business_number": "Business Registration No.",
+    "ceo": "Representative",
+    "ceo_value": "Son Ho-jeong"
   },
   "common": {
     "loading": "Loading...",

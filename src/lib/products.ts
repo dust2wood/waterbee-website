@@ -64,7 +64,7 @@ Ion-coated electrodes maintain measurement stability for over 6 months, with acc
       'IP65 dust and water protection',
     ],
     specs: [
-      { label: '측정 방식', labelEn: 'Measurement Method', value: 'Polarograph Amperometric 회전전극식 (무시약식)', valueEn: 'Polarograph Amperometric rotating electrode (reagent-free)' },
+      { label: '측정 방식', labelEn: 'Measurement Method', value: 'Polarograph Amperometric 회전전극식 (무시약식, 전극 오염을 방지하는 자가 세정 기술)', valueEn: 'Polarograph Amperometric rotating electrode (reagent-free, self-cleaning technology preventing electrode fouling)' },
       { label: '측정 형태', labelEn: 'Measurement Type', value: 'pH 미보상 (pH 6.5~7.5)', valueEn: 'pH uncompensated (pH 6.5~7.5)' },
       { label: '측정 범위', labelEn: 'Measurement Range', value: '0 ~ 2 mg/L (잔류염소), 수온(℃)', valueEn: '0 ~ 2 mg/L (residual chlorine), temp.(℃)' },
       { label: '분해능', labelEn: 'Resolution', value: '0.01 mg/L, 0.1℃', valueEn: '0.01 mg/L, 0.1℃' },
