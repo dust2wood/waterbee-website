@@ -32,17 +32,19 @@ const historyItemsKo = [
   {
     year: '2024',
     events: [
-      'ICT 정밀여과기기 공동특허 등록',
-      '에코스타트업, 대중소기업 혁신파트너십, 기술개발제품 시범구매 선정',
-      '특허 등록 6건, 상표 등록 1건 달성',
+      '대한민국 발명특허대전 특허청장상 수상',
+      'K-water(한국수자원공사) 협력 스타트업 육성 지원 업무협약 체결',
+      '중소벤처기업부 시범구매제품 선정 (잔류염소계·탁도계)',
+      '조달청 벤처나라 혁신조달상품 지정',
+      '잔류염소계 측정기기 형식승인 취득 (국립환경과학원)',
     ],
   },
   {
     year: '2023',
     events: [
       'SK하이닉스 제2정수장 K-테스트베드 실증 완료 (2023.09~2024.02)',
-      '환경측정기기 형식승인 취득',
-      '벤처나라 등록, 직접생산 확인 등록',
+      '탁도계 측정기기 형식승인 취득 (국립환경과학원)',
+      '대한민국 물산업 혁신창업대전 수상',
     ],
   },
   {
@@ -56,9 +58,8 @@ const historyItemsKo = [
   {
     year: '2021',
     events: [
-      '법인 설립 (2021년 10월)',
-      '스마트 컨트롤러 고도화 (이더넷·LTE·WiFi 통합 통신 지원)',
-      '에코델타시티 어반테크하우스 리빙랩 실증',
+      '(주)워터비 법인 설립',
+      '수질 측정 ICT 센서 개발 착수',
     ],
   },
 ]
@@ -75,17 +76,19 @@ const historyItemsEn = [
   {
     year: '2024',
     events: [
-      'ICT precision filtration device joint patent registered',
-      'Selected for Eco-Startup, Large-SME Innovation Partnership, and Technology Development Product Pilot Purchase programs',
-      'Achieved 6 patent registrations and 1 trademark registration',
+      "Won Commissioner's Award at Korea Invention Patent Exhibition (KIPA)",
+      'Signed MOU with K-water (Korea Water Resources Corporation) for collaborative startup support',
+      'Selected as pilot purchase products by Ministry of SMEs and Startups (residual chlorine & turbidity analyzers)',
+      'Designated as Innovative Procurement Product on PPS VenturaNara',
+      'Obtained type approval for residual chlorine analyzer (National Institute of Environmental Research)',
     ],
   },
   {
     year: '2023',
     events: [
       'SK Hynix 2nd Water Treatment Plant K-Testbed demonstration completed (Sep 2023 – Feb 2024)',
-      'Obtained environmental measurement equipment type approval',
-      'Registered on BenturaNara marketplace and confirmed direct production',
+      'Obtained type approval for turbidity meter (National Institute of Environmental Research)',
+      'Won Korea Water Industry Innovation Startup Competition Award',
     ],
   },
   {
@@ -99,9 +102,8 @@ const historyItemsEn = [
   {
     year: '2021',
     events: [
-      'Company founded (October 2021)',
-      'Smart controller enhanced (unified Ethernet/LTE/WiFi communication support)',
-      'Living Lab demonstration at Eco Delta City Urban Tech House',
+      'Waterbee Co., Ltd. founded',
+      'Development of water quality measurement ICT sensors commenced',
     ],
   },
 ]
