@@ -24,12 +24,11 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="mb-4">
               <Image
-                src="/images/logo.svg"
+                src="/images/logo-transparent.png"
                 alt="WATERBEE"
                 width={160}
-                height={36}
+                height={81}
                 className="h-8 w-auto"
-                unoptimized
               />
             </div>
             <p className="text-text-secondary text-sm mb-6 max-w-sm leading-relaxed">
