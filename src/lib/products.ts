@@ -195,48 +195,6 @@ The auto-cleaning function prevents optical contamination errors for long-term s
     gallery: ['/images/products/wbtu-pro-main.png'],
   },
   {
-    slug: 'wbtu-s',
-    model: 'WBTU-S',
-    name: '침수형 탁도계',
-    nameEn: 'Submersible Turbidity Sensor',
-    category: '탁도',
-    categoryEn: 'Turbidity',
-    application: ['water_treatment', 'industrial_wastewater'],
-    featured: false,
-    shortDescription: '0~10 NTU 침수형 탁도 센서, RS-485, 5M 케이블 — 직삽형 연속 측정',
-    shortDescriptionEn: '0–10 NTU submersible turbidity sensor, RS-485, 5M cable — direct-insertion continuous measurement',
-    description: `WBTU-S는 직접 수중에 삽입하여 사용하는 침수형 탁도 센서입니다.
-5M 케이블이 기본 포함되어 현장 설치가 간편하며, RS-485 통신으로 컨트롤러 및 상위 시스템과 직접 연동됩니다.
-정수장, 배수지, 하폐수처리장 등 다양한 현장에 적합합니다.`,
-    descriptionEn: `The WBTU-S is a submersible turbidity sensor for direct insertion into water.
-Comes with a 5M cable for easy field installation and connects directly to controllers and SCADA via RS-485.
-Suitable for waterworks, clearwells, and wastewater treatment plants.`,
-    features: [
-      '침수형(Dip type) 직삽 설치, 간편한 현장 적용',
-      '0 ~ 10 NTU 정밀 측정',
-      '5M 케이블 기본 포함',
-      'RS-485 Modbus RTU/TCP 통신',
-      '4~20mA 아날로그 출력',
-    ],
-    featuresEn: [
-      'Dip-type direct insertion, easy field installation',
-      '0–10 NTU precision measurement',
-      '5M cable included',
-      'RS-485 Modbus RTU/TCP communication',
-      '4~20mA analog output',
-    ],
-    specs: [
-      { label: '측정 방식', labelEn: 'Measurement Method', value: '90° 산란광 (ISO 7027)', valueEn: '90° scattered light (ISO 7027)' },
-      { label: '측정 범위', labelEn: 'Measurement Range', value: '0 ~ 10 NTU', valueEn: '0 ~ 10 NTU' },
-      { label: '설치 방식', labelEn: 'Installation', value: '침수형 (Dip type)', valueEn: 'Submersible (Dip type)' },
-      { label: '케이블', labelEn: 'Cable', value: '5M (기본)', valueEn: '5M (standard)' },
-      { label: '통신', labelEn: 'Communication', value: 'RS-485, Modbus RTU/TCP', valueEn: 'RS-485, Modbus RTU/TCP' },
-      { label: '출력', labelEn: 'Output', value: '4~20mA', valueEn: '4~20mA' },
-    ],
-    image: '/images/products/wbtu-s-main.png',
-    gallery: ['/images/products/wbtu-s-main.png'],
-  },
-  {
     slug: 'wbss10',
     model: 'WBSS10',
     name: '부유물질계 (SS)',
