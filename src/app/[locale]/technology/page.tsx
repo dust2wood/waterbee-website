@@ -21,15 +21,21 @@ export async function generateMetadata({
 }
 
 const patentsKo = [
-  { no: '제10-0000000호', name: '회전전극을 이용한 잔류염소 측정 장치 및 방법' },
-  { no: '제10-0000001호', name: '수질 측정기용 자동 세정 시스템' },
-  { no: '제10-0000002호', name: '연속식 탁도 측정기의 광원 보정 방법' },
+  { no: '제10-1132985호', name: '릴레이 감시 시스템' },
+  { no: '제10-2532710호', name: '탁도 및 잔류염소 측정 시스템' },
+  { no: '제10-2570508호', name: '비교측정 및 셀프교정 기능을 보유한 잔류염소 측정장치' },
+  { no: '제10-2615508호', name: '탁도 이상진단 시스템' },
+  { no: '제10-2607667호', name: '탁도 측정 방법' },
+  { no: '제10-2658845호', name: '스마트 수질 측정 정밀여과시스템' },
 ]
 
 const patentsEn = [
-  { no: 'Patent No. 10-0000000', name: 'Residual Chlorine Measurement Device and Method Using Rotating Electrode' },
-  { no: 'Patent No. 10-0000001', name: 'Automatic Cleaning System for Water Quality Meters' },
-  { no: 'Patent No. 10-0000002', name: 'Light Source Correction Method for Continuous Turbidity Meters' },
+  { no: 'Patent No. 10-1132985', name: 'Relay Monitoring System' },
+  { no: 'Patent No. 10-2532710', name: 'Turbidity and Residual Chlorine Measurement System' },
+  { no: 'Patent No. 10-2570508', name: 'Residual Chlorine Analyzer with Comparative Measurement and Self-Calibration' },
+  { no: 'Patent No. 10-2615508', name: 'Turbidity Abnormality Diagnosis System' },
+  { no: 'Patent No. 10-2607667', name: 'Turbidity Measurement Method' },
+  { no: 'Patent No. 10-2658845', name: 'Smart Water Quality Measurement Precision Filtration System' },
 ]
 
 const certificationsKo = [
