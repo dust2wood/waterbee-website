@@ -200,6 +200,12 @@ export default function FilterDrainDetail() {
   const [selMeasurement, setSelMeasurement] = useState<Measurement>('Standard')
   const [selControl, setSelControl] = useState<Control>('plc')
   const [showCompareDetail, setShowCompareDetail] = useState(false)
+  const GALLERY_IMAGES = [
+    '/images/products/filter-drain-1.jpg',
+    '/images/products/filter-drain-2.jpg',
+    '/images/products/filter-drain-3.jpg',
+  ]
+  const [activeImg, setActiveImg] = useState(0)
 
   // 계열 B/C 관경 자동 제한
   const isLarge = selPipe === '150A' || selPipe === '200A'
@@ -240,18 +246,24 @@ export default function FilterDrainDetail() {
           <AnimatedSection direction="left">
             <div className="aspect-[4/3] bg-navy-800 rounded-2xl border border-white/10 relative overflow-hidden">
               <Image
-                src="/images/products/filter-drain-1.jpg"
+                src={GALLERY_IMAGES[activeImg]}
                 alt={isKo ? '스마트 여과드레인 시스템' : 'Smart Filter-Drain System'}
                 fill
-                className="object-cover"
+                className="object-cover transition-opacity duration-300"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
             <div className="flex gap-2 mt-3">
-              {['/images/products/filter-drain-1.jpg', '/images/products/filter-drain-2.jpg', '/images/products/filter-drain-3.jpg'].map((img, i) => (
-                <div key={i} className="relative w-20 h-16 rounded-lg overflow-hidden border border-white/10">
+              {GALLERY_IMAGES.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveImg(i)}
+                  className={`relative w-20 h-16 rounded-lg overflow-hidden border-2 transition-colors ${
+                    activeImg === i ? 'border-gold-500' : 'border-white/10 hover:border-white/30'
+                  }`}
+                >
                   <Image src={img} alt={`filter-drain-${i + 1}`} fill className="object-cover" sizes="80px" />
-                </div>
+                </button>
               ))}
             </div>
           </AnimatedSection>
