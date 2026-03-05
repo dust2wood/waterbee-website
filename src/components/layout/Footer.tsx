@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react'
@@ -21,11 +22,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* 브랜드 */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-gold-500 rounded-sm flex items-center justify-center">
-                <span className="text-navy-900 font-black text-sm">W</span>
-              </div>
-              <span className="text-white font-bold text-lg tracking-wider">WATERBEE</span>
+            <div className="mb-4">
+              <Image
+                src="/images/logo.svg"
+                alt="WATERBEE"
+                width={160}
+                height={36}
+                className="h-8 w-auto"
+                unoptimized
+              />
             </div>
             <p className="text-text-secondary text-sm mb-6 max-w-sm leading-relaxed">
               {t('tagline')} — {t('description')}
