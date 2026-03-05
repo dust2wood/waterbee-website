@@ -195,6 +195,46 @@ The auto-cleaning function prevents optical contamination errors for long-term s
     gallery: ['/images/products/wbtu-pro-main.png'],
   },
   {
+    slug: 'wbss10',
+    model: 'WBSS10',
+    name: '부유물질계 (SS)',
+    nameEn: 'Suspended Solids Meter',
+    category: '탁도',
+    categoryEn: 'Turbidity',
+    application: ['water_treatment', 'industrial_wastewater'],
+    featured: false,
+    shortDescription: '광학식 부유물질(SS) 연속 측정기 — 하폐수·공정수 SS 농도 실시간 모니터링',
+    shortDescriptionEn: 'Optical suspended solids (SS) continuous analyzer — real-time SS monitoring for wastewater and process water',
+    description: `WBSS10은 광학식 방식의 연속식 부유물질(SS) 측정기입니다.
+하폐수 처리장 및 산업 공정수의 SS 농도를 실시간으로 연속 모니터링하며, 안정적인 측정 성능과 간편한 유지보수를 제공합니다.`,
+    descriptionEn: `The WBSS10 is a continuous optical suspended solids (SS) analyzer.
+It provides real-time continuous SS concentration monitoring for wastewater treatment and industrial process water with stable performance and easy maintenance.`,
+    features: [
+      '광학식 연속 측정 방식',
+      '하폐수·공정수 SS 농도 실시간 모니터링',
+      'RS-485 Modbus RTU/TCP 통신',
+      '4~20mA 아날로그 출력',
+      '자동 교정 기능',
+    ],
+    featuresEn: [
+      'Optical continuous measurement method',
+      'Real-time SS monitoring for wastewater and process water',
+      'RS-485 Modbus RTU/TCP communication',
+      '4~20mA analog output',
+      'Auto-calibration function',
+    ],
+    specs: [
+      { label: '측정 방식', labelEn: 'Measurement Method', value: '광학식 (근적외선)', valueEn: 'Optical (Near-IR)' },
+      { label: '측정 범위', labelEn: 'Measurement Range', value: '스펙 업데이트 예정', valueEn: 'Spec to be updated' },
+      { label: '분해능', labelEn: 'Resolution', value: '스펙 업데이트 예정', valueEn: 'Spec to be updated' },
+      { label: '정확도', labelEn: 'Accuracy', value: '스펙 업데이트 예정', valueEn: 'Spec to be updated' },
+      { label: '통신', labelEn: 'Communication', value: 'RS-485, Modbus RTU/TCP', valueEn: 'RS-485, Modbus RTU/TCP' },
+      { label: '출력', labelEn: 'Output', value: '4~20mA', valueEn: '4~20mA' },
+    ],
+    image: '/images/products/wbss-main.png',
+    gallery: ['/images/products/wbss-main.png'],
+  },
+  {
     slug: 'wbdo10',
     model: 'WBDO10',
     name: '광학식 용존산소계',
@@ -532,9 +572,9 @@ Made of SUS 304 stainless steel for excellent corrosion resistance and durabilit
       { label: '크기 (W×H×D)', labelEn: 'Dimensions (W×H×D)', value: '300 × 400 × 200 mm (표준형)', valueEn: '300 × 400 × 200 mm (standard)' },
       { label: '중량', labelEn: 'Weight', value: '약 4.5 kg (표준형)', valueEn: 'Approx. 4.5 kg (standard)' },
     ],
-    image: '/images/products/sampling-tank-main.png',
+    image: '/images/products/wbst-main.png',
     gallery: [
-      '/images/products/sampling-tank-main.png',
+      '/images/products/wbst-main.png',
     ],
   },
   {

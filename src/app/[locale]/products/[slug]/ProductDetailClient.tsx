@@ -16,18 +16,15 @@ type TabKey = 'overview' | 'specs' | 'features'
 function ProductImageWithFallback({ src, alt, model, slug }: { src: string; alt: string; model: string; slug: string }) {
   const [error, setError] = useState(false)
   const detailPadding: Record<string, string> = {
-    'wbcl10':    'p-0',
-    'wbtu10':    'p-0',
+    'wbcl10':    'p-4',
+    'wbtu10':    'p-4',
     'wbtu-pro':  'p-16',
     'wbph10':    'p-8',
     'wbec10':    'p-8',
     'wbph-pbs01':'p-8',
     'wbec-cond': 'p-8',
   }
-  const detailPos: Record<string, string> = {
-    'wbtu10': 'object-left',
-  }
-  const imgPad = `${detailPadding[slug] ?? 'p-4'} ${detailPos[slug] ?? ''}`
+  const imgPad = detailPadding[slug] ?? 'p-4'
   if (error) {
     return (
       <>
