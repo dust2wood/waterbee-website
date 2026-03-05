@@ -10,6 +10,7 @@ import type { Product } from '@/lib/products'
 import ProductSpecTable from '@/components/products/ProductSpecTable'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import FilterDrainDetail from '@/components/products/FilterDrainDetail'
 
 type TabKey = 'overview' | 'specs' | 'features'
 
@@ -60,6 +61,10 @@ export default function ProductDetailClient({ product }: { product: Product }) {
   const [activeTab, setActiveTab] = useState<TabKey>('overview')
   const [activeImg, setActiveImg] = useState(product.image)
   const hasGallery = product.gallery.length > 1
+
+  if (product.slug === 'filter-drain') {
+    return <FilterDrainDetail />
+  }
 
   const tabs: { key: TabKey; label: string }[] = [
     { key: 'overview', label: t('overview') },
