@@ -679,7 +679,7 @@ Capable of precise measurement in low-conductivity environments (10–200 μS/cm
       '/images/products/ph-ec-board-main.svg',
     ],
   },
-  {
+
   // ─── 소모품 ───────────────────────────────────────────────────
   {
     slug: 'wbcl10-electrode-kit',
