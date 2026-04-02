@@ -8,12 +8,14 @@ import ProductCard from './ProductCard'
 import ProductFilter from './ProductFilter'
 import { PackageSearch, Sparkles, ChevronRight } from 'lucide-react'
 
-// 그룹 서브카테고리 매핑 (표시 레이블 → 실제 product category 값)
+// 그룹 서브카테고리 → 실제 product category 값 매핑
 const SUB_CATEGORY_MAP: Record<string, string[]> = {
-  '광학계':   ['탁도', '용존산소'],
-  '이온계':   ['이온'],
-  'Optical':   ['Turbidity', 'Dissolved Oxygen'],
-  'Ion Meter': ['Ion'],
+  '센서부':          ['잔류염소', '탁도', 'pH', 'EC'],
+  'Sensors':         ['Residual Chlorine', 'Turbidity', 'pH', 'EC'],
+  '광학계':          ['탁도', '용존산소'],
+  '이온계':          ['이온'],
+  'Optical':         ['Turbidity', 'Dissolved Oxygen'],
+  'Ion Meter':       ['Ion'],
 }
 
 interface ProductGridProps {
@@ -28,10 +30,11 @@ export default function ProductGrid({ products }: ProductGridProps) {
   const [selectedSubCategory, setSelectedSubCategory] = useState('all')
   const [showAll, setShowAll] = useState(false)
 
-  const handleApplicationChange = useCallback((app: string) => {
+  // application 클릭 시 defaultSub도 함께 설정 (ProductFilter가 전달)
+  const handleApplicationChange = useCallback((app: string, defaultSub: string) => {
     const y = window.scrollY
     setSelectedApplication(app)
-    setSelectedSubCategory('all')
+    setSelectedSubCategory(defaultSub)
     setShowAll(false)
     requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior }))
   }, [])
@@ -48,7 +51,9 @@ export default function ProductGrid({ products }: ProductGridProps) {
     const appMatch = selectedApplication === 'all' || p.application.includes(selectedApplication)
     const catVal = isKo ? p.category : p.categoryEn
     const mapped = SUB_CATEGORY_MAP[selectedSubCategory]
-    const subMatch = selectedSubCategory === 'all' || (mapped ? mapped.includes(catVal) : catVal === selectedSubCategory)
+    const subMatch =
+      selectedSubCategory === 'all' ||
+      (mapped ? mapped.includes(catVal) : catVal === selectedSubCategory)
     return appMatch && subMatch
   })
 

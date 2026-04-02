@@ -3,19 +3,15 @@
 import { useState } from 'react'
 import { useLocale } from 'next-intl'
 import { clsx } from 'clsx'
-import { Filter, ChevronDown, ChevronRight } from 'lucide-react'
+import { Filter, ChevronDown, ChevronRight, Sparkles } from 'lucide-react'
 
-// 적용 분야 정의 (하위 카테고리는 products.ts의 category/categoryEn 값과 일치해야 함)
-const APP_CONFIG = [
+export const APP_CONFIG = [
   {
     key: 'water_treatment',
     labelKo: '정수처리·상수도',
     labelEn: 'Water Treatment',
     subs: [
-      { ko: '잔류염소',   en: 'Residual Chlorine' },
-      { ko: '탁도',      en: 'Turbidity' },
-      { ko: 'pH',        en: 'pH' },
-      { ko: 'EC',        en: 'EC' },
+      { ko: '센서부',     en: 'Sensors' },
       { ko: '샘플링 수조', en: 'Sampling Tank' },
       { ko: '소모품',     en: 'Consumables' },
     ],
@@ -35,24 +31,21 @@ const APP_CONFIG = [
     labelEn: 'Smart Filter Drain',
     subs: [
       { ko: '여과/드레인', en: 'Filtration/Drain' },
-      { ko: '잔류염소',   en: 'Residual Chlorine' },
-      { ko: '탁도',      en: 'Turbidity' },
+      { ko: '센서부',     en: 'Sensors' },
     ],
   },
   {
     key: 'smart_farm',
     labelKo: '스마트팜',
     labelEn: 'Smart Farm',
-    subs: [
-      { ko: '스마트팜', en: 'Smart Farm' },
-    ],
+    subs: [],
   },
 ]
 
 interface ProductFilterProps {
   selectedApplication: string
   selectedSubCategory: string
-  onApplicationChange: (app: string) => void
+  onApplicationChange: (app: string, defaultSub: string) => void
   onSubCategoryChange: (sub: string) => void
   resultCount: number
 }
@@ -71,22 +64,22 @@ export default function ProductFilter({
 
   const filterContent = (
     <>
-      {/* 전체 */}
+      {/* 추천 제품 버튼 */}
       <button
         type="button"
-        onClick={() => onApplicationChange('all')}
+        onClick={() => onApplicationChange('all', 'all')}
         className={clsx(
-          'w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 mb-2',
-          selectedApplication === 'all'
+          'w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 flex items-center gap-2 mb-4',
+          !hasActiveFilter
             ? 'bg-gold-500/10 text-gold-500 border border-gold-500/30'
             : 'text-text-secondary hover:text-white hover:bg-white/5',
         )}
       >
-        {isKo ? '전체 제품' : 'All Products'}
+        <Sparkles className="w-3.5 h-3.5 shrink-0" />
+        <span>{isKo ? '추천 제품' : 'Featured Products'}</span>
       </button>
 
-      {/* 적용 분야 아코디언 */}
-      <p className="text-text-secondary text-xs font-semibold uppercase tracking-wider px-1 mb-2 mt-4">
+      <p className="text-text-secondary text-xs font-semibold uppercase tracking-wider px-1 mb-2">
         {isKo ? '적용 분야' : 'Application'}
       </p>
 
@@ -94,13 +87,21 @@ export default function ProductFilter({
         {APP_CONFIG.map((app) => {
           const isOpen = selectedApplication === app.key
           const label = isKo ? app.labelKo : app.labelEn
+          const firstSub = app.subs.length > 0
+            ? (isKo ? app.subs[0].ko : app.subs[0].en)
+            : 'all'
 
           return (
             <div key={app.key}>
-              {/* 분야 버튼 */}
               <button
                 type="button"
-                onClick={() => onApplicationChange(isOpen ? 'all' : app.key)}
+                onClick={() => {
+                  if (isOpen) {
+                    onApplicationChange('all', 'all')
+                  } else {
+                    onApplicationChange(app.key, firstSub)
+                  }
+                }}
                 className={clsx(
                   'w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 flex items-center gap-2',
                   isOpen
@@ -115,24 +116,11 @@ export default function ProductFilter({
                 <span className="whitespace-nowrap">{label}</span>
               </button>
 
-              {/* 하위 카테고리 */}
-              {isOpen && (
+              {/* 하위 카테고리 (전체 없음, 자동 선택) */}
+              {isOpen && app.subs.length > 0 && (
                 <div className="mt-1 ml-4 space-y-0.5 border-l border-gold-500/20 pl-3">
-                  <button
-                    type="button"
-                    onClick={() => onSubCategoryChange('all')}
-                    className={clsx(
-                      'w-full text-left px-2 py-1.5 rounded-md text-xs transition-all duration-150',
-                      selectedSubCategory === 'all'
-                        ? 'text-gold-500 font-semibold'
-                        : 'text-text-secondary hover:text-white',
-                    )}
-                  >
-                    {isKo ? '전체' : 'All'}
-                  </button>
                   {app.subs.map((sub) => {
                     const subLabel = isKo ? sub.ko : sub.en
-                    const isSubSelected = selectedSubCategory === subLabel
                     return (
                       <button
                         key={sub.ko}
@@ -140,7 +128,7 @@ export default function ProductFilter({
                         onClick={() => onSubCategoryChange(subLabel)}
                         className={clsx(
                           'w-full text-left px-2 py-1.5 rounded-md text-xs transition-all duration-150',
-                          isSubSelected
+                          selectedSubCategory === subLabel
                             ? 'text-gold-500 font-semibold'
                             : 'text-text-secondary hover:text-white',
                         )}
@@ -155,17 +143,6 @@ export default function ProductFilter({
           )
         })}
       </div>
-
-      {/* 초기화 */}
-      {hasActiveFilter && (
-        <button
-          type="button"
-          onClick={() => { onApplicationChange('all'); onSubCategoryChange('all') }}
-          className="mt-6 w-full text-center text-text-secondary text-xs hover:text-gold-500 transition-colors py-2 border border-white/10 rounded-lg hover:border-gold-500/30"
-        >
-          {isKo ? '필터 초기화' : 'Reset Filter'}
-        </button>
-      )}
     </>
   )
 
@@ -184,20 +161,15 @@ export default function ProductFilter({
           )}
         >
           <Filter className="w-4 h-4" />
-          <span>{isKo ? '적용 분야 필터' : 'Filter by Application'}</span>
+          <span>{isKo ? '적용 분야 필터' : 'Filter'}</span>
           {hasActiveFilter && (
-            <span className="bg-gold-500 text-navy-900 text-xs rounded-full px-1.5 py-0.5 font-bold leading-none">
-              ON
-            </span>
+            <span className="bg-gold-500 text-navy-900 text-xs rounded-full px-1.5 py-0.5 font-bold leading-none">ON</span>
           )}
-          <span className="ml-auto text-text-secondary text-xs">{resultCount}{isKo ? '개' : ' items'}</span>
+          <span className="ml-auto text-text-secondary text-xs">{resultCount}{isKo ? '개' : ''}</span>
           <ChevronDown className={clsx('w-4 h-4 transition-transform duration-200', mobileOpen && 'rotate-180')} />
         </button>
-
         {mobileOpen && (
-          <div className="mt-2 bg-navy-800 border border-white/10 rounded-2xl p-4">
-            {filterContent}
-          </div>
+          <div className="mt-2 bg-navy-800 border border-white/10 rounded-2xl p-4">{filterContent}</div>
         )}
       </div>
 
