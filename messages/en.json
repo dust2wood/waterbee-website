@@ -152,8 +152,6 @@
       "company": "Waterbee Co., Ltd.",
       "company_name_label": "Company Name",
       "address_value": "39, Ecodeltasmart-ro, Gangseo-gu, Busan, 3-dong 2-ho",
-      "ceo": "CEO",
-      "ceo_value": "Son Ho-jeong",
       "address": "Address",
       "phone": "Phone",
       "email": "Email",
@@ -218,9 +216,7 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "copyright": "© 2026 Waterbee Co., Ltd. All rights reserved.",
-    "business_number": "Business Registration No.",
-    "ceo": "Representative",
-    "ceo_value": "Son Ho-jeong"
+    "business_number": "Business Registration No."
   },
   "common": {
     "loading": "Loading...",

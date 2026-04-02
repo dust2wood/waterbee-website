@@ -86,9 +86,6 @@ export default function Footer() {
               <p className="text-text-secondary text-xs">
                 {t('business_number')} 291-87-02513
               </p>
-              <p className="text-text-secondary text-xs">
-                {t('ceo')} {t('ceo_value')}
-              </p>
             </div>
           </div>
         </div>

@@ -28,11 +28,11 @@ const PIPE_OPTIONS = ['50A', '80A', '100A', '125A', '150A', '200A'] as const
 type Pipe = typeof PIPE_OPTIONS[number]
 
 const FILTER_OPTIONS = [
-  { code: 'F-100', micron: 100, label: '100μm', sub: '1차 여과', cycle: '6~12개월', use: '농업·공업용수, 1차 전처리' },
-  { code: 'F-50',  micron: 50,  label: '50μm',  sub: '표준 여과', cycle: '3~6개월',  use: '상수도 배수지, 가압장 표준' },
-  { code: 'F-10',  micron: 10,  label: '10μm',  sub: '정밀 여과', cycle: '1~3개월',  use: '고수질 요구 현장, K-water 기준' },
-  { code: 'F-Custom', micron: null, label: '커스텀', sub: '맞춤형', cycle: '협의', use: '특수 환경, 다단 복합 배열' },
-] as const
+  { code: 'F-100', micron: 100, label: '100μm', sub: '1차 여과', subEn: 'Pre-filtration', cycle: '6~12개월', cycleEn: '6–12 months', use: '농업·공업용수, 1차 전처리', useEn: 'Agriculture / industrial water, primary pre-treatment' },
+  { code: 'F-50',  micron: 50,  label: '50μm',  sub: '표준 여과', subEn: 'Standard',      cycle: '3~6개월',  cycleEn: '3–6 months',  use: '상수도 배수지, 가압장 표준',      useEn: 'Municipal distribution tanks, booster stations' },
+  { code: 'F-10',  micron: 10,  label: '10μm',  sub: '정밀 여과', subEn: 'Precision',     cycle: '1~3개월',  cycleEn: '1–3 months',  use: '고수질 요구 현장, K-water 기준', useEn: 'High water quality sites, K-water standard' },
+  { code: 'F-Custom', micron: null, label: 'Custom', sub: '맞춤형', subEn: 'Custom',      cycle: '협의',     cycleEn: 'By negotiation', use: '특수 환경, 다단 복합 배열',   useEn: 'Special environments, multi-stage arrays' },
+]
 
 type FilterCode = 'F-100' | 'F-50' | 'F-10' | 'F-Custom'
 type Measurement = 'Basic' | 'Standard' | 'Smart'
@@ -164,12 +164,12 @@ const COMPARE_ROWS: CompareRow[] = [
 ]
 
 const PERF_SPECS = [
-  { label: '시스템 응답속도', value: '5분 이내 자동드레인', sub: '탁도 0.5 NTU 초과 후' },
-  { label: '여과 효율', value: '95% 이상', sub: '원수 1±0.5 NTU 조건' },
-  { label: '자동드레인 정확도', value: '100%', sub: '0.5 NTU 초과 반복시험' },
-  { label: '여과수 탁도', value: '0.5 NTU 이하', sub: '연속 유지' },
-  { label: '탁도 측정 정확도', value: '±0.05 NTU', sub: '이내' },
-  { label: '잔류염소 정확도', value: '±0.05 mg/L', sub: '이내' },
+  { label: '시스템 응답속도', labelEn: 'System Response',      value: '5분 이내 자동드레인', valueEn: '< 5 min auto-drain',  sub: '탁도 0.5 NTU 초과 후',   subEn: 'After 0.5 NTU exceedance' },
+  { label: '여과 효율',       labelEn: 'Filtration Efficiency', value: '95% 이상',           valueEn: '≥95%',               sub: '원수 1±0.5 NTU 조건',   subEn: 'At raw water 1±0.5 NTU' },
+  { label: '자동드레인 정확도', labelEn: 'Auto-Drain Accuracy', value: '100%',               valueEn: '100%',               sub: '0.5 NTU 초과 반복시험', subEn: 'Repeated tests above 0.5 NTU' },
+  { label: '여과수 탁도',     labelEn: 'Filtered Turbidity',   value: '0.5 NTU 이하',       valueEn: '≤0.5 NTU',           sub: '연속 유지',             subEn: 'Continuously maintained' },
+  { label: '탁도 측정 정확도', labelEn: 'Turbidity Accuracy',  value: '±0.05 NTU',          valueEn: '±0.05 NTU',          sub: '이내',                  subEn: '' },
+  { label: '잔류염소 정확도', labelEn: 'Cl₂ Accuracy',         value: '±0.05 mg/L',         valueEn: '±0.05 mg/L',         sub: '이내',                  subEn: '' },
 ]
 
 // ─── 구성 선택기 결과 계산 ─────────────────────────────────────────
@@ -180,12 +180,12 @@ function resolveModel(pipe: Pipe, filter: FilterCode, measurement: Measurement, 
   const seriesId = isLarge ? 'C' : 'B'
 
   if (isPVC && measurement === 'Basic' && control === 'basic') {
-    return { code: 'WB-FD-50P', series: 'A', name: 'PVC 경량형' }
+    return { code: 'WB-FD-50P', series: 'A', name: 'PVC 경량형', nameEn: 'PVC Lightweight' }
   }
   if (isLarge) {
-    return { code: `WB-FD-${pipe}L`, series: 'C', name: 'SUS 대형형' }
+    return { code: `WB-FD-${pipe}L`, series: 'C', name: 'SUS 대형형', nameEn: 'SUS304 Large-Scale' }
   }
-  return { code: `WB-FD-${pipe}S`, series: seriesId, name: 'SUS 표준형' }
+  return { code: `WB-FD-${pipe}S`, series: seriesId, name: 'SUS 표준형', nameEn: 'SUS304 Standard' }
 }
 
 // ─── 컴포넌트 ──────────────────────────────────────────────────────
@@ -218,7 +218,7 @@ export default function FilterDrainDetail() {
   ]
   const controlOptions: { key: Control; label: string; desc: string }[] = [
     { key: 'basic', label: isKo ? '기본 제어' : 'Basic Control', desc: isKo ? '전동밸브 + 자동드레인 로직' : 'Motorized valve + auto-drain logic' },
-    { key: 'plc',   label: 'PLC 제어',                           desc: isKo ? 'PLC + HMI 터치패널' : 'PLC + HMI touch panel' },
+    { key: 'plc',   label: isKo ? 'PLC 제어' : 'PLC Control',     desc: isKo ? 'PLC + HMI 터치패널' : 'PLC + HMI touch panel' },
     { key: 'smart', label: isKo ? '스마트 제어' : 'Smart Control', desc: isKo ? 'PLC + HMI + 원격통신(LTE/유선)' : 'PLC + HMI + remote comm. (LTE/wired)' },
   ]
 
@@ -479,8 +479,8 @@ export default function FilterDrainDetail() {
                   }`}
                 >
                   <div className="text-white font-bold text-sm">{f.label}</div>
-                  <div className="text-text-secondary text-xs mt-0.5">{isKo ? f.sub : f.sub}</div>
-                  <div className="text-text-secondary text-xs mt-1">{isKo ? `교체: ${f.cycle}` : `Cycle: ${f.cycle}`}</div>
+                  <div className="text-text-secondary text-xs mt-0.5">{isKo ? f.sub : f.subEn}</div>
+                  <div className="text-text-secondary text-xs mt-1">{isKo ? `교체: ${f.cycle}` : `Cycle: ${f.cycleEn}`}</div>
                 </button>
               ))}
             </div>
@@ -488,7 +488,7 @@ export default function FilterDrainDetail() {
               <div className="mt-3 text-xs text-text-secondary">
                 {isKo
                   ? `추천 용도: ${FILTER_OPTIONS.find(f => f.code === selFilter)?.use}`
-                  : `Recommended for: ${FILTER_OPTIONS.find(f => f.code === selFilter)?.use}`}
+                  : `Recommended for: ${FILTER_OPTIONS.find(f => f.code === selFilter)?.useEn}`}
               </div>
             )}
           </div>
@@ -557,7 +557,7 @@ export default function FilterDrainDetail() {
               <div>
                 <div className="text-white text-2xl font-bold font-mono">{resolved.code}</div>
                 <div className="text-text-secondary text-sm mt-1">
-                  {isKo ? `계열 ${resolved.series} — ${resolved.name}` : `Series ${resolved.series} — ${resolved.name}`}
+                  {isKo ? `계열 ${resolved.series} — ${resolved.name}` : `Series ${resolved.series} — ${resolved.nameEn}`}
                   {' · '}
                   {isKo ? `필터 ${FILTER_OPTIONS.find(f => f.code === selFilter)?.label}` : `Filter ${FILTER_OPTIONS.find(f => f.code === selFilter)?.label}`}
                   {' · '}
@@ -590,9 +590,9 @@ export default function FilterDrainDetail() {
             {PERF_SPECS.map((s, i) => (
               <AnimatedSection key={i} delay={i * 0.05}>
                 <div className="bg-navy-800 border border-white/10 rounded-xl p-4 text-center">
-                  <div className="text-gold-500 text-xl font-bold leading-tight">{s.value}</div>
-                  <div className="text-text-secondary text-xs mt-1">{s.sub}</div>
-                  <div className="text-white text-xs font-medium mt-2 leading-snug" style={{ wordBreak: 'keep-all' }}>{s.label}</div>
+                  <div className="text-gold-500 text-xl font-bold leading-tight">{isKo ? s.value : s.valueEn}</div>
+                  <div className="text-text-secondary text-xs mt-1">{isKo ? s.sub : s.subEn}</div>
+                  <div className="text-white text-xs font-medium mt-2 leading-snug" style={{ wordBreak: 'keep-all' }}>{isKo ? s.label : s.labelEn}</div>
                 </div>
               </AnimatedSection>
             ))}
@@ -717,8 +717,8 @@ export default function FilterDrainDetail() {
                     <span className="text-gold-500 font-mono font-bold">{f.code}</span>
                   </td>
                   <td className="py-3 px-4 text-white">{f.micron ? `${f.micron} μm` : isKo ? '협의' : 'Negotiable'}</td>
-                  <td className="py-3 px-4 text-white">{f.cycle}</td>
-                  <td className="py-3 px-4 text-text-secondary hidden sm:table-cell" style={{ wordBreak: 'keep-all' }}>{f.use}</td>
+                  <td className="py-3 px-4 text-white">{isKo ? f.cycle : f.cycleEn}</td>
+                  <td className="py-3 px-4 text-text-secondary hidden sm:table-cell" style={{ wordBreak: 'keep-all' }}>{isKo ? f.use : f.useEn}</td>
                 </tr>
               ))}
             </tbody>
