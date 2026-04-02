@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   description:
     '주식회사 워터비는 회전전극식 잔류염소계, 탁도계, pH계, EC계를 전문으로 하는 수질 측정 솔루션 기업입니다.',
   keywords: ['잔류염소계', '탁도계', 'pH계', 'EC계', '수질측정', '수질모니터링', '정수장', '워터비'],
+  verification: {
+    google: 'FKdDoHEMxiQtzhQJgZfIfWPREXEe0tizZl4JGfGgWLQ',
+  },
   openGraph: {
     siteName: '워터비 (Waterbee)',
     locale: 'ko_KR',
