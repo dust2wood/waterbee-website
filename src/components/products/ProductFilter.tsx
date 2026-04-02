@@ -25,8 +25,8 @@ const APP_CONFIG = [
     labelKo: '산업·원수·하수처리',
     labelEn: 'Industrial & Wastewater',
     subs: [
-      { ko: '탁도', en: 'Turbidity' },
-      { ko: '이온', en: 'Ion' },
+      { ko: '광학계', en: 'Optical' },
+      { ko: '이온계', en: 'Ion Meter' },
     ],
   },
   {
@@ -44,8 +44,6 @@ const APP_CONFIG = [
     labelKo: '스마트팜',
     labelEn: 'Smart Farm',
     subs: [
-      { ko: 'pH',     en: 'pH' },
-      { ko: 'EC',     en: 'EC' },
       { ko: '스마트팜', en: 'Smart Farm' },
     ],
   },

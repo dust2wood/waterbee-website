@@ -32,8 +32,8 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               unoptimized={product.image.endsWith('.svg')}
               className={(() => {
                 const pad: Record<string, string> = {
-                  'wbcl10': 'p-3',
-                  'wbtu10': 'p-3',
+                  'wbcl10': 'p-8',
+                  'wbtu10': 'p-8',
                   'wbtu-pro': 'p-12',
                   'wbph10': 'p-10',
                   'wbec10': 'p-10',

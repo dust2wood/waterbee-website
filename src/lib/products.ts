@@ -40,7 +40,7 @@ export const products: Product[] = [
     category: '여과/드레인',
     categoryEn: 'Filtration/Drain',
     application: ['smart_filter_drain'],
-    featured: false,
+    featured: true,
     shortDescription: '정밀여과 + 자동드레인 일체형, 50A~200A 전 규격 대응 (특허 제10-2658845호)',
     shortDescriptionEn: 'Integrated precision filtration + auto-drain, 50A–200A full range (Patent No. 10-2658845)',
     description: `스마트 여과드레인 시스템은 정밀여과·수질측정·자동드레인을 하나의 모듈로 통합한 K-water 공동특허(제10-2658845호) 제품입니다.
@@ -633,7 +633,7 @@ Capable of precise measurement in low-conductivity environments (10–200 μS/cm
     category: '샘플링 수조',
     categoryEn: 'Sampling Tank',
     application: ['water_treatment'],
-    featured: true,
+    featured: false,
     shortDescription: '수질 측정기기용 샘플 공급 및 오버플로우 수조 시스템',
     shortDescriptionEn: 'Sample supply and overflow tank system for water quality instruments',
     description: `WB-ST 샘플링수조는 잔류염소계, 탁도계, pH/EC계 등 수질 측정기기에 균일한 샘플을 안정적으로 공급하기 위한 전처리 수조입니다.
