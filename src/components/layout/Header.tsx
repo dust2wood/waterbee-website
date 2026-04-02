@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
 import { Menu, Phone } from 'lucide-react'
 import { clsx } from 'clsx'
+import Image from 'next/image'
 import LanguageSwitcher from './LanguageSwitcher'
 import MobileMenu from './MobileMenu'
 
@@ -40,13 +41,15 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* 로고 */}
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 bg-gold-500 rounded-sm flex items-center justify-center">
-                <span className="text-navy-900 font-black text-sm">W</span>
-              </div>
-              <span className="text-white font-bold text-lg tracking-wider group-hover:text-gold-500 transition-colors">
-                WATERBEE
-              </span>
+            <Link href="/" className="flex items-center group">
+              <Image
+                src="/images/logo-new.png"
+                alt="WATERBEE"
+                width={140}
+                height={34}
+                className="h-8 w-auto"
+                priority
+              />
             </Link>
 
             {/* 데스크톱 네비게이션 */}

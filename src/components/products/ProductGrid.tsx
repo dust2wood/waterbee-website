@@ -16,36 +16,35 @@ export default function ProductGrid({ products }: ProductGridProps) {
   const t = useTranslations('products')
   const locale = useLocale()
   const isKo = locale === 'ko'
-  const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedApplication, setSelectedApplication] = useState('all')
-
-  const handleCategoryChange = useCallback((cat: string) => {
-    const y = window.scrollY
-    setSelectedCategory(cat)
-    requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior }))
-  }, [])
+  const [selectedSubCategory, setSelectedSubCategory] = useState('all')
 
   const handleApplicationChange = useCallback((app: string) => {
     const y = window.scrollY
     setSelectedApplication(app)
+    setSelectedSubCategory('all')
+    requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior }))
+  }, [])
+
+  const handleSubCategoryChange = useCallback((sub: string) => {
+    const y = window.scrollY
+    setSelectedSubCategory(sub)
     requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior }))
   }, [])
 
   const filtered = products.filter((p) => {
-    const catValue = isKo ? p.category : p.categoryEn
-    const catMatch = selectedCategory === 'all' || catValue === selectedCategory
-    const appMatch =
-      selectedApplication === 'all' || p.application.includes(selectedApplication)
-    return catMatch && appMatch
+    const appMatch = selectedApplication === 'all' || p.application.includes(selectedApplication)
+    const subMatch = selectedSubCategory === 'all' || (isKo ? p.category : p.categoryEn) === selectedSubCategory
+    return appMatch && subMatch
   })
 
   return (
     <div className="flex flex-col lg:flex-row gap-8">
       <ProductFilter
-        selectedCategory={selectedCategory}
         selectedApplication={selectedApplication}
-        onCategoryChange={handleCategoryChange}
+        selectedSubCategory={selectedSubCategory}
         onApplicationChange={handleApplicationChange}
+        onSubCategoryChange={handleSubCategoryChange}
         resultCount={filtered.length}
       />
 

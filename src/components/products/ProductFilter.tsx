@@ -1,117 +1,181 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations, useLocale } from 'next-intl'
+import { useLocale } from 'next-intl'
 import { clsx } from 'clsx'
-import { Filter, ChevronDown } from 'lucide-react'
-import { getAllProducts } from '@/lib/products'
+import { Filter, ChevronDown, ChevronRight } from 'lucide-react'
 
-const applications = ['all', 'water_treatment', 'smart_farm', 'smart_filter_drain', 'industrial_wastewater']
+// 적용 분야 정의 (하위 카테고리는 products.ts의 category/categoryEn 값과 일치해야 함)
+const APP_CONFIG = [
+  {
+    key: 'water_treatment',
+    labelKo: '정수처리 · 상수도',
+    labelEn: 'Water Treatment',
+    subs: [
+      { ko: '잔류염소', en: 'Residual Chlorine' },
+      { ko: '탁도',    en: 'Turbidity' },
+      { ko: 'pH',      en: 'pH' },
+      { ko: 'EC',      en: 'EC' },
+      { ko: '용존산소', en: 'Dissolved Oxygen' },
+      { ko: '샘플링',   en: 'Sampling' },
+      { ko: '소모품',   en: 'Consumables' },
+    ],
+  },
+  {
+    key: 'industrial_wastewater',
+    labelKo: '산업 · 원수 · 하수처리',
+    labelEn: 'Industrial & Wastewater',
+    subs: [
+      { ko: '탁도',    en: 'Turbidity' },
+      { ko: '용존산소', en: 'Dissolved Oxygen' },
+      { ko: '이온',    en: 'Ion' },
+    ],
+  },
+  {
+    key: 'smart_filter_drain',
+    labelKo: '스마트 여과드레인',
+    labelEn: 'Smart Filter Drain',
+    subs: [
+      { ko: '여과/드레인', en: 'Filtration/Drain' },
+      { ko: '잔류염소',   en: 'Residual Chlorine' },
+      { ko: '탁도',      en: 'Turbidity' },
+    ],
+  },
+  {
+    key: 'smart_farm',
+    labelKo: '스마트팜',
+    labelEn: 'Smart Farm',
+    subs: [
+      { ko: 'pH',     en: 'pH' },
+      { ko: 'EC',     en: 'EC' },
+      { ko: '스마트팜', en: 'Smart Farm' },
+    ],
+  },
+]
 
 interface ProductFilterProps {
-  selectedCategory: string
   selectedApplication: string
-  onCategoryChange: (cat: string) => void
+  selectedSubCategory: string
   onApplicationChange: (app: string) => void
+  onSubCategoryChange: (sub: string) => void
   resultCount: number
 }
 
 export default function ProductFilter({
-  selectedCategory,
   selectedApplication,
-  onCategoryChange,
+  selectedSubCategory,
   onApplicationChange,
+  onSubCategoryChange,
   resultCount,
 }: ProductFilterProps) {
-  const t = useTranslations('products.filter')
   const locale = useLocale()
   const isKo = locale === 'ko'
-  const allProducts = getAllProducts()
-  const categories = ['all', ...Array.from(new Set(allProducts.map((p) => isKo ? p.category : p.categoryEn)))]
   const [mobileOpen, setMobileOpen] = useState(false)
-  const hasActiveFilter = selectedCategory !== 'all' || selectedApplication !== 'all'
+  const hasActiveFilter = selectedApplication !== 'all'
 
   const filterContent = (
     <>
-      {/* 카테고리 */}
-      <div className="mb-6">
-        <h3 className="text-text-secondary text-xs font-semibold uppercase tracking-wider mb-3">
-          {t('category')}
-        </h3>
-        <div className="space-y-1">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              onClick={() => onCategoryChange(cat)}
-              className={clsx(
-                'w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-150',
-                selectedCategory === cat
-                  ? 'bg-gold-500/10 text-gold-500 border border-gold-500/30'
-                  : 'text-text-secondary hover:text-white hover:bg-white/5',
-              )}
-            >
-              {cat === 'all' ? t('all') : cat}
-            </button>
-          ))}
-        </div>
-      </div>
+      {/* 전체 */}
+      <button
+        type="button"
+        onClick={() => onApplicationChange('all')}
+        className={clsx(
+          'w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 mb-2',
+          selectedApplication === 'all'
+            ? 'bg-gold-500/10 text-gold-500 border border-gold-500/30'
+            : 'text-text-secondary hover:text-white hover:bg-white/5',
+        )}
+      >
+        {isKo ? '전체 제품' : 'All Products'}
+      </button>
 
-      {/* 적용 분야 */}
-      <div>
-        <h3 className="text-text-secondary text-xs font-semibold uppercase tracking-wider mb-3">
-          {t('application')}
-        </h3>
-        <div className="space-y-1">
-          {applications.map((app) => {
-            const label =
-              app === 'all'
-                ? t('all')
-                : app === 'water_treatment'
-                ? t('water_treatment')
-                : app === 'smart_farm'
-                ? t('smart_farm')
-                : app === 'smart_filter_drain'
-                ? t('smart_filter_drain')
-                : t('industrial_wastewater')
-            return (
+      {/* 적용 분야 아코디언 */}
+      <p className="text-text-secondary text-xs font-semibold uppercase tracking-wider px-1 mb-2 mt-4">
+        {isKo ? '적용 분야' : 'Application'}
+      </p>
+
+      <div className="space-y-1">
+        {APP_CONFIG.map((app) => {
+          const isOpen = selectedApplication === app.key
+          const label = isKo ? app.labelKo : app.labelEn
+
+          return (
+            <div key={app.key}>
+              {/* 분야 버튼 */}
               <button
-                key={app}
                 type="button"
-                onClick={() => onApplicationChange(app)}
+                onClick={() => onApplicationChange(isOpen ? 'all' : app.key)}
                 className={clsx(
-                  'w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-150',
-                  selectedApplication === app
+                  'w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 flex items-center gap-2',
+                  isOpen
                     ? 'bg-gold-500/10 text-gold-500 border border-gold-500/30'
                     : 'text-text-secondary hover:text-white hover:bg-white/5',
                 )}
               >
-                {label}
+                {isOpen
+                  ? <ChevronDown className="w-3.5 h-3.5 shrink-0" />
+                  : <ChevronRight className="w-3.5 h-3.5 shrink-0" />
+                }
+                <span>{label}</span>
               </button>
-            )
-          })}
-        </div>
+
+              {/* 하위 카테고리 */}
+              {isOpen && (
+                <div className="mt-1 ml-4 space-y-0.5 border-l border-gold-500/20 pl-3">
+                  <button
+                    type="button"
+                    onClick={() => onSubCategoryChange('all')}
+                    className={clsx(
+                      'w-full text-left px-2 py-1.5 rounded-md text-xs transition-all duration-150',
+                      selectedSubCategory === 'all'
+                        ? 'text-gold-500 font-semibold'
+                        : 'text-text-secondary hover:text-white',
+                    )}
+                  >
+                    {isKo ? '전체' : 'All'}
+                  </button>
+                  {app.subs.map((sub) => {
+                    const subLabel = isKo ? sub.ko : sub.en
+                    const isSubSelected = selectedSubCategory === subLabel
+                    return (
+                      <button
+                        key={sub.ko}
+                        type="button"
+                        onClick={() => onSubCategoryChange(subLabel)}
+                        className={clsx(
+                          'w-full text-left px-2 py-1.5 rounded-md text-xs transition-all duration-150',
+                          isSubSelected
+                            ? 'text-gold-500 font-semibold'
+                            : 'text-text-secondary hover:text-white',
+                        )}
+                      >
+                        {subLabel}
+                      </button>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
+          )
+        })}
       </div>
 
       {/* 초기화 */}
       {hasActiveFilter && (
         <button
           type="button"
-          onClick={() => {
-            onCategoryChange('all')
-            onApplicationChange('all')
-          }}
+          onClick={() => { onApplicationChange('all'); onSubCategoryChange('all') }}
           className="mt-6 w-full text-center text-text-secondary text-xs hover:text-gold-500 transition-colors py-2 border border-white/10 rounded-lg hover:border-gold-500/30"
         >
-          {t('reset')}
+          {isKo ? '필터 초기화' : 'Reset Filter'}
         </button>
       )}
     </>
   )
 
   return (
-    <aside className="w-full lg:w-64 shrink-0">
-      {/* 모바일: 탭 토글 */}
+    <aside className="w-full lg:w-56 shrink-0">
+      {/* 모바일 */}
       <div className="lg:hidden">
         <button
           type="button"
@@ -124,13 +188,13 @@ export default function ProductFilter({
           )}
         >
           <Filter className="w-4 h-4" />
-          <span>{t('filter_title')}</span>
+          <span>{isKo ? '적용 분야 필터' : 'Filter by Application'}</span>
           {hasActiveFilter && (
             <span className="bg-gold-500 text-navy-900 text-xs rounded-full px-1.5 py-0.5 font-bold leading-none">
               ON
             </span>
           )}
-          <span className="ml-auto text-text-secondary text-xs">{t('result_count', { count: resultCount })}</span>
+          <span className="ml-auto text-text-secondary text-xs">{resultCount}{isKo ? '개' : ' items'}</span>
           <ChevronDown className={clsx('w-4 h-4 transition-transform duration-200', mobileOpen && 'rotate-180')} />
         </button>
 
@@ -141,13 +205,13 @@ export default function ProductFilter({
         )}
       </div>
 
-      {/* PC: 기존 sticky 사이드바 */}
+      {/* PC 사이드바 */}
       <div className="hidden lg:block">
-        <div className="bg-navy-800 border border-white/10 rounded-2xl p-6 sticky top-24">
-          <div className="flex items-center gap-2 mb-6">
+        <div className="bg-navy-800 border border-white/10 rounded-2xl p-5 sticky top-24">
+          <div className="flex items-center gap-2 mb-5">
             <Filter className="w-4 h-4 text-gold-500" />
-            <h2 className="text-white font-semibold text-sm">{t('filter_title')}</h2>
-            <span className="ml-auto text-text-secondary text-xs">{t('result_count', { count: resultCount })}</span>
+            <h2 className="text-white font-semibold text-sm">{isKo ? '제품 필터' : 'Filter'}</h2>
+            <span className="ml-auto text-text-secondary text-xs">{resultCount}{isKo ? '개' : ''}</span>
           </div>
           {filterContent}
         </div>
