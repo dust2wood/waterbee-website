@@ -9,26 +9,24 @@ import { Filter, ChevronDown, ChevronRight } from 'lucide-react'
 const APP_CONFIG = [
   {
     key: 'water_treatment',
-    labelKo: '정수처리 · 상수도',
+    labelKo: '정수처리·상수도',
     labelEn: 'Water Treatment',
     subs: [
-      { ko: '잔류염소', en: 'Residual Chlorine' },
-      { ko: '탁도',    en: 'Turbidity' },
-      { ko: 'pH',      en: 'pH' },
-      { ko: 'EC',      en: 'EC' },
-      { ko: '용존산소', en: 'Dissolved Oxygen' },
-      { ko: '샘플링',   en: 'Sampling' },
-      { ko: '소모품',   en: 'Consumables' },
+      { ko: '잔류염소',   en: 'Residual Chlorine' },
+      { ko: '탁도',      en: 'Turbidity' },
+      { ko: 'pH',        en: 'pH' },
+      { ko: 'EC',        en: 'EC' },
+      { ko: '샘플링 수조', en: 'Sampling Tank' },
+      { ko: '소모품',     en: 'Consumables' },
     ],
   },
   {
     key: 'industrial_wastewater',
-    labelKo: '산업 · 원수 · 하수처리',
+    labelKo: '산업·원수·하수처리',
     labelEn: 'Industrial & Wastewater',
     subs: [
-      { ko: '탁도',    en: 'Turbidity' },
-      { ko: '용존산소', en: 'Dissolved Oxygen' },
-      { ko: '이온',    en: 'Ion' },
+      { ko: '탁도', en: 'Turbidity' },
+      { ko: '이온', en: 'Ion' },
     ],
   },
   {
@@ -116,7 +114,7 @@ export default function ProductFilter({
                   ? <ChevronDown className="w-3.5 h-3.5 shrink-0" />
                   : <ChevronRight className="w-3.5 h-3.5 shrink-0" />
                 }
-                <span>{label}</span>
+                <span className="whitespace-nowrap">{label}</span>
               </button>
 
               {/* 하위 카테고리 */}
@@ -174,7 +172,7 @@ export default function ProductFilter({
   )
 
   return (
-    <aside className="w-full lg:w-56 shrink-0">
+    <aside className="w-full lg:w-60 shrink-0">
       {/* 모바일 */}
       <div className="lg:hidden">
         <button
