@@ -5,16 +5,17 @@ import { clsx } from 'clsx'
 import type { LucideIcon } from 'lucide-react'
 import {
   Award,
-  Cpu,
+  BrainCircuit,
   Droplets,
   Eye,
   Gauge,
   Lightbulb,
+  Network,
   Orbit,
+  ScanLine,
   Shield,
   ShieldCheck,
-  Smartphone,
-  Wifi,
+  Workflow,
 } from 'lucide-react'
 import SectionTitle from '@/components/ui/SectionTitle'
 import AnimatedSection from '@/components/ui/AnimatedSection'
@@ -119,11 +120,11 @@ function TechnologySection({
         >
           <div className={clsx('space-y-6', reverse && 'lg:order-2')}>
             <div className="flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-gold-500/25 bg-gold-500/10 px-4 py-1 text-sm font-semibold uppercase tracking-[0.28em] text-gold-400">
+              <span className="rounded-full border border-gold-500/25 bg-gold-500/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-gold-400">
                 {content.eyebrow}
               </span>
               {content.status && (
-                <span className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-medium text-cyan-100">
+                <span className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1.5 text-[11px] font-semibold tracking-[0.14em] text-cyan-100">
                   {content.status}
                 </span>
               )}
@@ -246,7 +247,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
     {
       title: t('overview.items.2.title'),
       description: t('overview.items.2.description'),
-      Icon: Cpu,
+      Icon: BrainCircuit,
     },
   ]
 
@@ -297,17 +298,17 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
       {
         title: t('scattering.points.0.title'),
         description: t('scattering.points.0.description'),
-        Icon: Lightbulb,
+        Icon: Droplets,
       },
       {
         title: t('scattering.points.1.title'),
         description: t('scattering.points.1.description'),
-        Icon: Eye,
+        Icon: ScanLine,
       },
       {
         title: t('scattering.points.2.title'),
         description: t('scattering.points.2.description'),
-        Icon: Droplets,
+        Icon: Lightbulb,
       },
     ],
     strengthsTitle: t('scattering.strengths_title'),
@@ -331,17 +332,17 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
       {
         title: t('controller.points.0.title'),
         description: t('controller.points.0.description'),
-        Icon: Cpu,
+        Icon: Workflow,
       },
       {
         title: t('controller.points.1.title'),
         description: t('controller.points.1.description'),
-        Icon: Smartphone,
+        Icon: BrainCircuit,
       },
       {
         title: t('controller.points.2.title'),
         description: t('controller.points.2.description'),
-        Icon: Wifi,
+        Icon: Network,
       },
     ],
     strengthsTitle: t('controller.strengths_title'),
@@ -414,7 +415,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
                 <div className="space-y-3">
                   {patents.map((patent) => (
                     <div key={patent.no} className="rounded-xl border border-white/10 bg-navy-800 p-4">
-                      <div className="mb-1 font-mono text-xs text-gold-500">{patent.no}</div>
+                      <div className="mb-1 text-xs font-semibold tracking-[0.08em] text-gold-500">{patent.no}</div>
                       <div className="text-sm text-white">{patent.name}</div>
                     </div>
                   ))}

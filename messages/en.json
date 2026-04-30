@@ -35,10 +35,10 @@
     ]
   },
   "tech_features": {
-    "badge": "Core Technology",
-    "title": "Core technology in brief,\nDetails on the technology page",
-    "subtitle": "From rotating-electrode residual chlorine and 90° turbidity optics to the next ESP32 controller, the main technology pillars are summarized at a glance.",
-    "cta": "View Full Technology Page",
+    "badge": "Technology Portfolio",
+    "title": "Precise sensor engineering,\nA control platform built for trust",
+    "subtitle": "From rotating-electrode residual chlorine and bubble-removal 90deg turbidity optics to Python and AI-based smart control, Waterbee's core technologies are presented at a glance.",
+    "cta": "View Technology Page",
     "items": [
       {
         "tag": "Residual Chlorine",
@@ -46,14 +46,14 @@
         "description": "A continuous measurement method focused on reducing fouling buildup and supporting long-term stable operation."
       },
       {
-        "tag": "Turbidity Optics",
-        "title": "90° Scattered-Light Turbidity",
-        "description": "An optical layout optimized around the light source, sample cell, and detector for readable low-range turbidity data."
+        "tag": "Turbidity",
+        "title": "Bubble-Removal 90deg Turbidity",
+        "description": "A detachable bubble-removal stage and 90deg scattered-light detection help suppress microbubble interference in low-range turbidity reading."
       },
       {
-        "tag": "Smart Controller",
-        "title": "ESP32 Smart Controller",
-        "description": "A next-generation controller concept that expands sensor connectivity and field setup convenience with Wi-Fi and Bluetooth."
+        "tag": "Smart Control",
+        "title": "Python and AI Smart Controller",
+        "description": "A next-generation control platform that uses a Python operating environment and AI-assisted validation logic to improve measurement trust and operating visibility."
       }
     ]
   },
@@ -129,7 +129,7 @@
   "technology": {
     "badge": "Technology",
     "title": "Waterbee Core Technology",
-    "subtitle": "A field-oriented technology stack spanning residual chlorine, turbidity, and the next smart controller platform",
+    "subtitle": "From sensor structure precision to a control platform designed to raise data confidence, Waterbee's core technologies are organized in one place.",
     "overview": {
       "items": [
         {
@@ -137,12 +137,12 @@
           "description": "A patented structure balancing low maintenance and long-term stable continuous measurement"
         },
         {
-          "title": "90° Scattered-Light Turbidity",
-          "description": "Low-range turbidity optics visualized through the light source, sample cell, and detector layout"
+          "title": "Bubble-Removal 90deg Turbidity",
+          "description": "Low-range turbidity optics combining a detachable bubble-removal stage with 90deg scattered-light detection"
         },
         {
-          "title": "ESP32 Smart Controller",
-          "description": "A next-generation controller concept combining Wi-Fi · Bluetooth connectivity with existing wired integration"
+          "title": "Python and AI Smart Controller",
+          "description": "A control platform designed to improve confidence through a Python operating environment and AI-assisted validation"
         }
       ]
     },
@@ -199,26 +199,26 @@
     },
     "scattering": {
       "eyebrow": "Turbidity",
-      "title": "90° Scattered-Light Turbidity Measurement",
-      "subtitle": "A low-range optical layout that clearly positions the light source, sample cell, and 90° detector for readable turbidity change.",
-      "description": "Waterbee's turbidity approach separates the illumination axis from the detector axis so that scattered light can be read more consistently. The structure is intended for sites where low turbidity matters, such as clearwells and water treatment facilities.",
+      "title": "Bubble-Removal 90deg Scattered-Light Turbidity",
+      "subtitle": "A detachable bubble-removal stage combined with 90deg scattered-light detection helps reduce microbubble interference and stabilize low-range turbidity reading.",
+      "description": "Waterbee's turbidity approach separates the light source, flow cell, and detector while placing a bubble-removal stage ahead of the measurement cell. The structure is aimed at sites where low turbidity and microbubble management both matter, such as clearwells and water treatment facilities.",
       "tags": [
-        "90° Detector Geometry",
-        "Light-Source-Visible Diagram",
+        "Detachable Bubble-Removal Stage",
+        "90deg Scatter Detection",
         "Low-Range Turbidity Focus"
       ],
       "points": [
         {
-          "title": "Visible optical layout",
-          "description": "The light source location and sample path are intentionally easy to understand for maintenance and operation."
+          "title": "Detachable bubble-removal stage",
+          "description": "Microbubbles can be stripped before measurement so that interference on the turbidity signal is reduced more effectively."
         },
         {
-          "title": "Dedicated scattered-light readout",
-          "description": "The detector reads the 90° scattered signal rather than the transmitted beam, improving sensitivity to low turbidity change."
+          "title": "Dedicated 90deg scatter readout",
+          "description": "The detector reads the 90deg scattered signal rather than the transmitted beam, improving sensitivity to subtle low-range turbidity change."
         },
         {
-          "title": "Interference awareness",
-          "description": "The structure is arranged with attention to microbubbles, cell condition, and optical contamination."
+          "title": "Separated source and cell structure",
+          "description": "Separating the source, flow cell, and detector helps simplify maintenance understanding and signal interpretation."
         }
       ],
       "metrics": [
@@ -227,37 +227,37 @@
           "label": "Low-Range Band"
         },
         {
-          "value": "90°",
+          "value": "90deg",
           "label": "Detector Angle"
         },
         {
-          "value": "580 nm",
-          "label": "Displayed Light Source"
+          "value": "Detachable",
+          "label": "Bubble-Removal Module"
         }
       ],
       "strengths_title": "Strengths",
       "strengths": [
-        "The optical structure is suitable for reading subtle turbidity changes in low-range operation.",
-        "The source–cell–detector relationship is easy to interpret during maintenance work.",
-        "It provides an intuitive way to explain continuous turbidity monitoring behavior."
+        "The detachable bubble-removal stage helps suppress microbubble interference before measurement.",
+        "The 90deg scattered-light geometry is well suited to subtle low-range turbidity change.",
+        "The separated source and detector roles make maintenance and troubleshooting easier to explain."
       ],
       "considerations_title": "Operational Considerations",
       "considerations": [
-        "Flow-cell cleanliness and optical surface condition directly influence measurement confidence.",
-        "Microbubbles and sample flow characteristics should be considered when reading turbidity trends.",
-        "Low-range turbidity operation depends heavily on stable sampling and piping conditions."
+        "The bubble-removal stage and flow cell still need regular cleaning and inspection.",
+        "Flow stability and piping conditions affect both bubble separation efficiency and repeatability.",
+        "Low-range turbidity performance still depends heavily on stable sampling and optical cleanliness."
       ]
     },
     "controller": {
       "status": "Coming Soon",
       "eyebrow": "Smart Controller",
-      "title": "ESP32-Based Smart Controller",
-      "subtitle": "A next-generation control platform is being prepared to combine sensor acquisition, local control, and Wi-Fi · Bluetooth connectivity in one device.",
-      "description": "The new controller concept is being designed around an ESP32-based architecture that supports sensor data acquisition and local control while strengthening Wi-Fi and Bluetooth connectivity alongside existing wired outputs. The goal is an operational controller that also improves site commissioning, local inspection, and mobile access.",
+      "title": "Python and AI-Based Smart Controller",
+      "subtitle": "A next-generation control platform designed around a Python operating environment and AI-assisted validation logic to improve both measurement trust and operating visibility.",
+      "description": "The new controller is being designed to combine sensor acquisition, local control, and higher-level integration while adding Python-based extensibility and AI-assisted diagnostics for faster recognition of abnormal data behavior. The goal is an operational controller that unifies local UI, remote monitoring, and maintenance workflows.",
       "tags": [
-        "ESP32 Platform",
-        "Wi-Fi · Bluetooth",
-        "Hybrid Wired / Wireless"
+        "Python Operating Environment",
+        "AI Data Validation",
+        "Integrated Local / Remote Control"
       ],
       "points": [
         {
@@ -265,39 +265,39 @@
           "description": "It is intended to collect inputs from residual chlorine, turbidity, pH/EC, and other sensors while handling local control outputs."
         },
         {
-          "title": "Improved site setup convenience",
-          "description": "Bluetooth-based short-range access is planned to improve laptop or mobile accessibility during installation and inspection."
+          "title": "AI-assisted confidence management",
+          "description": "Anomaly detection and validation logic are intended to improve trust in measured values and speed up operator judgment."
         },
         {
-          "title": "Preserved higher-level integration",
-          "description": "Even with wireless connectivity, compatibility with RS-485, 4~20mA, and relay-based field integration remains important."
+          "title": "Preserved plant-side integration",
+          "description": "Compatibility with Modbus, 4~20mA, relay, and existing control panels remains part of the planned field interface strategy."
         }
       ],
       "metrics": [
         {
-          "value": "ESP32",
-          "label": "Next MCU Platform"
+          "value": "Python",
+          "label": "Extensible Runtime"
         },
         {
-          "value": "Wi-Fi + BLE",
-          "label": "Wireless Stack"
+          "value": "AI Assist",
+          "label": "Data Confidence Engine"
         },
         {
-          "value": "RS-485 · 4~20mA",
-          "label": "Existing Plant Integration"
+          "value": "Modbus · 4~20mA",
+          "label": "Plant Interface"
         }
       ],
       "strengths_title": "Strengths",
       "strengths": [
-        "The concept supports both wireless setup convenience and existing wired plant integration.",
-        "It can expand both local HMI behavior and mobile accessibility in the field.",
-        "The platform is flexible for future sensor expansion and firmware feature growth."
+        "A Python-based structure can support flexible feature growth and operating-logic upgrades.",
+        "AI-assisted validation can strengthen abnormality recognition and data-confidence workflows.",
+        "The platform is intended to unify sensing, local control, and higher-level integration in one operating layer."
       ],
       "considerations_title": "Operational Considerations",
       "considerations": [
-        "Wireless quality will still depend on installation location and RF conditions at the site.",
+        "AI-assisted diagnostics still depend on field data accumulation and clearly defined operating conditions.",
         "Firmware update and access-control strategy should be planned together with the hardware.",
-        "Critical facilities should still pair wireless features with stable power and wired fallback paths."
+        "Critical facilities still need signal redundancy and stable power design."
       ]
     },
     "patents": {

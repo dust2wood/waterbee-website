@@ -1,5 +1,6 @@
 'use client'
 
+import { Activity, Orbit, RefreshCw } from 'lucide-react'
 import { clsx } from 'clsx'
 
 interface RotatingElectrodeDiagramProps {
@@ -15,30 +16,22 @@ export default function RotatingElectrodeDiagram({
 
   const copy = isKo
     ? {
-        title: '회전전극식 잔류염소계 구조',
-        subtitle: '특허 회전전극이 전극 오염을 줄이며 안정적인 전류 신호를 유지합니다.',
-        motor: '구동 모터',
-        shaft: '회전축',
-        electrode: 'Au/Ag 회전 전극',
-        cleaning: '회전으로 표면 오염 완화',
-        inlet: '시료 유입',
-        outlet: '시료 배출',
-        signal: '안정 전류 신호',
-        controller: 'WBSC10 컨트롤러',
-        membrane: '멤브레인 교체 없음',
+        badge: 'WBCL10',
+        accent: '회전 전극 구조',
+        legends: [
+          { label: '회전 전극', Icon: Orbit },
+          { label: '자동 세정', Icon: RefreshCw },
+          { label: '안정 신호', Icon: Activity },
+        ],
       }
     : {
-        title: 'Rotating Electrode Residual Chlorine Structure',
-        subtitle: 'The patented rotating electrode suppresses fouling while keeping the current signal stable.',
-        motor: 'Drive Motor',
-        shaft: 'Rotary Shaft',
-        electrode: 'Au/Ag Rotating Electrode',
-        cleaning: 'Rotation reduces surface fouling',
-        inlet: 'Sample Inlet',
-        outlet: 'Sample Outlet',
-        signal: 'Stable Current Signal',
-        controller: 'WBSC10 Controller',
-        membrane: 'No membrane replacement',
+        badge: 'WBCL10',
+        accent: 'Rotating Electrode',
+        legends: [
+          { label: 'Rotation', Icon: Orbit },
+          { label: 'Auto Cleaning', Icon: RefreshCw },
+          { label: 'Stable Signal', Icon: Activity },
+        ],
       }
 
   return (
@@ -49,105 +42,93 @@ export default function RotatingElectrodeDiagram({
       )}
     >
       <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/60 to-transparent" />
-      <div className="mb-5 flex flex-col gap-2">
-        <span className="text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200/75">
-          WBCL10
+
+      <div className="mb-5 flex flex-wrap items-center gap-2">
+        <span className="rounded-full border border-gold-500/30 bg-gold-500/10 px-3 py-1.5 text-[11px] font-semibold tracking-[0.16em] text-gold-400">
+          {copy.badge}
         </span>
-        <h3 className="text-lg font-semibold text-white">{copy.title}</h3>
-        <p className="max-w-2xl text-sm leading-6 text-text-secondary">{copy.subtitle}</p>
+        <span className="rounded-full border border-cyan-300/18 bg-cyan-300/10 px-3 py-1.5 text-[11px] font-semibold tracking-[0.14em] text-cyan-100">
+          {copy.accent}
+        </span>
       </div>
 
-      <svg viewBox="0 0 760 520" xmlns="http://www.w3.org/2000/svg" className="w-full">
+      <svg viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" className="w-full">
         <defs>
-          <linearGradient id="cellFill" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="rgba(111,199,255,0.4)" />
-            <stop offset="100%" stopColor="rgba(111,199,255,0.08)" />
+          <linearGradient id="rotCellFill" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopColor="rgba(123,227,255,0.34)" />
+            <stop offset="100%" stopColor="rgba(123,227,255,0.08)" />
           </linearGradient>
-          <linearGradient id="signalStroke" x1="0" x2="1" y1="0" y2="0">
+          <linearGradient id="rotSignalStroke" x1="0" x2="1" y1="0" y2="0">
             <stop offset="0%" stopColor="#6FD9FF" />
             <stop offset="100%" stopColor="#FCC900" />
           </linearGradient>
-          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="10" result="coloredBlur" />
+          <filter id="rotGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="10" result="blur" />
             <feMerge>
-              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
 
-        <rect x="94" y="102" width="312" height="320" rx="36" fill="rgba(5,16,28,0.76)" stroke="rgba(255,255,255,0.08)" />
-        <rect x="122" y="162" width="256" height="224" rx="28" fill="url(#cellFill)" stroke="rgba(111,217,255,0.45)" />
-        <rect x="180" y="34" width="140" height="96" rx="26" fill="rgba(17,34,64,0.95)" stroke="rgba(252,201,0,0.35)" />
-        <circle cx="250" cy="82" r="18" fill="#FCC900" opacity="0.85" />
-        <circle cx="250" cy="82" r="8" fill="#FFE8A3" />
-        <rect x="240" y="130" width="20" height="72" rx="10" fill="#BCC7D1" opacity="0.92" />
-        <rect x="224" y="202" width="52" height="16" rx="8" fill="#8A97A6" opacity="0.9" />
-        <ellipse cx="250" cy="276" rx="76" ry="76" fill="none" stroke="#FCC900" strokeWidth="4" strokeDasharray="10 12" opacity="0.75" />
-        <path d="M301 224l20 4-13 14" fill="none" stroke="#FCC900" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M199 328l-20-4 13-14" fill="none" stroke="#FCC900" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="90" y="74" width="386" height="310" rx="42" fill="rgba(5,16,28,0.78)" stroke="rgba(255,255,255,0.08)" />
+        <rect x="124" y="136" width="318" height="186" rx="30" fill="url(#rotCellFill)" stroke="rgba(111,217,255,0.38)" />
 
-        <rect x="224" y="222" width="20" height="112" rx="10" fill="#E2D287" opacity="0.94" />
-        <rect x="256" y="222" width="20" height="112" rx="10" fill="#C8D7E5" opacity="0.94" />
-        <rect x="220" y="342" width="60" height="18" rx="9" fill="rgba(252,201,0,0.26)" />
-        <circle cx="250" cy="368" r="18" fill="rgba(255,255,255,0.22)" />
+        <rect x="210" y="34" width="148" height="78" rx="26" fill="rgba(17,34,64,0.96)" stroke="rgba(252,201,0,0.35)" />
+        <circle cx="284" cy="74" r="18" fill="#FCC900" opacity="0.88" />
+        <circle cx="284" cy="74" r="8" fill="#FFF0A3" />
+        <rect x="278" y="112" width="12" height="72" rx="6" fill="#D7E0E8" opacity="0.92" />
 
-        <path d="M122 274 H72 V236" fill="none" stroke="rgba(111,217,255,0.5)" strokeWidth="10" strokeLinecap="round" />
-        <path d="M378 330 H430 V368" fill="none" stroke="rgba(111,217,255,0.32)" strokeWidth="10" strokeLinecap="round" />
-        <circle cx="72" cy="236" r="8" fill="#6FD9FF" filter="url(#softGlow)" />
-        <circle cx="430" cy="368" r="8" fill="#6FD9FF" opacity="0.7" filter="url(#softGlow)" />
+        <circle cx="284" cy="230" r="76" fill="none" stroke="#FCC900" strokeWidth="4" strokeDasharray="12 12" opacity="0.78" />
+        <path d="M340 188l16 6-10 12" fill="none" stroke="#FCC900" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M228 272l-16-6 10-12" fill="none" stroke="#FCC900" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
 
-        <rect x="478" y="86" width="190" height="114" rx="28" fill="rgba(17,34,64,0.82)" stroke="rgba(255,255,255,0.08)" />
-        <text x="510" y="124" fill="#FCC900" fontSize="18" fontWeight="700">
-          {copy.controller}
-        </text>
+        <rect x="260" y="174" width="16" height="102" rx="8" fill="#E6D78C" opacity="0.96" />
+        <rect x="292" y="174" width="16" height="102" rx="8" fill="#D2DCE7" opacity="0.96" />
+        <rect x="254" y="286" width="60" height="18" rx="9" fill="rgba(252,201,0,0.24)" />
+        <circle cx="284" cy="320" r="18" fill="rgba(255,255,255,0.2)" />
+
+        <path d="M50 214 H124" fill="none" stroke="rgba(111,217,255,0.54)" strokeWidth="12" strokeLinecap="round" />
+        <circle cx="50" cy="214" r="8" fill="#6FD9FF" filter="url(#rotGlow)" />
+        <path d="M442 248 H528" fill="none" stroke="rgba(111,217,255,0.34)" strokeWidth="12" strokeLinecap="round" />
+        <circle cx="528" cy="248" r="8" fill="#6FD9FF" opacity="0.76" filter="url(#rotGlow)" />
+
+        <rect x="516" y="120" width="148" height="178" rx="34" fill="rgba(10,23,39,0.94)" stroke="rgba(255,255,255,0.08)" />
         <path
-          d="M508 164 C540 148 554 180 584 164 S628 148 650 168"
+          d="M540 214 C556 176 584 252 606 202 S646 176 652 234"
           fill="none"
-          stroke="url(#signalStroke)"
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-        <circle cx="650" cy="168" r="6" fill="#FCC900" filter="url(#softGlow)" />
-
-        <rect x="474" y="234" width="196" height="148" rx="28" fill="rgba(7,18,31,0.86)" stroke="rgba(255,255,255,0.08)" />
-        <text x="506" y="278" fill="#6FD9FF" fontSize="18" fontWeight="700">
-          {copy.signal}
-        </text>
-        <path
-          d="M508 320 C532 286 558 342 584 306 S630 280 646 320"
-          fill="none"
-          stroke="url(#signalStroke)"
+          stroke="url(#rotSignalStroke)"
           strokeWidth="6"
           strokeLinecap="round"
         />
         <path
-          d="M406 284 H452 C466 284 474 292 474 306"
+          d="M442 228 H500 C510 228 516 234 516 244"
           fill="none"
-          stroke="rgba(111,217,255,0.46)"
-          strokeWidth="5"
+          stroke="rgba(111,217,255,0.38)"
+          strokeWidth="4"
           strokeLinecap="round"
         />
+        <circle cx="652" cy="234" r="6" fill="#FCC900" filter="url(#rotGlow)" />
 
-        <g fill="#A8B8C8" fontSize="16">
-          <text x="170" y="26">{copy.motor}</text>
-          <text x="280" y="150">{copy.shaft}</text>
-          <text x="106" y="214">{copy.cleaning}</text>
-          <text x="78" y="222">↻</text>
-          <text x="96" y="414">{copy.inlet}</text>
-          <text x="352" y="414">{copy.outlet}</text>
-          <text x="122" y="454">{copy.membrane}</text>
-        </g>
-
-        <path d="M224 64 H146 V100" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="2" strokeDasharray="4 6" />
-        <path d="M250 164 H332 V190" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="2" strokeDasharray="4 6" />
-        <path d="M222 280 H148" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="2" strokeDasharray="4 6" />
-
-        <rect x="304" y="186" width="132" height="48" rx="18" fill="rgba(11,25,41,0.88)" stroke="rgba(252,201,0,0.18)" />
-        <text x="322" y="215" fill="#FFFFFF" fontSize="16" fontWeight="600">
-          {copy.electrode}
-        </text>
+        <circle cx="168" cy="176" r="6" fill="rgba(255,255,255,0.22)" />
+        <circle cx="180" cy="206" r="5" fill="rgba(255,255,255,0.18)" />
+        <circle cx="388" cy="286" r="6" fill="rgba(255,255,255,0.14)" />
+        <circle cx="408" cy="254" r="5" fill="rgba(255,255,255,0.18)" />
       </svg>
+
+      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+        {copy.legends.map(({ label, Icon }) => (
+          <div
+            key={label}
+            className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3"
+          >
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-gold-500/16 bg-gold-500/10">
+              <Icon className="h-4 w-4 text-gold-400" />
+            </div>
+            <span className="text-sm font-medium text-white/90">{label}</span>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

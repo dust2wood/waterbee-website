@@ -43,7 +43,7 @@ export default function HeroSection() {
             transition={{ duration: 0.5 }}
             className="mb-8"
           >
-            <span className="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-gold-500 uppercase">
+            <span className="inline-flex items-center gap-2 rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-gold-400">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gold-500" />
               {t('badge')}
             </span>
@@ -109,7 +109,7 @@ export default function HeroSection() {
           >
             <Link
               href="/technology"
-              className="group inline-flex items-center gap-2 rounded-xl bg-gold-500 px-8 py-3.5 text-sm font-bold tracking-wide text-navy-900 shadow-lg shadow-gold-500/20 transition-all duration-200 hover:bg-gold-400"
+              className="group inline-flex items-center gap-2 rounded-xl bg-gold-500 px-8 py-3.5 text-sm font-bold text-navy-900 shadow-lg shadow-gold-500/20 transition-all duration-200 hover:bg-gold-400"
             >
               {t('cta_primary')}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

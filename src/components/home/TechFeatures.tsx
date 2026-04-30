@@ -1,12 +1,12 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { Cpu, Eye, Orbit, ArrowRight } from 'lucide-react'
+import { BrainCircuit, Eye, Orbit, ArrowRight } from 'lucide-react'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import SectionTitle from '@/components/ui/SectionTitle'
 import { Link } from '@/i18n/navigation'
 
-const icons = [Orbit, Eye, Cpu]
+const icons = [Orbit, Eye, BrainCircuit]
 
 export default function TechFeatures() {
   const t = useTranslations('tech_features')
@@ -50,7 +50,7 @@ export default function TechFeatures() {
                   <Icon className="w-7 h-7 text-gold-500" />
                 </div>
 
-                <div className="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-gold-400/80">
+                <div className="mb-3 text-[11px] font-semibold tracking-[0.18em] text-gold-400/80">
                   {tag}
                 </div>
 
