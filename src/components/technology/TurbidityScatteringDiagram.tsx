@@ -1,4 +1,4 @@
-import { Droplets, ScanLine, Sparkles } from 'lucide-react'
+import { Droplets, Lightbulb, ScanLine } from 'lucide-react'
 import { clsx } from 'clsx'
 
 interface TurbidityScatteringDiagramProps {
@@ -15,20 +15,28 @@ export default function TurbidityScatteringDiagram({
   const copy = isKo
     ? {
         badge: 'WBTU10',
-        accent: '기포제거형 광학 구조',
+        accent: '90° 산란광 구조',
+        source: '광원',
+        transmitted: '투과광 감지기',
+        scattered: '산란광 감지기',
+        bubble: '탈부착식 기포제거부',
         legends: [
           { label: '기포 제거', Icon: Droplets },
+          { label: '광원·투과광', Icon: Lightbulb },
           { label: '90° 산란광', Icon: ScanLine },
-          { label: '저농도 안정', Icon: Sparkles },
         ],
       }
     : {
         badge: 'WBTU10',
-        accent: 'Bubble-Removal Optics',
+        accent: '90deg Scatter Optics',
+        source: 'Light Source',
+        transmitted: 'Transmitted Detector',
+        scattered: 'Scattered Detector',
+        bubble: 'Detachable Bubble Remover',
         legends: [
           { label: 'Bubble Removal', Icon: Droplets },
+          { label: 'Source & Beam', Icon: Lightbulb },
           { label: '90deg Scatter', Icon: ScanLine },
-          { label: 'Low-Range Stable', Icon: Sparkles },
         ],
       }
 
@@ -50,57 +58,84 @@ export default function TurbidityScatteringDiagram({
         </span>
       </div>
 
-      <svg viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" className="w-full">
+      <svg viewBox="0 0 760 500" xmlns="http://www.w3.org/2000/svg" className="w-full">
         <defs>
-          <linearGradient id="turBeam" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="#FFE066" />
-            <stop offset="100%" stopColor="#FCC900" />
+          <linearGradient id="beamFill" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="#1BE4FF" />
+            <stop offset="100%" stopColor="#08B5E9" />
           </linearGradient>
-          <linearGradient id="turScatter" x1="0" x2="0" y1="1" y2="0">
-            <stop offset="0%" stopColor="#7BE3FF" />
-            <stop offset="100%" stopColor="#C9F6FF" />
+          <linearGradient id="lampBody" x1="0" x2="1" y1="0" y2="0">
+            <stop offset="0%" stopColor="#A2F2B0" />
+            <stop offset="100%" stopColor="#5DC46E" />
           </linearGradient>
-          <filter id="turGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="8" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
-        <rect x="250" y="124" width="220" height="212" rx="38" fill="rgba(5,16,28,0.82)" stroke="rgba(255,255,255,0.08)" />
-        <rect x="286" y="158" width="148" height="144" rx="30" fill="rgba(123,227,255,0.18)" stroke="rgba(123,227,255,0.42)" />
+        <rect x="74" y="172" width="82" height="24" rx="12" fill="rgba(111,217,255,0.28)" stroke="rgba(111,217,255,0.3)" strokeWidth="2" />
+        <rect x="96" y="102" width="64" height="76" rx="24" fill="rgba(12,27,45,0.94)" stroke="rgba(140,235,255,0.25)" />
+        <circle cx="128" cy="118" r="6" fill="rgba(255,255,255,0.16)" />
+        <circle cx="122" cy="138" r="5" fill="rgba(255,255,255,0.24)" />
+        <circle cx="132" cy="160" r="7" fill="rgba(255,255,255,0.2)" />
+        <path d="M160 184 H198" fill="none" stroke="rgba(140,235,255,0.35)" strokeWidth="10" strokeLinecap="round" />
 
-        <rect x="194" y="70" width="56" height="146" rx="22" fill="rgba(17,34,64,0.96)" stroke="rgba(123,227,255,0.32)" strokeDasharray="8 8" />
-        <rect x="210" y="94" width="24" height="98" rx="12" fill="rgba(123,227,255,0.16)" stroke="rgba(123,227,255,0.34)" />
-        <path d="M222 70 V46" fill="none" stroke="rgba(123,227,255,0.34)" strokeWidth="8" strokeLinecap="round" />
-        <circle cx="222" cy="46" r="8" fill="#7BE3FF" filter="url(#turGlow)" />
-        <path d="M250 184 H286" fill="none" stroke="rgba(123,227,255,0.42)" strokeWidth="10" strokeLinecap="round" />
+        <path d="M184 226 H274" fill="none" stroke="url(#beamFill)" strokeWidth="12" strokeLinecap="round" />
+        <rect x="92" y="198" width="72" height="56" rx="24" fill="rgba(93,196,110,0.96)" stroke="rgba(255,255,255,0.18)" />
+        <rect x="84" y="214" width="16" height="24" rx="8" fill="rgba(215,215,215,0.88)" />
+        <path d="M164 226 H182" fill="none" stroke="rgba(93,196,110,0.85)" strokeWidth="8" strokeLinecap="round" />
 
-        <circle cx="220" cy="176" r="5" fill="rgba(255,255,255,0.28)" />
-        <circle cx="224" cy="156" r="4" fill="rgba(255,255,255,0.22)" />
-        <circle cx="218" cy="132" r="6" fill="rgba(255,255,255,0.18)" />
-        <circle cx="226" cy="110" r="4" fill="rgba(255,255,255,0.16)" />
+        <circle cx="392" cy="226" r="112" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.18)" strokeWidth="3" />
+        <circle cx="392" cy="226" r="102" fill="rgba(247,247,247,0.98)" opacity="0.94" />
+        <path d="M280 226 H504" fill="none" stroke="url(#beamFill)" strokeWidth="18" strokeLinecap="round" opacity="0.96" />
 
-        <rect x="68" y="198" width="96" height="76" rx="28" fill="rgba(17,34,64,0.96)" stroke="rgba(252,201,0,0.35)" />
-        <circle cx="116" cy="236" r="18" fill="#FCC900" opacity="0.88" />
-        <circle cx="116" cy="236" r="8" fill="#FFF0A3" />
-        <path d="M164 236 H286" fill="none" stroke="url(#turBeam)" strokeWidth="10" strokeLinecap="round" />
-        <path d="M434 236 H566" fill="none" stroke="rgba(255,224,102,0.24)" strokeWidth="8" strokeLinecap="round" strokeDasharray="16 14" />
+        <circle cx="366" cy="180" r="5" fill="#101010" />
+        <circle cx="388" cy="164" r="4" fill="#101010" />
+        <circle cx="424" cy="184" r="5" fill="#101010" />
+        <circle cx="446" cy="212" r="5" fill="#101010" />
+        <circle cx="350" cy="212" r="4" fill="#101010" />
+        <circle cx="392" cy="196" r="5" fill="#101010" />
+        <circle cx="420" cy="230" r="5" fill="#101010" />
+        <circle cx="360" cy="248" r="5" fill="#101010" />
+        <circle cx="396" cy="248" r="4" fill="#101010" />
+        <circle cx="438" cy="256" r="5" fill="#101010" />
+        <circle cx="372" cy="278" r="5" fill="#101010" />
+        <circle cx="404" cy="286" r="4" fill="#101010" />
+        <circle cx="430" cy="304" r="5" fill="#101010" />
 
-        <rect x="314" y="48" width="92" height="64" rx="24" fill="rgba(17,34,64,0.96)" stroke="rgba(123,227,255,0.35)" />
-        <circle cx="360" cy="80" r="16" fill="rgba(123,227,255,0.14)" stroke="rgba(123,227,255,0.46)" />
-        <path d="M360 158 V112" fill="none" stroke="url(#turScatter)" strokeWidth="9" strokeLinecap="round" />
+        <path d="M394 226 L354 308" fill="none" stroke="#101010" strokeWidth="2.2" strokeDasharray="6 6" />
+        <path d="M392 226 L384 314" fill="none" stroke="#101010" strokeWidth="2.2" strokeDasharray="6 6" />
+        <path d="M392 226 L414 314" fill="none" stroke="#101010" strokeWidth="2.2" strokeDasharray="6 6" />
 
-        <circle cx="344" cy="212" r="6" fill="#BFF4FF" opacity="0.58" />
-        <circle cx="366" cy="236" r="5" fill="#7BE3FF" opacity="0.88" />
-        <circle cx="394" cy="214" r="6" fill="#BFF4FF" opacity="0.42" />
-        <circle cx="382" cy="264" r="5" fill="#7BE3FF" opacity="0.72" />
-        <circle cx="336" cy="256" r="7" fill="#BFF4FF" opacity="0.35" />
+        <path d="M510 226 H574" fill="none" stroke="rgba(8,181,233,0.32)" strokeWidth="10" strokeLinecap="round" />
+        <rect x="576" y="198" width="74" height="56" rx="24" fill="rgba(93,196,110,0.96)" stroke="rgba(255,255,255,0.18)" />
+        <rect x="650" y="214" width="16" height="24" rx="8" fill="rgba(215,215,215,0.88)" />
 
-        <rect x="578" y="204" width="82" height="62" rx="24" fill="rgba(17,34,64,0.96)" stroke="rgba(255,255,255,0.08)" />
-        <circle cx="620" cy="236" r="14" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" />
+        <path d="M392 338 V380" fill="none" stroke="rgba(16,16,16,0.38)" strokeWidth="8" strokeLinecap="round" />
+        <rect x="356" y="382" width="72" height="56" rx="24" fill="rgba(93,196,110,0.96)" stroke="rgba(255,255,255,0.18)" />
+        <rect x="384" y="438" width="16" height="24" rx="8" fill="rgba(215,215,215,0.88)" />
+
+        <path d="M164 132 H236" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="2.5" />
+        <path d="M164 244 H236" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="2.5" />
+        <path d="M650 132 H548" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="2.5" />
+        <path d="M452 422 H574" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="2.5" />
+
+        <rect x="238" y="114" width="130" height="36" rx="18" fill="rgba(9,24,39,0.92)" stroke="rgba(140,235,255,0.18)" />
+        <text x="303" y="137" textAnchor="middle" fill="#EAF9FF" fontSize="14" fontWeight="600">
+          {copy.bubble}
+        </text>
+
+        <rect x="238" y="226" width="102" height="36" rx="18" fill="rgba(9,24,39,0.92)" stroke="rgba(252,201,0,0.18)" />
+        <text x="289" y="249" textAnchor="middle" fill="#FFF5D2" fontSize="14" fontWeight="600">
+          {copy.source}
+        </text>
+
+        <rect x="530" y="114" width="154" height="36" rx="18" fill="rgba(9,24,39,0.92)" stroke="rgba(140,235,255,0.18)" />
+        <text x="607" y="137" textAnchor="middle" fill="#EAF9FF" fontSize="14" fontWeight="600">
+          {copy.transmitted}
+        </text>
+
+        <rect x="576" y="404" width="136" height="36" rx="18" fill="rgba(9,24,39,0.92)" stroke="rgba(140,235,255,0.18)" />
+        <text x="644" y="427" textAnchor="middle" fill="#EAF9FF" fontSize="14" fontWeight="600">
+          {copy.scattered}
+        </text>
       </svg>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-3">

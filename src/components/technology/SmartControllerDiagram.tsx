@@ -1,9 +1,55 @@
-import { BrainCircuit, ShieldCheck, Workflow } from 'lucide-react'
+import {
+  Bluetooth,
+  BrainCircuit,
+  Database,
+  ShieldCheck,
+  Signal,
+  Wifi,
+  Workflow,
+} from 'lucide-react'
 import { clsx } from 'clsx'
 
 interface SmartControllerDiagramProps {
   locale: string
   className?: string
+}
+
+function Node({
+  icon: Icon,
+  className,
+  tone = 'cyan',
+}: {
+  icon: typeof Wifi
+  className?: string
+  tone?: 'cyan' | 'gold'
+}) {
+  const tones =
+    tone === 'gold'
+      ? 'border-gold-500/22 bg-gold-500/12 text-gold-400'
+      : 'border-cyan-300/20 bg-cyan-300/10 text-cyan-100'
+
+  return (
+    <div
+      className={clsx(
+        'absolute flex h-16 w-16 items-center justify-center rounded-2xl border backdrop-blur-sm shadow-[0_18px_40px_rgba(2,8,15,0.28)]',
+        tones,
+        className,
+      )}
+    >
+      <Icon className="h-7 w-7" />
+    </div>
+  )
+}
+
+function LinkLine({ className }: { className?: string }) {
+  return (
+    <div
+      className={clsx(
+        'absolute rounded-full bg-[linear-gradient(90deg,rgba(111,217,255,0.75),rgba(252,201,0,0.7))]',
+        className,
+      )}
+    />
+  )
 }
 
 export default function SmartControllerDiagram({
@@ -17,18 +63,18 @@ export default function SmartControllerDiagram({
         badge: '차세대 제어기',
         status: '출시 예정',
         legends: [
-          { label: 'Python 환경', Icon: Workflow },
-          { label: 'AI 검증', Icon: BrainCircuit },
-          { label: '현장 연동', Icon: ShieldCheck },
+          { label: 'Python 환경', Icon: Workflow, tone: 'gold' as const },
+          { label: 'AI 검증', Icon: BrainCircuit, tone: 'cyan' as const },
+          { label: 'Wi‑Fi / Bluetooth', Icon: Wifi, tone: 'cyan' as const },
         ],
       }
     : {
         badge: 'Next Controller',
         status: 'Coming Soon',
         legends: [
-          { label: 'Python Runtime', Icon: Workflow },
-          { label: 'AI Validation', Icon: BrainCircuit },
-          { label: 'Field Integration', Icon: ShieldCheck },
+          { label: 'Python Runtime', Icon: Workflow, tone: 'gold' as const },
+          { label: 'AI Validation', Icon: BrainCircuit, tone: 'cyan' as const },
+          { label: 'Wi‑Fi / Bluetooth', Icon: Wifi, tone: 'cyan' as const },
         ],
       }
 
@@ -50,68 +96,52 @@ export default function SmartControllerDiagram({
         </span>
       </div>
 
-      <svg viewBox="0 0 720 460" xmlns="http://www.w3.org/2000/svg" className="w-full">
-        <defs>
-          <linearGradient id="ctrlFlow" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="#6FD9FF" />
-            <stop offset="100%" stopColor="#FCC900" />
-          </linearGradient>
-          <filter id="ctrlGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="8" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
+      <div className="relative h-[360px] overflow-hidden rounded-[28px] border border-white/8 bg-[radial-gradient(circle_at_center,rgba(111,217,255,0.08),transparent_38%)]">
+        <LinkLine className="left-[50%] top-[31%] h-[3px] w-[18%]" />
+        <LinkLine className="left-[50%] top-[48%] h-[3px] w-[22%]" />
+        <LinkLine className="left-[28%] top-[48%] h-[3px] w-[18%]" />
+        <LinkLine className="left-[38%] top-[29%] h-[3px] w-[12%] -rotate-[35deg]" />
+        <LinkLine className="left-[38%] top-[63%] h-[3px] w-[12%] rotate-[35deg]" />
+        <LinkLine className="left-[49.8%] top-[67%] h-[18%] w-[3px]" />
 
-        <rect x="250" y="118" width="220" height="194" rx="40" fill="rgba(11,25,41,0.94)" stroke="rgba(255,255,255,0.08)" />
-        <rect x="290" y="158" width="140" height="114" rx="28" fill="rgba(17,34,64,0.96)" stroke="rgba(123,227,255,0.34)" />
-        <rect x="324" y="186" width="72" height="58" rx="18" fill="rgba(123,227,255,0.12)" stroke="rgba(123,227,255,0.46)" />
+        <Node icon={BrainCircuit} className="left-[18%] top-[18%]" />
+        <Node icon={Wifi} className="right-[16%] top-[20%]" />
+        <Node icon={Bluetooth} className="right-[18%] top-[44%]" />
+        <Node icon={ShieldCheck} className="left-[22%] top-[56%]" tone="gold" />
+        <Node icon={Signal} className="left-[44%] bottom-[11%]" tone="gold" />
 
-        <circle cx="360" cy="70" r="26" fill="rgba(123,227,255,0.12)" stroke="rgba(123,227,255,0.35)" />
-        <circle cx="320" cy="54" r="8" fill="#6FD9FF" opacity="0.72" filter="url(#ctrlGlow)" />
-        <circle cx="402" cy="56" r="8" fill="#FCC900" opacity="0.82" filter="url(#ctrlGlow)" />
-        <circle cx="360" cy="32" r="7" fill="#7BE3FF" opacity="0.72" filter="url(#ctrlGlow)" />
-        <path d="M360 118 V96" fill="none" stroke="url(#ctrlFlow)" strokeWidth="6" strokeLinecap="round" />
-        <path d="M338 58 H346" fill="none" stroke="rgba(123,227,255,0.38)" strokeWidth="3" strokeLinecap="round" />
-        <path d="M374 58 H384" fill="none" stroke="rgba(252,201,0,0.38)" strokeWidth="3" strokeLinecap="round" />
-        <path d="M360 42 V50" fill="none" stroke="rgba(123,227,255,0.38)" strokeWidth="3" strokeLinecap="round" />
+        <div className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(17,34,64,0.96),rgba(9,24,39,0.96))] shadow-[0_24px_70px_rgba(2,8,15,0.42)]">
+          <div className="absolute inset-4 rounded-[24px] border border-cyan-300/15" />
+          <div className="flex h-20 w-20 items-center justify-center rounded-[22px] border border-cyan-300/22 bg-cyan-300/10 text-cyan-100">
+            <Workflow className="h-10 w-10" />
+          </div>
+        </div>
 
-        <path d="M250 186 H150" fill="none" stroke="url(#ctrlFlow)" strokeWidth="6" strokeLinecap="round" />
-        <path d="M250 230 H120" fill="none" stroke="url(#ctrlFlow)" strokeWidth="6" strokeLinecap="round" />
-        <path d="M250 274 H150" fill="none" stroke="url(#ctrlFlow)" strokeWidth="6" strokeLinecap="round" />
-        <circle cx="126" cy="230" r="20" fill="rgba(17,34,64,0.96)" stroke="rgba(255,255,255,0.12)" />
-        <circle cx="156" cy="186" r="16" fill="rgba(17,34,64,0.96)" stroke="rgba(255,255,255,0.12)" />
-        <circle cx="156" cy="274" r="16" fill="rgba(17,34,64,0.96)" stroke="rgba(255,255,255,0.12)" />
-        <circle cx="126" cy="230" r="6" fill="#FCC900" />
-        <circle cx="156" cy="186" r="5" fill="#7BE3FF" />
-        <circle cx="156" cy="274" r="5" fill="#7BE3FF" />
-
-        <path d="M470 186 H580" fill="none" stroke="url(#ctrlFlow)" strokeWidth="6" strokeLinecap="round" />
-        <path d="M470 248 H604" fill="none" stroke="url(#ctrlFlow)" strokeWidth="6" strokeLinecap="round" />
-        <rect x="580" y="156" width="72" height="58" rx="22" fill="rgba(17,34,64,0.96)" stroke="rgba(123,227,255,0.32)" />
-        <circle cx="616" cy="185" r="14" fill="rgba(123,227,255,0.12)" stroke="rgba(123,227,255,0.38)" />
-        <rect x="584" y="226" width="92" height="62" rx="24" fill="rgba(17,34,64,0.96)" stroke="rgba(255,255,255,0.08)" />
-        <path d="M610 248c8-10 16-10 24 0" fill="none" stroke="#7BE3FF" strokeWidth="3" strokeLinecap="round" />
-        <path d="M604 256c12-16 28-16 40 0" fill="none" stroke="#7BE3FF" strokeWidth="3" strokeLinecap="round" />
-        <circle cx="624" cy="264" r="3" fill="#7BE3FF" />
-
-        <path d="M360 312 V382" fill="none" stroke="url(#ctrlFlow)" strokeWidth="6" strokeLinecap="round" />
-        <rect x="260" y="382" width="200" height="42" rx="20" fill="rgba(17,34,64,0.96)" stroke="rgba(255,255,255,0.08)" />
-        <circle cx="310" cy="403" r="6" fill="#FCC900" />
-        <circle cx="360" cy="403" r="6" fill="#7BE3FF" />
-        <circle cx="410" cy="403" r="6" fill="#FCC900" />
-      </svg>
+        <div className="absolute left-[34%] top-[35%] flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/80">
+          <Database className="h-5 w-5" />
+        </div>
+      </div>
 
       <div className="mt-5 grid gap-3 sm:grid-cols-3">
-        {copy.legends.map(({ label, Icon }) => (
+        {copy.legends.map(({ label, Icon, tone }) => (
           <div
             key={label}
             className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-gold-500/16 bg-gold-500/10">
-              <Icon className="h-4 w-4 text-gold-400" />
+            <div
+              className={clsx(
+                'flex h-10 w-10 items-center justify-center rounded-xl border',
+                tone === 'gold'
+                  ? 'border-gold-500/16 bg-gold-500/10'
+                  : 'border-cyan-300/16 bg-cyan-300/10',
+              )}
+            >
+              <Icon
+                className={clsx(
+                  'h-4 w-4',
+                  tone === 'gold' ? 'text-gold-400' : 'text-cyan-100',
+                )}
+              />
             </div>
             <span className="text-sm font-medium text-white/90">{label}</span>
           </div>
