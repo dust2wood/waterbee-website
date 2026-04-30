@@ -40,7 +40,14 @@ export default function SectionTitle({
         dangerouslySetInnerHTML={{ __html: title.replace(/\n/g, '<br/>') }}
       />
       {subtitle && (
-        <p className="mt-4 text-text-secondary text-base lg:text-lg max-w-2xl mx-auto">
+        <p
+          className={clsx(
+            'mt-4 max-w-2xl text-base text-text-secondary lg:text-lg',
+            align === 'center' && 'mx-auto',
+            align === 'left' && 'mx-0',
+            align === 'right' && 'ml-auto',
+          )}
+        >
           {subtitle}
         </p>
       )}

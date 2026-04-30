@@ -13,7 +13,37 @@
     "subtitle": "Waterbee's high-precision analysis technology goes beyond measuring numbers — it sets the standard for water that everyone can trust.",
     "cta_primary": "View Products",
     "cta_secondary": "Technical Inquiry",
-    "scroll": "Scroll"
+    "scroll": "Scroll",
+    "highlights": [
+      "Patented Rotating Electrode",
+      "Reagent-Free Continuous Analysis",
+      "SCADA · PLC Integration"
+    ],
+    "stats": [
+      {
+        "value": "±0.02 mg/L",
+        "label": "Typical Accuracy"
+      },
+      {
+        "value": "0.01~2.00 mg/L",
+        "label": "Residual Chlorine Range"
+      },
+      {
+        "value": "6+ Months",
+        "label": "Stable Operation Window"
+      }
+    ],
+    "panel": {
+      "eyebrow": "Signature Technology",
+      "title": "A residual chlorine analyzer that rotates away fouling",
+      "description": "WBCL10 combines Waterbee's patented rotating electrode and ion-electrode coating to reduce membrane-replacement burden and keep the current signal stable during long-term continuous operation.",
+      "image_alt": "Waterbee WBCL10 rotating electrode residual chlorine analyzer",
+      "labels": {
+        "motor": "Drive Motor",
+        "electrode": "Rotating Electrode",
+        "signal": "Stable Current Signal"
+      }
+    }
   },
   "tech_features": {
     "badge": "Core Technology",
@@ -108,8 +138,76 @@
     "title": "Waterbee Core Technology",
     "subtitle": "Proprietary core technology in water quality measurement — Patents, type approvals &amp; field-proven",
     "rotating_electrode": {
+      "eyebrow": "Signature Analyzer",
       "title": "Rotating Electrode Residual Chlorine Measurement",
-      "description": "Waterbee's patented rotating electrode technology mechanically removes electrode surface contamination, dramatically improving measurement stability and lifespan compared to conventional fixed electrodes. High accuracy within ±0.02 mg/L is guaranteed in the 0.01~2.00 mg/L residual chlorine range."
+      "subtitle": "The electrode rotates to suppress fouling, enabling long-duration residual chlorine monitoring in waterworks and industrial field environments.",
+      "description": "Waterbee's patented rotating electrode technology mechanically mitigates surface contamination, greatly improving stability and electrode life versus conventional fixed electrodes. It delivers high accuracy within ±0.02 mg/L across the 0.01~2.00 mg/L residual chlorine range while reducing maintenance burden without membrane consumables.",
+      "cta": "Explore the measurement principle",
+      "tags": [
+        "Reagent-Free Continuous Analysis",
+        "Auto-Cleaning Rotating Electrode",
+        "SCADA · PLC Integration"
+      ],
+      "points": [
+        {
+          "title": "Low-maintenance membrane-free structure",
+          "description": "By eliminating the replacement membrane used in conventional methods, the analyzer reduces service cost and downtime in the field."
+        },
+        {
+          "title": "Stable measurement under changing flow conditions",
+          "description": "The rotating electrode and ion-coated surface minimize error caused by flow variation and electrode fouling."
+        },
+        {
+          "title": "Designed for long-term stability",
+          "description": "Continuous surface conditioning helps suppress signal drift during extended operation."
+        }
+      ],
+      "steps": [
+        {
+          "title": "Sample inflow",
+          "description": "Sample water enters the measurement cell so residual chlorine reaches the reaction area in a consistent way."
+        },
+        {
+          "title": "Electrode rotation",
+          "description": "The drive motor rotates the electrode at a constant speed to reduce deposits and keep reaction conditions uniform."
+        },
+        {
+          "title": "Current detection",
+          "description": "The analyzer detects current proportional to residual chlorine concentration and converts it into a precise reading."
+        },
+        {
+          "title": "Controller output",
+          "description": "The WBSC10 controller displays the result and forwards it to higher-level systems through RS-485, Modbus, and 4~20mA."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "±0.02 mg/L",
+          "label": "Typical Accuracy"
+        },
+        {
+          "value": "0.01~2.00 mg/L",
+          "label": "Residual Chlorine Range"
+        },
+        {
+          "value": "pH 6~8",
+          "label": "Low-compensation operating band"
+        }
+      ],
+      "comparison": {
+        "rotating_title": "Waterbee Rotating Electrode",
+        "fixed_title": "Conventional Fixed Electrode",
+        "rotating_items": [
+          "Continuous rotation reduces fouling buildup on the electrode surface",
+          "Lower maintenance cost thanks to reduced consumable burden",
+          "More stable output with reduced drift during long continuous operation"
+        ],
+        "fixed_items": [
+          "Surface contamination can accumulate and shorten manual cleaning intervals",
+          "Frequent consumable replacement and calibration can increase operating burden",
+          "Signal variation may become larger as field flow and contamination conditions change"
+        ]
+      }
     },
     "scattering": {
       "title": "90° Scattered Light Turbidity Measurement",
