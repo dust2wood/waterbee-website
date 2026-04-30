@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { MapPin, Phone, Mail, Building2, Target, Eye as EyeIcon } from 'lucide-react'
+import { Award, MapPin, Phone, Mail, Building2, Target, Eye as EyeIcon } from 'lucide-react'
 import SectionTitle from '@/components/ui/SectionTitle'
 import AnimatedSection from '@/components/ui/AnimatedSection'
 import { Link } from '@/i18n/navigation'
@@ -24,6 +24,7 @@ const historyItemsKo = [
   {
     year: '2026',
     events: [
+      '스마트여과드레인 시스템 성과공유제 과제 선정',
       '우즈베키스탄 지역난방 시스템용 정밀 여과 솔루션 공급 및 설치',
     ],
   },
@@ -73,6 +74,7 @@ const historyItemsEn = [
   {
     year: '2026',
     events: [
+      'Selected for the 2026 Performance Sharing Project for the Smart Filter-Drain System',
       'Supply and installation of precision filtration solution for Uzbekistan district heating system',
     ],
   },
@@ -161,6 +163,29 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 {t('vision.title')}
               </h3>
               <p className="text-white text-xl font-bold">{t('vision.description')}</p>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection>
+          <div className="rounded-[28px] border border-cyan-300/15 bg-[radial-gradient(circle_at_top,rgba(74,154,202,0.18),transparent_32%),linear-gradient(145deg,rgba(17,34,64,0.95),rgba(8,17,29,0.96))] p-8">
+            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div className="flex items-start gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-gold-500/20 bg-gold-500/10">
+                  <Award className="h-6 w-6 text-gold-400" />
+                </div>
+                <div>
+                  <span className="inline-block rounded-full border border-gold-500/25 bg-gold-500/10 px-3 py-1 text-xs font-semibold tracking-[0.24em] text-gold-400 uppercase">
+                    {t('achievement.badge')}
+                  </span>
+                  <h3 className="mt-3 text-2xl font-bold text-white">
+                    {t('achievement.title')}
+                  </h3>
+                  <p className="mt-3 max-w-3xl text-sm leading-7 text-text-secondary">
+                    {t('achievement.description')}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </AnimatedSection>

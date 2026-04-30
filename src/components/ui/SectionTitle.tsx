@@ -28,7 +28,7 @@ export default function SectionTitle({
       )}
     >
       {badge && (
-        <span className="inline-block text-gold-500 text-sm font-semibold tracking-widest uppercase mb-3 border border-gold-500/30 bg-gold-500/10 px-4 py-1 rounded-full">
+        <span className="mb-3 inline-flex rounded-full border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-gold-400">
           {badge}
         </span>
       )}
@@ -40,7 +40,14 @@ export default function SectionTitle({
         dangerouslySetInnerHTML={{ __html: title.replace(/\n/g, '<br/>') }}
       />
       {subtitle && (
-        <p className="mt-4 text-text-secondary text-base lg:text-lg max-w-2xl mx-auto">
+        <p
+          className={clsx(
+            'mt-4 max-w-2xl text-base text-text-secondary lg:text-lg',
+            align === 'center' && 'mx-auto',
+            align === 'left' && 'mx-0',
+            align === 'right' && 'ml-auto',
+          )}
+        >
           {subtitle}
         </p>
       )}

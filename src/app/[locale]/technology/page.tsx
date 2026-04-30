@@ -1,8 +1,27 @@
+import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Eye, Radio, Award, Shield } from 'lucide-react'
+import { clsx } from 'clsx'
+import type { LucideIcon } from 'lucide-react'
+import {
+  Award,
+  BrainCircuit,
+  Droplets,
+  Eye,
+  Gauge,
+  Lightbulb,
+  Network,
+  Orbit,
+  ScanLine,
+  Shield,
+  ShieldCheck,
+  Workflow,
+} from 'lucide-react'
 import SectionTitle from '@/components/ui/SectionTitle'
 import AnimatedSection from '@/components/ui/AnimatedSection'
+import RotatingElectrodeDiagram from '@/components/technology/RotatingElectrodeDiagram'
+import TurbidityScatteringDiagram from '@/components/technology/TurbidityScatteringDiagram'
+import SmartControllerDiagram from '@/components/technology/SmartControllerDiagram'
 
 export async function generateMetadata({
   params,
@@ -55,6 +74,158 @@ const certificationsEn = [
   { name: 'Pilot Purchase Product', desc: 'Selected by Ministry of SMEs and Startups (residual Cl₂ & turbidity)' },
 ]
 
+interface SectionPoint {
+  title: string
+  description: string
+  Icon: LucideIcon
+}
+
+interface SectionMetric {
+  value: string
+  label: string
+}
+
+interface TechnologySectionContent {
+  eyebrow: string
+  title: string
+  subtitle: string
+  description: string
+  tags: string[]
+  metrics: SectionMetric[]
+  points: SectionPoint[]
+  strengthsTitle: string
+  strengths: string[]
+  considerationsTitle: string
+  considerations: string[]
+  status?: string
+}
+
+function TechnologySection({
+  content,
+  diagram,
+  reverse = false,
+}: {
+  content: TechnologySectionContent
+  diagram: ReactNode
+  reverse?: boolean
+}) {
+  return (
+    <AnimatedSection>
+      <div className="space-y-8">
+        <div
+          className={clsx(
+            'grid items-start gap-10 xl:gap-14',
+            reverse ? 'lg:grid-cols-[1.04fr,0.96fr]' : 'lg:grid-cols-[0.96fr,1.04fr]',
+          )}
+        >
+          <div className={clsx('space-y-6', reverse && 'lg:order-2')}>
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-gold-500/25 bg-gold-500/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-gold-400">
+                {content.eyebrow}
+              </span>
+              {content.status && (
+                <span className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1.5 text-[11px] font-semibold tracking-[0.14em] text-cyan-100">
+                  {content.status}
+                </span>
+              )}
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold text-white lg:text-4xl">
+                {content.title}
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-text-secondary">
+                {content.subtitle}
+              </p>
+              <p className="mt-4 text-base leading-8 text-text-secondary">
+                {content.description}
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3">
+              {content.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className={clsx(reverse && 'lg:order-1')}>{diagram}</div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {content.metrics.map((metric, index) => (
+            <AnimatedSection key={metric.label} delay={0.05 + index * 0.05}>
+              <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
+                <div className="text-2xl font-bold text-white">{metric.value}</div>
+                <div className="mt-2 text-sm text-text-secondary">{metric.label}</div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {content.points.map(({ title, description, Icon }, index) => (
+            <AnimatedSection key={title} delay={0.1 + index * 0.05}>
+              <div className="h-full rounded-[24px] border border-white/10 bg-navy-800/70 p-6">
+                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-gold-500/20 bg-gold-500/10">
+                  <Icon className="h-5 w-5 text-gold-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white">{title}</h3>
+                <p className="mt-3 text-sm leading-7 text-text-secondary">{description}</p>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-2">
+          <AnimatedSection delay={0.2}>
+            <div className="rounded-[28px] border border-gold-500/18 bg-[linear-gradient(160deg,rgba(252,201,0,0.12),rgba(252,201,0,0.03))] p-7">
+              <div className="mb-5 flex items-center gap-3">
+                <ShieldCheck className="h-5 w-5 text-gold-400" />
+                <h3 className="text-xl font-semibold text-white">{content.strengthsTitle}</h3>
+              </div>
+              <div className="space-y-3">
+                {content.strengths.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-white/10 bg-black/10 px-4 py-3 text-sm leading-7 text-white/90"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.25}>
+            <div className="rounded-[28px] border border-white/10 bg-white/[0.03] p-7">
+              <div className="mb-5 flex items-center gap-3">
+                <Shield className="h-5 w-5 text-text-secondary" />
+                <h3 className="text-xl font-semibold text-white">{content.considerationsTitle}</h3>
+              </div>
+              <div className="space-y-3">
+                {content.considerations.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-white/10 bg-black/10 px-4 py-3 text-sm leading-7 text-text-secondary"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </AnimatedSection>
+  )
+}
+
 export default async function TechnologyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale)
@@ -62,154 +233,171 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
   const isKo = locale === 'ko'
   const patents = isKo ? patentsKo : patentsEn
   const certifications = isKo ? certificationsKo : certificationsEn
+  const overviewCards = [
+    {
+      title: t('overview.items.0.title'),
+      description: t('overview.items.0.description'),
+      Icon: Orbit,
+    },
+    {
+      title: t('overview.items.1.title'),
+      description: t('overview.items.1.description'),
+      Icon: Eye,
+    },
+    {
+      title: t('overview.items.2.title'),
+      description: t('overview.items.2.description'),
+      Icon: BrainCircuit,
+    },
+  ]
+
+  const rotating = {
+    eyebrow: t('rotating_electrode.eyebrow'),
+    title: t('rotating_electrode.title'),
+    subtitle: t('rotating_electrode.subtitle'),
+    description: t('rotating_electrode.description'),
+    tags: [0, 1, 2].map((index) => t(`rotating_electrode.tags.${index}`)),
+    metrics: [0, 1, 2].map((index) => ({
+      value: t(`rotating_electrode.metrics.${index}.value`),
+      label: t(`rotating_electrode.metrics.${index}.label`),
+    })),
+    points: [
+      {
+        title: t('rotating_electrode.points.0.title'),
+        description: t('rotating_electrode.points.0.description'),
+        Icon: ShieldCheck,
+      },
+      {
+        title: t('rotating_electrode.points.1.title'),
+        description: t('rotating_electrode.points.1.description'),
+        Icon: Gauge,
+      },
+      {
+        title: t('rotating_electrode.points.2.title'),
+        description: t('rotating_electrode.points.2.description'),
+        Icon: Orbit,
+      },
+    ],
+    strengthsTitle: t('rotating_electrode.strengths_title'),
+    strengths: [0, 1, 2].map((index) => t(`rotating_electrode.strengths.${index}`)),
+    considerationsTitle: t('rotating_electrode.considerations_title'),
+    considerations: [0, 1, 2].map((index) => t(`rotating_electrode.considerations.${index}`)),
+  }
+
+  const turbidity = {
+    eyebrow: t('scattering.eyebrow'),
+    title: t('scattering.title'),
+    subtitle: t('scattering.subtitle'),
+    description: t('scattering.description'),
+    tags: [0, 1, 2].map((index) => t(`scattering.tags.${index}`)),
+    metrics: [0, 1, 2].map((index) => ({
+      value: t(`scattering.metrics.${index}.value`),
+      label: t(`scattering.metrics.${index}.label`),
+    })),
+    points: [
+      {
+        title: t('scattering.points.0.title'),
+        description: t('scattering.points.0.description'),
+        Icon: Droplets,
+      },
+      {
+        title: t('scattering.points.1.title'),
+        description: t('scattering.points.1.description'),
+        Icon: ScanLine,
+      },
+      {
+        title: t('scattering.points.2.title'),
+        description: t('scattering.points.2.description'),
+        Icon: Lightbulb,
+      },
+    ],
+    strengthsTitle: t('scattering.strengths_title'),
+    strengths: [0, 1, 2].map((index) => t(`scattering.strengths.${index}`)),
+    considerationsTitle: t('scattering.considerations_title'),
+    considerations: [0, 1, 2].map((index) => t(`scattering.considerations.${index}`)),
+  }
+
+  const controller = {
+    status: t('controller.status'),
+    eyebrow: t('controller.eyebrow'),
+    title: t('controller.title'),
+    subtitle: t('controller.subtitle'),
+    description: t('controller.description'),
+    tags: [0, 1, 2].map((index) => t(`controller.tags.${index}`)),
+    metrics: [0, 1, 2].map((index) => ({
+      value: t(`controller.metrics.${index}.value`),
+      label: t(`controller.metrics.${index}.label`),
+    })),
+    points: [
+      {
+        title: t('controller.points.0.title'),
+        description: t('controller.points.0.description'),
+        Icon: Workflow,
+      },
+      {
+        title: t('controller.points.1.title'),
+        description: t('controller.points.1.description'),
+        Icon: BrainCircuit,
+      },
+      {
+        title: t('controller.points.2.title'),
+        description: t('controller.points.2.description'),
+        Icon: Network,
+      },
+    ],
+    strengthsTitle: t('controller.strengths_title'),
+    strengths: [0, 1, 2].map((index) => t(`controller.strengths.${index}`)),
+    considerationsTitle: t('controller.considerations_title'),
+    considerations: [0, 1, 2].map((index) => t(`controller.considerations.${index}`)),
+  }
 
   return (
-    <div className="pt-20 lg:pt-24 min-h-screen bg-navy-900">
-      <div className="bg-navy-800 border-b border-white/10 py-16">
-        <div className="container-custom">
+    <div className="min-h-screen bg-navy-900 pt-20 lg:pt-24">
+      <div className="relative overflow-hidden border-b border-white/10 bg-navy-800">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(252,201,0,0.12),transparent_28%),radial-gradient(circle_at_85%_25%,rgba(74,154,202,0.16),transparent_20%)]" />
+        <div className="container-custom relative py-16">
           <AnimatedSection>
             <SectionTitle
               badge={t('badge')}
               title={t('title')}
               subtitle={t('subtitle')}
               align="left"
-              className="mb-0"
+              className="mb-10"
             />
           </AnimatedSection>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {overviewCards.map(({ title, description, Icon }, index) => (
+              <AnimatedSection key={title} delay={index * 0.08}>
+                <div className="rounded-[26px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm">
+                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-gold-500/20 bg-gold-500/10">
+                    <Icon className="h-5 w-5 text-gold-400" />
+                  </div>
+                  <div className="text-xl font-semibold text-white">{title}</div>
+                  <div className="mt-3 text-sm leading-7 text-text-secondary">{description}</div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="container-custom py-16 space-y-20">
-        <AnimatedSection>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            {/* 90° 산란광 측정 원리 다이어그램 */}
-            <div className="order-2 lg:order-1 bg-navy-800 border border-white/10 rounded-2xl p-6 flex items-center justify-center">
-              <svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" className="w-full max-h-56">
-                {/* 광원 (Tungsten Lamp) */}
-                <rect x="20" y="108" width="60" height="44" rx="8" fill="#0d2d4a" stroke="#1e5080" strokeWidth="1.5"/>
-                <ellipse cx="50" cy="130" rx="14" ry="14" fill="#c49a10" opacity="0.9"/>
-                <ellipse cx="50" cy="130" rx="8" ry="8" fill="#ffe066"/>
-                <text x="50" y="164" textAnchor="middle" fill="#888" fontSize="8">{isKo ? '텅스텐 광원' : 'Tungsten'}</text>
-                <text x="50" y="174" textAnchor="middle" fill="#888" fontSize="8">580 nm</text>
-                {/* 입사광 빔 */}
-                <line x1="80" y1="130" x2="168" y2="130" stroke="#ffe066" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="80" y1="127" x2="168" y2="127" stroke="#ffe066" strokeWidth="1" opacity="0.4"/>
-                <line x1="80" y1="133" x2="168" y2="133" stroke="#ffe066" strokeWidth="1" opacity="0.4"/>
-                {/* 측정셀 */}
-                <rect x="168" y="100" width="60" height="60" rx="8" fill="#071f30" stroke="#1e6090" strokeWidth="1.5"/>
-                {/* 물 파티클 (산란점) */}
-                <circle cx="198" cy="130" r="3" fill="#4a9aca" opacity="0.9"/>
-                <circle cx="188" cy="122" r="2" fill="#4a9aca" opacity="0.6"/>
-                <circle cx="207" cy="138" r="2" fill="#4a9aca" opacity="0.6"/>
-                <circle cx="193" cy="140" r="1.5" fill="#4a9aca" opacity="0.5"/>
-                <circle cx="204" cy="120" r="1.5" fill="#4a9aca" opacity="0.5"/>
-                <text x="198" y="172" textAnchor="middle" fill="#4a9aca" fontSize="8">{isKo ? '시료수' : 'Sample'}</text>
-                {/* 투과광 (직진) */}
-                <line x1="228" y1="130" x2="310" y2="130" stroke="#ffe066" strokeWidth="1.5" strokeDasharray="4 3" opacity="0.4"/>
-                <text x="330" y="134" fill="#555" fontSize="8">{isKo ? '투과광' : 'Transmitted'}</text>
-                {/* 90° 산란광 */}
-                <line x1="198" y1="100" x2="198" y2="30" stroke="#D4A017" strokeWidth="2.5" strokeLinecap="round"/>
-                <line x1="195" y1="30" x2="198" y2="30" stroke="#D4A017" strokeWidth="1" opacity="0.4"/>
-                {/* 검출기 */}
-                <rect x="168" y="10" width="60" height="36" rx="8" fill="#0d2d4a" stroke="#D4A017" strokeWidth="1.5"/>
-                <text x="198" y="26" textAnchor="middle" fill="#D4A017" fontSize="9" fontWeight="bold">{isKo ? '검출기' : 'Detector'}</text>
-                <text x="198" y="38" textAnchor="middle" fill="#888" fontSize="8">90°</text>
-                {/* 90° 각도 표시 */}
-                <path d="M 198 100 L 198 115 L 213 115" fill="none" stroke="#D4A017" strokeWidth="1.2" opacity="0.6"/>
-                <text x="218" y="113" fill="#D4A017" fontSize="9" fontWeight="600">90°</text>
-                {/* ISO 7027 배지 */}
-                <rect x="270" y="95" width="90" height="36" rx="6" fill="#0a1e30" stroke="#D4A017" strokeWidth="1" opacity="0.8"/>
-                <text x="315" y="110" textAnchor="middle" fill="#D4A017" fontSize="9" fontWeight="bold">ISO 7027</text>
-                <text x="315" y="122" textAnchor="middle" fill="#888" fontSize="8">EPA 180.1</text>
-                {/* 하단 캡션 */}
-                <text x="190" y="248" textAnchor="middle" fill="#445566" fontSize="9">{isKo ? '90° 산란광 탁도 측정 원리 (Nephelometry)' : '90° Scattered Light Turbidity Measurement (Nephelometry)'}</text>
-              </svg>
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="w-14 h-14 bg-gold-500/10 border border-gold-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Eye className="w-7 h-7 text-gold-500" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-                {t('scattering.title')}
-              </h2>
-              <p className="text-text-secondary leading-relaxed text-base">
-                {t('scattering.description')}
-              </p>
-            </div>
-          </div>
-        </AnimatedSection>
+      <div className="container-custom py-16 space-y-24">
+        <TechnologySection
+          content={rotating}
+          diagram={<RotatingElectrodeDiagram locale={locale} className="lg:mt-2" />}
+        />
 
-        <AnimatedSection>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="w-14 h-14 bg-gold-500/10 border border-gold-500/20 rounded-xl flex items-center justify-center mb-6">
-                <Radio className="w-7 h-7 text-gold-500" />
-              </div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
-                {t('communication.title')}
-              </h2>
-              <p className="text-text-secondary leading-relaxed text-base mb-6">
-                {t('communication.description')}
-              </p>
-              <div className="grid grid-cols-3 gap-3">
-                {['RS-485 / Modbus', 'LTE · WiFi · Ethernet', '4~20mA'].map((proto) => (
-                  <div key={proto} className="bg-navy-800 border border-white/10 rounded-xl p-3 text-center">
-                    <span className="text-gold-500 font-mono text-sm font-semibold">{proto}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* 시스템 연동 아키텍처 다이어그램 */}
-            <div className="bg-navy-800 border border-white/10 rounded-2xl p-6 flex items-center justify-center">
-              <svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" className="w-full max-h-56">
-                {/* 센서 노드들 */}
-                <rect x="12" y="60" width="72" height="34" rx="7" fill="#071726" stroke="#1e5080" strokeWidth="1.5"/>
-                <text x="48" y="74" textAnchor="middle" fill="#4a9aca" fontSize="9" fontWeight="600">WBCL10</text>
-                <text x="48" y="86" textAnchor="middle" fill="#667788" fontSize="8">{isKo ? '잔류염소계' : 'Cl₂ Analyzer'}</text>
+        <TechnologySection
+          content={turbidity}
+          reverse
+          diagram={<TurbidityScatteringDiagram locale={locale} className="lg:mt-2" />}
+        />
 
-                <rect x="12" y="110" width="72" height="34" rx="7" fill="#071726" stroke="#1e5080" strokeWidth="1.5"/>
-                <text x="48" y="124" textAnchor="middle" fill="#4a9aca" fontSize="9" fontWeight="600">WBTU10</text>
-                <text x="48" y="136" textAnchor="middle" fill="#667788" fontSize="8">{isKo ? '탁도계' : 'Turbidity'}</text>
-
-                <rect x="12" y="160" width="72" height="34" rx="7" fill="#071726" stroke="#1e5080" strokeWidth="1.5"/>
-                <text x="48" y="174" textAnchor="middle" fill="#4a9aca" fontSize="9" fontWeight="600">WBPH10</text>
-                <text x="48" y="186" textAnchor="middle" fill="#667788" fontSize="8">pH / EC</text>
-
-                {/* 연결선 → 컨트롤러 */}
-                <line x1="84" y1="77" x2="140" y2="120" stroke="#1e5080" strokeWidth="1.5" strokeDasharray="4 2"/>
-                <line x1="84" y1="127" x2="140" y2="127" stroke="#1e5080" strokeWidth="1.5" strokeDasharray="4 2"/>
-                <line x1="84" y1="177" x2="140" y2="134" stroke="#1e5080" strokeWidth="1.5" strokeDasharray="4 2"/>
-
-                {/* 컨트롤러 */}
-                <rect x="140" y="96" width="90" height="62" rx="10" fill="#0a1e30" stroke="#D4A017" strokeWidth="2"/>
-                <text x="185" y="115" textAnchor="middle" fill="#D4A017" fontSize="10" fontWeight="bold">WBSC10</text>
-                <text x="185" y="128" textAnchor="middle" fill="#aaa" fontSize="8">{isKo ? '스마트 컨트롤러' : 'Smart Controller'}</text>
-                <text x="185" y="148" textAnchor="middle" fill="#556677" fontSize="8">4.3&quot; TFT LCD</text>
-
-                {/* 출력 연결선 */}
-                <line x1="230" y1="107" x2="280" y2="65" stroke="#1e5080" strokeWidth="1.5" strokeDasharray="4 2"/>
-                <line x1="230" y1="127" x2="280" y2="127" stroke="#1e5080" strokeWidth="1.5" strokeDasharray="4 2"/>
-                <line x1="230" y1="147" x2="280" y2="190" stroke="#1e5080" strokeWidth="1.5" strokeDasharray="4 2"/>
-
-                {/* 출력 노드들 */}
-                <rect x="280" y="44" width="86" height="34" rx="7" fill="#071726" stroke="#2a6a2a" strokeWidth="1.5"/>
-                <text x="323" y="58" textAnchor="middle" fill="#4ac44a" fontSize="9" fontWeight="600">RS-485</text>
-                <text x="323" y="70" textAnchor="middle" fill="#667788" fontSize="8">Modbus RTU/TCP</text>
-
-                <rect x="280" y="110" width="86" height="34" rx="7" fill="#071726" stroke="#2a6a2a" strokeWidth="1.5"/>
-                <text x="323" y="124" textAnchor="middle" fill="#4ac44a" fontSize="9" fontWeight="600">LTE · WiFi</text>
-                <text x="323" y="136" textAnchor="middle" fill="#667788" fontSize="8">{isKo ? '클라우드·앱' : 'Cloud / App'}</text>
-
-                <rect x="280" y="176" width="86" height="34" rx="7" fill="#071726" stroke="#2a6a2a" strokeWidth="1.5"/>
-                <text x="323" y="190" textAnchor="middle" fill="#4ac44a" fontSize="9" fontWeight="600">4~20 mA</text>
-                <text x="323" y="202" textAnchor="middle" fill="#667788" fontSize="8">Analog Out</text>
-
-                {/* 하단 캡션 */}
-                <text x="190" y="248" textAnchor="middle" fill="#445566" fontSize="9">{isKo ? '다중 프로토콜 동시 출력 — ICT 수질 원격관제 시스템' : 'Multi-protocol simultaneous output — ICT Remote Monitoring'}</text>
-              </svg>
-            </div>
-          </div>
-        </AnimatedSection>
+        <TechnologySection
+          content={controller}
+          diagram={<SmartControllerDiagram locale={locale} className="lg:mt-2" />}
+        />
 
         <AnimatedSection>
           <div className="border-t border-white/10 pt-16">
@@ -218,31 +406,37 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
               title={t('patents.title')}
               subtitle={t('patents.subtitle')}
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Award className="w-5 h-5 text-gold-500" />
-                  <h3 className="text-white font-semibold">{t('patents_section')}</h3>
+                <div className="mb-4 flex items-center gap-2">
+                  <Award className="h-5 w-5 text-gold-500" />
+                  <h3 className="font-semibold text-white">{t('patents_section')}</h3>
                 </div>
                 <div className="space-y-3">
-                  {patents.map((p) => (
-                    <div key={p.no} className="bg-navy-800 border border-white/10 rounded-xl p-4">
-                      <div className="text-gold-500 font-mono text-xs mb-1">{p.no}</div>
-                      <div className="text-white text-sm">{p.name}</div>
+                  {patents.map((patent) => (
+                    <div key={patent.no} className="rounded-xl border border-white/10 bg-navy-800 p-4">
+                      <div className="mb-1 text-xs font-semibold tracking-[0.08em] text-gold-500">{patent.no}</div>
+                      <div className="text-sm text-white">{patent.name}</div>
                     </div>
                   ))}
                 </div>
               </div>
+
               <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <Shield className="w-5 h-5 text-gold-500" />
-                  <h3 className="text-white font-semibold">{t('certifications_section')}</h3>
+                <div className="mb-4 flex items-center gap-2">
+                  <Shield className="h-5 w-5 text-gold-500" />
+                  <h3 className="font-semibold text-white">{t('certifications_section')}</h3>
                 </div>
                 <div className="space-y-3">
-                  {certifications.map((c) => (
-                    <div key={c.name} className="bg-navy-800 border border-white/10 rounded-xl p-4">
-                      <div className="text-gold-500 font-semibold text-sm mb-1">{c.name}</div>
-                      <div className="text-text-secondary text-sm">{c.desc}</div>
+                  {certifications.map((certification) => (
+                    <div
+                      key={certification.name}
+                      className="rounded-xl border border-white/10 bg-navy-800 p-4"
+                    >
+                      <div className="mb-1 text-sm font-semibold text-gold-500">
+                        {certification.name}
+                      </div>
+                      <div className="text-sm text-text-secondary">{certification.desc}</div>
                     </div>
                   ))}
                 </div>

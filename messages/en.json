@@ -9,28 +9,51 @@
   },
   "hero": {
     "badge": "Water Quality Measurement Specialist",
-    "title": "Clear Water,\nClear Future",
-    "subtitle": "Waterbee's high-precision analysis technology goes beyond measuring numbers — it sets the standard for water that everyone can trust.",
-    "cta_primary": "View Products",
-    "cta_secondary": "Technical Inquiry",
-    "scroll": "Scroll"
+    "title": "Reliable Water Data,\nCloser to the Field",
+    "subtitle": "Waterbee is a water-quality instrumentation partner building accurate measurement, dependable connectivity, and operational automation for waterworks, industrial sites, and smart infrastructure.",
+    "cta_primary": "Explore Technology",
+    "cta_secondary": "View Products",
+    "scroll": "Scroll",
+    "highlights": [
+      "Accurate Measurement",
+      "Field-Oriented Design",
+      "Connected Monitoring"
+    ],
+    "pillars": [
+      {
+        "title": "Measurement You Can Act On",
+        "description": "We design sensor technologies that stay dependable under real operating conditions and support better site decisions."
+      },
+      {
+        "title": "Sustainable Operation",
+        "description": "We focus on long-term continuous use through auto-cleaning concepts and structures that reduce maintenance burden."
+      },
+      {
+        "title": "Connected Systems",
+        "description": "We connect sensors, controllers, and higher-level systems through both wired and wireless monitoring flows."
+      }
+    ]
   },
   "tech_features": {
-    "badge": "Core Technology",
-    "title": "Waterbee's Proprietary Technology",
-    "subtitle": "Long-term stable water quality measurement with our patented rotating electrode method.",
+    "badge": "Technology Portfolio",
+    "title": "Precise sensor engineering,\nA control platform built for trust",
+    "subtitle": "From rotating-electrode residual chlorine and bubble-removal 90deg turbidity optics to Python and AI-based smart control, Waterbee's core technologies are presented at a glance.",
+    "cta": "View Technology Page",
     "items": [
       {
-        "title": "Rotating Electrode Method",
-        "description": "Our patented rotating electrode method minimizes electrode contamination and maintains stable measurements over long periods."
+        "tag": "Residual Chlorine",
+        "title": "Rotating-Electrode Residual Chlorine",
+        "description": "A continuous measurement method focused on reducing fouling buildup and supporting long-term stable operation."
       },
       {
-        "title": "Auto-Cleaning System",
-        "description": "Periodic automatic cleaning significantly reduces maintenance burden and improves continuous measurement reliability."
+        "tag": "Turbidity",
+        "title": "Bubble-Removal 90deg Turbidity",
+        "description": "A detachable bubble-removal stage and 90deg scattered-light detection help suppress microbubble interference in low-range turbidity reading."
       },
       {
-        "title": "Real-time Remote Monitoring",
-        "description": "RS-485 / Modbus communication integrates with SCADA and PLC systems for real-time field data collection."
+        "tag": "Smart Control",
+        "title": "Python and AI Smart Controller",
+        "description": "A next-generation control platform that uses a Python operating environment and AI-assisted validation logic to improve measurement trust and operating visibility."
       }
     ]
   },
@@ -106,18 +129,176 @@
   "technology": {
     "badge": "Technology",
     "title": "Waterbee Core Technology",
-    "subtitle": "Proprietary core technology in water quality measurement — Patents, type approvals &amp; field-proven",
+    "subtitle": "From sensor structure precision to a control platform designed to raise data confidence, Waterbee's core technologies are organized in one place.",
+    "overview": {
+      "items": [
+        {
+          "title": "Rotating-Electrode Residual Chlorine",
+          "description": "A patented structure balancing low maintenance and long-term stable continuous measurement"
+        },
+        {
+          "title": "Bubble-Removal 90deg Turbidity",
+          "description": "Low-range turbidity optics combining a detachable bubble-removal stage with 90deg scattered-light detection"
+        },
+        {
+          "title": "Python and AI Smart Controller",
+          "description": "A control platform designed to improve confidence through a Python operating environment and AI-assisted validation"
+        }
+      ]
+    },
     "rotating_electrode": {
+      "eyebrow": "Residual Chlorine",
       "title": "Rotating Electrode Residual Chlorine Measurement",
-      "description": "Waterbee's patented rotating electrode technology mechanically removes electrode surface contamination, dramatically improving measurement stability and lifespan compared to conventional fixed electrodes. High accuracy within ±0.02 mg/L is guaranteed in the 0.01~2.00 mg/L residual chlorine range."
+      "subtitle": "The patented rotating-electrode structure helps reduce surface fouling and supports stable long-duration residual chlorine monitoring.",
+      "description": "Waterbee's rotating-electrode approach continuously conditions the electrode surface to reduce membrane-consumable burden and to suppress error caused by fouling or changing field flow. It is designed with both maintainability and measurement confidence in mind for continuous operation at water treatment sites.",
+      "tags": [
+        "Reagent-Free Continuous Analysis",
+        "Auto-Cleaning Rotating Electrode",
+        "Long-Term Stable Operation"
+      ],
+      "points": [
+        {
+          "title": "Low-maintenance membrane-light structure",
+          "description": "The design reduces the consumable-replacement burden typically associated with membrane-based methods."
+        },
+        {
+          "title": "Stable under flow and fouling changes",
+          "description": "The rotating electrode and coated surface help minimize error caused by flow variation and contamination buildup."
+        },
+        {
+          "title": "Built for continuous duty",
+          "description": "Ongoing surface conditioning helps suppress signal drift during extended operation."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "±0.02 mg/L",
+          "label": "Typical Accuracy"
+        },
+        {
+          "value": "0.01~2.00 mg/L",
+          "label": "Residual Chlorine Range"
+        },
+        {
+          "value": "pH 6~8",
+          "label": "Recommended stable band"
+        }
+      ],
+      "strengths_title": "Strengths",
+      "strengths": [
+        "Continuous rotation helps mitigate fouling buildup on the electrode surface.",
+        "Reduced consumable burden can lower maintenance cost and replacement frequency.",
+        "The structure suits continuous-duty environments such as waterworks and clearwells."
+      ],
+      "considerations_title": "Operational Considerations",
+      "considerations": [
+        "Regular checks on sample condition and electrode status are still important for optimal performance.",
+        "Sites with large pH or sample-composition variation may require operating-condition review.",
+        "Measurement confidence improves when the sampling path and flow cell are kept clean."
+      ]
     },
     "scattering": {
-      "title": "90° Scattered Light Turbidity Measurement",
-      "description": "Following ISO 7027 standards, the 90° scattered light method enables linear and precise measurement from low to high turbidity. Automatic correction of light source drift ensures long-term accuracy."
+      "eyebrow": "Turbidity",
+      "title": "Bubble-Removal 90deg Scattered-Light Turbidity",
+      "subtitle": "A detachable bubble-removal stage combined with 90deg scattered-light detection helps reduce microbubble interference and stabilize low-range turbidity reading.",
+      "description": "Waterbee's turbidity approach separates the light source, flow cell, and detector while placing a bubble-removal stage ahead of the measurement cell. The structure is aimed at sites where low turbidity and microbubble management both matter, such as clearwells and water treatment facilities.",
+      "tags": [
+        "Detachable Bubble-Removal Stage",
+        "90deg Scatter Detection",
+        "Low-Range Turbidity Focus"
+      ],
+      "points": [
+        {
+          "title": "Detachable bubble-removal stage",
+          "description": "Microbubbles can be stripped before measurement so that interference on the turbidity signal is reduced more effectively."
+        },
+        {
+          "title": "Dedicated 90deg scatter readout",
+          "description": "The detector reads the 90deg scattered signal rather than the transmitted beam, improving sensitivity to subtle low-range turbidity change."
+        },
+        {
+          "title": "Separated source and cell structure",
+          "description": "Separating the source, flow cell, and detector helps simplify maintenance understanding and signal interpretation."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "0~10 NTU",
+          "label": "Low-Range Band"
+        },
+        {
+          "value": "90deg",
+          "label": "Detector Angle"
+        },
+        {
+          "value": "Detachable",
+          "label": "Bubble-Removal Module"
+        }
+      ],
+      "strengths_title": "Strengths",
+      "strengths": [
+        "The detachable bubble-removal stage helps suppress microbubble interference before measurement.",
+        "The 90deg scattered-light geometry is well suited to subtle low-range turbidity change.",
+        "The separated source and detector roles make maintenance and troubleshooting easier to explain."
+      ],
+      "considerations_title": "Operational Considerations",
+      "considerations": [
+        "The bubble-removal stage and flow cell still need regular cleaning and inspection.",
+        "Flow stability and piping conditions affect both bubble separation efficiency and repeatability.",
+        "Low-range turbidity performance still depends heavily on stable sampling and optical cleanliness."
+      ]
     },
-    "communication": {
-      "title": "Industrial Communication Protocols",
-      "description": "Standard support for RS-485, Modbus RTU/TCP, and 4~20mA analog output enables easy integration with existing SCADA, PLC, and DCS systems."
+    "controller": {
+      "status": "Coming Soon",
+      "eyebrow": "Smart Controller",
+      "title": "Python and AI-Based Smart Controller",
+      "subtitle": "A next-generation control platform designed around a Python operating environment and AI-assisted validation logic to improve both measurement trust and operating visibility.",
+      "description": "The new controller is being designed to combine sensor acquisition, local control, and higher-level integration while adding Python-based extensibility and AI-assisted diagnostics for faster recognition of abnormal data behavior. The goal is an operational controller that unifies local UI, remote monitoring, and maintenance workflows.",
+      "tags": [
+        "Python Operating Environment",
+        "AI Data Validation",
+        "Integrated Local / Remote Control"
+      ],
+      "points": [
+        {
+          "title": "One platform for sensing and control",
+          "description": "It is intended to collect inputs from residual chlorine, turbidity, pH/EC, and other sensors while handling local control outputs."
+        },
+        {
+          "title": "AI-assisted confidence management",
+          "description": "Anomaly detection and validation logic are intended to improve trust in measured values and speed up operator judgment."
+        },
+        {
+          "title": "Preserved plant-side integration",
+          "description": "Compatibility with Modbus, 4~20mA, relay, and existing control panels remains part of the planned field interface strategy."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "Python",
+          "label": "Extensible Runtime"
+        },
+        {
+          "value": "AI Assist",
+          "label": "Data Confidence Engine"
+        },
+        {
+          "value": "Modbus · 4~20mA",
+          "label": "Plant Interface"
+        }
+      ],
+      "strengths_title": "Strengths",
+      "strengths": [
+        "A Python-based structure can support flexible feature growth and operating-logic upgrades.",
+        "AI-assisted validation can strengthen abnormality recognition and data-confidence workflows.",
+        "The platform is intended to unify sensing, local control, and higher-level integration in one operating layer."
+      ],
+      "considerations_title": "Operational Considerations",
+      "considerations": [
+        "AI-assisted diagnostics still depend on field data accumulation and clearly defined operating conditions.",
+        "Firmware update and access-control strategy should be planned together with the hardware.",
+        "Critical facilities still need signal redundancy and stable power design."
+      ]
     },
     "patents": {
       "title": "Patents & Certifications",
@@ -137,6 +318,11 @@
     "vision": {
       "title": "Vision",
       "description": "A global leader in automated water quality monitoring"
+    },
+    "achievement": {
+      "badge": "2026 Achievement",
+      "title": "Selected for the Smart Filter-Drain System Performance Sharing Project",
+      "description": "In 2026, Waterbee's Smart Filter-Drain System was selected for a performance-sharing project, recognizing both its field applicability and public-sector expansion potential."
     },
     "history": {
       "title": "History",

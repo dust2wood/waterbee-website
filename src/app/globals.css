@@ -8,12 +8,23 @@
   }
 
   body {
-    @apply bg-navy-900 text-white antialiased;
-    font-family: 'Pretendard', 'Inter', system-ui, sans-serif;
+    @apply text-white antialiased;
+    font-family: 'Pretendard Variable', 'Pretendard', system-ui, sans-serif;
+    letter-spacing: -0.01em;
+    background:
+      radial-gradient(circle at top, rgba(252, 201, 0, 0.1), transparent 24%),
+      radial-gradient(circle at 85% 12%, rgba(74, 154, 202, 0.14), transparent 20%),
+      linear-gradient(180deg, #0b1929 0%, #091523 52%, #08111d 100%);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold leading-tight;
+    @apply font-bold leading-tight;
+    letter-spacing: -0.025em;
+  }
+
+  ::selection {
+    background: rgba(252, 201, 0, 0.28);
+    color: #fff7d1;
   }
 }
 
