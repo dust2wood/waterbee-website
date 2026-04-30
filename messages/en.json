@@ -9,58 +9,51 @@
   },
   "hero": {
     "badge": "Water Quality Measurement Specialist",
-    "title": "Clear Water,\nClear Future",
-    "subtitle": "Waterbee's high-precision analysis technology goes beyond measuring numbers — it sets the standard for water that everyone can trust.",
-    "cta_primary": "View Products",
-    "cta_secondary": "Technical Inquiry",
+    "title": "Reliable Water Data,\nCloser to the Field",
+    "subtitle": "Waterbee is a water-quality instrumentation partner building accurate measurement, dependable connectivity, and operational automation for waterworks, industrial sites, and smart infrastructure.",
+    "cta_primary": "Explore Technology",
+    "cta_secondary": "View Products",
     "scroll": "Scroll",
     "highlights": [
-      "Patented Rotating Electrode",
-      "Reagent-Free Continuous Analysis",
-      "SCADA · PLC Integration"
+      "Accurate Measurement",
+      "Field-Oriented Design",
+      "Connected Monitoring"
     ],
-    "stats": [
+    "pillars": [
       {
-        "value": "±0.02 mg/L",
-        "label": "Typical Accuracy"
+        "title": "Measurement You Can Act On",
+        "description": "We design sensor technologies that stay dependable under real operating conditions and support better site decisions."
       },
       {
-        "value": "0.01~2.00 mg/L",
-        "label": "Residual Chlorine Range"
+        "title": "Sustainable Operation",
+        "description": "We focus on long-term continuous use through auto-cleaning concepts and structures that reduce maintenance burden."
       },
       {
-        "value": "6+ Months",
-        "label": "Stable Operation Window"
+        "title": "Connected Systems",
+        "description": "We connect sensors, controllers, and higher-level systems through both wired and wireless monitoring flows."
       }
-    ],
-    "panel": {
-      "eyebrow": "Signature Technology",
-      "title": "A residual chlorine analyzer that rotates away fouling",
-      "description": "WBCL10 combines Waterbee's patented rotating electrode and ion-electrode coating to reduce membrane-replacement burden and keep the current signal stable during long-term continuous operation.",
-      "image_alt": "Waterbee WBCL10 rotating electrode residual chlorine analyzer",
-      "labels": {
-        "motor": "Drive Motor",
-        "electrode": "Rotating Electrode",
-        "signal": "Stable Current Signal"
-      }
-    }
+    ]
   },
   "tech_features": {
     "badge": "Core Technology",
-    "title": "Waterbee's Proprietary Technology",
-    "subtitle": "Long-term stable water quality measurement with our patented rotating electrode method.",
+    "title": "Core technology in brief,\nDetails on the technology page",
+    "subtitle": "From rotating-electrode residual chlorine and 90° turbidity optics to the next ESP32 controller, the main technology pillars are summarized at a glance.",
+    "cta": "View Full Technology Page",
     "items": [
       {
-        "title": "Rotating Electrode Method",
-        "description": "Our patented rotating electrode method minimizes electrode contamination and maintains stable measurements over long periods."
+        "tag": "Residual Chlorine",
+        "title": "Rotating-Electrode Residual Chlorine",
+        "description": "A continuous measurement method focused on reducing fouling buildup and supporting long-term stable operation."
       },
       {
-        "title": "Auto-Cleaning System",
-        "description": "Periodic automatic cleaning significantly reduces maintenance burden and improves continuous measurement reliability."
+        "tag": "Turbidity Optics",
+        "title": "90° Scattered-Light Turbidity",
+        "description": "An optical layout optimized around the light source, sample cell, and detector for readable low-range turbidity data."
       },
       {
-        "title": "Real-time Remote Monitoring",
-        "description": "RS-485 / Modbus communication integrates with SCADA and PLC systems for real-time field data collection."
+        "tag": "Smart Controller",
+        "title": "ESP32 Smart Controller",
+        "description": "A next-generation controller concept that expands sensor connectivity and field setup convenience with Wi-Fi and Bluetooth."
       }
     ]
   },
@@ -136,48 +129,45 @@
   "technology": {
     "badge": "Technology",
     "title": "Waterbee Core Technology",
-    "subtitle": "Proprietary core technology in water quality measurement — Patents, type approvals &amp; field-proven",
+    "subtitle": "A field-oriented technology stack spanning residual chlorine, turbidity, and the next smart controller platform",
+    "overview": {
+      "items": [
+        {
+          "title": "Rotating-Electrode Residual Chlorine",
+          "description": "A patented structure balancing low maintenance and long-term stable continuous measurement"
+        },
+        {
+          "title": "90° Scattered-Light Turbidity",
+          "description": "Low-range turbidity optics visualized through the light source, sample cell, and detector layout"
+        },
+        {
+          "title": "ESP32 Smart Controller",
+          "description": "A next-generation controller concept combining Wi-Fi · Bluetooth connectivity with existing wired integration"
+        }
+      ]
+    },
     "rotating_electrode": {
-      "eyebrow": "Signature Analyzer",
+      "eyebrow": "Residual Chlorine",
       "title": "Rotating Electrode Residual Chlorine Measurement",
-      "subtitle": "The electrode rotates to suppress fouling, enabling long-duration residual chlorine monitoring in waterworks and industrial field environments.",
-      "description": "Waterbee's patented rotating electrode technology mechanically mitigates surface contamination, greatly improving stability and electrode life versus conventional fixed electrodes. It delivers high accuracy within ±0.02 mg/L across the 0.01~2.00 mg/L residual chlorine range while reducing maintenance burden without membrane consumables.",
-      "cta": "Explore the measurement principle",
+      "subtitle": "The patented rotating-electrode structure helps reduce surface fouling and supports stable long-duration residual chlorine monitoring.",
+      "description": "Waterbee's rotating-electrode approach continuously conditions the electrode surface to reduce membrane-consumable burden and to suppress error caused by fouling or changing field flow. It is designed with both maintainability and measurement confidence in mind for continuous operation at water treatment sites.",
       "tags": [
         "Reagent-Free Continuous Analysis",
         "Auto-Cleaning Rotating Electrode",
-        "SCADA · PLC Integration"
+        "Long-Term Stable Operation"
       ],
       "points": [
         {
-          "title": "Low-maintenance membrane-free structure",
-          "description": "By eliminating the replacement membrane used in conventional methods, the analyzer reduces service cost and downtime in the field."
+          "title": "Low-maintenance membrane-light structure",
+          "description": "The design reduces the consumable-replacement burden typically associated with membrane-based methods."
         },
         {
-          "title": "Stable measurement under changing flow conditions",
-          "description": "The rotating electrode and ion-coated surface minimize error caused by flow variation and electrode fouling."
+          "title": "Stable under flow and fouling changes",
+          "description": "The rotating electrode and coated surface help minimize error caused by flow variation and contamination buildup."
         },
         {
-          "title": "Designed for long-term stability",
-          "description": "Continuous surface conditioning helps suppress signal drift during extended operation."
-        }
-      ],
-      "steps": [
-        {
-          "title": "Sample inflow",
-          "description": "Sample water enters the measurement cell so residual chlorine reaches the reaction area in a consistent way."
-        },
-        {
-          "title": "Electrode rotation",
-          "description": "The drive motor rotates the electrode at a constant speed to reduce deposits and keep reaction conditions uniform."
-        },
-        {
-          "title": "Current detection",
-          "description": "The analyzer detects current proportional to residual chlorine concentration and converts it into a precise reading."
-        },
-        {
-          "title": "Controller output",
-          "description": "The WBSC10 controller displays the result and forwards it to higher-level systems through RS-485, Modbus, and 4~20mA."
+          "title": "Built for continuous duty",
+          "description": "Ongoing surface conditioning helps suppress signal drift during extended operation."
         }
       ],
       "metrics": [
@@ -191,31 +181,124 @@
         },
         {
           "value": "pH 6~8",
-          "label": "Low-compensation operating band"
+          "label": "Recommended stable band"
         }
       ],
-      "comparison": {
-        "rotating_title": "Waterbee Rotating Electrode",
-        "fixed_title": "Conventional Fixed Electrode",
-        "rotating_items": [
-          "Continuous rotation reduces fouling buildup on the electrode surface",
-          "Lower maintenance cost thanks to reduced consumable burden",
-          "More stable output with reduced drift during long continuous operation"
-        ],
-        "fixed_items": [
-          "Surface contamination can accumulate and shorten manual cleaning intervals",
-          "Frequent consumable replacement and calibration can increase operating burden",
-          "Signal variation may become larger as field flow and contamination conditions change"
-        ]
-      }
+      "strengths_title": "Strengths",
+      "strengths": [
+        "Continuous rotation helps mitigate fouling buildup on the electrode surface.",
+        "Reduced consumable burden can lower maintenance cost and replacement frequency.",
+        "The structure suits continuous-duty environments such as waterworks and clearwells."
+      ],
+      "considerations_title": "Operational Considerations",
+      "considerations": [
+        "Regular checks on sample condition and electrode status are still important for optimal performance.",
+        "Sites with large pH or sample-composition variation may require operating-condition review.",
+        "Measurement confidence improves when the sampling path and flow cell are kept clean."
+      ]
     },
     "scattering": {
-      "title": "90° Scattered Light Turbidity Measurement",
-      "description": "Following ISO 7027 standards, the 90° scattered light method enables linear and precise measurement from low to high turbidity. Automatic correction of light source drift ensures long-term accuracy."
+      "eyebrow": "Turbidity",
+      "title": "90° Scattered-Light Turbidity Measurement",
+      "subtitle": "A low-range optical layout that clearly positions the light source, sample cell, and 90° detector for readable turbidity change.",
+      "description": "Waterbee's turbidity approach separates the illumination axis from the detector axis so that scattered light can be read more consistently. The structure is intended for sites where low turbidity matters, such as clearwells and water treatment facilities.",
+      "tags": [
+        "90° Detector Geometry",
+        "Light-Source-Visible Diagram",
+        "Low-Range Turbidity Focus"
+      ],
+      "points": [
+        {
+          "title": "Visible optical layout",
+          "description": "The light source location and sample path are intentionally easy to understand for maintenance and operation."
+        },
+        {
+          "title": "Dedicated scattered-light readout",
+          "description": "The detector reads the 90° scattered signal rather than the transmitted beam, improving sensitivity to low turbidity change."
+        },
+        {
+          "title": "Interference awareness",
+          "description": "The structure is arranged with attention to microbubbles, cell condition, and optical contamination."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "0~10 NTU",
+          "label": "Low-Range Band"
+        },
+        {
+          "value": "90°",
+          "label": "Detector Angle"
+        },
+        {
+          "value": "580 nm",
+          "label": "Displayed Light Source"
+        }
+      ],
+      "strengths_title": "Strengths",
+      "strengths": [
+        "The optical structure is suitable for reading subtle turbidity changes in low-range operation.",
+        "The source–cell–detector relationship is easy to interpret during maintenance work.",
+        "It provides an intuitive way to explain continuous turbidity monitoring behavior."
+      ],
+      "considerations_title": "Operational Considerations",
+      "considerations": [
+        "Flow-cell cleanliness and optical surface condition directly influence measurement confidence.",
+        "Microbubbles and sample flow characteristics should be considered when reading turbidity trends.",
+        "Low-range turbidity operation depends heavily on stable sampling and piping conditions."
+      ]
     },
-    "communication": {
-      "title": "Industrial Communication Protocols",
-      "description": "Standard support for RS-485, Modbus RTU/TCP, and 4~20mA analog output enables easy integration with existing SCADA, PLC, and DCS systems."
+    "controller": {
+      "status": "Coming Soon",
+      "eyebrow": "Smart Controller",
+      "title": "ESP32-Based Smart Controller",
+      "subtitle": "A next-generation control platform is being prepared to combine sensor acquisition, local control, and Wi-Fi · Bluetooth connectivity in one device.",
+      "description": "The new controller concept is being designed around an ESP32-based architecture that supports sensor data acquisition and local control while strengthening Wi-Fi and Bluetooth connectivity alongside existing wired outputs. The goal is an operational controller that also improves site commissioning, local inspection, and mobile access.",
+      "tags": [
+        "ESP32 Platform",
+        "Wi-Fi · Bluetooth",
+        "Hybrid Wired / Wireless"
+      ],
+      "points": [
+        {
+          "title": "One platform for sensing and control",
+          "description": "It is intended to collect inputs from residual chlorine, turbidity, pH/EC, and other sensors while handling local control outputs."
+        },
+        {
+          "title": "Improved site setup convenience",
+          "description": "Bluetooth-based short-range access is planned to improve laptop or mobile accessibility during installation and inspection."
+        },
+        {
+          "title": "Preserved higher-level integration",
+          "description": "Even with wireless connectivity, compatibility with RS-485, 4~20mA, and relay-based field integration remains important."
+        }
+      ],
+      "metrics": [
+        {
+          "value": "ESP32",
+          "label": "Next MCU Platform"
+        },
+        {
+          "value": "Wi-Fi + BLE",
+          "label": "Wireless Stack"
+        },
+        {
+          "value": "RS-485 · 4~20mA",
+          "label": "Existing Plant Integration"
+        }
+      ],
+      "strengths_title": "Strengths",
+      "strengths": [
+        "The concept supports both wireless setup convenience and existing wired plant integration.",
+        "It can expand both local HMI behavior and mobile accessibility in the field.",
+        "The platform is flexible for future sensor expansion and firmware feature growth."
+      ],
+      "considerations_title": "Operational Considerations",
+      "considerations": [
+        "Wireless quality will still depend on installation location and RF conditions at the site.",
+        "Firmware update and access-control strategy should be planned together with the hardware.",
+        "Critical facilities should still pair wireless features with stable power and wired fallback paths."
+      ]
     },
     "patents": {
       "title": "Patents & Certifications",
@@ -235,6 +318,11 @@
     "vision": {
       "title": "Vision",
       "description": "A global leader in automated water quality monitoring"
+    },
+    "achievement": {
+      "badge": "2026 Achievement",
+      "title": "Selected for the Smart Filter-Drain System Performance Sharing Project",
+      "description": "In 2026, Waterbee's Smart Filter-Drain System was selected for a performance-sharing project, recognizing both its field applicability and public-sector expansion potential."
     },
     "history": {
       "title": "History",
