@@ -1,11 +1,10 @@
 import {
   Bluetooth,
   BrainCircuit,
-  Database,
-  ShieldCheck,
-  Signal,
+  Cpu,
+  MonitorSmartphone,
+  Smartphone,
   Wifi,
-  Workflow,
 } from 'lucide-react'
 import { clsx } from 'clsx'
 
@@ -14,7 +13,7 @@ interface SmartControllerDiagramProps {
   className?: string
 }
 
-function Node({
+function FloatingIcon({
   icon: Icon,
   className,
   tone = 'cyan',
@@ -23,129 +22,173 @@ function Node({
   className?: string
   tone?: 'cyan' | 'gold'
 }) {
-  const tones =
-    tone === 'gold'
-      ? 'border-gold-500/22 bg-gold-500/12 text-gold-400'
-      : 'border-cyan-300/20 bg-cyan-300/10 text-cyan-100'
-
   return (
     <div
       className={clsx(
-        'absolute flex h-16 w-16 items-center justify-center rounded-2xl border backdrop-blur-sm shadow-[0_18px_40px_rgba(2,8,15,0.28)]',
-        tones,
+        'absolute flex h-11 w-11 items-center justify-center rounded-2xl border shadow-[0_18px_32px_rgba(2,8,15,0.26)] backdrop-blur-sm',
+        tone === 'gold'
+          ? 'border-gold-500/20 bg-gold-500/12 text-gold-400'
+          : 'border-cyan-300/20 bg-cyan-300/10 text-cyan-100',
         className,
       )}
     >
-      <Icon className="h-7 w-7" />
+      <Icon className="h-5 w-5" />
     </div>
   )
 }
 
-function LinkLine({ className }: { className?: string }) {
+function MiniChart() {
   return (
-    <div
-      className={clsx(
-        'absolute rounded-full bg-[linear-gradient(90deg,rgba(111,217,255,0.75),rgba(252,201,0,0.7))]',
-        className,
-      )}
-    />
+    <div className="absolute inset-3 rounded-[14px] border border-white/10 bg-[linear-gradient(180deg,rgba(18,34,54,0.95),rgba(10,20,34,0.96))]">
+      <div className="absolute left-3 right-3 top-4 h-px bg-white/10" />
+      <div className="absolute left-3 right-3 top-8 h-px bg-white/10" />
+      <div className="absolute left-3 right-3 top-12 h-px bg-white/10" />
+      <div className="absolute bottom-3 left-4 flex items-end gap-1.5">
+        <span className="h-3 w-2 rounded-full bg-cyan-300/80" />
+        <span className="h-5 w-2 rounded-full bg-cyan-300/55" />
+        <span className="h-7 w-2 rounded-full bg-gold-400/80" />
+        <span className="h-4 w-2 rounded-full bg-cyan-300/45" />
+      </div>
+      <div className="absolute right-4 top-4 h-7 w-7 rounded-full border border-gold-500/18 bg-gold-500/10">
+        <div className="absolute inset-[5px] rounded-full border-2 border-cyan-300/60 border-r-transparent border-b-transparent" />
+      </div>
+      <div className="absolute left-4 right-12 bottom-8 h-[2px] rounded-full bg-[linear-gradient(90deg,rgba(111,217,255,0.65),rgba(252,201,0,0.82))]" />
+    </div>
   )
 }
 
 export default function SmartControllerDiagram({
-  locale,
+  locale: _locale,
   className,
 }: SmartControllerDiagramProps) {
-  const isKo = locale === 'ko'
-
-  const copy = isKo
-    ? {
-        badge: '차세대 제어기',
-        status: '출시 예정',
-        legends: [
-          { label: 'Python 환경', Icon: Workflow, tone: 'gold' as const },
-          { label: 'AI 검증', Icon: BrainCircuit, tone: 'cyan' as const },
-          { label: 'Wi‑Fi / Bluetooth', Icon: Wifi, tone: 'cyan' as const },
-        ],
-      }
-    : {
-        badge: 'Next Controller',
-        status: 'Coming Soon',
-        legends: [
-          { label: 'Python Runtime', Icon: Workflow, tone: 'gold' as const },
-          { label: 'AI Validation', Icon: BrainCircuit, tone: 'cyan' as const },
-          { label: 'Wi‑Fi / Bluetooth', Icon: Wifi, tone: 'cyan' as const },
-        ],
-      }
-
   return (
     <div
       className={clsx(
-        'relative overflow-hidden rounded-[30px] border border-cyan-300/15 bg-[radial-gradient(circle_at_top,rgba(74,154,202,0.22),transparent_28%),linear-gradient(160deg,rgba(9,25,41,0.98),rgba(7,18,31,0.98))] p-6 shadow-[0_30px_80px_rgba(2,8,15,0.45)]',
+        'relative overflow-hidden rounded-[28px] border border-cyan-300/15 bg-[radial-gradient(circle_at_top,rgba(74,154,202,0.18),transparent_28%),linear-gradient(160deg,rgba(9,25,41,0.98),rgba(7,18,31,0.98))] p-4 shadow-[0_28px_70px_rgba(2,8,15,0.42)] sm:p-5',
         className,
       )}
     >
-      <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/60 to-transparent" />
+      <div className="absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-gold-400/60 to-transparent" />
 
-      <div className="mb-5 flex flex-wrap items-center gap-2">
-        <span className="rounded-full border border-gold-500/30 bg-gold-500/10 px-3 py-1.5 text-[11px] font-semibold tracking-[0.16em] text-gold-400">
-          {copy.badge}
-        </span>
-        <span className="rounded-full border border-cyan-300/18 bg-cyan-300/10 px-3 py-1.5 text-[11px] font-semibold tracking-[0.14em] text-cyan-100">
-          {copy.status}
-        </span>
-      </div>
+      <div className="relative h-[290px] overflow-hidden rounded-[24px] border border-white/8 bg-[radial-gradient(circle_at_top,rgba(111,217,255,0.08),transparent_32%),linear-gradient(180deg,rgba(10,22,36,0.98),rgba(6,15,26,0.98))] sm:h-[330px]">
+        <svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-full w-full">
+          <defs>
+            <linearGradient id="controllerLine" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stopColor="rgba(111,217,255,0.3)" />
+              <stop offset="45%" stopColor="rgba(111,217,255,0.75)" />
+              <stop offset="100%" stopColor="rgba(252,201,0,0.75)" />
+            </linearGradient>
+            <radialGradient id="controllerGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="rgba(111,217,255,0.22)" />
+              <stop offset="100%" stopColor="rgba(111,217,255,0)" />
+            </radialGradient>
+          </defs>
 
-      <div className="relative h-[360px] overflow-hidden rounded-[28px] border border-white/8 bg-[radial-gradient(circle_at_center,rgba(111,217,255,0.08),transparent_38%)]">
-        <LinkLine className="left-[50%] top-[31%] h-[3px] w-[18%]" />
-        <LinkLine className="left-[50%] top-[48%] h-[3px] w-[22%]" />
-        <LinkLine className="left-[28%] top-[48%] h-[3px] w-[18%]" />
-        <LinkLine className="left-[38%] top-[29%] h-[3px] w-[12%] -rotate-[35deg]" />
-        <LinkLine className="left-[38%] top-[63%] h-[3px] w-[12%] rotate-[35deg]" />
-        <LinkLine className="left-[49.8%] top-[67%] h-[18%] w-[3px]" />
+          <circle cx="370" cy="192" r="132" fill="url(#controllerGlow)" />
+          <path
+            d="M118 278 C178 278 210 270 250 232"
+            fill="none"
+            stroke="url(#controllerLine)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M338 214 C392 164 420 134 474 126"
+            fill="none"
+            stroke="url(#controllerLine)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M530 128 C580 122 606 106 640 88"
+            fill="none"
+            stroke="url(#controllerLine)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M612 118 C656 112 688 108 716 104"
+            fill="none"
+            stroke="url(#controllerLine)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <circle cx="118" cy="278" r="5" fill="#6FD9FF" />
+          <circle cx="250" cy="232" r="5" fill="#6FD9FF" />
+          <circle cx="474" cy="126" r="5" fill="#FCC900" />
+          <circle cx="640" cy="88" r="5" fill="#6FD9FF" />
+          <circle cx="716" cy="104" r="5" fill="#6FD9FF" />
+        </svg>
 
-        <Node icon={BrainCircuit} className="left-[18%] top-[18%]" />
-        <Node icon={Wifi} className="right-[16%] top-[20%]" />
-        <Node icon={Bluetooth} className="right-[18%] top-[44%]" />
-        <Node icon={ShieldCheck} className="left-[22%] top-[56%]" tone="gold" />
-        <Node icon={Signal} className="left-[44%] bottom-[11%]" tone="gold" />
+        <FloatingIcon icon={Wifi} className="left-[10%] top-[16%]" />
+        <FloatingIcon icon={Bluetooth} className="left-[42%] bottom-[12%]" tone="gold" />
 
-        <div className="absolute left-1/2 top-1/2 flex h-40 w-40 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[32px] border border-white/10 bg-[linear-gradient(180deg,rgba(17,34,64,0.96),rgba(9,24,39,0.96))] shadow-[0_24px_70px_rgba(2,8,15,0.42)]">
-          <div className="absolute inset-4 rounded-[24px] border border-cyan-300/15" />
-          <div className="flex h-20 w-20 items-center justify-center rounded-[22px] border border-cyan-300/22 bg-cyan-300/10 text-cyan-100">
-            <Workflow className="h-10 w-10" />
-          </div>
-        </div>
-
-        <div className="absolute left-[34%] top-[35%] flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/80">
-          <Database className="h-5 w-5" />
-        </div>
-      </div>
-
-      <div className="mt-5 grid gap-3 sm:grid-cols-3">
-        {copy.legends.map(({ label, Icon, tone }) => (
-          <div
-            key={label}
-            className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3"
-          >
-            <div
-              className={clsx(
-                'flex h-10 w-10 items-center justify-center rounded-xl border',
-                tone === 'gold'
-                  ? 'border-gold-500/16 bg-gold-500/10'
-                  : 'border-cyan-300/16 bg-cyan-300/10',
-              )}
-            >
-              <Icon
-                className={clsx(
-                  'h-4 w-4',
-                  tone === 'gold' ? 'text-gold-400' : 'text-cyan-100',
-                )}
-              />
+        <div className="absolute bottom-[10%] left-[4%]">
+          <div className="relative h-24 w-28">
+            <div className="absolute inset-x-3 bottom-1 h-8 rounded-full bg-cyan-300/20 blur-xl" />
+            <div className="absolute bottom-0 left-3 h-6 w-20 rounded-full bg-[#5d7f9b]" />
+            <div className="absolute bottom-3 left-0 h-10 w-28 rounded-[999px] bg-[linear-gradient(180deg,#f6f7f8,#c9d0d7)] shadow-[0_18px_24px_rgba(2,8,15,0.22)]" />
+            <div className="absolute bottom-5 left-5 h-6 w-[4.5rem] rounded-full border border-slate-500/20 bg-[linear-gradient(180deg,#15283a,#0c1a2a)]" />
+            <div className="absolute bottom-7 left-10 h-2 w-8 rounded-full bg-cyan-300/40" />
+            <div className="absolute left-8 top-0 flex flex-col items-center gap-1">
+              <span className="h-2 w-2 rounded-full bg-gold-400" />
+              <span className="h-2 w-10 rounded-full border border-cyan-300/35" />
             </div>
-            <span className="text-sm font-medium text-white/90">{label}</span>
           </div>
-        ))}
+        </div>
+
+        <div className="absolute left-[28%] top-[30%]">
+          <div className="relative h-[148px] w-[122px]">
+            <div className="absolute inset-0 rounded-[20px] bg-[linear-gradient(180deg,#7b8797,#545f6f)] shadow-[0_24px_40px_rgba(2,8,15,0.32)]" />
+            <div className="absolute right-[-14px] top-[14px] h-[114px] w-[18px] skew-y-[20deg] rounded-r-[12px] bg-[#445062]" />
+            <div className="absolute inset-x-4 top-5 h-[98px] rounded-[16px] border border-white/10 bg-[linear-gradient(180deg,rgba(21,34,47,0.92),rgba(13,24,36,0.94))]" />
+            <div className="absolute inset-x-6 top-10 flex justify-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/24 bg-cyan-300/10 text-cyan-100">
+                <Cpu className="h-6 w-6" />
+              </div>
+            </div>
+            <div className="absolute left-9 top-[98px] flex gap-2">
+              <span className="h-2 w-8 rounded-full bg-gold-400/75" />
+              <span className="h-2 w-3 rounded-full bg-cyan-300/60" />
+            </div>
+            <div className="absolute bottom-6 left-6 flex flex-col gap-2">
+              <span className="h-1.5 w-10 rounded-full bg-white/20" />
+              <span className="h-1.5 w-12 rounded-full bg-white/12" />
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute left-[53%] top-[20%]">
+          <div className="relative h-24 w-32">
+            <div className="absolute left-3 top-6 h-12 w-14 rounded-full border border-cyan-300/18 bg-[#4f7890]" />
+            <div className="absolute left-11 top-0 h-16 w-16 rounded-full border border-cyan-300/18 bg-[#5d8ca5]" />
+            <div className="absolute right-3 top-7 h-11 w-14 rounded-full border border-cyan-300/18 bg-[#4f7890]" />
+            <div className="absolute inset-x-6 bottom-2 h-10 rounded-[18px] border border-cyan-300/18 bg-[#5f8ca1]" />
+            <div className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-gold-500/22 bg-gold-500/12 text-gold-400 shadow-[0_18px_26px_rgba(2,8,15,0.22)]">
+              <BrainCircuit className="h-6 w-6" />
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute right-[23%] top-[16%] rotate-[-8deg]">
+          <div className="relative h-[126px] w-[76px] rounded-[20px] border border-gold-500/30 bg-[linear-gradient(180deg,#f1c34c,#d89b18)] p-[5px] shadow-[0_24px_32px_rgba(2,8,15,0.24)]">
+            <div className="relative h-full rounded-[16px] border border-slate-800/20 bg-[linear-gradient(180deg,#102033,#091723)]">
+              <MiniChart />
+              <div className="absolute left-1/2 top-2 h-1.5 w-8 -translate-x-1/2 rounded-full bg-white/20" />
+              <Smartphone className="absolute bottom-2 left-1/2 h-3.5 w-3.5 -translate-x-1/2 text-white/55" />
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute right-[5%] top-[12%] rotate-[4deg]">
+          <div className="relative h-[150px] w-[154px] rounded-[18px] border border-white/12 bg-[linear-gradient(180deg,#555d69,#323944)] p-[7px] shadow-[0_28px_36px_rgba(2,8,15,0.26)]">
+            <div className="relative h-full rounded-[12px] border border-white/8 bg-[linear-gradient(180deg,#0f1e31,#07131f)]">
+              <MiniChart />
+              <MonitorSmartphone className="absolute bottom-3 right-3 h-4 w-4 text-cyan-100/60" />
+            </div>
+            <div className="absolute bottom-[-18px] left-1/2 h-5 w-14 -translate-x-1/2 rounded-b-[16px] bg-[#657183]" />
+          </div>
+        </div>
       </div>
     </div>
   )
