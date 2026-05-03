@@ -1,7 +1,5 @@
-import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { clsx } from 'clsx'
 import type { LucideIcon } from 'lucide-react'
 import {
   Award,
@@ -19,9 +17,6 @@ import {
 } from 'lucide-react'
 import SectionTitle from '@/components/ui/SectionTitle'
 import AnimatedSection from '@/components/ui/AnimatedSection'
-import RotatingElectrodeDiagram from '@/components/technology/RotatingElectrodeDiagram'
-import TurbidityScatteringDiagram from '@/components/technology/TurbidityScatteringDiagram'
-import SmartControllerDiagram from '@/components/technology/SmartControllerDiagram'
 
 export async function generateMetadata({
   params,
@@ -102,59 +97,46 @@ interface TechnologySectionContent {
 
 function TechnologySection({
   content,
-  diagram,
-  reverse = false,
 }: {
   content: TechnologySectionContent
-  diagram: ReactNode
-  reverse?: boolean
 }) {
   return (
     <AnimatedSection>
       <div className="space-y-8">
-        <div
-          className={clsx(
-            'grid items-start gap-10 xl:gap-14',
-            reverse ? 'lg:grid-cols-[1.04fr,0.96fr]' : 'lg:grid-cols-[0.96fr,1.04fr]',
-          )}
-        >
-          <div className={clsx('space-y-6', reverse && 'lg:order-2')}>
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="rounded-full border border-gold-500/25 bg-gold-500/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-gold-400">
-                {content.eyebrow}
+        <div className="max-w-5xl space-y-6">
+          <div className="flex flex-wrap items-center gap-3">
+            <span className="rounded-full border border-gold-500/25 bg-gold-500/10 px-4 py-1.5 text-[11px] font-semibold tracking-[0.18em] text-gold-400">
+              {content.eyebrow}
+            </span>
+            {content.status && (
+              <span className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1.5 text-[11px] font-semibold tracking-[0.14em] text-cyan-100">
+                {content.status}
               </span>
-              {content.status && (
-                <span className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-1.5 text-[11px] font-semibold tracking-[0.14em] text-cyan-100">
-                  {content.status}
-                </span>
-              )}
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold text-white lg:text-4xl">
-                {content.title}
-              </h2>
-              <p className="mt-4 text-lg leading-8 text-text-secondary">
-                {content.subtitle}
-              </p>
-              <p className="mt-4 text-base leading-8 text-text-secondary">
-                {content.description}
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              {content.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            )}
           </div>
 
-          <div className={clsx(reverse && 'lg:order-1')}>{diagram}</div>
+          <div>
+            <h2 className="text-3xl font-bold text-white lg:text-4xl">
+              {content.title}
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-text-secondary">
+              {content.subtitle}
+            </p>
+            <p className="mt-4 text-base leading-8 text-text-secondary">
+              {content.description}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {content.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
@@ -385,18 +367,14 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
       <div className="container-custom py-16 space-y-24">
         <TechnologySection
           content={rotating}
-          diagram={<RotatingElectrodeDiagram locale={locale} className="lg:mt-2" />}
         />
 
         <TechnologySection
           content={turbidity}
-          reverse
-          diagram={<TurbidityScatteringDiagram locale={locale} className="lg:mt-2" />}
         />
 
         <TechnologySection
           content={controller}
-          diagram={<SmartControllerDiagram locale={locale} className="lg:mt-2" />}
         />
 
         <AnimatedSection>
