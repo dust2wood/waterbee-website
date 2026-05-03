@@ -1,8 +1,69 @@
+import {
+  Bluetooth,
+  BrainCircuit,
+  Cpu,
+  MonitorSmartphone,
+  Smartphone,
+  Wifi,
+} from 'lucide-react'
 import { clsx } from 'clsx'
 
 interface SmartControllerDiagramProps {
   locale: string
   className?: string
+}
+
+function IconBubble({
+  icon: Icon,
+  className,
+  tone = 'blue',
+}: {
+  icon: typeof Wifi
+  className?: string
+  tone?: 'blue' | 'gold' | 'rose'
+}) {
+  return (
+    <div
+      className={clsx(
+        'absolute z-20 flex h-11 w-11 items-center justify-center rounded-full border shadow-[0_14px_24px_rgba(15,23,42,0.12)]',
+        tone === 'gold' &&
+          'border-amber-300 bg-[linear-gradient(180deg,#fff7dd,#f5df95)] text-amber-700',
+        tone === 'rose' &&
+          'border-rose-200 bg-[linear-gradient(180deg,#fff1f1,#ffd7d7)] text-rose-500',
+        tone === 'blue' &&
+          'border-sky-200 bg-[linear-gradient(180deg,#f6fbff,#dbefff)] text-sky-600',
+        className,
+      )}
+    >
+      <Icon className="h-5 w-5" />
+    </div>
+  )
+}
+
+function ScreenArtwork({ className }: { className?: string }) {
+  return (
+    <div
+      className={clsx(
+        'absolute inset-[6px] overflow-hidden rounded-[12px] border border-slate-700/10 bg-[linear-gradient(180deg,#23364b,#152331)]',
+        className,
+      )}
+    >
+      <div className="absolute inset-x-0 top-0 h-5 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02))]" />
+      <div className="absolute left-3 right-3 top-8 h-px bg-white/10" />
+      <div className="absolute left-3 right-3 top-[3.4rem] h-px bg-white/10" />
+      <div className="absolute left-3 right-3 top-[4.5rem] h-px bg-white/10" />
+      <div className="absolute bottom-4 left-4 flex items-end gap-1.5">
+        <span className="h-5 w-2 rounded-full bg-cyan-300/80" />
+        <span className="h-8 w-2 rounded-full bg-cyan-300/50" />
+        <span className="h-10 w-2 rounded-full bg-amber-300/90" />
+        <span className="h-6 w-2 rounded-full bg-cyan-200/60" />
+      </div>
+      <div className="absolute left-3 right-14 bottom-7 h-[2px] rounded-full bg-[linear-gradient(90deg,rgba(125,211,252,0.9),rgba(251,191,36,0.95))]" />
+      <div className="absolute right-4 top-9 h-11 w-11 rounded-full border border-amber-200/25 bg-amber-200/10">
+        <div className="absolute inset-[8px] rounded-full border-2 border-cyan-200/80 border-r-transparent border-b-transparent" />
+      </div>
+    </div>
+  )
 }
 
 export default function SmartControllerDiagram({
@@ -12,143 +73,132 @@ export default function SmartControllerDiagram({
   return (
     <div
       className={clsx(
-        'relative overflow-hidden rounded-[24px] border border-slate-200/80 bg-[#f8fbfd] p-4 shadow-[0_22px_55px_rgba(15,38,58,0.12)] sm:p-5',
+        'relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-[linear-gradient(180deg,#faf5ee,#f1eadf)] p-4 shadow-[0_26px_60px_rgba(15,23,42,0.12)] sm:p-5',
         className,
       )}
     >
-      <svg
-        viewBox="0 0 760 430"
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-full min-h-[280px] w-full"
-        role="img"
-        aria-hidden="true"
+      <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/80 to-transparent" />
+
+      <div
+        className="relative h-[300px] overflow-hidden rounded-[24px] border border-slate-200/90 bg-[linear-gradient(180deg,#fcfaf6,#f1eadf)] sm:h-[340px]"
+        style={{
+          backgroundImage:
+            'radial-gradient(rgba(129, 155, 181, 0.18) 1px, transparent 1px), linear-gradient(180deg, #fcfaf6, #f1eadf)',
+          backgroundSize: '18px 18px, auto',
+        }}
       >
-        <defs>
-          <linearGradient id="controllerCase" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="#ffffff" />
-            <stop offset="100%" stopColor="#dce8ee" />
-          </linearGradient>
-          <linearGradient id="controllerScreen" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stopColor="#173047" />
-            <stop offset="100%" stopColor="#091c2f" />
-          </linearGradient>
-          <linearGradient id="controllerSignal" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="#48a9c5" />
-            <stop offset="100%" stopColor="#f2c94c" />
-          </linearGradient>
-          <filter id="controllerShadow" x="-20%" y="-20%" width="140%" height="150%">
-            <feDropShadow dx="0" dy="16" stdDeviation="14" floodColor="#123047" floodOpacity="0.16" />
-          </filter>
-        </defs>
+        <svg viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" className="absolute inset-0 h-full w-full">
+          <defs>
+            <linearGradient id="smartFlow" x1="0" x2="1" y1="0" y2="0">
+              <stop offset="0%" stopColor="#9BC2DE" />
+              <stop offset="50%" stopColor="#76AAD0" />
+              <stop offset="100%" stopColor="#69B8CC" />
+            </linearGradient>
+          </defs>
 
-        <rect x="20" y="20" width="720" height="390" rx="34" fill="#ffffff" />
-        <ellipse cx="377" cy="356" rx="270" ry="28" fill="#d7e2e7" opacity="0.62" />
-
-        <path
-          d="M180 264 C230 248 258 235 302 226"
-          fill="none"
-          stroke="#6aa9bb"
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-        <path
-          d="M462 211 C505 190 532 177 573 157"
-          fill="none"
-          stroke="#6aa9bb"
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-        <path
-          d="M468 243 C518 250 546 263 589 294"
-          fill="none"
-          stroke="#6aa9bb"
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-        <path
-          d="M392 142 C426 114 459 101 499 100"
-          fill="none"
-          stroke="#6aa9bb"
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-
-        <g filter="url(#controllerShadow)">
-          <rect x="82" y="238" width="102" height="62" rx="31" fill="url(#controllerCase)" stroke="#6aa9bb" strokeWidth="4" />
-          <rect x="107" y="258" width="52" height="18" rx="9" fill="#173047" opacity="0.92" />
-          <circle cx="133" cy="267" r="5" fill="#f2c94c" />
-          <path d="M133 238 L133 215" stroke="#6aa9bb" strokeWidth="4" strokeLinecap="round" />
-          <circle cx="133" cy="210" r="8" fill="#f2c94c" stroke="#173047" strokeWidth="3" />
-        </g>
-
-        <g filter="url(#controllerShadow)">
-          <rect x="305" y="139" width="163" height="180" rx="28" fill="url(#controllerCase)" stroke="#24465e" strokeWidth="5" />
-          <rect x="326" y="163" width="121" height="88" rx="18" fill="url(#controllerScreen)" />
-          <path d="M343 221 C361 205 375 213 390 197 C406 181 421 190 433 176" fill="none" stroke="url(#controllerSignal)" strokeWidth="5" strokeLinecap="round" />
-          <circle cx="352" cy="186" r="9" fill="#48a9c5" />
-          <circle cx="420" cy="226" r="9" fill="#f2c94c" />
-          <rect x="333" y="270" width="42" height="12" rx="6" fill="#48a9c5" opacity="0.82" />
-          <rect x="387" y="270" width="24" height="12" rx="6" fill="#f2c94c" opacity="0.9" />
-          <rect x="422" y="270" width="18" height="12" rx="6" fill="#24465e" opacity="0.28" />
-          <circle cx="340" cy="302" r="6" fill="#24465e" opacity="0.55" />
-          <circle cx="365" cy="302" r="6" fill="#24465e" opacity="0.35" />
-          <circle cx="390" cy="302" r="6" fill="#24465e" opacity="0.35" />
-          <path d="M386 139 L386 112" stroke="#24465e" strokeWidth="5" strokeLinecap="round" />
-          <circle cx="386" cy="102" r="13" fill="#48a9c5" opacity="0.18" stroke="#48a9c5" strokeWidth="4" />
-        </g>
-
-        <g fill="none" stroke="#48a9c5" strokeLinecap="round" strokeWidth="6" opacity="0.9">
-          <path d="M243 167 C271 139 302 139 330 167" />
-          <path d="M261 186 C280 168 293 168 312 186" />
-          <path d="M280 204 C287 198 292 198 299 204" />
-        </g>
-
-        <g transform="translate(462 294)" fill="none" stroke="#24465e" strokeLinecap="round" strokeLinejoin="round" strokeWidth="6">
-          <circle cx="0" cy="0" r="31" fill="#eaf4f7" stroke="#6aa9bb" strokeWidth="5" />
-          <path d="M-7 -20 V20 L15 3 L-7 -12 L15 -28 L-7 -12 L-27 4" />
-          <path d="M-27 -4 L-7 12" />
-        </g>
-
-        <g filter="url(#controllerShadow)">
           <path
-            d="M502 119 C512 92 537 79 562 88 C575 62 615 65 626 95 C649 96 668 113 668 137 C668 164 647 181 620 181 H523 C497 181 478 165 478 141 C478 129 487 121 502 119Z"
-            fill="#e8f4f7"
-            stroke="#6aa9bb"
-            strokeWidth="5"
+            d="M106 318 C168 318 194 306 240 274"
+            fill="none"
+            stroke="url(#smartFlow)"
+            strokeWidth="4"
+            strokeLinecap="round"
           />
-          <rect x="550" y="120" width="48" height="42" rx="10" fill="#ffffff" stroke="#24465e" strokeWidth="4" />
-          <path d="M559 141 H589 M574 128 V154" stroke="#48a9c5" strokeWidth="5" strokeLinecap="round" />
-          <circle cx="552" cy="120" r="4" fill="#f2c94c" />
-          <circle cx="598" cy="162" r="4" fill="#f2c94c" />
-        </g>
+          <path
+            d="M334 254 C388 220 430 190 476 170"
+            fill="none"
+            stroke="url(#smartFlow)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M526 170 C582 170 612 150 648 116"
+            fill="none"
+            stroke="url(#smartFlow)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M528 188 C590 196 644 214 702 244"
+            fill="none"
+            stroke="url(#smartFlow)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
 
-        <g filter="url(#controllerShadow)">
-          <rect x="582" y="96" width="109" height="82" rx="14" fill="#24465e" />
-          <rect x="592" y="106" width="89" height="55" rx="8" fill="#11263a" />
-          <rect x="603" y="123" width="12" height="26" rx="6" fill="#48a9c5" />
-          <rect x="625" y="115" width="12" height="34" rx="6" fill="#f2c94c" />
-          <rect x="647" y="130" width="12" height="19" rx="6" fill="#8fd1df" />
-          <path d="M596 166 H678" stroke="#d8e5eb" strokeWidth="5" strokeLinecap="round" />
-          <path d="M637 178 V199" stroke="#24465e" strokeWidth="7" strokeLinecap="round" />
-          <path d="M611 202 H663" stroke="#24465e" strokeWidth="8" strokeLinecap="round" />
-        </g>
+          <circle cx="106" cy="318" r="5" fill="#80b4d6" />
+          <circle cx="240" cy="274" r="5" fill="#80b4d6" />
+          <circle cx="476" cy="170" r="5" fill="#80b4d6" />
+          <circle cx="648" cy="116" r="5" fill="#80b4d6" />
+          <circle cx="702" cy="244" r="5" fill="#80b4d6" />
+        </svg>
 
-        <g filter="url(#controllerShadow)">
-          <rect x="595" y="250" width="72" height="112" rx="21" fill="#f2c94c" />
-          <rect x="603" y="261" width="56" height="87" rx="14" fill="#11263a" />
-          <circle cx="631" cy="354" r="4" fill="#ffffff" opacity="0.72" />
-          <path d="M614 315 C624 306 634 312 641 300 C646 291 653 294 655 289" fill="none" stroke="#48a9c5" strokeWidth="4" strokeLinecap="round" />
-          <rect x="614" y="278" width="31" height="8" rx="4" fill="#ffffff" opacity="0.22" />
-          <rect x="614" y="292" width="21" height="8" rx="4" fill="#ffffff" opacity="0.16" />
-        </g>
+        <IconBubble icon={Wifi} className="left-[8%] top-[19%]" tone="rose" />
+        <IconBubble icon={Bluetooth} className="left-[39%] bottom-[12%]" tone="blue" />
 
-        <g fill="#24465e" opacity="0.16">
-          <circle cx="302" cy="226" r="7" />
-          <circle cx="573" cy="157" r="7" />
-          <circle cx="589" cy="294" r="7" />
-          <circle cx="499" cy="100" r="7" />
-        </g>
-      </svg>
+        <div className="absolute bottom-[11%] left-[4%]">
+          <div className="relative h-24 w-28">
+            <div className="absolute inset-x-4 bottom-0 h-6 rounded-full bg-[#7e92a7]" />
+            <div className="absolute bottom-3 left-0 h-10 w-28 rounded-[999px] bg-[linear-gradient(180deg,#ffffff,#d9dfe4)] shadow-[0_16px_24px_rgba(15,23,42,0.12)]" />
+            <div className="absolute bottom-5 left-6 h-6 w-16 rounded-full border border-slate-500/15 bg-[linear-gradient(180deg,#24384a,#152332)]" />
+            <div className="absolute bottom-7 left-11 h-2 w-6 rounded-full bg-cyan-300/65" />
+            <div className="absolute left-9 top-0 flex flex-col items-center gap-1">
+              <span className="h-2 w-2 rounded-full bg-amber-400" />
+              <span className="h-2 w-10 rounded-full border border-sky-300/45" />
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute left-[28%] top-[33%]">
+          <div className="relative h-[150px] w-[118px]">
+            <div className="absolute inset-0 rounded-[16px] bg-[linear-gradient(180deg,#8a96a6,#677383)] shadow-[0_18px_30px_rgba(15,23,42,0.16)]" />
+            <div className="absolute right-[-10px] top-[16px] h-[110px] w-[12px] rounded-r-[10px] bg-[#5b6676]" />
+            <div className="absolute inset-x-4 top-4 h-[88px] rounded-[12px] border border-white/20 bg-[linear-gradient(180deg,#1f3245,#13202d)]" />
+            <div className="absolute left-1/2 top-[3.5rem] flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-2xl border border-sky-200/25 bg-sky-100/10 text-sky-100">
+              <Cpu className="h-6 w-6" />
+            </div>
+            <div className="absolute bottom-5 left-6 right-6 flex justify-between">
+              <span className="h-2 w-10 rounded-full bg-amber-300/85" />
+              <span className="h-2 w-3 rounded-full bg-sky-300/70" />
+            </div>
+            <div className="absolute bottom-10 left-6 flex flex-col gap-2">
+              <span className="h-1.5 w-9 rounded-full bg-white/20" />
+              <span className="h-1.5 w-12 rounded-full bg-white/12" />
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute left-[53%] top-[24%]">
+          <div className="relative h-24 w-32">
+            <div className="absolute left-2 top-7 h-12 w-14 rounded-full bg-[#88b3c9]" />
+            <div className="absolute left-10 top-0 h-16 w-16 rounded-full bg-[#79a8c4]" />
+            <div className="absolute right-2 top-7 h-12 w-14 rounded-full bg-[#88b3c9]" />
+            <div className="absolute inset-x-6 bottom-1 h-10 rounded-[18px] bg-[#7eaec4]" />
+            <div className="absolute left-1/2 top-1/2 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-2xl border border-amber-200 bg-[linear-gradient(180deg,#fff5d5,#f0d88a)] text-amber-700 shadow-[0_14px_24px_rgba(15,23,42,0.12)]">
+              <BrainCircuit className="h-6 w-6" />
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute right-[24%] top-[15%]">
+          <div className="relative h-[130px] w-[78px] rounded-[18px] border border-amber-300 bg-[linear-gradient(180deg,#ffd767,#e7aa2d)] p-[5px] shadow-[0_18px_26px_rgba(15,23,42,0.14)]">
+            <div className="relative h-full rounded-[14px] bg-[linear-gradient(180deg,#203348,#132130)]">
+              <ScreenArtwork />
+              <div className="absolute left-1/2 top-2 h-1.5 w-8 -translate-x-1/2 rounded-full bg-white/20" />
+              <Smartphone className="absolute bottom-2 left-1/2 h-3.5 w-3.5 -translate-x-1/2 text-white/50" />
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute right-[6%] top-[13%]">
+          <div className="relative h-[156px] w-[160px] rounded-[18px] border border-slate-300 bg-[linear-gradient(180deg,#6e7683,#434c59)] p-[7px] shadow-[0_18px_26px_rgba(15,23,42,0.14)]">
+            <div className="relative h-full rounded-[12px] bg-[linear-gradient(180deg,#223449,#111d29)]">
+              <ScreenArtwork />
+              <MonitorSmartphone className="absolute bottom-3 right-3 h-4 w-4 text-sky-100/60" />
+            </div>
+            <div className="absolute bottom-[-16px] left-1/2 h-5 w-16 -translate-x-1/2 rounded-b-[14px] bg-[#6f7784]" />
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
