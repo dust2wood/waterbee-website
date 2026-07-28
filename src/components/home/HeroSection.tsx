@@ -18,14 +18,14 @@ const heroProducts = [
     model: 'WBTU10',
     nameKo: '온라인 탁도계',
     nameEn: 'Online Turbidity Meter',
-    image: '/images/products/wbtu10-front.png',
+    image: '/images/products/wbtu10-photo-front.png',
   },
   {
     slug: 'wbcl10',
     model: 'WBCL10',
     nameKo: '온라인 잔류염소계',
     nameEn: 'Residual Chlorine Analyzer',
-    image: '/images/products/wbcl10-front.png',
+    image: '/images/products/wbcl10-photo-front.png',
   },
 ] as const
 

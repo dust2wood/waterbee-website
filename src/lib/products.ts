@@ -122,8 +122,8 @@ It uses a tungsten lamp and 90-degree scattered-light detection, together with a
       { label: '샘플 유량', labelEn: 'Sample Flow', value: '50~300 mL/min', valueEn: '50–300 mL/min' },
       { label: '출력 및 통신', labelEn: 'Output & Communication', value: '4~20 mA, RS-485', valueEn: '4–20 mA, RS-485' },
     ],
-    image: '/images/products/wbtu10-front.png',
-    gallery: ['/images/products/wbtu10-front.png'],
+    image: '/images/products/wbtu10-photo-front.png',
+    gallery: ['/images/products/wbtu10-photo-front.png', '/images/products/wbtu10-photo-side.png'],
   },
   {
     slug: 'wbcl10',
@@ -168,8 +168,8 @@ Continuous electrode rotation helps limit surface fouling and supports reagent-f
       { label: '샘플 유량', labelEn: 'Sample Flow', value: '200~700 mL/min', valueEn: '200–700 mL/min' },
       { label: '출력 및 통신', labelEn: 'Output & Communication', value: '4~20 mA, RS-485', valueEn: '4–20 mA, RS-485' },
     ],
-    image: '/images/products/wbcl10-front.png',
-    gallery: ['/images/products/wbcl10-front.png'],
+    image: '/images/products/wbcl10-photo-front.png',
+    gallery: ['/images/products/wbcl10-photo-front.png', '/images/products/wbcl10-photo-side.png'],
   },
   {
     slug: 'wbph10',
