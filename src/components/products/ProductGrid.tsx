@@ -17,8 +17,8 @@ const groupCopy = {
   smartfarm: {
     ko: '스마트팜 pH·EC 센서',
     en: 'Smart Farm pH & EC Sensors',
-    descriptionKo: '양액과 관수 수질 관리를 위한 소형 pH·전기전도도 전극',
-    descriptionEn: 'Compact pH and conductivity electrodes for nutrient solution and irrigation water',
+    descriptionKo: '양액과 관수 수질 관리를 위한 pH·EC 센서와 제어반 인터페이스',
+    descriptionEn: 'pH and conductivity sensors with a control-panel interface for nutrient solution and irrigation water',
   },
   system: {
     ko: '여과드레인 시스템',
@@ -83,7 +83,7 @@ export default function ProductGrid({ products }: { products: Product[] }) {
                 <div className="text-xs text-[#8a9390]">{String(groupProducts.length).padStart(2, '0')}</div>
               </div>
 
-              <div className={`grid border-l border-t border-[#d7dcda] sm:grid-cols-2 ${group === 'instrumentation' ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
+              <div className={`grid border-l border-t border-[#d7dcda] sm:grid-cols-2 ${group === 'instrumentation' || group === 'smartfarm' || group === 'accessory' ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
                 {groupProducts.map((product) => (
                   <ProductCard key={product.slug} product={product} />
                 ))}

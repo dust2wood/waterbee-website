@@ -10,14 +10,15 @@ import type { Product } from '@/lib/products'
 const imageSizing: Record<string, string> = {
   wbsc10: 'h-[72%] w-[72%]',
   wbtu10: 'h-[84%] w-[82%]',
-  wbcl10: 'h-[86%] w-[82%]',
+  wbcl10: 'h-[84%] w-[82%]',
   wbph10: 'h-[62%] w-[42%]',
   wbec10: 'h-[54%] w-[35%]',
-  'wbph-pbs01': 'h-[78%] w-[68%]',
-  'wbec-cond': 'h-[78%] w-[68%]',
-  'sampling-tank': 'h-[78%] w-[72%]',
-  'wbcl10-electrode-kit': 'h-[65%] w-[65%]',
-  'wbtu10-lamp-kit': 'h-[65%] w-[65%]',
+  'wbph-pbs01': 'h-[82%] w-[56%]',
+  'wbec-cond': 'h-[82%] w-[56%]',
+  'ph-ec-board': 'h-[72%] w-[86%]',
+  'sampling-tank': 'h-[82%] w-[78%]',
+  'wbcl10-electrode-kit': 'h-[74%] w-[82%]',
+  'wbtu10-lamp-kit': 'h-[74%] w-[82%]',
 }
 
 export default function ProductCard({ product, className }: { product: Product; className?: string }) {

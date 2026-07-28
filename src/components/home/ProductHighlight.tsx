@@ -8,8 +8,8 @@ import { getFeaturedProducts } from '@/lib/products'
 
 const imageSizing: Record<string, string> = {
   wbsc10: 'h-[70%] w-[78%]',
-  wbtu10: 'h-[86%] w-[84%]',
-  wbcl10: 'h-[88%] w-[86%]',
+  wbtu10: 'h-[87%] w-[85%]',
+  wbcl10: 'h-[87%] w-[85%]',
   wbph10: 'h-[61%] w-[54%]',
   wbec10: 'h-[55%] w-[48%]',
 }

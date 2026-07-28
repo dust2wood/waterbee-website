@@ -15,11 +15,12 @@ const imageSizing: Record<string, string> = {
   wbcl10: 'h-[370px] w-[82%] sm:h-[490px]',
   wbph10: 'h-[330px] w-[42%] sm:h-[430px]',
   wbec10: 'h-[300px] w-[34%] sm:h-[400px]',
-  'wbph-pbs01': 'h-[350px] w-[68%] sm:h-[470px]',
-  'wbec-cond': 'h-[350px] w-[68%] sm:h-[470px]',
-  'sampling-tank': 'h-[350px] w-[76%] sm:h-[460px]',
-  'wbcl10-electrode-kit': 'h-[300px] w-[68%] sm:h-[390px]',
-  'wbtu10-lamp-kit': 'h-[300px] w-[68%] sm:h-[390px]',
+  'wbph-pbs01': 'h-[360px] w-[56%] sm:h-[475px]',
+  'wbec-cond': 'h-[360px] w-[56%] sm:h-[475px]',
+  'ph-ec-board': 'h-[280px] w-[88%] sm:h-[370px]',
+  'sampling-tank': 'h-[360px] w-[82%] sm:h-[470px]',
+  'wbcl10-electrode-kit': 'h-[300px] w-[86%] sm:h-[400px]',
+  'wbtu10-lamp-kit': 'h-[300px] w-[86%] sm:h-[400px]',
 }
 
 export default function ProductDetailClient({ product }: { product: Product }) {
@@ -91,7 +92,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 <span className="text-[#8c7200]">{product.model}</span>
                 <span className="text-[#7a8380]">{isKo ? product.category : product.categoryEn}</span>
               </div>
-              <h1 className="mt-5 text-4xl font-bold leading-[1.18] tracking-normal text-[#151a19] lg:text-5xl">{title}</h1>
+              <h1 className="mt-5 break-keep text-4xl font-bold leading-[1.18] tracking-normal text-[#151a19] lg:text-5xl">{title}</h1>
               <p className="mt-6 text-base leading-8 text-[#68716f]">{isKo ? product.shortDescription : product.shortDescriptionEn}</p>
 
               <dl className="mt-9 border-t border-[#aeb6b3]">
@@ -132,7 +133,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         <div className="container-custom grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
           <div>
             <div className="text-xs font-bold uppercase text-[#8c7200]">{t('overview')}</div>
-            <h2 className="mt-4 text-3xl font-bold tracking-normal text-[#151a19]">{title}</h2>
+            <h2 className="mt-4 break-keep text-3xl font-bold tracking-normal text-[#151a19]">{title}</h2>
           </div>
           <div>
             <p className="whitespace-pre-line text-base leading-8 text-[#596361]" style={{ wordBreak: 'keep-all' }}>{description}</p>
