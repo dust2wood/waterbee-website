@@ -18,12 +18,12 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
   const isKo = locale === 'ko'
 
   return (
-    <div className="pt-20 lg:pt-24 min-h-screen bg-navy-900">
-      <div className="container-custom py-16 max-w-3xl">
-        <h1 className="text-2xl font-bold text-white mb-6">
+    <div className="min-h-screen bg-white pt-16 lg:pt-20">
+      <div className="container-custom max-w-3xl py-16 lg:py-20">
+        <h1 className="mb-6 text-2xl font-bold text-[#151a19]">
           {isKo ? '이용약관' : 'Terms of Service'}
         </h1>
-        <p className="text-text-secondary leading-relaxed">
+        <p className="leading-relaxed text-[#68716f]">
           {isKo
             ? '이용약관은 준비 중입니다. 문의사항은 support@waterbee.co.kr로 연락해 주세요.'
             : 'Terms of service are being prepared. For inquiries, please contact support@waterbee.co.kr.'}

@@ -1,51 +1,56 @@
 'use client'
 
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { Droplets, Sprout, Filter, Factory } from 'lucide-react'
-import AnimatedSection from '@/components/ui/AnimatedSection'
-import SectionTitle from '@/components/ui/SectionTitle'
-
-const icons = [Droplets, Factory, Filter]
+import { ArrowRight } from 'lucide-react'
+import { Link } from '@/i18n/navigation'
 
 export default function ApplicationsSection() {
   const t = useTranslations('applications')
 
-  const items = [0, 1, 2].map((i) => ({
-    title: t(`items.${i}.title`),
-    description: t(`items.${i}.description`),
-    products: t(`items.${i}.products`),
-    Icon: icons[i],
-  }))
-
   return (
-    <section className="section-padding bg-navy-900">
-      <div className="container-custom">
-        <AnimatedSection>
-          <SectionTitle
-            badge={t('badge')}
-            title={t('title')}
-            subtitle={t('subtitle')}
-          />
-        </AnimatedSection>
+    <section className="bg-[#161c1b] text-white">
+      <div className="grid min-h-[640px] lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="flex items-center px-5 py-16 sm:px-8 lg:px-[max(3rem,calc((100vw-80rem)/2))] lg:py-24 lg:pr-16">
+          <div className="max-w-lg">
+            <div className="mb-5 text-xs font-bold uppercase text-[#f5c400]">{t('badge')}</div>
+            <h2 className="text-3xl font-bold leading-[1.2] tracking-normal lg:text-5xl">{t('title')}</h2>
+            <p className="mt-6 text-base leading-8 text-[#b7c0bd]">{t('subtitle')}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {items.map(({ title, description, products, Icon }, index) => (
-            <AnimatedSection key={index} delay={index * 0.1}>
-              <div className="group relative bg-navy-800 border border-white/10 rounded-2xl p-8 h-full flex flex-col hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/5">
-                <div className="w-14 h-14 bg-gold-500/10 border border-gold-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-gold-500/20 transition-colors">
-                  <Icon className="w-7 h-7 text-gold-500" />
+            <dl className="mt-10 border-t border-white/25">
+              {[0, 1, 2].map((index) => (
+                <div key={index} className="grid grid-cols-[72px_1fr] gap-4 border-b border-white/15 py-5">
+                  <dt className="text-xs font-semibold text-[#f5c400]">0{index + 1}</dt>
+                  <dd>
+                    <div className="text-sm font-semibold text-white">{t(`items.${index}.title`)}</div>
+                    <div className="mt-1 text-sm leading-6 text-[#aeb8b5]">{t(`items.${index}.description`)}</div>
+                  </dd>
                 </div>
-                <h3 className="text-white font-semibold text-lg mb-3">{title}</h3>
-                <p className="text-text-secondary text-sm leading-relaxed flex-1">{description}</p>
-                {products && (
-                  <p className="mt-4 text-gold-500/90 text-xs font-mono uppercase tracking-wide">
-                    {products}
-                  </p>
-                )}
-                <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-gold-500/0 via-gold-500/50 to-gold-500/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
-              </div>
-            </AnimatedSection>
-          ))}
+              ))}
+            </dl>
+
+            <Link
+              href="/products/filter-drain"
+              className="mt-9 inline-flex h-12 items-center gap-2 bg-[#f5c400] px-6 text-sm font-semibold text-[#151a19] transition-colors hover:bg-[#ffd633]"
+            >
+              {t('cta')}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative min-h-[420px] lg:min-h-full">
+          <Image
+            src="/images/products/filter-drain-1.jpg"
+            alt="Waterbee Smart Filter-Drain System"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 58vw"
+          />
+          <div className="absolute bottom-0 left-0 bg-white px-5 py-4 text-[#171c1b] sm:px-7">
+            <div className="text-[11px] font-bold uppercase text-[#8c7200]">WB-FD</div>
+            <div className="mt-1 text-sm font-semibold">SMART FILTER-DRAIN SYSTEM</div>
+          </div>
         </div>
       </div>
     </section>

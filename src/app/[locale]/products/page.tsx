@@ -31,9 +31,8 @@ export default async function ProductsPage({
   const products = getAllProducts()
 
   return (
-    <div className="pt-20 lg:pt-24 min-h-screen bg-navy-900">
-      {/* 헤더 */}
-      <div className="bg-navy-800 border-b border-white/10 py-12">
+    <div className="min-h-screen bg-white pt-16 lg:pt-20">
+      <div className="border-b border-[#d7dcda] bg-[#f3f5f3] py-12 lg:py-14">
         <div className="container-custom">
           <SectionTitle
             badge={t('badge')}
@@ -45,8 +44,7 @@ export default async function ProductsPage({
         </div>
       </div>
 
-      {/* 제품 그리드 */}
-      <div className="container-custom py-12">
+      <div className="container-custom py-16 lg:py-20">
         <ProductGrid products={products} />
       </div>
     </div>

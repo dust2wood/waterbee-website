@@ -1,296 +1,136 @@
 import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
-import { Award, MapPin, Phone, Mail, Building2, Target, Eye as EyeIcon } from 'lucide-react'
-import SectionTitle from '@/components/ui/SectionTitle'
-import AnimatedSection from '@/components/ui/AnimatedSection'
+import { ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   return {
     title: locale === 'ko' ? '회사소개' : 'About',
-    description:
-      locale === 'ko'
-        ? '주식회사 워터비 회사 소개 및 연혁'
-        : 'About Waterbee Co., Ltd. and company history',
+    description: locale === 'ko' ? '주식회사 워터비 회사 소개 및 연혁' : 'About Waterbee Co., Ltd. and company history',
   }
 }
 
-const historyItemsKo = [
-  {
-    year: '2026',
-    events: [
-      '스마트여과드레인 시스템 성과공유제 과제 선정',
-      '우즈베키스탄 지역난방 시스템용 정밀 여과 솔루션 공급 및 설치',
-    ],
-  },
-  {
-    year: '2025',
-    events: [
-      'HSCMT-워터비 스마트 여과드레인 기술 고도화 및 유지관리 협력 MOU 체결',
-      '필리핀 뉴클락시티(NCC) 취수장 스마트 여과드레인 및 수질계측 시스템 구축',
-    ],
-  },
-  {
-    year: '2024',
-    events: [
-      '대한민국 발명특허대전 특허청장상 수상',
-      'K-water(한국수자원공사) 협력 스타트업 육성 지원 업무협약 체결',
-      '중소벤처기업부 시범구매제품 선정 (잔류염소계·탁도계)',
-      '조달청 벤처나라 혁신조달상품 지정',
-      '잔류염소계 측정기기 형식승인 취득 (국립환경과학원)',
-    ],
-  },
-  {
-    year: '2023',
-    events: [
-      'SK하이닉스 제2정수장 K-테스트베드 실증 완료 (2023.09~2024.02)',
-      '탁도계 측정기기 형식승인 취득 (국립환경과학원)',
-      '대한민국 물산업 혁신창업대전 수상',
-    ],
-  },
-  {
-    year: '2022',
-    events: [
-      '중소벤처기업부 R&D 디딤돌 과제 선정 (수질센서 핵심 R&D)',
-      '네이버클라우드 연계 클라우드 수질 모니터링 서비스(WATERROUND) 런칭',
-      'K-water 협력 스타트업 선정',
-    ],
-  },
-  {
-    year: '2021',
-    events: [
-      '(주)워터비 법인 설립',
-      '수질 측정 ICT 센서 개발 착수',
-    ],
-  },
-]
-
-const historyItemsEn = [
-  {
-    year: '2026',
-    events: [
-      'Selected for the 2026 Performance Sharing Project for the Smart Filter-Drain System',
-      'Supply and installation of precision filtration solution for Uzbekistan district heating system',
-    ],
-  },
-  {
-    year: '2025',
-    events: [
-      'HSCMT–Waterbee Smart Filter-Drain Technology Advancement and Maintenance Cooperation MOU signed',
-      'Smart filter-drain and water quality measurement system built at Philippines New Clark City (NCC) intake facility',
-    ],
-  },
-  {
-    year: '2024',
-    events: [
-      "Won Commissioner's Award at Korea Invention Patent Exhibition (KIPA)",
-      'Signed MOU with K-water (Korea Water Resources Corporation) for collaborative startup support',
-      'Selected as pilot purchase products by Ministry of SMEs and Startups (residual chlorine & turbidity analyzers)',
-      'Designated as Innovative Procurement Product on PPS VenturaNara',
-      'Obtained type approval for residual chlorine analyzer (National Institute of Environmental Research)',
-    ],
-  },
-  {
-    year: '2023',
-    events: [
-      'SK Hynix 2nd Water Treatment Plant K-Testbed demonstration completed (Sep 2023 – Feb 2024)',
-      'Obtained type approval for turbidity meter (National Institute of Environmental Research)',
-      'Won Korea Water Industry Innovation Startup Competition Award',
-    ],
-  },
-  {
-    year: '2022',
-    events: [
-      'Selected for MSS R&D Stepping Stone project (water quality sensor core R&D)',
-      'Launched cloud-based water quality monitoring service (WATERROUND) linked with Naver Cloud',
-      'Selected as K-water partner startup',
-    ],
-  },
-  {
-    year: '2021',
-    events: [
-      'Waterbee Co., Ltd. founded',
-      'Development of water quality measurement ICT sensors commenced',
-    ],
-  },
-]
+const history = {
+  ko: [
+    ['2026', ['스마트 여과드레인 시스템 성과공유제 과제 선정', '우즈베키스탄 지역난방 시스템용 정밀 여과 솔루션 공급 및 설치']],
+    ['2025', ['HSCMT-워터비 스마트 여과드레인 기술 고도화 및 유지관리 협력 MOU 체결', '필리핀 뉴클락시티 취수장 스마트 여과드레인 및 수질계측 시스템 구축']],
+    ['2024', ['대한민국 발명특허대전 특허청장상 수상', 'K-water 협력 스타트업 육성 지원 업무협약 체결', '중소벤처기업부 시범구매제품 선정', '조달청 벤처나라 혁신조달상품 지정', '잔류염소계 형식승인 취득(국립환경과학원)']],
+    ['2023', ['SK하이닉스 제2정수장 K-테스트베드 실증', '탁도계 형식승인 취득(국립환경과학원)', '대한민국 물산업 혁신창업대전 수상']],
+    ['2022', ['중소벤처기업부 R&D 디딤돌 과제 선정', '클라우드 수질 모니터링 서비스 WATERROUND 출시', 'K-water 협력 스타트업 선정']],
+    ['2021', ['주식회사 워터비 설립', '수질계측 ICT 센서 개발 착수']],
+  ],
+  en: [
+    ['2026', ['Selected for the Smart Filter-Drain performance-sharing project', 'Supplied and installed a precision filtration solution for an Uzbekistan district-heating system']],
+    ['2025', ['Signed an HSCMT-Waterbee technology and maintenance cooperation MOU', 'Built a smart filter-drain and instrumentation system at the New Clark City intake facility']],
+    ['2024', ["Won the Commissioner's Award at the Korea Invention Patent Exhibition", 'Signed a collaborative startup support agreement with K-water', 'Selected for the public pilot-purchase program', 'Designated as an innovative procurement product', 'Obtained residual chlorine analyzer type approval from NIER']],
+    ['2023', ['Completed a K-Testbed demonstration at SK Hynix Water Treatment Plant No. 2', 'Obtained turbidity meter type approval from NIER', 'Won the Korea Water Industry Innovation Startup Competition']],
+    ['2022', ['Selected for the MSS R&D Stepping Stone project', 'Launched WATERROUND cloud water-quality monitoring', 'Selected as a K-water partner startup']],
+    ['2021', ['Waterbee Co., Ltd. established', 'Started development of ICT water-quality instruments']],
+  ],
+} as const
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: 'about' })
   const isKo = locale === 'ko'
-  const historyItems = isKo ? historyItemsKo : historyItemsEn
+  const historyItems = isKo ? history.ko : history.en
 
   return (
-    <div className="pt-20 lg:pt-24 min-h-screen bg-navy-900">
-      <div className="bg-navy-800 border-b border-white/10 py-16">
+    <div className="min-h-screen bg-white pt-16 lg:pt-20">
+      <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-24">
         <div className="container-custom">
-          <AnimatedSection>
-            <SectionTitle
-              badge={t('badge')}
-              title={t('title')}
-              subtitle={t('subtitle')}
-              align="left"
-              className="mb-0"
-            />
-          </AnimatedSection>
+          <div className="max-w-3xl">
+            <div className="text-xs font-bold uppercase text-[#8c7200]">{t('badge')}</div>
+            <h1 className="mt-5 text-4xl font-bold tracking-normal text-[#151a19] lg:text-6xl">{t('title')}</h1>
+            <p className="mt-6 max-w-2xl text-base leading-8 text-[#596361] lg:text-lg">{t('subtitle')}</p>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="container-custom py-16 space-y-20">
-        <AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-navy-800 border border-gold-500/20 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4">
-                <Target className="w-6 h-6 text-gold-500" />
-              </div>
-              <h3 className="text-gold-500 text-xs font-semibold uppercase tracking-widest mb-2">
-                {t('mission.title')}
-              </h3>
-              <p className="text-white text-xl font-bold">{t('mission.description')}</p>
-            </div>
-            <div className="bg-navy-800 border border-white/10 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-gold-500/10 rounded-xl flex items-center justify-center mb-4">
-                <EyeIcon className="w-6 h-6 text-gold-500" />
-              </div>
-              <h3 className="text-gold-500 text-xs font-semibold uppercase tracking-widest mb-2">
-                {t('vision.title')}
-              </h3>
-              <p className="text-white text-xl font-bold">{t('vision.description')}</p>
-            </div>
+      <section className="py-20 lg:py-28">
+        <div className="container-custom grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+          <div>
+            <div className="text-xs font-bold uppercase text-[#8c7200]">Waterbee</div>
+            <h2 className="mt-4 text-3xl font-bold tracking-normal text-[#151a19]">
+              {isKo ? '정확한 계측에서 시작하는 물 관리' : 'Water management starts with dependable measurement'}
+            </h2>
           </div>
-        </AnimatedSection>
 
-        <AnimatedSection>
-          <div className="rounded-[28px] border border-cyan-300/15 bg-[radial-gradient(circle_at_top,rgba(74,154,202,0.18),transparent_32%),linear-gradient(145deg,rgba(17,34,64,0.95),rgba(8,17,29,0.96))] p-8">
-            <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-              <div className="flex items-start gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-gold-500/20 bg-gold-500/10">
-                  <Award className="h-6 w-6 text-gold-400" />
-                </div>
-                <div>
-                  <span className="inline-block rounded-full border border-gold-500/25 bg-gold-500/10 px-3 py-1 text-xs font-semibold tracking-[0.24em] text-gold-400 uppercase">
-                    {t('achievement.badge')}
-                  </span>
-                  <h3 className="mt-3 text-2xl font-bold text-white">
-                    {t('achievement.title')}
-                  </h3>
-                  <p className="mt-3 max-w-3xl text-sm leading-7 text-text-secondary">
-                    {t('achievement.description')}
-                  </p>
-                </div>
-              </div>
+          <div className="border-t border-[#9fa8a5]">
+            <div className="grid gap-5 border-b border-[#d2d7d4] py-7 sm:grid-cols-[120px_1fr]">
+              <div className="text-xs font-bold uppercase text-[#8c7200]">{t('mission.title')}</div>
+              <div className="text-xl font-semibold leading-8 text-[#202725]">{t('mission.description')}</div>
             </div>
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection>
-          {/* 성장여정 헤더 */}
-          <div className="mb-10">
-            <span className="inline-block text-gold-500 text-xs font-semibold tracking-widest uppercase mb-4 border border-gold-500/30 bg-gold-500/10 px-4 py-1.5 rounded-full">
-              History
-            </span>
-            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3">
+            <div className="grid gap-5 border-b border-[#d2d7d4] py-7 sm:grid-cols-[120px_1fr]">
+              <div className="text-xs font-bold uppercase text-[#8c7200]">{t('vision.title')}</div>
+              <div className="text-xl font-semibold leading-8 text-[#202725]">{t('vision.description')}</div>
+            </div>
+            <div className="grid gap-5 border-b border-[#d2d7d4] py-7 sm:grid-cols-[120px_1fr]">
+              <div className="text-xs font-bold uppercase text-[#8c7200]">2026</div>
               <div>
-                <p className="text-text-secondary text-sm font-medium tracking-wider uppercase mb-1">
-                  {isKo ? '워터비의' : "Waterbee's"}
-                </p>
-                <h2 className="text-3xl lg:text-5xl font-bold text-white leading-tight">
-                  {isKo ? '성장 여정' : 'Growth Journey'}
-                </h2>
-              </div>
-              <div className="text-right hidden sm:block">
-                <span className="text-gold-500/60 font-mono text-sm tracking-widest">2021 — {new Date().getFullYear()}</span>
+                <div className="text-xl font-semibold leading-8 text-[#202725]">{t('achievement.title')}</div>
+                <p className="mt-3 text-sm leading-7 text-[#68716f]">{t('achievement.description')}</p>
               </div>
             </div>
-            <div className="mt-5 h-px bg-gradient-to-r from-gold-500/40 via-gold-500/10 to-transparent" />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f5f6f4] py-20 lg:py-28">
+        <div className="container-custom">
+          <div className="grid gap-8 border-b border-[#9fa8a5] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <div className="text-xs font-bold uppercase text-[#8c7200]">History</div>
+              <h2 className="mt-4 text-3xl font-bold tracking-normal text-[#151a19] lg:text-4xl">{isKo ? '워터비의 성장 과정' : 'Waterbee Milestones'}</h2>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-[#68716f]">
+              {isKo ? '수질계측 기술 개발과 현장 실증, 제품 승인을 거쳐 시스템 솔루션으로 사업 영역을 확장해 왔습니다.' : 'Waterbee has expanded from instrumentation development and field validation to approved products and integrated system solutions.'}
+            </p>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-[5.5rem] top-0 bottom-0 w-px bg-white/10 hidden md:block" />
-            <div className="space-y-6">
-              {historyItems.map((item) => (
-                <div key={item.year} className="flex flex-col md:flex-row gap-4 md:gap-8">
-                  <div className="md:w-24 shrink-0 flex items-start md:justify-end md:pt-4">
-                    <span className="text-gold-500 font-bold text-lg md:text-xl">{item.year}</span>
-                  </div>
-                  <div className="hidden md:flex items-start pt-5">
-                    <div className="w-3 h-3 bg-gold-500 rounded-full relative z-10 ring-4 ring-navy-900" />
-                  </div>
-                  <div className="flex-1 bg-navy-800 border border-white/10 rounded-xl p-5">
-                    <ul className="space-y-1.5">
-                      {item.events.map((event, i) => (
-                        <li key={i} className="text-text-secondary text-sm flex items-baseline gap-2" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>
-                          <span className="text-gold-500 shrink-0 leading-none">·</span>
-                          {event}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+          <div>
+            {historyItems.map(([year, events]) => (
+              <div key={year} className="grid border-b border-[#cfd5d2] py-7 md:grid-cols-[180px_1fr]">
+                <div className="text-2xl font-bold text-[#202725]">{year}</div>
+                <ul className="mt-4 space-y-2 text-sm leading-7 text-[#596361] md:mt-0">
+                  {events.map((event) => <li key={event}>{event}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 lg:py-24">
+        <div className="container-custom grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+          <div>
+            <div className="text-xs font-bold uppercase text-[#8c7200]">Company Info</div>
+            <h2 className="mt-4 text-3xl font-bold tracking-normal text-[#151a19]">{t('info_section')}</h2>
+          </div>
+
+          <div>
+            <dl className="border-t border-[#9fa8a5] text-sm">
+              {[
+                [t('info.company_name_label'), t('info.company')],
+                [t('info.address'), t('info.address_value')],
+                [t('info.phone'), '1555-3534'],
+                [t('info.email'), 'support@waterbee.co.kr'],
+              ].map(([label, value]) => (
+                <div key={label} className="grid grid-cols-[110px_1fr] gap-5 border-b border-[#d2d7d4] py-4 sm:grid-cols-[160px_1fr]">
+                  <dt className="text-[#7a8380]">{label}</dt>
+                  <dd className="font-semibold leading-6 text-[#202725]">{value}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
+            <Link href="/contact" className="mt-7 inline-flex items-center gap-2 border-b border-[#151a19] pb-1 text-sm font-semibold text-[#151a19]">
+              {t('contact_card.button')}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
-        </AnimatedSection>
-
-        <AnimatedSection>
-          <div className="border-t border-white/10 pt-16">
-            <SectionTitle badge="Company Info" title={t('info_section')} align="left" />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-navy-800 border border-white/10 rounded-2xl p-6 space-y-4">
-                <div className="flex items-center gap-3">
-                  <Building2 className="w-5 h-5 text-gold-500 shrink-0" />
-                  <div>
-                    <div className="text-text-secondary text-xs mb-0.5">{t('info.company_name_label')}</div>
-                    <div className="text-white font-semibold">{t('info.company')}</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-gold-500 shrink-0" />
-                  <div>
-                    <div className="text-text-secondary text-xs mb-0.5">{t('info.address')}</div>
-                    <div className="text-white text-sm">{t('info.address_value')}</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-gold-500 shrink-0" />
-                  <div>
-                    <div className="text-text-secondary text-xs mb-0.5">{t('info.phone')}</div>
-                    <a href="tel:1555-3534" className="text-white hover:text-gold-500 transition-colors text-sm">
-                      1555-3534
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-gold-500 shrink-0" />
-                  <div>
-                    <div className="text-text-secondary text-xs mb-0.5">{t('info.email')}</div>
-                    <a href="mailto:support@waterbee.co.kr" className="text-white hover:text-gold-500 transition-colors text-sm">
-                      support@waterbee.co.kr
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-navy-800 border border-white/10 rounded-2xl p-6">
-                <h4 className="text-white font-semibold mb-4">{t('contact_card.title')}</h4>
-                <p className="text-text-secondary text-sm mb-6 leading-relaxed">
-                  {t('contact_card.description')}
-                </p>
-                <Link href="/contact" className="btn-primary">
-                  <Mail className="w-4 h-4" />
-                  {t('contact_card.button')}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-      </div>
+        </div>
+      </section>
     </div>
   )
 }

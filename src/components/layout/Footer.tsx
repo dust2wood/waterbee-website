@@ -1,107 +1,66 @@
 'use client'
 
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
-import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react'
 
 const navLinks = [
   { key: 'products', href: '/products' },
   { key: 'technology', href: '/technology' },
   { key: 'about', href: '/about' },
   { key: 'contact', href: '/contact' },
-]
+] as const
 
 export default function Footer() {
   const t = useTranslations('footer')
   const tNav = useTranslations('nav')
 
   return (
-    <footer className="bg-navy-900 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* 브랜드 */}
-          <div className="lg:col-span-2">
-            <div className="mb-4">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gold-500 rounded-sm flex items-center justify-center">
-                  <span className="text-navy-900 font-black text-sm">W</span>
-                </div>
-                <span className="text-white font-bold text-lg tracking-wider">WATERBEE</span>
-              </div>
-            </div>
-            <p className="text-text-secondary text-sm mb-6 max-w-sm leading-relaxed">
-              {t('tagline')} — {t('description')}
-            </p>
-            <div className="space-y-2 text-sm text-text-secondary">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-gold-500 shrink-0" />
-                <a href="tel:1555-3534" className="hover:text-gold-500 transition-colors">1555-3534</a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-gold-500 shrink-0" />
-                <a href="mailto:support@waterbee.co.kr" className="hover:text-gold-500 transition-colors">
-                  support@waterbee.co.kr
-                </a>
-              </div>
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-gold-500 shrink-0 mt-0.5" />
-                <span>{t('address_value')}</span>
-              </div>
-            </div>
+    <footer className="bg-[#151a19] text-white">
+      <div className="container-custom py-14 lg:py-16">
+        <div className="grid gap-12 border-b border-white/15 pb-12 lg:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <Image
+              src="/images/logo-new.png"
+              alt="WATERBEE"
+              width={150}
+              height={40}
+              className="h-8 w-auto"
+            />
+            <p className="mt-6 max-w-md text-sm leading-7 text-[#aeb8b5]">{t('description')}</p>
           </div>
 
-          {/* 바로가기 */}
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">{t('links')}</h3>
-            <ul className="space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.key}>
-                  <Link
-                    href={link.href}
-                    className="text-text-secondary text-sm hover:text-gold-500 transition-colors"
-                  >
-                    {tNav(link.key)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-[0.7fr_1.3fr]">
+            <nav>
+              <div className="mb-4 text-[11px] font-bold uppercase text-[#f5c400]">{t('links')}</div>
+              <ul className="space-y-3">
+                {navLinks.map((link) => (
+                  <li key={link.key}>
+                    <Link href={link.href} className="text-sm text-[#c8cfcd] transition-colors hover:text-white">
+                      {tNav(link.key)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-          {/* 법적 고지 */}
-          <div>
-            <h3 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">{t('legal')}</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/privacy" className="text-text-secondary text-sm hover:text-gold-500 transition-colors">
-                  {t('privacy')}
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="text-text-secondary text-sm hover:text-gold-500 transition-colors">
-                  {t('terms')}
-                </Link>
-              </li>
-            </ul>
-            <div className="mt-6 pt-4 border-t border-white/10 space-y-1">
-              <p className="text-text-secondary text-xs">
-                {t('business_number')} 291-87-02513
-              </p>
+            <div>
+              <div className="mb-4 text-[11px] font-bold uppercase text-[#f5c400]">Contact</div>
+              <div className="space-y-3 text-sm leading-6 text-[#c8cfcd]">
+                <a href="tel:1555-3534" className="block hover:text-white">1555-3534</a>
+                <a href="mailto:support@waterbee.co.kr" className="block break-all hover:text-white">support@waterbee.co.kr</a>
+                <p>{t('address_value')}</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-text-secondary text-xs">{t('copyright')}</p>
-          <div className="flex items-center gap-1 text-text-secondary text-xs">
-            <span>Powered by</span>
-            <a
-              href="https://vercel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gold-500 transition-colors flex items-center gap-1"
-            >
-              Vercel <ExternalLink className="w-3 h-3" />
-            </a>
+        <div className="flex flex-col gap-4 pt-6 text-xs text-[#8f9996] sm:flex-row sm:items-center sm:justify-between">
+          <p>{t('copyright')}</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <span>{t('business_number')} 291-87-02513</span>
+            <Link href="/privacy" className="hover:text-white">{t('privacy')}</Link>
+            <Link href="/terms" className="hover:text-white">{t('terms')}</Link>
           </div>
         </div>
       </div>

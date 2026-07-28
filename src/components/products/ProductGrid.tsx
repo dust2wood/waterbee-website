@@ -1,125 +1,90 @@
 'use client'
 
-import { useState, useCallback } from 'react'
-import { useTranslations, useLocale } from 'next-intl'
-import { motion, AnimatePresence } from 'framer-motion'
-import type { Product } from '@/lib/products'
+import { useState } from 'react'
+import { useLocale } from 'next-intl'
+import type { Product, ProductGroup } from '@/lib/products'
 import ProductCard from './ProductCard'
-import ProductFilter from './ProductFilter'
-import { PackageSearch, Sparkles, ChevronRight } from 'lucide-react'
 
-// 그룹 서브카테고리 → 실제 product category 값 매핑
-const SUB_CATEGORY_MAP: Record<string, string[]> = {
-  '센서부':          ['잔류염소', '탁도', 'pH', 'EC'],
-  'Sensors':         ['Residual Chlorine', 'Turbidity', 'pH', 'EC'],
-  '광학계':          ['탁도', '용존산소'],
-  '이온계':          ['이온'],
-  'Optical':         ['Turbidity', 'Dissolved Oxygen'],
-  'Ion Meter':       ['Ion'],
-}
+type GroupFilter = 'all' | ProductGroup
 
-interface ProductGridProps {
-  products: Product[]
-}
+const groupCopy = {
+  instrumentation: {
+    ko: '수질계측기',
+    en: 'Water Quality Instruments',
+    descriptionKo: '컨트롤러, 탁도, 잔류염소, pH 및 전기전도도',
+    descriptionEn: 'Controller, turbidity, residual chlorine, pH and conductivity',
+  },
+  system: {
+    ko: '여과드레인 시스템',
+    en: 'Filter-Drain System',
+    descriptionKo: '정밀여과와 수질계측, 자동 배수 제어를 결합한 시스템 제품',
+    descriptionEn: 'System products combining filtration, monitoring and automatic drain control',
+  },
+  accessory: {
+    ko: '샘플링 및 유지보수 부품',
+    en: 'Sampling & Maintenance Parts',
+    descriptionKo: '샘플 공급 장치와 전용 교체 부품',
+    descriptionEn: 'Sample supply equipment and dedicated replacement parts',
+  },
+} as const
 
-export default function ProductGrid({ products }: ProductGridProps) {
-  const t = useTranslations('products')
+const groupOrder: ProductGroup[] = ['instrumentation', 'system', 'accessory']
+
+export default function ProductGrid({ products }: { products: Product[] }) {
   const locale = useLocale()
   const isKo = locale === 'ko'
-  const [selectedApplication, setSelectedApplication] = useState('all')
-  const [selectedSubCategory, setSelectedSubCategory] = useState('all')
-  const [showAll, setShowAll] = useState(false)
+  const [selectedGroup, setSelectedGroup] = useState<GroupFilter>('all')
 
-  // application 클릭 시 defaultSub도 함께 설정 (ProductFilter가 전달)
-  const handleApplicationChange = useCallback((app: string, defaultSub: string) => {
-    const y = window.scrollY
-    setSelectedApplication(app)
-    setSelectedSubCategory(defaultSub)
-    setShowAll(false)
-    requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior }))
-  }, [])
-
-  const handleSubCategoryChange = useCallback((sub: string) => {
-    const y = window.scrollY
-    setSelectedSubCategory(sub)
-    requestAnimationFrame(() => window.scrollTo({ top: y, behavior: 'instant' as ScrollBehavior }))
-  }, [])
-
-  const isDefaultView = selectedApplication === 'all' && !showAll
-
-  const filtered = products.filter((p) => {
-    const appMatch = selectedApplication === 'all' || p.application.includes(selectedApplication)
-    const catVal = isKo ? p.category : p.categoryEn
-    const mapped = SUB_CATEGORY_MAP[selectedSubCategory]
-    const subMatch =
-      selectedSubCategory === 'all' ||
-      (mapped ? mapped.includes(catVal) : catVal === selectedSubCategory)
-    return appMatch && subMatch
-  })
-
-  const displayProducts = isDefaultView ? products.filter((p) => p.featured) : filtered
+  const visibleGroups = selectedGroup === 'all' ? groupOrder : [selectedGroup]
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8">
-      <ProductFilter
-        selectedApplication={selectedApplication}
-        selectedSubCategory={selectedSubCategory}
-        onApplicationChange={handleApplicationChange}
-        onSubCategoryChange={handleSubCategoryChange}
-        resultCount={displayProducts.length}
-      />
-
-      <div className="flex-1">
-        {/* 추천 제품 헤더 */}
-        {isDefaultView && (
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-gold-500" />
-              <span className="text-white font-semibold text-sm">
-                {isKo ? '추천 제품' : 'Featured Products'}
-              </span>
-              <span className="text-text-secondary text-xs">
-                {isKo ? '— 워터비 대표 라인업' : '— Waterbee core lineup'}
-              </span>
-            </div>
+    <div>
+      <div className="mb-14 flex flex-wrap gap-x-7 gap-y-3 border-b border-[#cfd5d2]">
+        {(['all', ...groupOrder] as GroupFilter[]).map((group) => {
+          const label = group === 'all' ? (isKo ? '전체 제품' : 'All Products') : (isKo ? groupCopy[group].ko : groupCopy[group].en)
+          const active = selectedGroup === group
+          return (
             <button
+              key={group}
               type="button"
-              onClick={() => setShowAll(true)}
-              className="flex items-center gap-1 text-text-secondary text-xs hover:text-gold-500 transition-colors"
+              onClick={() => setSelectedGroup(group)}
+              className={`relative pb-4 text-sm font-semibold transition-colors ${active ? 'text-[#151a19]' : 'text-[#7a8380] hover:text-[#303735]'}`}
             >
-              {isKo ? '전체 제품 보기' : 'View All'}
-              <ChevronRight className="w-3.5 h-3.5" />
+              {label}
+              {active && <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold-500" />}
             </button>
-          </div>
-        )}
+          )
+        })}
+      </div>
 
-        <AnimatePresence mode="popLayout">
-          {displayProducts.length > 0 ? (
-            <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-              {displayProducts.map((product, index) => (
-                <motion.div
-                  key={product.slug}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                >
-                  <ProductCard product={product} />
-                </motion.div>
-              ))}
-            </motion.div>
-          ) : (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="flex flex-col items-center justify-center py-20 text-center"
-            >
-              <PackageSearch className="w-16 h-16 text-text-secondary/30 mb-4" />
-              <p className="text-text-secondary text-base">{t('no_results')}</p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <div className="space-y-20">
+        {visibleGroups.map((group) => {
+          const groupProducts = products.filter((product) => product.group === group)
+          if (groupProducts.length === 0) return null
+          const copy = groupCopy[group]
+
+          return (
+            <section key={group}>
+              <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <h2 className="text-2xl font-bold tracking-normal text-[#151a19]">
+                    {isKo ? copy.ko : copy.en}
+                  </h2>
+                  <p className="mt-2 text-sm text-[#68716f]">
+                    {isKo ? copy.descriptionKo : copy.descriptionEn}
+                  </p>
+                </div>
+                <div className="text-xs text-[#8a9390]">{String(groupProducts.length).padStart(2, '0')}</div>
+              </div>
+
+              <div className={`grid border-l border-t border-[#d7dcda] sm:grid-cols-2 ${group === 'instrumentation' ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
+                {groupProducts.map((product) => (
+                  <ProductCard key={product.slug} product={product} />
+                ))}
+              </div>
+            </section>
+          )
+        })}
       </div>
     </div>
   )

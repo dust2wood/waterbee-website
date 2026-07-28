@@ -21,13 +21,13 @@ type FormData = {
 }
 
 const inputClass = clsx(
-  'w-full bg-navy-900 border border-white/20 rounded-xl px-4 py-3 text-white text-sm',
-  'placeholder:text-text-secondary/50',
-  'focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/30',
+  'w-full border border-[#bfc7c4] bg-white px-4 py-3 text-sm text-[#202725]',
+  'placeholder:text-[#9aa3a0]',
+  'focus:outline-none focus:border-[#151a19] focus:ring-1 focus:ring-[#151a19]/10',
   'transition-colors duration-200',
 )
 
-const errorClass = 'border-red-500/50 focus:border-red-500'
+const errorClass = 'border-red-500 focus:border-red-500'
 
 export default function ContactForm() {
   const t = useTranslations('contact')
@@ -73,9 +73,8 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="pt-20 lg:pt-24 min-h-screen bg-navy-900">
-      {/* 헤더 */}
-      <div className="bg-navy-800 border-b border-white/10 py-16">
+    <div className="min-h-screen bg-white pt-16 lg:pt-20">
+      <div className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-20">
         <div className="container-custom">
           <AnimatedSection>
             <SectionTitle
@@ -89,15 +88,15 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div className="container-custom py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <div className="container-custom py-16 lg:py-20">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1.3fr_0.7fr] lg:gap-20">
           {/* 문의 폼 */}
-          <div className="lg:col-span-2">
+          <div>
             <AnimatedSection>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-text-secondary text-xs font-semibold uppercase tracking-wider mb-2">
+                    <label className="mb-2 block text-xs font-semibold text-[#596361]">
                       {t('form.name')} <span className="text-red-400">*</span>
                     </label>
                     <input
@@ -106,11 +105,11 @@ export default function ContactForm() {
                       className={clsx(inputClass, errors.name && errorClass)}
                     />
                     {errors.name && (
-                      <p className="mt-1 text-red-400 text-xs">{errors.name.message}</p>
+                      <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>
                     )}
                   </div>
                   <div>
-                    <label className="block text-text-secondary text-xs font-semibold uppercase tracking-wider mb-2">
+                    <label className="mb-2 block text-xs font-semibold text-[#596361]">
                       {t('form.company')} <span className="text-red-400">*</span>
                     </label>
                     <input
@@ -119,14 +118,14 @@ export default function ContactForm() {
                       className={clsx(inputClass, errors.company && errorClass)}
                     />
                     {errors.company && (
-                      <p className="mt-1 text-red-400 text-xs">{errors.company.message}</p>
+                      <p className="mt-1 text-xs text-red-600">{errors.company.message}</p>
                     )}
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-text-secondary text-xs font-semibold uppercase tracking-wider mb-2">
+                    <label className="mb-2 block text-xs font-semibold text-[#596361]">
                       {t('form.email')} <span className="text-red-400">*</span>
                     </label>
                     <input
@@ -136,11 +135,11 @@ export default function ContactForm() {
                       className={clsx(inputClass, errors.email && errorClass)}
                     />
                     {errors.email && (
-                      <p className="mt-1 text-red-400 text-xs">{errors.email.message}</p>
+                      <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>
                     )}
                   </div>
                   <div>
-                    <label className="block text-text-secondary text-xs font-semibold uppercase tracking-wider mb-2">
+                    <label className="mb-2 block text-xs font-semibold text-[#596361]">
                       {t('form.phone')}
                     </label>
                     <input
@@ -149,13 +148,13 @@ export default function ContactForm() {
                       className={clsx(inputClass, errors.phone && errorClass)}
                     />
                     {errors.phone && (
-                      <p className="mt-1 text-red-400 text-xs">{errors.phone.message}</p>
+                      <p className="mt-1 text-xs text-red-600">{errors.phone.message}</p>
                     )}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-text-secondary text-xs font-semibold uppercase tracking-wider mb-2">
+                  <label className="mb-2 block text-xs font-semibold text-[#596361]">
                     {t('form.subject')} <span className="text-red-400">*</span>
                   </label>
                   <select
@@ -173,12 +172,12 @@ export default function ContactForm() {
                     <option value="other">{t('form.subjects.other')}</option>
                   </select>
                   {errors.subject && (
-                    <p className="mt-1 text-red-400 text-xs">{errors.subject.message}</p>
+                    <p className="mt-1 text-xs text-red-600">{errors.subject.message}</p>
                   )}
                 </div>
 
                 <div>
-                  <label className="block text-text-secondary text-xs font-semibold uppercase tracking-wider mb-2">
+                  <label className="mb-2 block text-xs font-semibold text-[#596361]">
                     {t('form.message')} <span className="text-red-400">*</span>
                   </label>
                   <textarea
@@ -188,19 +187,19 @@ export default function ContactForm() {
                     className={clsx(inputClass, 'resize-none', errors.message && errorClass)}
                   />
                   {errors.message && (
-                    <p className="mt-1 text-red-400 text-xs">{errors.message.message}</p>
+                    <p className="mt-1 text-xs text-red-600">{errors.message.message}</p>
                   )}
                 </div>
 
                 {/* 상태 메시지 */}
                 {status === 'success' && (
-                  <div className="flex items-center gap-3 bg-green-500/10 border border-green-500/30 text-green-400 rounded-xl px-5 py-4 text-sm">
+                  <div className="flex items-center gap-3 border border-green-700/30 bg-green-50 px-5 py-4 text-sm text-green-800">
                     <CheckCircle className="w-5 h-5 shrink-0" />
                     {t('form.success')}
                   </div>
                 )}
                 {status === 'error' && (
-                  <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/30 text-red-400 rounded-xl px-5 py-4 text-sm">
+                  <div className="flex items-center gap-3 border border-red-700/30 bg-red-50 px-5 py-4 text-sm text-red-800">
                     <AlertCircle className="w-5 h-5 shrink-0" />
                     {t('form.error')}
                   </div>
@@ -209,7 +208,7 @@ export default function ContactForm() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full btn-primary justify-center py-4 text-base disabled:opacity-50"
+                  className="btn-primary w-full justify-center py-4 text-base disabled:opacity-50"
                 >
                   {status === 'loading' ? (
                     <>
@@ -227,56 +226,56 @@ export default function ContactForm() {
           {/* 연락처 정보 */}
           <div>
             <AnimatedSection delay={0.2}>
-              <div className="bg-navy-800 border border-white/10 rounded-2xl p-6 sticky top-24">
-                <h3 className="text-white font-semibold mb-6">{t('info.title')}</h3>
+              <div className="sticky top-28 border-t border-[#9fa8a5] pt-7">
+                <h3 className="mb-7 text-xl font-semibold text-[#202725]">{t('info.title')}</h3>
                 <div className="space-y-5">
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 bg-gold-500/10 rounded-lg flex items-center justify-center shrink-0">
-                      <Phone className="w-4 h-4 text-gold-500" />
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#f5c400]">
+                      <Phone className="h-4 w-4 text-[#151a19]" />
                     </div>
                     <div>
-                      <div className="text-text-secondary text-xs mb-0.5">{t('info.phone')}</div>
-                      <a href="tel:1555-3534" className="text-white font-semibold hover:text-gold-500 transition-colors">
+                      <div className="mb-0.5 text-xs text-[#7a8380]">{t('info.phone')}</div>
+                      <a href="tel:1555-3534" className="font-semibold text-[#202725] transition-colors hover:text-[#8c7200]">
                         1555-3534
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 bg-gold-500/10 rounded-lg flex items-center justify-center shrink-0">
-                      <Mail className="w-4 h-4 text-gold-500" />
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#f5c400]">
+                      <Mail className="h-4 w-4 text-[#151a19]" />
                     </div>
                     <div>
-                      <div className="text-text-secondary text-xs mb-0.5">{t('info.email')}</div>
-                      <a href="mailto:support@waterbee.co.kr" className="text-white font-semibold hover:text-gold-500 transition-colors text-sm">
+                      <div className="mb-0.5 text-xs text-[#7a8380]">{t('info.email')}</div>
+                      <a href="mailto:support@waterbee.co.kr" className="break-all text-sm font-semibold text-[#202725] transition-colors hover:text-[#8c7200]">
                         support@waterbee.co.kr
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 bg-gold-500/10 rounded-lg flex items-center justify-center shrink-0">
-                      <MapPin className="w-4 h-4 text-gold-500" />
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#f5c400]">
+                      <MapPin className="h-4 w-4 text-[#151a19]" />
                     </div>
                     <div>
-                      <div className="text-text-secondary text-xs mb-0.5">{t('info.address')}</div>
-                      <p className="text-white text-sm leading-relaxed">
+                      <div className="mb-0.5 text-xs text-[#7a8380]">{t('info.address')}</div>
+                      <p className="text-sm leading-relaxed text-[#202725]">
                         {t('info.address_value')}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 bg-gold-500/10 rounded-lg flex items-center justify-center shrink-0">
-                      <Clock className="w-4 h-4 text-gold-500" />
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center bg-[#f5c400]">
+                      <Clock className="h-4 w-4 text-[#151a19]" />
                     </div>
                     <div>
-                      <div className="text-text-secondary text-xs mb-0.5">{t('info.hours')}</div>
-                      <p className="text-white text-sm leading-relaxed">{t('info.hours_value')}</p>
+                      <div className="mb-0.5 text-xs text-[#7a8380]">{t('info.hours')}</div>
+                      <p className="text-sm leading-relaxed text-[#202725]">{t('info.hours_value')}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* 구분선 */}
-                <div className="border-t border-white/10 mt-6 pt-6">
-                  <p className="text-text-secondary text-xs leading-relaxed">
+                <div className="mt-7 border-t border-[#d2d7d4] pt-6">
+                  <p className="text-xs leading-relaxed text-[#68716f]">
                     {t('info.emergency')}
                   </p>
                 </div>

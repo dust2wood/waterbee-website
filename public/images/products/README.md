@@ -1,46 +1,15 @@
-# 제품 이미지
+# Product Images
 
-## 경로 설정
+Website product assets are stored in this directory. The current public lineup is intentionally limited to water-quality instrumentation, the filter-drain system, and related accessories.
 
-**제품 메인 이미지는 반드시 이 프로젝트의 `public/images/products/` 폴더 안에 위치해야 합니다.**  
-웹사이트는 이 경로에 있는 파일만 불러옵니다. Google 드라이브나 다른 경로에 있는 사진은 자동으로 올라가지 않습니다.
+| Product | Main image | Additional image |
+| --- | --- | --- |
+| WBSC10 Smart Controller | `wbsc10-front.png` | `wbsc10-main.png` |
+| WBTU10 Online Turbidity Meter | `wbtu10-front.png` | `wbtu10-main.png` |
+| WBCL10 Residual Chlorine Analyzer | `wbcl10-front.png` | `wbcl10-main.png` |
+| WBPH10 pH Meter | `wbph10-main.png` | - |
+| WBEC10 Conductivity Meter | `wbec10-main.png` | - |
+| Smart Filter-Drain System | `filter-drain-1.jpg` | `filter-drain-2.jpg`, `filter-drain-3.jpg` |
+| WB-ST Sampling Tank | `wbst-main.png` | - |
 
-## 제품 사진이 안 나오는 이유
-
-**해결 방법:** 아래 표의 **저장할 파일명**으로 저장한 뒤, **이 폴더(`public/images/products/`)** 에 복사·붙여넣기(또는 드래그)해 주세요.  
-저장 후 사이트를 새로고침하면 제품 사진이 표시됩니다. 이미지가 없으면 제품 카드/상세 페이지에 'W' 플레이스홀더가 표시됩니다.
-
----
-
-매뉴얼·카탈로그 또는 **렌더링 사진**을 아래 파일명으로 이 폴더에 넣으면 웹사이트에 표시됩니다.
-
-## 렌더링 사진 사용
-
-`내 드라이브\2. 사진\제품\2. 렌더링 탁도, 잔류염소, 컨트롤러` 폴더의 렌더링 이미지를 복사한 뒤 아래와 같이 이름을 붙여 이 폴더에 넣어 주세요.
-
-| 렌더링 종류 | 저장할 파일명 |
-|-------------|----------------|
-| 탁도 | wbtu10-main.png |
-| 잔류염소 | wbcl10-main.png |
-| 컨트롤러 | wbsc10-main.png (공용 컨트롤러) |
-
-## 전체 권장 파일명
-
-| 제품 | 메인 이미지 | 갤러리 (선택) |
-|------|-------------|----------------|
-| 잔류염소계 (WBCL10) | wbcl10-main.png | wbcl10-side.png, wbcl10-install.png |
-| 탁도계 (WBTU10) | wbtu10-main.png | wbtu10-side.png |
-| pH계 (WBPH10) | wbph10-main.png | — |
-| pH 복합전극 (HT35-PBS01) | wbph-pbs01-main.png | — |
-| EC계 (WBEC10) | wbec10-main.png | — |
-| 전도도 전극 (WBEC-COND) | wbec-cond-main.png | — |
-| 고농도 탁도계 (WBTU-PRO) | wbtu-pro-main.png | — |
-| 광학식 용존산소계 (WBDO10) | wbdo10-main.png | — |
-| 질산성 질소 이온계 (WBNO3) | wbno3-main.png | — |
-| 암모늄 이온계 (WBNH4) | wbnh4-main.png | — |
-| 샘플링수조 (WB-ST) | sampling-tank-main.png | — |
-| 여과드레인시스템 (WB-FDS) | filter-drain-main.png | — |
-| pH/EC 센서보드 (WB-PES) | ph-ec-board-main.png | — |
-| 스마트팜 수질 통합 보드 (WB-SFIO) | smartfarm-io-main.png | — |
-
-이미지 형식: PNG. 가로 800px 이상 권장.
+Use transparent PNG files for isolated instruments and high-resolution JPG files for field or system photography.

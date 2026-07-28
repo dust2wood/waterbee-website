@@ -1,55 +1,34 @@
 'use client'
 
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import type { ProductSpec } from '@/lib/products'
-import { useTranslations } from 'next-intl'
 
-interface ProductSpecTableProps {
-  specs: ProductSpec[]
-}
-
-export default function ProductSpecTable({ specs }: ProductSpecTableProps) {
+export default function ProductSpecTable({ specs }: { specs: ProductSpec[] }) {
   const locale = useLocale()
   const isKo = locale === 'ko'
   const t = useTranslations('products')
 
   return (
-    <div className="max-w-3xl">
-      <h3 className="text-white font-semibold text-lg mb-5">{t('spec_table')}</h3>
-      <div className="bg-navy-800 border border-white/10 rounded-xl overflow-hidden">
-        <table className="w-full border-collapse">
-          {/* colgroup으로 라벨 열 너비를 브라우저에 명시적으로 선언 */}
-          <colgroup>
-            <col style={{ width: '210px' }} />
-            <col />
-          </colgroup>
-          <tbody>
-            {specs.map((spec, index) => (
-              <tr
-                key={index}
-                className={`border-b border-white/[0.06] last:border-0 ${
-                  index % 2 === 0 ? 'bg-transparent' : 'bg-white/[0.02]'
-                }`}
-              >
-                {/* 라벨 열: colgroup 너비 준수, 수직 상단 정렬 */}
-                <td
-                  className="py-4 pl-6 pr-4 text-text-secondary text-sm border-r border-white/[0.06]"
-                  style={{ verticalAlign: 'top' }}
-                >
-                  {isKo ? spec.label : spec.labelEn}
-                </td>
-                {/* 값 열: 들여쓰기, 수직 상단 정렬 */}
-                <td
-                  className="py-4 pl-6 pr-6 text-white text-sm font-medium leading-relaxed"
-                  style={{ verticalAlign: 'top' }}
-                >
-                  {isKo ? spec.value : spec.valueEn}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+    <div className="max-w-4xl">
+      <div className="mb-7 text-xs font-bold uppercase text-[#8c7200]">{t('spec_table')}</div>
+      <table className="w-full border-collapse border-t border-[#9fa8a5] text-sm">
+        <colgroup>
+          <col className="w-[38%] sm:w-[240px]" />
+          <col />
+        </colgroup>
+        <tbody>
+          {specs.map((spec) => (
+            <tr key={spec.label} className="border-b border-[#cfd5d2]">
+              <th className="px-0 py-4 pr-5 text-left align-top font-medium text-[#707a77]">
+                {isKo ? spec.label : spec.labelEn}
+              </th>
+              <td className="py-4 pl-4 align-top font-semibold leading-6 text-[#202725] sm:pl-8">
+                {isKo ? spec.value : spec.valueEn}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   )
 }
