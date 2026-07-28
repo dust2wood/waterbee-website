@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect } from 'react'
+import Image from 'next/image'
+import { AnimatePresence, motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Link, usePathname } from '@/i18n/navigation'
@@ -26,11 +27,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname()
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = ''
-    }
+    document.body.style.overflow = isOpen ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
@@ -40,66 +37,58 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          <motion.div
+          <motion.button
+            type="button"
+            aria-label="Close menu overlay"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+            className="fixed inset-0 z-40 bg-black/45 lg:hidden"
             onClick={onClose}
           />
-          <motion.div
+          <motion.aside
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed right-0 top-0 h-full w-80 max-w-full bg-navy-800 z-50 lg:hidden flex flex-col"
+            transition={{ type: 'tween', duration: 0.25 }}
+            className="fixed right-0 top-0 z-50 flex h-full w-[86vw] max-w-sm flex-col bg-white lg:hidden"
           >
-            <div className="flex items-center justify-between p-6 border-b border-white/10">
-              <span className="text-gold-500 font-bold text-lg">WATERBEE</span>
-              <button
-                onClick={onClose}
-                className="text-text-secondary hover:text-white transition-colors p-1"
-              >
-                <X className="w-6 h-6" />
+            <div className="flex h-16 items-center justify-between border-b border-[#dce1de] px-5">
+              <Image src="/images/logo-transparent.png" alt="WATERBEE" width={126} height={64} className="h-auto w-[112px]" />
+              <button type="button" onClick={onClose} className="p-2 text-[#303735]" aria-label="Close menu">
+                <X className="h-5 w-5" />
               </button>
             </div>
-            <nav className="flex-1 p-6">
-              <ul className="space-y-1">
-                {navItems.map((item, index) => (
-                  <motion.li
-                    key={item.key}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                  >
+
+            <nav className="flex-1 px-5 py-8">
+              <ul className="border-t border-[#dce1de]">
+                {navItems.map((item) => (
+                  <li key={item.key} className="border-b border-[#dce1de]">
                     <Link
                       href={item.href}
                       onClick={onClose}
                       className={clsx(
-                        'block px-4 py-3 rounded-lg text-base font-medium transition-colors',
-                        pathname === item.href
-                          ? 'text-gold-500 bg-gold-500/10'
-                          : 'text-text-secondary hover:text-white hover:bg-white/5',
+                        'flex min-h-14 items-center text-base font-semibold',
+                        pathname === item.href ? 'text-[#8c7200]' : 'text-[#202725]',
                       )}
                     >
                       {t(item.key)}
                     </Link>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </nav>
-            <div className="p-6 border-t border-white/10 flex items-center justify-between">
-              <LanguageSwitcher />
-              <Link
-                href="/contact"
-                onClick={onClose}
-                className="bg-gold-500 text-navy-900 font-semibold px-4 py-2 rounded-lg text-sm hover:bg-gold-400 transition-colors"
-              >
+
+            <div className="border-t border-[#dce1de] p-5">
+              <div className="mb-5 flex items-center justify-between">
+                <LanguageSwitcher />
+                <a href="tel:1555-3534" className="text-sm font-semibold text-[#202725]">1555-3534</a>
+              </div>
+              <Link href="/contact" onClick={onClose} className="flex h-12 items-center justify-center bg-[#151a19] text-sm font-semibold text-white">
                 {t('contact')}
               </Link>
             </div>
-          </motion.div>
+          </motion.aside>
         </>
       )}
     </AnimatePresence>

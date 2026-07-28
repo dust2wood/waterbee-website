@@ -1,81 +1,94 @@
+@font-face {
+  font-family: 'Pretendard Variable';
+  src: url('/fonts/PretendardVariable.woff2') format('woff2-variations');
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
   html {
     scroll-behavior: smooth;
+    background: #ffffff;
   }
 
   body {
-    @apply text-white antialiased;
-    font-family: 'Pretendard Variable', 'Pretendard', system-ui, sans-serif;
-    letter-spacing: -0.01em;
-    background:
-      radial-gradient(circle at top, rgba(252, 201, 0, 0.1), transparent 24%),
-      radial-gradient(circle at 85% 12%, rgba(74, 154, 202, 0.14), transparent 20%),
-      linear-gradient(180deg, #0b1929 0%, #091523 52%, #08111d 100%);
+    margin: 0;
+    background: #ffffff;
+    color: #151a19;
+    font-family: 'Pretendard Variable', Pretendard, 'Noto Sans KR', 'Malgun Gothic', Arial, sans-serif;
+    font-variation-settings: 'wght' 450;
+    letter-spacing: 0;
+    text-rendering: optimizeLegibility;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold leading-tight;
-    letter-spacing: -0.025em;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    letter-spacing: 0;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    letter-spacing: 0;
   }
 
   ::selection {
-    background: rgba(252, 201, 0, 0.28);
-    color: #fff7d1;
+    background: #f5c400;
+    color: #151a19;
   }
 }
 
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
   }
 
   .section-padding {
-    @apply py-16 lg:py-24;
-  }
-
-  .gold-gradient-text {
-    @apply bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent;
-  }
-
-  .card-hover {
-    @apply transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-2xl;
+    @apply py-20 lg:py-28;
   }
 
   .nav-link {
-    @apply text-text-secondary hover:text-gold-500 transition-colors duration-200 text-sm font-medium;
+    @apply text-sm font-medium text-[#3f4846] transition-colors hover:text-[#151a19];
   }
 
   .btn-primary {
-    @apply bg-gold-500 text-navy-900 font-semibold px-6 py-3 rounded-lg hover:bg-gold-400 transition-all duration-200 inline-flex items-center gap-2;
+    @apply inline-flex items-center gap-2 bg-[#151a19] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#343a38];
   }
 
   .btn-secondary {
-    @apply border border-gold-500 text-gold-500 font-semibold px-6 py-3 rounded-lg hover:bg-gold-500 hover:text-navy-900 transition-all duration-200 inline-flex items-center gap-2;
+    @apply inline-flex items-center gap-2 border border-[#9ca5a2] px-6 py-3 text-sm font-semibold text-[#151a19] transition-colors hover:border-[#151a19];
   }
 
   .btn-outline {
-    @apply border border-white/20 text-white font-medium px-6 py-3 rounded-lg hover:bg-white/10 transition-all duration-200 inline-flex items-center gap-2;
+    @apply inline-flex items-center gap-2 border border-white/40 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10;
   }
 }
 
-/* Pretendard 폰트 (CDN 대체 - 실제 배포 시 fonts.css 또는 next/font 사용) */
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css');
-
-/* 스크롤바 커스텀 */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #0B1929;
-}
-::-webkit-scrollbar-thumb {
-  background: #FCC900;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #FFD333;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

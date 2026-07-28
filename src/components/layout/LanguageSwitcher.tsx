@@ -17,7 +17,7 @@ export default function LanguageSwitcher() {
   return (
     <button
       onClick={handleSwitch}
-      className="flex items-center gap-1.5 text-text-secondary hover:text-gold-500 transition-colors text-sm font-medium"
+      className="flex items-center gap-1.5 text-sm font-semibold text-[#56605e] transition-colors hover:text-[#151a19]"
       aria-label="Switch language"
     >
       <Globe className="w-4 h-4" />

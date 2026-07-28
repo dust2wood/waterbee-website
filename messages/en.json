@@ -8,11 +8,11 @@
     "catalog": "Catalog"
   },
   "hero": {
-    "badge": "Water Quality Measurement Specialist",
-    "title": "Reliable Water Data,\nCloser to the Field",
-    "subtitle": "Waterbee is a water-quality instrumentation partner building accurate measurement, dependable connectivity, and operational automation for waterworks, industrial sites, and smart infrastructure.",
-    "cta_primary": "Explore Technology",
-    "cta_secondary": "View Products",
+    "badge": "Water Quality Instrumentation",
+    "title": "Right Technology,\nBright Environment",
+    "subtitle": "Waterbee designs online water-quality instruments and smart-farm pH and EC sensors for reliable measurement and a better water environment.",
+    "cta_primary": "Explore Products",
+    "cta_secondary": "Technical Inquiry",
     "scroll": "Scroll",
     "highlights": [
       "Accurate Measurement",
@@ -35,66 +35,67 @@
     ]
   },
   "tech_features": {
-    "badge": "Technology Portfolio",
-    "title": "Precise sensor engineering,\nA control platform built for trust",
-    "subtitle": "From rotating-electrode residual chlorine and bubble-removal 90deg turbidity optics to Python and AI-based smart control, Waterbee's core technologies are presented at a glance.",
-    "cta": "View Technology Page",
+    "badge": "Core Technology",
+    "title": "Designed around\nreal operating conditions",
+    "subtitle": "Measurement principles, maintainable structures and field-control signals are connected as one practical operating system.",
+    "cta": "Explore Core Technology",
     "items": [
       {
         "tag": "Residual Chlorine",
-        "title": "Rotating-Electrode Residual Chlorine",
-        "description": "A continuous measurement method focused on reducing fouling buildup and supporting long-term stable operation."
+        "title": "Continuous Rotating Electrode",
+        "description": "The rotating structure helps limit electrode fouling and measures residual chlorine continuously without a membrane."
       },
       {
         "tag": "Turbidity",
-        "title": "Bubble-Removal 90deg Turbidity",
-        "description": "A detachable bubble-removal stage and 90deg scattered-light detection help suppress microbubble interference in low-range turbidity reading."
+        "title": "90° Low-Range Scattered Light",
+        "description": "A detachable bubble-reduction structure and scattered-light detection help limit microbubble interference."
       },
       {
-        "tag": "Smart Control",
-        "title": "Python and AI Smart Controller",
-        "description": "A next-generation control platform that uses a Python operating environment and AI-assisted validation logic to improve measurement trust and operating visibility."
+        "tag": "Field Control",
+        "title": "Integrated Display, Calibration and Output",
+        "description": "The WBSC10 manages local display, calibration, 4–20 mA output and RS-485 communication in one controller."
       }
     ]
   },
   "product_highlight": {
-    "badge": "Product Lineup",
-    "title": "Water Quality Measurement Solutions",
-    "subtitle": "Waterbee instruments tailored to your field conditions",
+    "badge": "Water Quality Instruments",
+    "title": "Online Instrumentation",
+    "subtitle": "Waterbee controllers and sensors connected as one operating system",
     "view_all": "View All Products",
     "view_detail": "View Details"
   },
   "applications": {
-    "badge": "Applications",
-    "title": "Waterbee Business Areas",
-    "subtitle": "Drinking water, wastewater & industrial process, and specialized solutions",
+    "badge": "System Solution",
+    "title": "Smart Filter-Drain System",
+    "subtitle": "Precision filtration, upstream and downstream water-quality monitoring, and automatic drain control configured for site pipe size and operating conditions.",
+    "cta": "Explore the System",
     "items": [
       {
-        "title": "Drinking Water (Water Treatment)",
-        "description": "Residual chlorine analyzer WBCL10 (patented polarograph, auto-cleaning electrode, ±0.02 mg/L) and low-range turbidity meter WBTU10 (0–10 NTU, 90° scattered light EPA 180.1, clearwell and waterworks optimized) for waterworks and drinking water monitoring.",
-        "products": "WBCL10, WBTU10"
+        "title": "Precision Filtration",
+        "description": "Select 10 / 50 / 100 μm filtration to match the operating condition.",
+        "products": "Filtration"
       },
       {
-        "title": "Wastewater & Industrial Process",
-        "description": "High-range turbidity WBTU-PRO (0.01–4,000 NTU, SS316, auto wiper), optical DO WBDO10 (luminescence, IP68, low maintenance), nitrate ion meter WBNO3 (NO61), ammonium ion meter WBNH4 (NH61) for wastewater and industrial process.",
-        "products": "WBTU-PRO, WBDO10, WBNO3, WBNH4"
+        "title": "Pre/Post Water Monitoring",
+        "description": "Configure turbidity and residual chlorine instruments for the operating objective.",
+        "products": "Instrumentation"
       },
       {
-        "title": "Specialized Solutions",
-        "description": "Smart Filter Drain System: water quality sensor–linked automatic drain control and early stormwater/storage tank pollution management. SmartFarm IO Board: integrated pH/EC and environmental data monitoring, low-cost control system.",
-        "products": "WB-FDS, WB-SFIO"
+        "title": "Automatic Drain Control",
+        "description": "PLC/HMI and supervisory systems control draining according to operating conditions.",
+        "products": "Control"
       }
     ]
   },
   "client_logos": {
     "badge": "Delivery Record",
     "title": "Trusted Clients",
-    "subtitle": "Waterbee solutions delivered to waterworks, wastewater treatment plants, and industrial facilities nationwide"
+    "subtitle": "Waterbee instrumentation for water treatment plants, clearwells and field monitoring"
   },
   "cta_banner": {
-    "title": "Need a Water Quality Measurement Solution?",
-    "subtitle": "Get a proposal tailored to your site and requirements.",
-    "cta": "Free Technical Consultation",
+    "title": "Looking for the right field instrument setup?",
+    "subtitle": "We review the required parameters and installation conditions to recommend a practical configuration.",
+    "cta": "Request Technical Advice",
     "phone": "Call"
   },
   "products": {
@@ -106,9 +107,7 @@
       "category": "Category",
       "application": "Application",
       "water_treatment": "Water Treatment",
-      "smart_farm": "Smart Farm",
       "smart_filter_drain": "Smart Filter Drain",
-      "industrial_wastewater": "Industrial & Wastewater",
       "chlorine": "Residual Chlorine",
       "turbidity": "Turbidity",
       "ph_ec": "pH/EC",
@@ -141,8 +140,8 @@
           "description": "Low-range turbidity optics combining a detachable bubble-removal stage with 90deg scattered-light detection"
         },
         {
-          "title": "Python and AI Smart Controller",
-          "description": "A control platform designed to improve confidence through a Python operating environment and AI-assisted validation"
+          "title": "WBSC10 Field Controller",
+          "description": "An instrumentation controller integrating display, field calibration, output and communication"
         }
       ]
     },
@@ -249,15 +248,15 @@
       ]
     },
     "controller": {
-      "status": "Coming Soon",
-      "eyebrow": "Smart Controller",
-      "title": "Python and AI-Based Smart Controller",
-      "subtitle": "A next-generation control platform designed around a Python operating environment and AI-assisted validation logic to improve both measurement trust and operating visibility.",
-      "description": "The new controller is being designed to combine sensor acquisition, local control, and higher-level integration while adding Python-based extensibility and AI-assisted diagnostics for faster recognition of abnormal data behavior. The goal is an operational controller that unifies local UI, remote monitoring, and maintenance workflows.",
+      "status": "WBSC10",
+      "eyebrow": "Field Control",
+      "title": "WBSC10 Smart Controller",
+      "subtitle": "Measurement display, field calibration, output signals and supervisory communication in one controller.",
+      "description": "The WBSC10 displays turbidity, residual chlorine, pH and conductivity measurements and supports local settings and calibration. Its 4–20 mA, relay, RS-485 and Modbus interfaces connect with existing panels and supervisory systems.",
       "tags": [
-        "Python Operating Environment",
-        "AI Data Validation",
-        "Integrated Local / Remote Control"
+        "4.3-inch TFT LCD",
+        "4–20 mA and Relay Output",
+        "RS-485 and Modbus"
       ],
       "points": [
         {
@@ -265,8 +264,8 @@
           "description": "It is intended to collect inputs from residual chlorine, turbidity, pH/EC, and other sensors while handling local control outputs."
         },
         {
-          "title": "AI-assisted confidence management",
-          "description": "Anomaly detection and validation logic are intended to improve trust in measured values and speed up operator judgment."
+          "title": "Field calibration and output management",
+          "description": "Calibration, analog output and alarm settings are managed from the local display."
         },
         {
           "title": "Preserved plant-side integration",
@@ -275,12 +274,12 @@
       ],
       "metrics": [
         {
-          "value": "Python",
-          "label": "Extensible Runtime"
+          "value": "4.3 inch",
+          "label": "TFT LCD"
         },
         {
-          "value": "AI Assist",
-          "label": "Data Confidence Engine"
+          "value": "3CH",
+          "label": "Relay Output"
         },
         {
           "value": "Modbus · 4~20mA",
@@ -289,13 +288,13 @@
       ],
       "strengths_title": "Strengths",
       "strengths": [
-        "A Python-based structure can support flexible feature growth and operating-logic upgrades.",
-        "AI-assisted validation can strengthen abnormality recognition and data-confidence workflows.",
-        "The platform is intended to unify sensing, local control, and higher-level integration in one operating layer."
+        "Sensor display, calibration and output settings are managed in one field controller.",
+        "4–20 mA and RS-485 interfaces connect with existing plant systems.",
+        "Relay alarms and control outputs support field operation."
       ],
       "considerations_title": "Operational Considerations",
       "considerations": [
-        "AI-assisted diagnostics still depend on field data accumulation and clearly defined operating conditions.",
+        "Sensor calibration intervals and sample-path condition require regular checks.",
         "Firmware update and access-control strategy should be planned together with the hardware.",
         "Critical facilities still need signal redundancy and stable power design."
       ]
@@ -395,7 +394,7 @@
   "footer": {
     "company": "Waterbee Co., Ltd.",
     "tagline": "Water Quality Measurement Specialist",
-    "description": "Protecting safe water environments at waterworks and wastewater treatment plants with rotating electrode measurement technology.",
+    "description": "Supporting accurate and dependable water management with field-oriented instrumentation.",
     "address_value": "39, Ecodeltasmart-ro, Gangseo-gu, Busan, 3-dong 2-ho",
     "links": "Quick Links",
     "legal": "Legal",

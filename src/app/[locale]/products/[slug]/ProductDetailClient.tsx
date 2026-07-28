@@ -3,53 +3,24 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
-import { motion } from 'framer-motion'
+import { ArrowLeft, Check, Mail, Phone } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
-import { ArrowLeft, CheckCircle, Phone, Mail } from 'lucide-react'
 import type { Product } from '@/lib/products'
 import ProductSpecTable from '@/components/products/ProductSpecTable'
 import Breadcrumb from '@/components/ui/Breadcrumb'
-import AnimatedSection from '@/components/ui/AnimatedSection'
-import FilterDrainDetail from '@/components/products/FilterDrainDetail'
 
-type TabKey = 'overview' | 'specs' | 'features'
-
-function ProductImageWithFallback({ src, alt, model, slug }: { src: string; alt: string; model: string; slug: string }) {
-  const [error, setError] = useState(false)
-  const detailPadding: Record<string, string> = {
-    'wbcl10':    'p-4',
-    'wbtu10':    'p-4',
-    'wbtu-pro':  'p-16',
-    'wbph10':    'p-8',
-    'wbec10':    'p-8',
-    'wbph-pbs01':'p-8',
-    'wbec-cond': 'p-8',
-  }
-  const imgPad = detailPadding[slug] ?? 'p-4'
-  if (error) {
-    return (
-      <>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-32 h-32 bg-gold-500/10 rounded-full flex items-center justify-center border border-gold-500/20">
-            <span className="text-gold-500 text-5xl font-black">W</span>
-          </div>
-        </div>
-        <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
-          <span className="text-gold-500 font-mono font-bold text-sm uppercase">{model}</span>
-        </div>
-      </>
-    )
-  }
-  return (
-    <>
-      <Image src={src} alt={alt} fill unoptimized={src.endsWith('.svg')} className={`object-contain ${imgPad}`} onError={() => setError(true)} sizes="(max-width: 1024px) 100vw, 50vw" />
-      {slug !== 'sampling-tank' && (
-        <div className="absolute bottom-4 left-4 bg-navy-900/90 backdrop-blur-sm rounded-xl px-4 py-2">
-          <span className="text-gold-500 font-mono font-bold text-sm uppercase">{model}</span>
-        </div>
-      )}
-    </>
-  )
+const imageSizing: Record<string, string> = {
+  wbsc10: 'h-[330px] w-[76%] sm:h-[440px]',
+  wbtu10: 'h-[370px] w-[82%] sm:h-[490px]',
+  wbcl10: 'h-[370px] w-[82%] sm:h-[490px]',
+  wbph10: 'h-[330px] w-[42%] sm:h-[430px]',
+  wbec10: 'h-[300px] w-[34%] sm:h-[400px]',
+  'wbph-pbs01': 'h-[360px] w-[56%] sm:h-[475px]',
+  'wbec-cond': 'h-[360px] w-[56%] sm:h-[475px]',
+  'ph-ec-board': 'h-[310px] w-[92%] sm:h-[410px]',
+  'sampling-tank': 'h-[360px] w-[82%] sm:h-[470px]',
+  'wbcl10-electrode-kit': 'h-[300px] w-[86%] sm:h-[400px]',
+  'wbtu10-lamp-kit': 'h-[300px] w-[86%] sm:h-[400px]',
 }
 
 export default function ProductDetailClient({ product }: { product: Product }) {
@@ -57,185 +28,145 @@ export default function ProductDetailClient({ product }: { product: Product }) {
   const isKo = locale === 'ko'
   const t = useTranslations('products')
   const tNav = useTranslations('nav')
-
-  const [activeTab, setActiveTab] = useState<TabKey>('overview')
-  const [activeImg, setActiveImg] = useState(product.image)
-  const hasGallery = product.gallery.length > 1
-
-  if (product.slug === 'filter-drain') {
-    return <FilterDrainDetail />
-  }
-
-  const tabs: { key: TabKey; label: string }[] = [
-    { key: 'overview', label: t('overview') },
-    { key: 'specs', label: t('spec_table') },
-    { key: 'features', label: t('features') },
-  ]
+  const [activeImage, setActiveImage] = useState(product.image)
+  const isPhoto = product.slug === 'filter-drain'
+  const title = isKo ? product.name : product.nameEn
+  const description = isKo ? product.description : product.descriptionEn
+  const features = isKo ? product.features : product.featuresEn
 
   return (
-    <div className="pt-20 lg:pt-24 min-h-screen bg-navy-900">
-      {/* 브레드크럼 */}
-      <div className="bg-navy-800 border-b border-white/10 py-4">
+    <div className="min-h-screen bg-white pt-16 lg:pt-20">
+      <div className="border-b border-[#d7dcda] py-4">
         <div className="container-custom">
           <Breadcrumb
             items={[
               { label: tNav('home'), href: '/' },
               { label: tNav('products'), href: '/products' },
-              { label: isKo ? product.name : product.nameEn },
+              { label: title },
             ]}
           />
         </div>
       </div>
 
-      <div className="container-custom py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
-          {/* 이미지 갤러리 */}
-          <AnimatedSection direction="left">
-            <div className="aspect-[4/3] bg-navy-800 rounded-2xl border border-white/10 relative overflow-hidden">
-              <ProductImageWithFallback src={activeImg} alt={isKo ? product.name : product.nameEn} model={product.model} slug={product.slug} />
+      <section className="border-b border-[#d7dcda]">
+        <div className="container-custom grid lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="border-[#d7dcda] py-8 lg:border-r lg:py-12 lg:pr-12">
+            <div className="relative flex h-[430px] items-center justify-center overflow-hidden bg-[#f1f3f1] sm:h-[540px]">
+              {isPhoto ? (
+                <Image src={activeImage} alt={title} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
+              ) : (
+                <div className={`relative ${imageSizing[product.slug] ?? 'h-[340px] w-[76%] sm:h-[450px]'}`}>
+                  <Image
+                    src={activeImage}
+                    alt={title}
+                    fill
+                    priority
+                    unoptimized={activeImage.endsWith('.svg')}
+                    className="object-contain mix-blend-multiply"
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                  />
+                </div>
+              )}
             </div>
-            {hasGallery && (
-              <div className="flex gap-2 mt-3">
-                {product.gallery.map((img, i) => (
+
+            {product.gallery.length > 1 && (
+              <div className="mt-3 grid grid-cols-3 gap-3">
+                {product.gallery.map((image) => (
                   <button
-                    key={i}
-                    onClick={() => setActiveImg(img)}
-                    className={`relative w-20 h-16 rounded-lg overflow-hidden border-2 transition-all shrink-0 ${activeImg === img ? 'border-gold-500' : 'border-white/10 hover:border-white/30'}`}
+                    key={image}
+                    type="button"
+                    onClick={() => setActiveImage(image)}
+                    aria-label={`${product.model} image`}
+                    className={`relative h-20 overflow-hidden border bg-[#f1f3f1] ${activeImage === image ? 'border-[#151a19]' : 'border-[#d7dcda]'}`}
                   >
-                    <Image src={img} alt={`${product.model} ${i + 1}`} fill className="object-cover" sizes="80px" />
+                    <Image
+                      src={image}
+                      alt=""
+                      fill
+                      unoptimized={image.endsWith('.svg')}
+                      className={isPhoto ? 'object-cover' : 'object-contain p-2 mix-blend-multiply'}
+                      sizes="160px"
+                    />
                   </button>
                 ))}
               </div>
             )}
-          </AnimatedSection>
+          </div>
 
-          {/* 제품 기본 정보 */}
-          <AnimatedSection direction="right">
-            <div>
-              <div className="mb-2">
-                <span className="bg-gold-500/10 border border-gold-500/30 text-gold-500 text-xs font-medium px-3 py-1 rounded-full">
-                  {isKo ? product.category : product.categoryEn}
-                </span>
+          <div className="flex items-center py-10 lg:py-14 lg:pl-14">
+            <div className="w-full">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold uppercase">
+                <span className="text-[#8c7200]">{product.model}</span>
+                <span className="text-[#7a8380]">{isKo ? product.category : product.categoryEn}</span>
               </div>
-              <h1 className="text-3xl lg:text-4xl font-bold text-white mt-3 mb-4">
-                {isKo ? product.name : product.nameEn}
-                <span className="block text-base text-text-secondary font-normal mt-1 font-mono uppercase">
-                  {product.model}
-                </span>
-              </h1>
-              <p className="text-text-secondary leading-relaxed mb-8 text-base">
-                {isKo ? product.shortDescription : product.shortDescriptionEn}
-              </p>
+              <h1 className="mt-5 break-keep text-4xl font-bold leading-[1.18] tracking-normal text-[#151a19] lg:text-5xl">{title}</h1>
+              <p className="mt-6 text-base leading-8 text-[#68716f]">{isKo ? product.shortDescription : product.shortDescriptionEn}</p>
 
-              {/* 주요 스펙 요약 (처음 4개) */}
-              <div className="bg-navy-800 border border-white/10 rounded-xl p-5 mb-8">
-                <div className="grid grid-cols-2 gap-3">
-                  {product.specs.slice(0, 4).map((spec) => (
-                    <div key={spec.label} className="text-sm">
-                      <div className="text-text-secondary text-xs mb-0.5">
-                        {isKo ? spec.label : spec.labelEn}
-                      </div>
-                      <div className="text-white font-semibold">{isKo ? spec.value : spec.valueEn}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <dl className="mt-9 border-t border-[#aeb6b3]">
+                {product.specs.slice(0, 4).map((spec) => (
+                  <div key={spec.label} className="grid grid-cols-[120px_1fr] gap-5 border-b border-[#d7dcda] py-4 text-sm">
+                    <dt className="text-[#7a8380]">{isKo ? spec.label : spec.labelEn}</dt>
+                    <dd className="font-semibold leading-6 text-[#202725]">{isKo ? spec.value : spec.valueEn}</dd>
+                  </div>
+                ))}
+              </dl>
 
-              {/* 소모품 가격 표시 */}
               {product.purchasable && (
-                <div className="bg-gold-500/10 border border-gold-500/30 rounded-xl px-5 py-4 mb-6">
-                  <div className="text-text-secondary text-xs mb-1">
-                    {isKo ? '호환 기종' : 'Compatible Model'}: {isKo ? product.compatibility : product.compatibilityEn}
-                  </div>
-                  <div className="text-gold-500 font-bold text-xl">
-                    {isKo ? product.price : product.priceEn}
-                  </div>
-                  <div className="text-text-secondary text-xs mt-1">
-                    {isKo ? '정확한 견적은 이메일 또는 전화로 문의해 주세요.' : 'Contact us for an exact quote.'}
-                  </div>
+                <div className="mt-5 border-l-2 border-gold-500 pl-4">
+                  <div className="text-xs text-[#7a8380]">{isKo ? product.compatibility : product.compatibilityEn}</div>
+                  <div className="mt-1 text-base font-semibold text-[#202725]">{isKo ? product.price : product.priceEn}</div>
                 </div>
               )}
 
-              {/* CTA 버튼들 */}
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a
-                  href={`mailto:support@waterbee.co.kr?subject=${encodeURIComponent(
-                    isKo
-                      ? `[구매 문의] ${product.name} (${product.model})`
-                      : `[Purchase Inquiry] ${product.nameEn} (${product.model})`
-                  )}`}
-                  className="btn-primary flex-1 justify-center"
+                  href={`mailto:support@waterbee.co.kr?subject=${encodeURIComponent(`[WATERBEE] ${product.model} ${isKo ? '제품 문의' : 'Product Inquiry'}`)}`}
+                  className="btn-primary justify-center sm:flex-1"
                 >
-                  <Mail className="w-4 h-4" />
-                  {product.purchasable ? (isKo ? '구매 문의하기' : 'Purchase Inquiry') : t('inquiry')}
+                  <Mail className="h-4 w-4" />
+                  {t('inquiry')}
                 </a>
-                <a href="tel:1555-3534" className="btn-secondary flex-1 justify-center">
-                  <Phone className="w-4 h-4" />
+                <a href="tel:1555-3534" className="btn-secondary justify-center sm:flex-1">
+                  <Phone className="h-4 w-4" />
                   1555-3534
                 </a>
               </div>
             </div>
-          </AnimatedSection>
-        </div>
-
-        {/* 탭 */}
-        <div className="border-b border-white/10 mb-8">
-          <div className="flex gap-1">
-            {tabs.map((tab) => (
-              <button
-                key={tab.key}
-                onClick={() => setActiveTab(tab.key)}
-                className={`px-6 py-3 text-sm font-medium transition-all relative ${
-                  activeTab === tab.key ? 'text-gold-500' : 'text-text-secondary hover:text-white'
-                }`}
-              >
-                {tab.label}
-                {activeTab === tab.key && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold-500"
-                  />
-                )}
-              </button>
-            ))}
           </div>
         </div>
+      </section>
 
-        {/* 탭 콘텐츠 */}
-        <AnimatedSection key={activeTab} direction="none">
-          {activeTab === 'overview' && (
-            <div className="max-w-3xl">
-              <p
-                className="text-text-secondary leading-relaxed text-base whitespace-pre-line"
-                style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}
-              >
-                {isKo ? product.description : product.descriptionEn}
-              </p>
-            </div>
-          )}
-          {activeTab === 'specs' && <ProductSpecTable specs={product.specs} />}
-          {activeTab === 'features' && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-3xl">
-              {(isKo ? product.features : product.featuresEn).map((feature, i) => (
-                <div key={i} className="flex items-start gap-3 bg-navy-800 border border-white/10 rounded-xl p-4">
-                  <CheckCircle className="w-5 h-5 text-gold-500 shrink-0 mt-0.5" />
-                  <span className="text-text-secondary text-sm leading-relaxed" style={{ wordBreak: 'keep-all', overflowWrap: 'break-word' }}>{feature}</span>
+      <section className="py-20 lg:py-28">
+        <div className="container-custom grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
+          <div>
+            <div className="text-xs font-bold uppercase text-[#8c7200]">{t('overview')}</div>
+            <h2 className="mt-4 break-keep text-3xl font-bold tracking-normal text-[#151a19]">{title}</h2>
+          </div>
+          <div>
+            <p className="whitespace-pre-line text-base leading-8 text-[#596361]" style={{ wordBreak: 'keep-all' }}>{description}</p>
+            <div className="mt-10 grid gap-x-8 gap-y-0 border-t border-[#aeb6b3] sm:grid-cols-2">
+              {features.map((feature) => (
+                <div key={feature} className="flex gap-3 border-b border-[#d7dcda] py-4 text-sm leading-6 text-[#303735]">
+                  <Check className="mt-1 h-4 w-4 shrink-0 text-[#8c7200]" />
+                  <span>{feature}</span>
                 </div>
               ))}
             </div>
-          )}
-        </AnimatedSection>
-
-        {/* 뒤로 가기 */}
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <Link
-            href="/products"
-            className="inline-flex items-center gap-2 text-text-secondary hover:text-gold-500 transition-colors text-sm group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-            {isKo ? '전체 제품 목록으로' : 'Back to all products'}
-          </Link>
+          </div>
         </div>
+      </section>
+
+      <section className="bg-[#f3f5f3] py-20 lg:py-24">
+        <div className="container-custom">
+          <ProductSpecTable specs={product.specs} />
+        </div>
+      </section>
+
+      <div className="container-custom py-10">
+        <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#596361] hover:text-[#151a19]">
+          <ArrowLeft className="h-4 w-4" />
+          {isKo ? '전체 제품으로 돌아가기' : 'Back to all products'}
+        </Link>
       </div>
     </div>
   )

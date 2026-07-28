@@ -4,7 +4,6 @@ import HeroSection from '@/components/home/HeroSection'
 import TechFeatures from '@/components/home/TechFeatures'
 import ApplicationsSection from '@/components/home/ApplicationsSection'
 import ProductHighlight from '@/components/home/ProductHighlight'
-import ClientLogos from '@/components/home/ClientLogos'
 import CtaBanner from '@/components/home/CtaBanner'
 
 export async function generateMetadata({
@@ -29,10 +28,9 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   return (
     <>
       <HeroSection />
+      <ProductHighlight />
       <TechFeatures />
       <ApplicationsSection />
-      <ProductHighlight />
-      <ClientLogos />
       <CtaBanner />
     </>
   )

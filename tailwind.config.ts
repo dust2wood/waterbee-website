@@ -9,11 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        ink: '#151A19',
+        paper: '#F5F6F4',
+        mist: '#E8ECE9',
+        muted: '#68716F',
+        teal: '#2C6561',
         navy: {
-          900: '#0B1929',
-          800: '#112240',
-          700: '#1a3355',
-          600: '#234266',
+          900: '#151B1A',
+          800: '#1D2624',
+          700: '#2B3734',
+          600: '#3B4946',
         },
         gold: {
           300: '#FFE066',
@@ -21,14 +26,14 @@ const config: Config = {
           500: '#FCC900',
           600: '#E5B400',
         },
-        'text-secondary': '#A8B8C8',
+        'text-secondary': '#AEB8B5',
       },
       fontFamily: {
-        sans: ['Pretendard', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['Pretendard Variable', 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', 'Arial', 'sans-serif'],
       },
       backgroundImage: {
-        'hero-gradient': 'linear-gradient(135deg, #0B1929 0%, #112240 50%, #0B1929 100%)',
-        'card-gradient': 'linear-gradient(180deg, #112240 0%, #0B1929 100%)',
+        'hero-gradient': '#EEF1EF',
+        'card-gradient': '#FFFFFF',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',

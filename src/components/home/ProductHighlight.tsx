@@ -1,46 +1,17 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
-import { useTranslations, useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
+import { ArrowUpRight } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
-import { ArrowRight } from 'lucide-react'
-import AnimatedSection from '@/components/ui/AnimatedSection'
-import SectionTitle from '@/components/ui/SectionTitle'
 import { getFeaturedProducts } from '@/lib/products'
 
-const slugPadding: Record<string, string> = {
-  'wbcl10':    'p-3',
-  'wbtu10':    'p-3',
-  'wbtu-pro':  'p-10',
-  'wbph10':    'p-12',
-  'wbec10':    'p-12',
-  'wbph-pbs01':'p-12',
-  'wbec-cond': 'p-12',
-}
-
-function ProductImage({ src, alt, slug }: { src: string; alt: string; slug: string }) {
-  const [error, setError] = useState(false)
-  if (error) {
-    return (
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-20 h-20 bg-gold-500/10 rounded-full flex items-center justify-center">
-          <span className="text-gold-500 text-3xl font-bold">W</span>
-        </div>
-      </div>
-    )
-  }
-  const pad = slugPadding[slug] ?? 'p-4'
-  return (
-    <Image
-      src={src}
-      alt={alt}
-      fill
-      className={`object-contain ${pad}`}
-      onError={() => setError(true)}
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-    />
-  )
+const imageSizing: Record<string, string> = {
+  wbsc10: 'h-[70%] w-[78%]',
+  wbtu10: 'h-[87%] w-[85%]',
+  wbcl10: 'h-[87%] w-[85%]',
+  wbph10: 'h-[61%] w-[54%]',
+  wbec10: 'h-[55%] w-[48%]',
 }
 
 export default function ProductHighlight() {
@@ -50,61 +21,60 @@ export default function ProductHighlight() {
   const products = getFeaturedProducts()
 
   return (
-    <section className="section-padding bg-navy-900">
+    <section className="bg-white pb-20 pt-12 lg:pb-28 lg:pt-10">
       <div className="container-custom">
-        <AnimatedSection>
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-12 gap-4">
-            <SectionTitle
-              badge={t('badge')}
-              title={t('title')}
-              subtitle={t('subtitle')}
-              align="left"
-              className="mb-0"
-            />
-            <Link
-              href="/products"
-              className="shrink-0 inline-flex items-center gap-2 text-gold-500 font-semibold text-sm hover:gap-3 transition-all group"
-            >
-              {t('view_all')}
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+        <div className="mb-10 flex flex-col gap-5 border-b border-[#cfd5d2] pb-8 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <div className="mb-3 text-xs font-bold uppercase text-[#8c7200]">{t('badge')}</div>
+            <h2 className="text-3xl font-bold tracking-normal text-[#151a19] lg:text-4xl">{t('title')}</h2>
+            <p className="mt-3 text-sm leading-6 text-[#68716f] sm:text-base">{t('subtitle')}</p>
           </div>
-        </AnimatedSection>
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#1f2927] hover:text-[#8c7200]"
+          >
+            {t('view_all')}
+            <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((product, index) => (
-            <AnimatedSection key={product.slug} delay={index * 0.1}>
-              <Link href={`/products/${product.slug}`} className="block group">
-                <div className="bg-navy-800 border border-white/10 rounded-2xl overflow-hidden hover:border-gold-500/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gold-500/5 h-full">
-                  {/* 이미지 영역 */}
-                  <div className="aspect-[4/3] bg-navy-700 relative overflow-hidden">
-                    <ProductImage src={product.image} alt={isKo ? product.name : product.nameEn} slug={product.slug} />
-                    <div className="absolute top-3 left-3 z-10">
-                      <span className="bg-gold-500/20 border border-gold-500/30 text-gold-500 text-xs font-medium px-2.5 py-1 rounded-full">
-                        {isKo ? product.category : product.categoryEn}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* 콘텐츠 */}
-                  <div className="p-5">
-                    <div className="text-text-secondary text-xs font-mono mb-1 uppercase">{product.model}</div>
-                    <h3 className="text-white font-semibold text-base mb-2 group-hover:text-gold-500 transition-colors">
-                      {isKo ? product.name : product.nameEn}
-                    </h3>
-                    <p className="text-text-secondary text-xs leading-relaxed mb-4 line-clamp-2">
-                      {isKo ? product.shortDescription : product.shortDescriptionEn}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gold-500 text-xs font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                        {t('view_detail')}
-                        <ArrowRight className="w-3 h-3" />
-                      </span>
-                    </div>
-                  </div>
+        <div className="grid grid-cols-2 border-l border-t border-[#d8ddda] lg:grid-cols-5">
+          {products.map((product) => (
+            <Link
+              key={product.slug}
+              href={`/products/${product.slug}`}
+              className="group flex min-h-[390px] flex-col border-b border-r border-[#d8ddda] bg-white transition-colors hover:bg-[#fafbf9] sm:min-h-[430px]"
+            >
+              <div className="relative flex h-[245px] items-center justify-center bg-[#f1f3f1] sm:h-[285px]">
+                <div className={`relative ${imageSizing[product.slug] ?? 'h-[78%] w-[78%]'}`}>
+                  <Image
+                    src={product.image}
+                    alt={isKo ? product.name : product.nameEn}
+                    fill
+                    className="object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.025]"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                  />
                 </div>
-              </Link>
-            </AnimatedSection>
+              </div>
+
+              <div className="flex flex-1 flex-col p-5">
+                <div className="text-[11px] font-bold uppercase text-[#8c7200]">{product.model}</div>
+                <h3 className="mt-2 min-h-12 text-base font-semibold leading-6 text-[#171c1b]">
+                  {isKo ? product.name : product.nameEn}
+                </h3>
+                <div className="mt-auto flex items-end justify-between gap-3 pt-5">
+                  <div>
+                    <div className="text-[11px] text-[#78817f]">
+                      {isKo ? product.specs[0].label : product.specs[0].labelEn}
+                    </div>
+                    <div className="mt-1 text-xs font-medium leading-5 text-[#303836]">
+                      {isKo ? product.specs[0].value : product.specs[0].valueEn}
+                    </div>
+                  </div>
+                  <ArrowUpRight className="h-4 w-4 shrink-0 text-[#8d9693] transition-colors group-hover:text-[#151a19]" />
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
