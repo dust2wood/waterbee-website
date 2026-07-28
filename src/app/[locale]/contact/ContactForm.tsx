@@ -140,7 +140,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <label className="mb-2 block text-xs font-semibold text-[#596361]">
-                      {t('form.phone')}
+                      {t('form.phone')} <span className="text-red-400">*</span>
                     </label>
                     <input
                       {...register('phone')}
