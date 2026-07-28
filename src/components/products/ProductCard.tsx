@@ -13,6 +13,8 @@ const imageSizing: Record<string, string> = {
   wbcl10: 'h-[86%] w-[82%]',
   wbph10: 'h-[62%] w-[42%]',
   wbec10: 'h-[54%] w-[35%]',
+  'wbph-pbs01': 'h-[78%] w-[68%]',
+  'wbec-cond': 'h-[78%] w-[68%]',
   'sampling-tank': 'h-[78%] w-[72%]',
   'wbcl10-electrode-kit': 'h-[65%] w-[65%]',
   'wbtu10-lamp-kit': 'h-[65%] w-[65%]',
@@ -44,7 +46,7 @@ export default function ProductCard({ product, className }: { product: Product; 
               alt={isKo ? product.name : product.nameEn}
               fill
               unoptimized={product.image.endsWith('.svg')}
-              className="object-contain transition-transform duration-500 group-hover:scale-[1.025]"
+              className="object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.025]"
               sizes="(max-width: 768px) 100vw, 33vw"
             />
           </div>

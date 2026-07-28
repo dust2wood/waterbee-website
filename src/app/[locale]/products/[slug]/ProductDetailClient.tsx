@@ -15,6 +15,8 @@ const imageSizing: Record<string, string> = {
   wbcl10: 'h-[370px] w-[82%] sm:h-[490px]',
   wbph10: 'h-[330px] w-[42%] sm:h-[430px]',
   wbec10: 'h-[300px] w-[34%] sm:h-[400px]',
+  'wbph-pbs01': 'h-[350px] w-[68%] sm:h-[470px]',
+  'wbec-cond': 'h-[350px] w-[68%] sm:h-[470px]',
   'sampling-tank': 'h-[350px] w-[76%] sm:h-[460px]',
   'wbcl10-electrode-kit': 'h-[300px] w-[68%] sm:h-[390px]',
   'wbtu10-lamp-kit': 'h-[300px] w-[68%] sm:h-[390px]',
@@ -59,7 +61,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                     fill
                     priority
                     unoptimized={activeImage.endsWith('.svg')}
-                    className="object-contain"
+                    className="object-contain mix-blend-multiply"
                     sizes="(max-width: 1024px) 100vw, 55vw"
                   />
                 </div>

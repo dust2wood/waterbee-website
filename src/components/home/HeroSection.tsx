@@ -1,24 +1,60 @@
 'use client'
 
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 
+const heroProducts = [
+  {
+    slug: 'wbsc10',
+    model: 'WBSC10',
+    nameKo: '스마트 컨트롤러',
+    nameEn: 'Smart Controller',
+    image: '/images/products/wbsc10-front.png',
+  },
+  {
+    slug: 'wbtu10',
+    model: 'WBTU10',
+    nameKo: '온라인 탁도계',
+    nameEn: 'Online Turbidity Meter',
+    image: '/images/products/wbtu10-front.png',
+  },
+  {
+    slug: 'wbcl10',
+    model: 'WBCL10',
+    nameKo: '온라인 잔류염소계',
+    nameEn: 'Residual Chlorine Analyzer',
+    image: '/images/products/wbcl10-front.png',
+  },
+] as const
+
 export default function HeroSection() {
   const t = useTranslations('hero')
+  const locale = useLocale()
+  const isKo = locale === 'ko'
 
   return (
-    <section className="relative overflow-hidden bg-[#eef1ef] pt-16 lg:pt-20">
-      <div className="container-custom relative min-h-[720px] sm:min-h-[720px] lg:min-h-[610px]">
-        <div className="relative z-10 max-w-[620px] pt-16 sm:pt-20 lg:pt-28">
-          <div className="mb-6 flex items-center gap-3 text-[11px] font-bold uppercase text-[#48514f]">
+    <section className="relative overflow-hidden bg-[#102019] pt-16 lg:pt-20">
+      <div className="relative min-h-[700px] lg:min-h-[570px]">
+        <Image
+          src="/images/home/water-landscape.jpg"
+          alt="Forested watershed and clear lake"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[#0c1814]/45" />
+
+        <div className="container-custom relative z-10 pt-14 sm:pt-16 lg:pt-20">
+          <div className="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase text-white/80">
             <span className="h-0.5 w-8 bg-gold-500" />
             {t('badge')}
           </div>
 
           <h1
-            className="text-[40px] font-bold leading-[1.14] tracking-normal text-[#151a19] sm:text-5xl lg:text-6xl"
+            className={`max-w-[760px] font-bold leading-[1.12] tracking-normal text-white sm:text-5xl lg:text-6xl ${isKo ? 'text-[40px]' : 'text-[36px]'}`}
             style={{ wordBreak: 'keep-all' }}
           >
             {t('title').split('\n').map((line, index) => (
@@ -30,66 +66,59 @@ export default function HeroSection() {
           </h1>
 
           <p
-            className="mt-6 max-w-[540px] text-[15px] leading-7 text-[#596361] sm:text-base"
+            className="mt-5 max-w-[610px] text-[15px] leading-7 text-white/80 sm:text-base"
             style={{ wordBreak: 'keep-all' }}
           >
             {t('subtitle')}
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-7 flex flex-wrap items-center gap-3">
             <Link
               href="/products"
-              className="inline-flex h-12 items-center gap-2 bg-[#161b1a] px-6 text-sm font-semibold text-white transition-colors hover:bg-[#303735]"
+              className="inline-flex h-12 items-center gap-2 bg-white px-6 text-sm font-semibold text-[#151a19] transition-colors hover:bg-[#f1f3f1]"
             >
               {t('cta_primary')}
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/contact"
-              className="inline-flex h-12 items-center border border-[#aab2af] px-6 text-sm font-semibold text-[#1d2422] transition-colors hover:border-[#1d2422]"
+              className="inline-flex h-12 items-center border border-white/60 px-6 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
             >
               {t('cta_secondary')}
             </Link>
           </div>
         </div>
 
-        <div className="absolute bottom-4 left-0 right-0 h-[270px] sm:h-[300px] lg:bottom-5 lg:left-[48%] lg:h-[540px]">
-          <div className="absolute right-[4%] top-0 h-[48%] w-[47%] lg:right-[2%] lg:top-[3%] lg:h-[45%] lg:w-[54%]">
-            <Image
-              src="/images/products/wbsc10-front.png"
-              alt="WBSC10 Smart Controller"
-              fill
-              priority
-              className="object-contain"
-              sizes="(max-width: 1024px) 48vw, 30vw"
-            />
+        <div className="absolute inset-x-0 bottom-0 z-10 h-[205px] border-t border-white/20 bg-white lg:h-[170px]">
+          <div className="container-custom grid h-full grid-cols-3 border-l border-[#d7dcda]">
+            {heroProducts.map((product) => (
+              <Link
+                key={product.slug}
+                href={`/products/${product.slug}`}
+                className="group relative flex min-w-0 items-center justify-center border-r border-[#d7dcda] px-2 pb-5 lg:justify-start lg:gap-5 lg:px-7 lg:pb-0"
+              >
+                <div className="relative h-[138px] w-[82px] shrink-0 sm:h-[150px] sm:w-[96px] lg:h-[150px] lg:w-[108px]">
+                  <Image
+                    src={product.image}
+                    alt={isKo ? product.nameKo : product.nameEn}
+                    fill
+                    priority
+                    className="object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.025]"
+                    sizes="(max-width: 1024px) 28vw, 110px"
+                  />
+                </div>
+                <div className="hidden min-w-0 lg:block">
+                  <div className="text-xs font-bold text-[#8c7200]">{product.model}</div>
+                  <div className="mt-2 text-sm font-semibold leading-5 text-[#202725]">
+                    {isKo ? product.nameKo : product.nameEn}
+                  </div>
+                </div>
+                <div className="absolute bottom-3 text-[10px] font-bold text-[#596361] lg:hidden">
+                  {product.model}
+                </div>
+              </Link>
+            ))}
           </div>
-          <div className="absolute bottom-0 left-[4%] h-[68%] w-[43%] lg:left-[1%] lg:h-[66%] lg:w-[47%]">
-            <Image
-              src="/images/products/wbtu10-front.png"
-              alt="WBTU10 Online Turbidity Meter"
-              fill
-              priority
-              className="object-contain object-bottom"
-              sizes="(max-width: 1024px) 44vw, 27vw"
-            />
-          </div>
-          <div className="absolute bottom-0 right-[3%] h-[67%] w-[42%] lg:right-[1%] lg:h-[69%] lg:w-[46%]">
-            <Image
-              src="/images/products/wbcl10-front.png"
-              alt="WBCL10 Online Residual Chlorine Analyzer"
-              fill
-              priority
-              className="object-contain object-bottom"
-              sizes="(max-width: 1024px) 43vw, 26vw"
-            />
-          </div>
-        </div>
-
-        <div className="absolute bottom-0 left-4 z-10 hidden border-l border-[#9ca5a2] pl-4 text-xs leading-5 text-[#596361] lg:block">
-          WBSC10 / WBTU10 / WBCL10
-          <br />
-          ONLINE WATER QUALITY INSTRUMENTS
         </div>
       </div>
     </section>

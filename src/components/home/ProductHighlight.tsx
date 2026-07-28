@@ -21,7 +21,7 @@ export default function ProductHighlight() {
   const products = getFeaturedProducts()
 
   return (
-    <section className="bg-white pb-20 pt-12 lg:py-28">
+    <section className="bg-white pb-20 pt-12 lg:pb-28 lg:pt-10">
       <div className="container-custom">
         <div className="mb-10 flex flex-col gap-5 border-b border-[#cfd5d2] pb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -51,7 +51,7 @@ export default function ProductHighlight() {
                     src={product.image}
                     alt={isKo ? product.name : product.nameEn}
                     fill
-                    className="object-contain transition-transform duration-500 group-hover:scale-[1.025]"
+                    className="object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.025]"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
                   />
                 </div>

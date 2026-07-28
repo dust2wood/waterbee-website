@@ -1,6 +1,6 @@
 # Product Images
 
-Website product assets are stored in this directory. The current public lineup is intentionally limited to water-quality instrumentation, the filter-drain system, and related accessories.
+Website product assets are stored in this directory. The current public lineup covers water-quality instrumentation, smart-farm pH/EC sensors, the filter-drain system, and related accessories.
 
 | Product | Main image | Additional image |
 | --- | --- | --- |
@@ -9,6 +9,8 @@ Website product assets are stored in this directory. The current public lineup i
 | WBCL10 Residual Chlorine Analyzer | `wbcl10-front.png` | `wbcl10-main.png` |
 | WBPH10 pH Meter | `wbph10-main.png` | - |
 | WBEC10 Conductivity Meter | `wbec10-main.png` | - |
+| WBPH-E01 Smart Farm pH Sensor | `wbph-pbs01-main.png` | - |
+| WBEC-COND Smart Farm EC Sensor | `wbec-cond-main.png` | - |
 | Smart Filter-Drain System | `filter-drain-1.jpg` | `filter-drain-2.jpg`, `filter-drain-3.jpg` |
 | WB-ST Sampling Tank | `wbst-main.png` | - |
 

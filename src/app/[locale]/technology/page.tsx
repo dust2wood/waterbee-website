@@ -162,7 +162,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
           <div className={`container-custom grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-20 lg:py-28 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
             <div className="relative flex h-[420px] items-center justify-center bg-[#eaeeeb] sm:h-[540px]">
               <div className={`relative ${section.eyebrow === 'Field Controller' ? 'h-[72%] w-[76%]' : 'h-[86%] w-[78%]'}`}>
-                <Image src={section.image} alt={section.title} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 50vw" />
+                <Image src={section.image} alt={section.title} fill className="object-contain mix-blend-multiply" sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
             </div>
 
@@ -173,9 +173,9 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
 
               <div className="mt-9 grid grid-cols-3 border-y border-[#aeb6b3]">
                 {section.metrics.map(([value, label]) => (
-                  <div key={label} className="border-r border-[#d2d7d4] py-5 pr-3 last:border-r-0 last:pl-4">
+                  <div key={label} className="flex min-h-[96px] flex-col items-center justify-center border-r border-[#d2d7d4] px-2 py-4 text-center last:border-r-0 sm:px-4">
                     <div className="text-base font-bold leading-6 text-[#202725] lg:text-lg">{value}</div>
-                    <div className="mt-2 text-[11px] leading-4 text-[#7a8380]">{label}</div>
+                    <div className="mt-2 min-h-8 text-[11px] leading-4 text-[#7a8380]">{label}</div>
                   </div>
                 ))}
               </div>

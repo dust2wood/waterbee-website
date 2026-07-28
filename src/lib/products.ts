@@ -5,7 +5,7 @@ export interface ProductSpec {
   valueEn: string
 }
 
-export type ProductGroup = 'instrumentation' | 'system' | 'accessory'
+export type ProductGroup = 'instrumentation' | 'smartfarm' | 'system' | 'accessory'
 
 export interface Product {
   slug: string
@@ -250,6 +250,89 @@ It supports automatic temperature compensation and integrates EC/TDS measurement
     ],
     image: '/images/products/wbec10-main.png',
     gallery: ['/images/products/wbec10-main.png'],
+  },
+  {
+    slug: 'wbph-pbs01',
+    model: 'WBPH-E01',
+    name: '스마트팜 pH 센서',
+    nameEn: 'Smart Farm pH Sensor',
+    category: '스마트팜 pH',
+    categoryEn: 'Smart Farm pH',
+    group: 'smartfarm',
+    application: ['smart_farm'],
+    featured: false,
+    shortDescription: '양액과 관수 수질 측정을 위한 PT1000 내장형 소형 pH 복합전극',
+    shortDescriptionEn: 'Compact pH combination electrode with PT1000 for nutrient solution and irrigation water',
+    description: `WBPH-E01은 스마트팜 양액과 관수 수질의 pH 측정을 위한 소형 복합전극입니다.
+12 mm 외경의 투명 폴리카보네이트 케이스에 PT1000 온도 보정과 Ag/AgCl 참조 겔을 내장해 제한된 배관과 수조에도 설치할 수 있습니다.`,
+    descriptionEn: `The WBPH-E01 is a compact combination electrode for pH measurement in smart-farm nutrient solutions and irrigation water.
+Its 12 mm transparent polycarbonate body integrates PT1000 temperature compensation and an Ag/AgCl gel reference for installation in compact piping and tanks.`,
+    features: [
+      '12 mm 외경 × 120 mm 소형 복합전극',
+      '투명 폴리카보네이트 케이스',
+      'PT1000 온도 보정 내장',
+      'Ag/AgCl 참조 겔',
+      '95% 응답 5초 이내',
+    ],
+    featuresEn: [
+      '12 mm OD × 120 mm compact combination electrode',
+      'Transparent polycarbonate casing',
+      'Built-in PT1000 temperature compensation',
+      'Ag/AgCl gel reference',
+      '95% response within 5 seconds',
+    ],
+    specs: [
+      { label: '형식', labelEn: 'Type', value: 'pH 복합전극', valueEn: 'pH combination electrode' },
+      { label: '치수', labelEn: 'Dimensions', value: 'Ø12 × 120 mm', valueEn: 'Ø12 × 120 mm' },
+      { label: '영점 전위', labelEn: 'Zero Point', value: 'pH 7: 0±15 mV', valueEn: 'pH 7: 0±15 mV' },
+      { label: '응답 시간', labelEn: 'Response Time', value: '95%, 5초 이내', valueEn: '95%, within 5 s' },
+      { label: '온도 보정', labelEn: 'Temp. Compensation', value: 'PT1000', valueEn: 'PT1000' },
+      { label: '케이블', labelEn: 'Cable', value: '동축 5 m', valueEn: 'Coaxial, 5 m' },
+    ],
+    image: '/images/products/wbph-pbs01-main.png',
+    gallery: ['/images/products/wbph-pbs01-main.png'],
+  },
+  {
+    slug: 'wbec-cond',
+    model: 'WBEC-COND',
+    name: '스마트팜 EC 센서',
+    nameEn: 'Smart Farm EC Sensor',
+    category: '스마트팜 EC',
+    categoryEn: 'Smart Farm EC',
+    group: 'smartfarm',
+    application: ['smart_farm'],
+    featured: false,
+    shortDescription: '양액 농도 관리를 위한 흑연 감응부와 PT1000 내장형 전기전도도 전극',
+    shortDescriptionEn: 'Conductivity electrode with graphite sensing element and PT1000 for nutrient management',
+    description: `WBEC-COND는 스마트팜 양액과 관수 수질의 전기전도도를 측정하는 소형 EC 센서입니다.
+흑연 원판 감응부와 K=1 셀 상수, PT1000 온도 보정 구조를 적용해 1 μS/cm부터 20 mS/cm까지 측정할 수 있습니다.`,
+    descriptionEn: `The WBEC-COND is a compact EC sensor for electrical conductivity measurement in smart-farm nutrient solutions and irrigation water.
+Its graphite disc sensing element, K=1 cell constant and PT1000 temperature compensation support a range from 1 μS/cm to 20 mS/cm.`,
+    features: [
+      'Ø12 × 120 mm Black ABS 본체',
+      '흑연 원판 감응부',
+      '셀 상수 K=1',
+      'PT1000 온도 보정 내장',
+      '1 μS/cm~20 mS/cm 측정 범위',
+    ],
+    featuresEn: [
+      'Ø12 × 120 mm Black ABS body',
+      'Graphite disc sensing element',
+      'K=1 cell constant',
+      'Built-in PT1000 temperature compensation',
+      '1 μS/cm–20 mS/cm measuring range',
+    ],
+    specs: [
+      { label: '형식', labelEn: 'Type', value: '전기전도도 전극', valueEn: 'Conductivity electrode' },
+      { label: '치수', labelEn: 'Dimensions', value: 'Ø12 × 120 mm', valueEn: 'Ø12 × 120 mm' },
+      { label: '감응부', labelEn: 'Sensing Element', value: '흑연 원판', valueEn: 'Graphite disc' },
+      { label: '셀 상수', labelEn: 'Cell Constant', value: 'K=1 (±20%)', valueEn: 'K=1 (±20%)' },
+      { label: '측정 범위', labelEn: 'Measurement Range', value: '1 μS/cm~20 mS/cm', valueEn: '1 μS/cm–20 mS/cm' },
+      { label: '사용 온도', labelEn: 'Operating Temp.', value: '0~80℃', valueEn: '0–80°C' },
+      { label: '온도 보정', labelEn: 'Temp. Compensation', value: 'PT1000', valueEn: 'PT1000' },
+    ],
+    image: '/images/products/wbec-cond-main.png',
+    gallery: ['/images/products/wbec-cond-main.png'],
   },
   {
     slug: 'filter-drain',
