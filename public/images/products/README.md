@@ -4,7 +4,7 @@ Website product assets are stored in this directory. The current public lineup c
 
 | Product | Main image | Additional image |
 | --- | --- | --- |
-| WBSC10 Smart Controller | `wbsc10-front.png` | `wbsc10-main.png` |
+| WBSC10 Smart Controller | `wbsc10-front.png` | `wbsc10-side-left.png`, `wbsc10-side-right.png` |
 | WBTU10 Online Turbidity Meter | `wbtu10-photo-front.png` | `wbtu10-photo-side.png` |
 | WBCL10 Residual Chlorine Analyzer | `wbcl10-photo-front.png` | `wbcl10-photo-side.png` |
 | WBPH10 pH Meter | `wbph10-main.png` | - |

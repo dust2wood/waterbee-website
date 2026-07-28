@@ -36,7 +36,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#102019] pt-16 lg:pt-20">
-      <div className="relative min-h-[700px] lg:min-h-[570px]">
+      <div className="relative min-h-[700px] lg:min-h-[570px] xl:min-h-[650px] 2xl:min-h-[clamp(720px,70vh,820px)]">
         <Image
           src="/images/home/water-landscape.jpg"
           alt="Forested watershed and clear lake"
@@ -47,7 +47,7 @@ export default function HeroSection() {
         />
         <div className="absolute inset-0 bg-[#0c1814]/45" />
 
-        <div className="container-custom relative z-10 pt-14 sm:pt-16 lg:pt-20">
+        <div className="container-custom relative z-10 pt-14 sm:pt-16 lg:pt-20 xl:pt-24 2xl:pt-28">
           <div className="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase text-white/80">
             <span className="h-0.5 w-8 bg-gold-500" />
             {t('badge')}

@@ -79,7 +79,14 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                     aria-label={`${product.model} image`}
                     className={`relative h-20 overflow-hidden border bg-[#f1f3f1] ${activeImage === image ? 'border-[#151a19]' : 'border-[#d7dcda]'}`}
                   >
-                    <Image src={image} alt="" fill unoptimized={image.endsWith('.svg')} className={isPhoto ? 'object-cover' : 'object-contain p-2'} sizes="160px" />
+                    <Image
+                      src={image}
+                      alt=""
+                      fill
+                      unoptimized={image.endsWith('.svg')}
+                      className={isPhoto ? 'object-cover' : 'object-contain p-2 mix-blend-multiply'}
+                      sizes="160px"
+                    />
                   </button>
                 ))}
               </div>

@@ -77,7 +77,11 @@ Its 4.3-inch TFT LCD and keypad support clear local operation, while 4–20 mA a
       { label: '크기', labelEn: 'Dimensions', value: '210 × 180 × 86.5 mm', valueEn: '210 × 180 × 86.5 mm' },
     ],
     image: '/images/products/wbsc10-front.png',
-    gallery: ['/images/products/wbsc10-front.png'],
+    gallery: [
+      '/images/products/wbsc10-front.png',
+      '/images/products/wbsc10-side-left.png',
+      '/images/products/wbsc10-side-right.png',
+    ],
   },
   {
     slug: 'wbtu10',
