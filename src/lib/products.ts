@@ -77,7 +77,7 @@ Its 4.3-inch TFT LCD and keypad support clear local operation, while 4–20 mA a
       { label: '크기', labelEn: 'Dimensions', value: '210 × 180 × 86.5 mm', valueEn: '210 × 180 × 86.5 mm' },
     ],
     image: '/images/products/wbsc10-front.png',
-    gallery: ['/images/products/wbsc10-front.png', '/images/products/wbsc10-main.png'],
+    gallery: ['/images/products/wbsc10-front.png'],
   },
   {
     slug: 'wbtu10',
@@ -123,7 +123,7 @@ It uses a tungsten lamp and 90-degree scattered-light detection, together with a
       { label: '출력 및 통신', labelEn: 'Output & Communication', value: '4~20 mA, RS-485', valueEn: '4–20 mA, RS-485' },
     ],
     image: '/images/products/wbtu10-front.png',
-    gallery: ['/images/products/wbtu10-front.png', '/images/products/wbtu10-main.png'],
+    gallery: ['/images/products/wbtu10-front.png'],
   },
   {
     slug: 'wbcl10',
@@ -169,7 +169,7 @@ Continuous electrode rotation helps limit surface fouling and supports reagent-f
       { label: '출력 및 통신', labelEn: 'Output & Communication', value: '4~20 mA, RS-485', valueEn: '4–20 mA, RS-485' },
     ],
     image: '/images/products/wbcl10-front.png',
-    gallery: ['/images/products/wbcl10-front.png', '/images/products/wbcl10-main.png'],
+    gallery: ['/images/products/wbcl10-front.png'],
   },
   {
     slug: 'wbph10',

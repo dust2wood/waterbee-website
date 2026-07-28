@@ -35,12 +35,10 @@ const nextConfig = {
       { source: '/:locale(ko|en)/products/wbtu-s',       destination: '/:locale/products/wbtu10',     permanent: true },
       { source: '/:locale(ko|en)/products/wbtb10',       destination: '/:locale/products/wbtu10',     permanent: true },
       { source: '/:locale(ko|en)/products/smartfarm-io', destination: '/:locale/products/ph-ec-board', permanent: true },
-      { source: '/:locale(ko|en)/products/wbsc10',       destination: '/:locale/products',            permanent: true },
       // 삭제된 제품 슬러그 (as-needed 시절 locale prefix 없는 구 URL)
       { source: '/products/wbtu-s',        destination: '/ko/products/wbtu10',     permanent: true },
       { source: '/products/wbtb10',        destination: '/ko/products/wbtu10',     permanent: true },
       { source: '/products/smartfarm-io',  destination: '/ko/products/ph-ec-board', permanent: true },
-      { source: '/products/wbsc10',        destination: '/ko/products',            permanent: true },
     ]
   },
 }

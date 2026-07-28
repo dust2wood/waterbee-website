@@ -28,6 +28,8 @@
     font-variation-settings: 'wght' 450;
     letter-spacing: 0;
     text-rendering: optimizeLegibility;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   h1,
