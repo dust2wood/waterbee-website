@@ -15,10 +15,10 @@ const groupCopy = {
     descriptionEn: 'Controller, turbidity, residual chlorine, pH and conductivity',
   },
   smartfarm: {
-    ko: '스마트팜 pH·EC 센서',
-    en: 'Smart Farm pH & EC Sensors',
-    descriptionKo: '양액과 관수 수질 관리를 위한 pH·EC 센서와 제어반 인터페이스',
-    descriptionEn: 'pH and conductivity sensors with a control-panel interface for nutrient solution and irrigation water',
+    ko: '스마트팜 pH·EC',
+    en: 'Smart Farm pH & EC',
+    descriptionKo: '양액과 관수 수질 관리를 위한 pH·EC 센서와 RS-485 컨버터',
+    descriptionEn: 'pH and conductivity sensors with RS-485 converters for nutrient solution and irrigation water',
   },
   system: {
     ko: '여과드레인 시스템',

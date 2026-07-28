@@ -15,7 +15,7 @@ const imageSizing: Record<string, string> = {
   wbec10: 'h-[54%] w-[35%]',
   'wbph-pbs01': 'h-[82%] w-[56%]',
   'wbec-cond': 'h-[82%] w-[56%]',
-  'ph-ec-board': 'h-[72%] w-[86%]',
+  'ph-ec-board': 'h-[78%] w-[92%]',
   'sampling-tank': 'h-[82%] w-[78%]',
   'wbcl10-electrode-kit': 'h-[74%] w-[82%]',
   'wbtu10-lamp-kit': 'h-[74%] w-[82%]',
