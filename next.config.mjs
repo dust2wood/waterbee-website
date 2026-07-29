@@ -17,6 +17,29 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // 구 홈페이지 정책 페이지 쿼리
+      {
+        source: '/',
+        has: [{ type: 'query', key: 'mode', value: 'privacy' }],
+        destination: '/ko/privacy',
+        permanent: true,
+      },
+      {
+        source: '/',
+        has: [{ type: 'query', key: 'mode', value: 'policy' }],
+        destination: '/ko/terms',
+        permanent: true,
+      },
+      { source: '/', destination: '/ko', permanent: true },
+      // 구 아임웹 숫자 URL을 대응하는 현재 페이지로 통합
+      { source: '/31', destination: '/ko', permanent: true },
+      { source: '/32', destination: '/ko/contact', permanent: true },
+      { source: '/33', destination: '/ko/products/wbsc10', permanent: true },
+      { source: '/34', destination: '/ko/products/wbtu10', permanent: true },
+      { source: '/35', destination: '/ko/products/wbcl10', permanent: true },
+      { source: '/37', destination: '/ko/products/wbec10', permanent: true },
+      { source: '/38', destination: '/ko/products/wbph10', permanent: true },
+      { source: '/About', destination: '/ko/about', permanent: true },
       // ── 구 CMS(이전 홈페이지) URL → 현재 페이지 301 영구 리다이렉트 ──
       // /PRODUCT, /product, /PRODUCT/* 전체
       { source: '/PRODUCT',          destination: '/ko/products', permanent: true },

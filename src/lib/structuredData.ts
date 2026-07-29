@@ -16,22 +16,22 @@ export function organizationJsonLd(locale: string) {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': ORGANIZATION_ID,
-    name: 'Waterbee',
+    name: isKo ? '워터비' : 'Waterbee',
     legalName: siteIdentity.legalName,
-    alternateName: isKo ? ['워터비', 'Waterbee Co., Ltd.'] : ['Waterbee Co., Ltd.', '워터비'],
+    alternateName: isKo
+      ? ['Waterbee', '주식회사 워터비', 'Waterbee Co., Ltd.']
+      : ['워터비', '주식회사 워터비', 'Waterbee Co., Ltd.'],
     url: SITE_URL,
     logo: {
       '@type': 'ImageObject',
       url: absoluteUrl('/images/logo-transparent.png'),
+      contentUrl: absoluteUrl('/images/logo-transparent.png'),
       width: 558,
       height: 283,
     },
     description: isKo
       ? '회전전극식 잔류염소계, 온라인 탁도계, pH계, 전기전도도계와 수질 모니터링 시스템을 개발하는 수질계측 전문기업입니다.'
       : 'A water-quality instrumentation company developing rotating-electrode residual chlorine analyzers, online turbidity meters, pH and conductivity meters, and monitoring systems.',
-    disambiguatingDescription: isKo
-      ? '부산에 본사를 둔 현재 정상 운영 중인 수질계측 중소기업이며 여성기업으로 분류되지 않습니다.'
-      : 'An actively operating water-quality instrumentation SME headquartered in Busan, South Korea. Waterbee is not classified as a women-owned business.',
     slogan: 'Right Technology, Bright Environment',
     foundingDate: '2021-10-05',
     taxID: siteIdentity.businessNumber,
@@ -41,18 +41,18 @@ export function organizationJsonLd(locale: string) {
       value: siteIdentity.businessNumber,
     },
     email: siteIdentity.email,
-    telephone: siteIdentity.telephone,
+    telephone: siteIdentity.telephoneIntl,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: isKo ? siteIdentity.addressKo : siteIdentity.addressEn,
-      addressLocality: isKo ? '부산광역시 강서구' : 'Gangseo-gu, Busan',
+      streetAddress: isKo ? '에코델타스마트로 39, 3동 2호' : 'Building 3, Unit 2, 39 Ecodeltasmart-ro',
+      addressLocality: isKo ? '강서구' : 'Gangseo-gu',
       addressRegion: isKo ? '부산광역시' : 'Busan',
       addressCountry: 'KR',
     },
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'customer support',
-      telephone: siteIdentity.telephone,
+      telephone: siteIdentity.telephoneIntl,
       email: siteIdentity.email,
       areaServed: 'KR',
       availableLanguage: ['Korean', 'English'],
@@ -65,34 +65,11 @@ export function organizationJsonLd(locale: string) {
       'Electrical conductivity measurement',
       'Smart water monitoring',
     ],
-    subjectOf: [
-      {
-        '@type': 'NewsArticle',
-        name: isKo
-          ? '2026 스스로 프로젝트 베트남 시장개척 프로그램 참여'
-          : 'Participation in the 2026 Suseuro Vietnam market-development program',
-        datePublished: '2026-07-03',
-        url: 'https://www.viva100.com/article/20260703500497',
-        inLanguage: 'ko-KR',
-      },
-      {
-        '@type': 'NewsArticle',
-        name: isKo
-          ? 'WATER KOREA 2026 글로벌 시장 진출 상생협력 MOU'
-          : 'WATER KOREA 2026 cooperation agreement for global market projects',
-        datePublished: '2026-03-25',
-        url: 'https://www.ikld.kr/news/articleView.html?idxno=331527',
-        inLanguage: 'ko-KR',
-      },
-      {
-        '@type': 'NewsArticle',
-        name: isKo
-          ? '윌로펌프 스마트팜 측정센서 PoC 완료'
-          : 'Completion of the Wilo Pump smart-farm measurement sensor PoC',
-        datePublished: '2025-12-10',
-        url: 'https://www.metroseoul.co.kr/article/20251209500526',
-        inLanguage: 'ko-KR',
-      },
+    sameAs: [
+      'https://thevc.kr/waterbee',
+      'https://www.innoforest.co.kr/company/CP00011527/%EC%9B%8C%ED%84%B0%EB%B9%84',
+      'https://bizno.net/article/2918702513',
+      'https://myfactory.co.kr/detail.php?id=fac414502024101412',
     ],
   }
 }

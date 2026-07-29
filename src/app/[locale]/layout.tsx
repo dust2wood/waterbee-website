@@ -33,7 +33,10 @@ export async function generateMetadata({
       ? ['residual chlorine analyzer', 'turbidity meter', 'pH meter', 'EC meter', 'water quality monitoring', 'waterworks', 'Waterbee']
       : ['잔류염소계', '탁도계', 'pH계', 'EC계', '수질측정', '수질모니터링', '정수장', '워터비'],
     verification: {
-      google: 'FKdDoHEMxiQtzhQJgZfIfWPREXEe0tizZl4JGfGgWLQ',
+      google: [
+        'FKdDoHEMxiQtzhQJgZfIfWPREXEe0tizZl4JGfGgWLQ',
+        'yMTUmjfjKGEa9HEHjifeehIt8oTuls_E-tZ_Pqk2b0I',
+      ],
     },
     applicationName: 'Waterbee',
     authors: [{ name: isEn ? 'Waterbee Co., Ltd.' : '주식회사 워터비', url: SITE_URL }],
