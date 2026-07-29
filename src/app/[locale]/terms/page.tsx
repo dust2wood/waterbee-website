@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { setRequestLocale } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
+import { createPageMetadata } from '@/lib/seo'
 
 type TermsSectionProps = {
   id: string
@@ -32,13 +33,15 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  return {
+  return createPageMetadata({
+    locale,
+    path: '/terms',
     title: locale === 'ko' ? '이용약관' : 'Terms of Service',
     description:
       locale === 'ko'
         ? '주식회사 워터비 홈페이지 이용약관'
         : 'Website Terms of Service of Waterbee Co., Ltd.',
-  }
+  })
 }
 
 export default async function TermsPage({ params }: { params: Promise<{ locale: string }> }) {

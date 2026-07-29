@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import { SITE_URL } from '@/lib/seo'
 import '../globals.css'
 
 export function generateStaticParams() {
@@ -20,6 +21,7 @@ export async function generateMetadata({
   const isEn = locale === 'en'
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: {
       default: isEn ? 'Waterbee - Water Quality Measurement Specialist' : '워터비 - 수질 측정 전문기업',
       template: isEn ? '%s | Waterbee' : '%s | 워터비',
@@ -33,18 +35,20 @@ export async function generateMetadata({
     verification: {
       google: 'FKdDoHEMxiQtzhQJgZfIfWPREXEe0tizZl4JGfGgWLQ',
     },
-    alternates: {
-      canonical: `https://www.waterbee.co.kr/${locale}`,
-      languages: {
-        'ko': 'https://www.waterbee.co.kr/ko',
-        'en': 'https://www.waterbee.co.kr/en',
-      },
-    },
+    applicationName: 'Waterbee',
+    authors: [{ name: isEn ? 'Waterbee Co., Ltd.' : '주식회사 워터비', url: SITE_URL }],
+    creator: isEn ? 'Waterbee Co., Ltd.' : '주식회사 워터비',
+    publisher: isEn ? 'Waterbee Co., Ltd.' : '주식회사 워터비',
+    category: 'Water Quality Instrumentation',
+    referrer: 'origin-when-cross-origin',
     openGraph: {
       siteName: 'Waterbee',
       locale: isEn ? 'en_US' : 'ko_KR',
       alternateLocale: isEn ? 'ko_KR' : 'en_US',
       type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
     },
   }
 }

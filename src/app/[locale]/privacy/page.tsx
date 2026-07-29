@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { setRequestLocale } from 'next-intl/server'
+import { createPageMetadata } from '@/lib/seo'
 
 type PolicyRow = {
   label: string
@@ -55,13 +56,15 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params
-  return {
+  return createPageMetadata({
+    locale,
+    path: '/privacy',
     title: locale === 'ko' ? '개인정보처리방침' : 'Privacy Policy',
     description:
       locale === 'ko'
         ? '주식회사 워터비 개인정보처리방침'
         : 'Privacy Policy of Waterbee Co., Ltd.',
-  }
+  })
 }
 
 export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {

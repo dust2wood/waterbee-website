@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
+import JsonLd from '@/components/seo/JsonLd'
 import { getProductBySlug, getAllProducts } from '@/lib/products'
+import { createPageMetadata } from '@/lib/seo'
+import { breadcrumbJsonLd, productJsonLd } from '@/lib/structuredData'
 import ProductDetailClient from './ProductDetailClient'
 
 export function generateStaticParams() {
@@ -16,10 +19,18 @@ export async function generateMetadata({
   const { locale, slug } = await params
   const product = getProductBySlug(slug)
   if (!product) return {}
-  return {
+  return createPageMetadata({
+    locale,
+    path: `/products/${product.slug}`,
     title: locale === 'ko' ? `${product.name} (${product.model})` : `${product.nameEn} (${product.model})`,
     description: locale === 'ko' ? product.shortDescription : product.shortDescriptionEn,
-  }
+    image: product.image,
+    imageAlt: locale === 'ko' ? `${product.model} ${product.name}` : `${product.model} ${product.nameEn}`,
+    keywords:
+      locale === 'ko'
+        ? [product.model, product.name, product.category, '워터비']
+        : [product.model, product.nameEn, product.categoryEn, 'Waterbee'],
+  })
 }
 
 export default async function ProductDetailPage({
@@ -33,5 +44,20 @@ export default async function ProductDetailPage({
   const product = getProductBySlug(slug)
   if (!product) notFound()
 
-  return <ProductDetailClient product={product} />
+  return (
+    <>
+      <JsonLd
+        data={breadcrumbJsonLd(locale, [
+          { name: locale === 'ko' ? '홈' : 'Home' },
+          { name: locale === 'ko' ? '제품' : 'Products', path: '/products' },
+          {
+            name: locale === 'ko' ? `${product.name} (${product.model})` : `${product.nameEn} (${product.model})`,
+            path: `/products/${product.slug}`,
+          },
+        ])}
+      />
+      <JsonLd data={productJsonLd(locale, product)} />
+      <ProductDetailClient product={product} />
+    </>
+  )
 }

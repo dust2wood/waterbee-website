@@ -2,13 +2,21 @@ import type { Metadata } from 'next'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
+import JsonLd from '@/components/seo/JsonLd'
+import { createPageMetadata } from '@/lib/seo'
+import { breadcrumbJsonLd } from '@/lib/structuredData'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
+  return createPageMetadata({
+    locale,
+    path: '/about',
     title: locale === 'ko' ? '회사소개' : 'About',
-    description: locale === 'ko' ? '주식회사 워터비 회사 소개 및 연혁' : 'About Waterbee Co., Ltd. and company history',
-  }
+    description:
+      locale === 'ko'
+        ? '주식회사 워터비의 수질계측 기술, 회사 정보, 주요 연혁과 사업 성과를 소개합니다.'
+        : 'Learn about Waterbee Co., Ltd., its water-quality instrumentation technology, company profile, milestones and business achievements.',
+  })
 }
 
 const history = {
@@ -39,6 +47,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
 
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-20">
+      <JsonLd
+        data={breadcrumbJsonLd(locale, [
+          { name: isKo ? '홈' : 'Home' },
+          { name: isKo ? '회사소개' : 'About', path: '/about' },
+        ])}
+      />
       <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-24">
         <div className="container-custom">
           <div className="max-w-3xl">
