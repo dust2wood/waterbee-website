@@ -14,23 +14,23 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: locale === 'ko' ? '회사소개' : 'About',
     description:
       locale === 'ko'
-        ? '주식회사 워터비의 수질계측 기술, 회사 정보, 주요 연혁과 사업 성과를 소개합니다.'
-        : 'Learn about Waterbee Co., Ltd., its water-quality instrumentation technology, company profile, milestones and business achievements.',
+        ? '부산 소재 여성기업 주식회사 워터비의 수질계측 기술, 현재 회사 정보, 주요 연혁과 사업 성과를 소개합니다.'
+        : 'Learn about Waterbee Co., Ltd., a women-owned water-quality instrumentation company in Busan, its current profile, milestones and business achievements.',
   })
 }
 
 const history = {
   ko: [
-    ['2026', ['스마트 여과드레인 시스템 성과공유제 과제 선정', '우즈베키스탄 지역난방 시스템용 정밀 여과 솔루션 공급 및 설치']],
-    ['2025', ['HSCMT-워터비 스마트 여과드레인 기술 고도화 및 유지관리 협력 MOU 체결', '필리핀 뉴클락시티 취수장 스마트 여과드레인 및 수질계측 시스템 구축']],
+    ['2026', ['2026 스스로 프로젝트 3기 참여기업 선정 및 베트남 진출 프로그램 참여', 'WATER KOREA 2026 글로벌 시장 진출 상생협력 업무협약 체결', '스마트 여과드레인 시스템 성과공유제 과제 선정', '우즈베키스탄 지역난방 시스템용 정밀 여과 솔루션 공급 및 설치']],
+    ['2025', ['부산창조경제혁신센터 오픈이노베이션에서 윌로펌프와 스마트팜 측정센서 PoC 수행', 'HSCMT-워터비 스마트 여과드레인 기술 고도화 및 유지관리 협력 MOU 체결', '필리핀 뉴클락시티 취수장 스마트 여과드레인 및 수질계측 시스템 구축']],
     ['2024', ['대한민국 발명특허대전 특허청장상 수상', 'K-water 협력 스타트업 육성 지원 업무협약 체결', '중소벤처기업부 시범구매제품 선정', '조달청 벤처나라 혁신조달상품 지정', '잔류염소계 형식승인 취득(국립환경과학원)']],
     ['2023', ['SK하이닉스 제2정수장 K-테스트베드 실증', '탁도계 형식승인 취득(국립환경과학원)', '대한민국 물산업 혁신창업대전 수상']],
     ['2022', ['중소벤처기업부 R&D 디딤돌 과제 선정', '클라우드 수질 모니터링 서비스 WATERROUND 출시', 'K-water 협력 스타트업 선정']],
     ['2021', ['주식회사 워터비 설립', '수질계측 ICT 센서 개발 착수']],
   ],
   en: [
-    ['2026', ['Selected for the Smart Filter-Drain performance-sharing project', 'Supplied and installed a precision filtration solution for an Uzbekistan district-heating system']],
-    ['2025', ['Signed an HSCMT-Waterbee technology and maintenance cooperation MOU', 'Built a smart filter-drain and instrumentation system at the New Clark City intake facility']],
+    ['2026', ['Selected for the third Suseuro Project and joined its Vietnam market-development program', 'Signed a global market cooperation MOU at WATER KOREA 2026', 'Selected for the Smart Filter-Drain performance-sharing project', 'Supplied and installed a precision filtration solution for an Uzbekistan district-heating system']],
+    ['2025', ['Conducted a smart-farm measurement sensor PoC with Wilo Pump through the Busan CCEI open innovation program', 'Signed an HSCMT-Waterbee technology and maintenance cooperation MOU', 'Built a smart filter-drain and instrumentation system at the New Clark City intake facility']],
     ['2024', ["Won the Commissioner's Award at the Korea Invention Patent Exhibition", 'Signed a collaborative startup support agreement with K-water', 'Selected for the public pilot-purchase program', 'Designated as an innovative procurement product', 'Obtained residual chlorine analyzer type approval from NIER']],
     ['2023', ['Completed a K-Testbed demonstration at SK Hynix Water Treatment Plant No. 2', 'Obtained turbidity meter type approval from NIER', 'Won the Korea Water Industry Innovation Startup Competition']],
     ['2022', ['Selected for the MSS R&D Stepping Stone project', 'Launched WATERROUND cloud water-quality monitoring', 'Selected as a K-water partner startup']],
@@ -128,6 +128,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             <dl className="border-t border-[#9fa8a5] text-sm">
               {[
                 [t('info.company_name_label'), t('info.company')],
+                [t('info.ceo'), t('info.ceo_value')],
+                [t('info.founded'), t('info.founded_value')],
+                [t('info.company_type'), t('info.company_type_value')],
+                [t('info.operating_status'), t('info.operating_status_value')],
+                [t('info.business_number'), '291-87-02513'],
                 [t('info.address'), t('info.address_value')],
                 [t('info.phone'), '1555-3534'],
                 [t('info.email'), 'support@waterbee.co.kr'],
@@ -138,10 +143,16 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 </div>
               ))}
             </dl>
-            <Link href="/contact" className="mt-7 inline-flex items-center gap-2 border-b border-[#151a19] pb-1 text-sm font-semibold text-[#151a19]">
-              {t('contact_card.button')}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
+              <Link href="/contact" className="inline-flex items-center gap-2 border-b border-[#151a19] pb-1 text-sm font-semibold text-[#151a19]">
+                {t('contact_card.button')}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/news" className="inline-flex items-center gap-2 border-b border-[#151a19] pb-1 text-sm font-semibold text-[#151a19]">
+                {isKo ? '회사 소식 보기' : 'View company news'}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

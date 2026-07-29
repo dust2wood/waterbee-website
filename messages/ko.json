@@ -4,6 +4,7 @@
     "products": "제품",
     "technology": "기술",
     "about": "회사소개",
+    "news": "소식",
     "contact": "문의",
     "catalog": "카탈로그"
   },
@@ -336,6 +337,14 @@
     "info": {
       "company": "주식회사 워터비",
       "company_name_label": "법인명",
+      "ceo": "대표이사",
+      "ceo_value": "손호정",
+      "founded": "설립일",
+      "founded_value": "2021년 10월 5일",
+      "company_type": "기업 구분",
+      "company_type_value": "여성기업 · 중소기업",
+      "operating_status": "운영 현황",
+      "operating_status_value": "현재 정상 운영 중",
       "address_value": "부산광역시 강서구 에코델타스마트로 39, 3동 2호",
       "address": "주소",
       "phone": "전화",
