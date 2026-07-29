@@ -14,6 +14,7 @@ export const siteIdentity = {
   legalName: '주식회사 워터비',
   businessNumber: '291-87-02513',
   telephone: '1555-3534',
+  telephoneIntl: '+82-1555-3534',
   email: 'support@waterbee.co.kr',
   addressKo: '부산광역시 강서구 에코델타스마트로 39, 3동 2호',
   addressEn: 'Building 3, Unit 2, 39 Ecodeltasmart-ro, Gangseo-gu, Busan, Republic of Korea',
