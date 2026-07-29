@@ -4,7 +4,6 @@ import HeroSection from '@/components/home/HeroSection'
 import TechFeatures from '@/components/home/TechFeatures'
 import ApplicationsSection from '@/components/home/ApplicationsSection'
 import ProductHighlight from '@/components/home/ProductHighlight'
-import NewsSection from '@/components/home/NewsSection'
 import CtaBanner from '@/components/home/CtaBanner'
 import JsonLd from '@/components/seo/JsonLd'
 import { createPageMetadata } from '@/lib/seo'
@@ -30,8 +29,8 @@ export async function generateMetadata({
         : 'Waterbee water-quality instruments and monitoring solutions',
     keywords:
       locale === 'ko'
-        ? ['워터비', '여성기업', '수질계측기', '탁도계', '잔류염소계', 'pH계', '전기전도도계', '수질 모니터링']
-        : ['Waterbee', 'women-owned business', 'water quality instruments', 'turbidity meter', 'residual chlorine analyzer', 'pH meter', 'conductivity meter'],
+        ? ['워터비', '수질계측기', '탁도계', '잔류염소계', 'pH계', '전기전도도계', '수질 모니터링']
+        : ['Waterbee', 'water quality instruments', 'turbidity meter', 'residual chlorine analyzer', 'pH meter', 'conductivity meter'],
   })
 }
 
@@ -47,7 +46,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
       <ProductHighlight />
       <TechFeatures />
       <ApplicationsSection />
-      <NewsSection locale={locale} />
       <CtaBanner />
     </>
   )

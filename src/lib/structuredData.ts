@@ -1,5 +1,4 @@
 import type { Product } from '@/lib/products'
-import type { CompanyNewsItem } from '@/lib/companyNews'
 import {
   absoluteUrl,
   localizedUrl,
@@ -30,6 +29,9 @@ export function organizationJsonLd(locale: string) {
     description: isKo
       ? '회전전극식 잔류염소계, 온라인 탁도계, pH계, 전기전도도계와 수질 모니터링 시스템을 개발하는 수질계측 전문기업입니다.'
       : 'A water-quality instrumentation company developing rotating-electrode residual chlorine analyzers, online turbidity meters, pH and conductivity meters, and monitoring systems.',
+    disambiguatingDescription: isKo
+      ? '부산에 본사를 둔 현재 정상 운영 중인 수질계측 중소기업이며 여성기업으로 분류되지 않습니다.'
+      : 'An actively operating water-quality instrumentation SME headquartered in Busan, South Korea. Waterbee is not classified as a women-owned business.',
     slogan: 'Right Technology, Bright Environment',
     foundingDate: '2021-10-05',
     taxID: siteIdentity.businessNumber,
@@ -63,9 +65,35 @@ export function organizationJsonLd(locale: string) {
       'Electrical conductivity measurement',
       'Smart water monitoring',
     ],
-    keywords: isKo
-      ? ['여성기업', '중소기업', '수질계측기', '탁도계', '잔류염소계', '스마트 수질관리']
-      : ['women-owned business', 'SME', 'water-quality instrumentation', 'turbidity', 'residual chlorine', 'smart water monitoring'],
+    subjectOf: [
+      {
+        '@type': 'NewsArticle',
+        name: isKo
+          ? '2026 스스로 프로젝트 베트남 시장개척 프로그램 참여'
+          : 'Participation in the 2026 Suseuro Vietnam market-development program',
+        datePublished: '2026-07-03',
+        url: 'https://www.viva100.com/article/20260703500497',
+        inLanguage: 'ko-KR',
+      },
+      {
+        '@type': 'NewsArticle',
+        name: isKo
+          ? 'WATER KOREA 2026 글로벌 시장 진출 상생협력 MOU'
+          : 'WATER KOREA 2026 cooperation agreement for global market projects',
+        datePublished: '2026-03-25',
+        url: 'https://www.ikld.kr/news/articleView.html?idxno=331527',
+        inLanguage: 'ko-KR',
+      },
+      {
+        '@type': 'NewsArticle',
+        name: isKo
+          ? '윌로펌프 스마트팜 측정센서 PoC 완료'
+          : 'Completion of the Wilo Pump smart-farm measurement sensor PoC',
+        datePublished: '2025-12-10',
+        url: 'https://www.metroseoul.co.kr/article/20251209500526',
+        inLanguage: 'ko-KR',
+      },
+    ],
   }
 }
 
@@ -170,52 +198,6 @@ export function productCollectionJsonLd(locale: string, products: Product[]) {
         position: index + 1,
         name: isKo ? `${product.name} (${product.model})` : `${product.nameEn} (${product.model})`,
         url: localizedUrl(siteLocale, `/products/${product.slug}`),
-      })),
-    },
-  }
-}
-
-export function companyNewsCollectionJsonLd(locale: string, items: CompanyNewsItem[]) {
-  const siteLocale = toSiteLocale(locale)
-  const isKo = siteLocale === 'ko'
-  const collectionUrl = localizedUrl(siteLocale, '/news')
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    '@id': `${collectionUrl}#collection`,
-    url: collectionUrl,
-    name: isKo ? '워터비 회사 소식 및 언론보도' : 'Waterbee Company News and Media',
-    description: isKo
-      ? '워터비의 회사 현황, 협업, 글로벌 활동과 주요 언론보도 목록'
-      : 'Waterbee company status, partnerships, global activity and media coverage',
-    inLanguage: isKo ? 'ko-KR' : 'en-US',
-    isPartOf: {
-      '@id': WEBSITE_ID,
-    },
-    about: {
-      '@id': ORGANIZATION_ID,
-    },
-    mainEntity: {
-      '@type': 'ItemList',
-      numberOfItems: items.length,
-      itemListElement: items.map((item, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        item: {
-          '@type': 'CreativeWork',
-          headline: isKo ? item.title.ko : item.title.en,
-          description: isKo ? item.summary.ko : item.summary.en,
-          datePublished: item.date,
-          url: item.url,
-          publisher: {
-            '@type': 'Organization',
-            name: isKo ? item.publisher.ko : item.publisher.en,
-          },
-          about: {
-            '@id': ORGANIZATION_ID,
-          },
-        },
       })),
     },
   }
