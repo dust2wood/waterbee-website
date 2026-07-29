@@ -1,14 +1,28 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/seo'
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.waterbee.co.kr'
+const publicRule = {
+  allow: '/',
+  disallow: ['/api/'],
+}
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/api/'],
-    },
-    sitemap: `${baseUrl}/sitemap.xml`,
+    rules: [
+      {
+        userAgent: '*',
+        ...publicRule,
+      },
+      {
+        userAgent: 'OAI-SearchBot',
+        ...publicRule,
+      },
+      {
+        userAgent: 'ChatGPT-User',
+        ...publicRule,
+      },
+    ],
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   }
 }

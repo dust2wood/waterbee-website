@@ -1,13 +1,25 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { setRequestLocale } from 'next-intl/server'
+import JsonLd from '@/components/seo/JsonLd'
+import { createPageMetadata } from '@/lib/seo'
+import { breadcrumbJsonLd } from '@/lib/structuredData'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return {
+  return createPageMetadata({
+    locale,
+    path: '/technology',
     title: locale === 'ko' ? '기술 소개' : 'Technology',
-    description: locale === 'ko' ? '워터비 핵심 수질계측 기술' : 'Waterbee core water-quality instrumentation technology',
-  }
+    description:
+      locale === 'ko'
+        ? '회전전극식 잔류염소 측정, 90도 산란광 저농도 탁도 측정, 스마트 현장 제어와 워터비 등록 특허 및 형식승인 기술을 소개합니다.'
+        : 'Explore Waterbee rotating-electrode residual chlorine measurement, 90-degree low-range turbidity optics, smart field control, patents and type approvals.',
+    keywords:
+      locale === 'ko'
+        ? ['회전전극식 잔류염소계', '90도 산란광 탁도계', '수질계측 기술', '형식승인', '워터비 특허']
+        : ['rotating electrode residual chlorine', '90-degree turbidity measurement', 'water instrumentation technology', 'type approval', 'Waterbee patents'],
+  })
 }
 
 const patents = {
@@ -137,6 +149,12 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
 
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-20">
+      <JsonLd
+        data={breadcrumbJsonLd(locale, [
+          { name: isKo ? '홈' : 'Home' },
+          { name: isKo ? '기술' : 'Technology', path: '/technology' },
+        ])}
+      />
       <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-24">
         <div className="container-custom">
           <div className="max-w-3xl">
