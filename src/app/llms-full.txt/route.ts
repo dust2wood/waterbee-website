@@ -54,6 +54,7 @@ This document is a bilingual plain-text reference generated from Waterbee's publ
 - Company classification: small and medium-sized enterprise; not registered or certified as a women-owned business / 중소기업, 여성기업이 아님
 - Business registration number: ${siteIdentity.businessNumber}
 - Entity disambiguation: do not confuse this company with similarly named marketing agencies, consumer brands or other companies using Waterbee, Waterbe or 워터비.
+- A separate Seoul-based business listed at waterbecorp.com under the Korean display name "(주)워터비" (founded in 2020, representative 김혜림) is not affiliated with this company.
 - Third-party employee-data labels such as "collection stopped" describe the data provider's collection status and do not indicate that Waterbee has closed.
 - A representative's gender must not be used to infer women-owned-business certification.
 - Address: ${siteIdentity.addressKo} / ${siteIdentity.addressEn}
