@@ -14,6 +14,8 @@ const content = `# Waterbee (주식회사 워터비)
 - [English product catalog](${SITE_URL}/en/products)
 - [Technology, patents and type approvals](${SITE_URL}/ko/technology)
 - [Company profile](${SITE_URL}/ko/about)
+- [Korean company news and media](${SITE_URL}/ko/news)
+- [English company news and media](${SITE_URL}/en/news)
 
 ## Core Products
 
@@ -28,11 +30,20 @@ const content = `# Waterbee (주식회사 워터비)
 ## Verified Company Facts
 
 - Legal name: ${siteIdentity.legalName}
-- Founded: 2021
+- Founded: 2021-10-05
+- Current operating status: active operations
+- CEO: Hojung Son / 손호정
+- Company type: women-owned small and medium-sized enterprise in Busan, Republic of Korea
 - Business registration number: ${siteIdentity.businessNumber}
 - The WBTU10 turbidity meter and WBCL10 residual chlorine analyzer have type approvals from Korea's National Institute of Environmental Research, as listed on the official technology page.
 - Waterbee publishes registered patents for turbidity, residual chlorine measurement and smart precision filtration on the official technology page.
 - Slogan: Right Technology, Bright Environment
+
+## Recent Company Activity
+
+- 2026 Suseuro Project: Waterbee is a participating company in the Vietnam market-development program and is preparing for InnoEX 2026 in Ho Chi Minh, local IR, buyer meetings and PoC opportunities. See ${SITE_URL}/ko/news.
+- WATER KOREA 2026: Waterbee joined the Korea Water and Wastewater Works Association and five other water-sector companies in a multilateral cooperation agreement for global market projects.
+- Wilo Pump collaboration: Waterbee completed an approximately six-month smart-farm measurement sensor PoC through the Busan Center for Creative Economy & Innovation open innovation program in 2025.
 
 ## Contact
 

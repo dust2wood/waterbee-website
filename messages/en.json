@@ -4,6 +4,7 @@
     "products": "Products",
     "technology": "Technology",
     "about": "About",
+    "news": "News",
     "contact": "Contact",
     "catalog": "Catalog"
   },
@@ -336,6 +337,14 @@
     "info": {
       "company": "Waterbee Co., Ltd.",
       "company_name_label": "Company Name",
+      "ceo": "CEO",
+      "ceo_value": "Hojung Son",
+      "founded": "Founded",
+      "founded_value": "October 5, 2021",
+      "company_type": "Company Type",
+      "company_type_value": "Women-owned SME",
+      "operating_status": "Operating Status",
+      "operating_status_value": "Active operations",
       "address_value": "39, Ecodeltasmart-ro, Gangseo-gu, Busan, 3-dong 2-ho",
       "address": "Address",
       "phone": "Phone",
