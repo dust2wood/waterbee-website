@@ -12,6 +12,7 @@ import MobileMenu from './MobileMenu'
 const navItems = [
   { key: 'products', href: '/products' },
   { key: 'technology', href: '/technology' },
+  { key: 'news', href: '/news' },
   { key: 'about', href: '/about' },
   { key: 'contact', href: '/contact' },
 ] as const
@@ -53,7 +54,7 @@ export default function Header() {
             </Link>
 
             {/* 데스크톱 네비게이션 */}
-            <nav className="hidden items-center gap-9 lg:flex">
+            <nav className="hidden items-center gap-7 xl:gap-9 lg:flex">
               {navItems.map((item) => (
                 <Link
                   key={item.key}

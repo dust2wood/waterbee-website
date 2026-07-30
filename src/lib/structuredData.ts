@@ -1,4 +1,5 @@
 import type { Product } from '@/lib/products'
+import { companyNewsItems, type CompanyNewsItem } from '@/lib/companyNews'
 import {
   absoluteUrl,
   localizedUrl,
@@ -65,12 +66,16 @@ export function organizationJsonLd(locale: string) {
       'Electrical conductivity measurement',
       'Smart water monitoring',
     ],
-    sameAs: [
-      'https://thevc.kr/waterbee',
-      'https://www.innoforest.co.kr/company/CP00011527/%EC%9B%8C%ED%84%B0%EB%B9%84',
-      'https://bizno.net/article/2918702513',
-      'https://myfactory.co.kr/detail.php?id=fac414502024101412',
-    ],
+    subjectOf: companyNewsItems.slice(0, 5).map((item) => ({
+      '@type': 'NewsArticle',
+      headline: isKo ? item.title.ko : item.title.en,
+      datePublished: item.date,
+      url: item.url,
+      publisher: {
+        '@type': 'Organization',
+        name: isKo ? item.publisher.ko : item.publisher.en,
+      },
+    })),
   }
 }
 
@@ -175,6 +180,52 @@ export function productCollectionJsonLd(locale: string, products: Product[]) {
         position: index + 1,
         name: isKo ? `${product.name} (${product.model})` : `${product.nameEn} (${product.model})`,
         url: localizedUrl(siteLocale, `/products/${product.slug}`),
+      })),
+    },
+  }
+}
+
+export function companyNewsCollectionJsonLd(locale: string, items: CompanyNewsItem[]) {
+  const siteLocale = toSiteLocale(locale)
+  const isKo = siteLocale === 'ko'
+  const collectionUrl = localizedUrl(siteLocale, '/news')
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${collectionUrl}#collection`,
+    url: collectionUrl,
+    name: isKo ? '워터비 언론보도 및 소식' : 'Waterbee News and Press',
+    description: isKo
+      ? '워터비의 수질계측 기술 실증, 기업 협력과 글로벌 시장 진출 관련 언론보도 모음'
+      : 'Press coverage of Waterbee technology validation, corporate collaboration and global market development',
+    inLanguage: isKo ? 'ko-KR' : 'en-US',
+    isPartOf: {
+      '@id': WEBSITE_ID,
+    },
+    about: {
+      '@id': ORGANIZATION_ID,
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+          '@type': 'NewsArticle',
+          headline: isKo ? item.title.ko : item.title.en,
+          description: isKo ? item.summary.ko : item.summary.en,
+          datePublished: item.date,
+          url: item.url,
+          publisher: {
+            '@type': 'Organization',
+            name: isKo ? item.publisher.ko : item.publisher.en,
+          },
+          about: {
+            '@id': ORGANIZATION_ID,
+          },
+        },
       })),
     },
   }

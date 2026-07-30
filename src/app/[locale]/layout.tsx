@@ -19,6 +19,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const isEn = locale === 'en'
+  const naverSiteVerification =
+    process.env.NAVER_SITE_VERIFICATION || '4601ff0f610c858b00f9bbb3ce24e151047cfd5f'
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -37,6 +39,9 @@ export async function generateMetadata({
         'FKdDoHEMxiQtzhQJgZfIfWPREXEe0tizZl4JGfGgWLQ',
         'yMTUmjfjKGEa9HEHjifeehIt8oTuls_E-tZ_Pqk2b0I',
       ],
+      ...(naverSiteVerification
+        ? { other: { 'naver-site-verification': naverSiteVerification } }
+        : {}),
     },
     applicationName: 'Waterbee',
     authors: [{ name: isEn ? 'Waterbee Co., Ltd.' : '주식회사 워터비', url: SITE_URL }],

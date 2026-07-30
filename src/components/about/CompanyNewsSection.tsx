@@ -1,9 +1,13 @@
-import { ArrowUpRight } from 'lucide-react'
+import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { Link } from '@/i18n/navigation'
 import { companyNewsItems, localizeCompanyNews } from '@/lib/companyNews'
 
 export default function CompanyNewsSection({ locale }: { locale: string }) {
   const isKo = locale === 'ko'
-  const items = companyNewsItems.map((item) => localizeCompanyNews(item, locale))
+  const items = companyNewsItems
+    .filter((item) => item.featuredOnAbout)
+    .slice(0, 3)
+    .map((item) => localizeCompanyNews(item, locale))
 
   return (
     <section className="border-b border-[#d7dcda] bg-white py-16 lg:py-24">
@@ -18,6 +22,13 @@ export default function CompanyNewsSection({ locale }: { locale: string }) {
               ? '기술 실증과 글로벌 협력, 해외시장 진출 활동을 전합니다.'
               : 'Updates on technology validation, global partnerships and market development.'}
           </p>
+          <Link
+            href="/news"
+            className="mt-7 inline-flex items-center gap-2 border-b border-[#151a19] pb-1 text-sm font-semibold text-[#151a19]"
+          >
+            {isKo ? '전체 소식 보기' : 'View all news'}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
         <div className="border-t border-[#9fa8a5]">

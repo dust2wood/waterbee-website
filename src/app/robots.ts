@@ -14,6 +14,10 @@ export default function robots(): MetadataRoute.Robots {
         ...publicRule,
       },
       {
+        userAgent: ['Yeti', 'NaverBot'],
+        ...publicRule,
+      },
+      {
         userAgent: 'OAI-SearchBot',
         ...publicRule,
       },

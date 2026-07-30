@@ -7,12 +7,13 @@ import {
 } from '@/lib/seo'
 
 const locales: SiteLocale[] = ['ko', 'en']
-const lastContentUpdate = new Date('2026-07-29T00:00:00+09:00')
+const lastContentUpdate = new Date('2026-07-30T00:00:00+09:00')
 
 const staticPages = [
   { path: '', changeFrequency: 'monthly' as const, priority: 1 },
   { path: '/products', changeFrequency: 'monthly' as const, priority: 0.9 },
   { path: '/technology', changeFrequency: 'monthly' as const, priority: 0.8 },
+  { path: '/news', changeFrequency: 'weekly' as const, priority: 0.8 },
   { path: '/about', changeFrequency: 'monthly' as const, priority: 0.7 },
   { path: '/contact', changeFrequency: 'yearly' as const, priority: 0.6 },
   { path: '/privacy', changeFrequency: 'yearly' as const, priority: 0.2 },
