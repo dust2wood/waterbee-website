@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import JsonLd from '@/components/seo/JsonLd'
+import CompanyNewsSection from '@/components/about/CompanyNewsSection'
 import { createPageMetadata } from '@/lib/seo'
 import { breadcrumbJsonLd } from '@/lib/structuredData'
 
@@ -62,6 +63,8 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           </div>
         </div>
       </section>
+
+      <CompanyNewsSection locale={locale} />
 
       <section className="py-20 lg:py-28">
         <div className="container-custom grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
