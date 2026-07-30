@@ -47,8 +47,8 @@ export default function ApplicationsSection() {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 58vw"
           />
-          <div className="absolute bottom-0 left-0 bg-white px-5 py-4 text-[#171c1b] sm:px-7">
-            <div className="text-[11px] font-bold uppercase text-[#8c7200]">WB-FD</div>
+          <div className="absolute bottom-5 left-5 text-white sm:bottom-7 sm:left-7 [text-shadow:0_1px_5px_rgba(0,0,0,0.72)]">
+            <div className="text-[11px] font-bold uppercase text-[#f5c400]">WB-FD</div>
             <div className="mt-1 text-sm font-semibold">SMART FILTER-DRAIN SYSTEM</div>
           </div>
         </div>

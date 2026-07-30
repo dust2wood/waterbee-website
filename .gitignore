@@ -31,6 +31,7 @@ Thumbs.db
 
 # Local development logs
 dev-server*.log
+tmp/
 
 # 작업용 원본 이미지 (처리 전 소스 파일)
 public/images/products/DO.png
