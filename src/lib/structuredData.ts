@@ -119,38 +119,49 @@ export function breadcrumbJsonLd(locale: string, items: BreadcrumbItem[]) {
   }
 }
 
-export function productJsonLd(locale: string, product: Product) {
+export function productPageJsonLd(locale: string, product: Product) {
   const siteLocale = toSiteLocale(locale)
   const isKo = siteLocale === 'ko'
   const productUrl = localizedUrl(siteLocale, `/products/${product.slug}`)
+  const equipmentId = `${productUrl}#equipment`
 
+  // Quote-only B2B pages are not eligible for Google's price-based Product rich results.
   return {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    '@id': `${productUrl}#product`,
+    '@type': 'ItemPage',
+    '@id': `${productUrl}#webpage`,
     url: productUrl,
-    name: isKo ? product.name : product.nameEn,
-    alternateName: `${product.model} ${isKo ? product.nameEn : product.name}`,
+    name: isKo ? `${product.name} (${product.model})` : `${product.nameEn} (${product.model})`,
     description: isKo ? product.description : product.descriptionEn,
-    image: product.gallery.map((image) => absoluteUrl(image)),
-    sku: product.model,
-    mpn: product.model,
-    model: product.model,
-    category: isKo ? product.category : product.categoryEn,
-    brand: {
-      '@type': 'Brand',
-      name: 'Waterbee',
+    inLanguage: isKo ? 'ko-KR' : 'en-US',
+    isPartOf: {
+      '@id': WEBSITE_ID,
     },
-    manufacturer: {
-      '@type': 'Organization',
+    publisher: {
       '@id': ORGANIZATION_ID,
-      name: 'Waterbee',
     },
-    additionalProperty: product.specs.map((spec) => ({
-      '@type': 'PropertyValue',
-      name: isKo ? spec.label : spec.labelEn,
-      value: isKo ? spec.value : spec.valueEn,
-    })),
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: absoluteUrl(product.image),
+      contentUrl: absoluteUrl(product.image),
+      caption: isKo ? `${product.model} ${product.name}` : `${product.model} ${product.nameEn}`,
+    },
+    about: {
+      '@id': equipmentId,
+    },
+    mainEntity: {
+      '@type': 'Thing',
+      '@id': equipmentId,
+      name: isKo ? product.name : product.nameEn,
+      alternateName: [product.model, isKo ? product.nameEn : product.name],
+      description: isKo ? product.description : product.descriptionEn,
+      image: product.gallery.map((image) => absoluteUrl(image)),
+      identifier: {
+        '@type': 'PropertyValue',
+        propertyID: 'Waterbee model',
+        value: product.model,
+      },
+    },
   }
 }
 
