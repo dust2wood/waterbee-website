@@ -4,7 +4,7 @@ import { setRequestLocale } from 'next-intl/server'
 import JsonLd from '@/components/seo/JsonLd'
 import { getProductBySlug, getAllProducts } from '@/lib/products'
 import { createPageMetadata } from '@/lib/seo'
-import { breadcrumbJsonLd, productJsonLd } from '@/lib/structuredData'
+import { breadcrumbJsonLd, productPageJsonLd } from '@/lib/structuredData'
 import ProductDetailClient from './ProductDetailClient'
 
 export function generateStaticParams() {
@@ -56,7 +56,7 @@ export default async function ProductDetailPage({
           },
         ])}
       />
-      <JsonLd data={productJsonLd(locale, product)} />
+      <JsonLd data={productPageJsonLd(locale, product)} />
       <ProductDetailClient product={product} />
     </>
   )
