@@ -71,7 +71,8 @@ const content = {
         eyebrow: 'Residual Chlorine',
         title: '전극 표면을 스스로 관리하는 회전 구조',
         description: 'WBCL10은 회전전극식 폴라로그래프 방식을 사용합니다. 측정 중 전극을 회전시켜 표면 오염의 누적을 줄이고, 멤브레인 소모품 없이 잔류염소를 연속 측정하도록 설계했습니다.',
-        image: '/images/products/wbcl10-photo-front.png',
+        image: '/images/technology/residual-chlorine-rotation-cutaway.png',
+        visual: 'technical',
         metrics: [['0.01~2.00 mg/L', '측정 범위'], ['±0.02 mg/L', '정확도(typ.)'], ['2분 이내', '90% 응답']],
         points: ['무시약 연속 측정', '회전 구조를 통한 전극 표면 관리', 'WBSC10과 연동되는 현장 교정 및 출력'],
       },
@@ -79,7 +80,8 @@ const content = {
         eyebrow: 'Turbidity',
         title: '미세기포 영향을 줄이는 저농도 탁도 광학계',
         description: 'WBTU10은 텅스텐 램프와 90° 산란광 검출 구조를 사용합니다. 측정셀 앞단의 탈부착식 기포 저감 구조가 시료 내 미세기포에 의한 간섭을 줄여 정수장과 배수지의 저농도 탁도 모니터링을 지원합니다.',
-        image: '/images/products/wbtu10-photo-front.png',
+        image: '/images/technology/turbidity-bubble-removal-module.png',
+        visual: 'technical',
         metrics: [['0~10 NTU', '측정 범위'], ['0.001 NTU', '분해능'], ['90°', '검출 각도']],
         points: ['580 nm 텅스텐 램프 광원', '탈부착 가능한 기포 저감 구조', '시료 유로와 광학부의 유지관리 구조'],
       },
@@ -88,6 +90,7 @@ const content = {
         title: '측정값 표시부터 상위 시스템 통신까지',
         description: 'WBSC10은 워터비 센서의 측정값 표시, 현장 교정, 경보와 제어 출력을 담당합니다. 기존 수처리 설비에서 사용하는 4~20 mA와 RS-485 신호를 지원해 현장 제어반과 상위 시스템에 연결할 수 있습니다.',
         image: '/images/products/wbsc10-front.png',
+        visual: 'product',
         metrics: [['4.3 inch', 'TFT LCD'], ['4~20 mA', '아날로그 출력'], ['RS-485', '현장 통신']],
         points: ['현장 키패드를 이용한 교정과 설정', '릴레이 경보 및 제어 출력', 'Modbus RTU/TCP 연동'],
       },
@@ -111,7 +114,8 @@ const content = {
         eyebrow: 'Residual Chlorine',
         title: 'A rotating structure that conditions the electrode surface',
         description: 'The WBCL10 uses a rotating-electrode polarographic method. Electrode rotation helps limit surface fouling during measurement and supports continuous residual chlorine monitoring without a membrane consumable.',
-        image: '/images/products/wbcl10-photo-front.png',
+        image: '/images/technology/residual-chlorine-rotation-cutaway.png',
+        visual: 'technical',
         metrics: [['0.01–2.00 mg/L', 'Measuring Range'], ['±0.02 mg/L', 'Accuracy (typ.)'], ['Within 2 min', '90% Response']],
         points: ['Reagent-free continuous measurement', 'Electrode-surface management through rotation', 'Field calibration and output through the WBSC10'],
       },
@@ -119,7 +123,8 @@ const content = {
         eyebrow: 'Turbidity',
         title: 'Low-range optics designed to reduce microbubble interference',
         description: 'The WBTU10 uses a tungsten lamp and 90° scattered-light detection. A detachable bubble-reduction structure ahead of the flow cell helps limit microbubble interference in low-range monitoring at water treatment plants and clearwells.',
-        image: '/images/products/wbtu10-photo-front.png',
+        image: '/images/technology/turbidity-bubble-removal-module.png',
+        visual: 'technical',
         metrics: [['0–10 NTU', 'Measuring Range'], ['0.001 NTU', 'Resolution'], ['90°', 'Detection Angle']],
         points: ['580 nm tungsten lamp', 'Detachable bubble-reduction structure', 'Maintainable sample path and optical arrangement'],
       },
@@ -128,6 +133,7 @@ const content = {
         title: 'From local display to supervisory communication',
         description: 'The WBSC10 handles measurement display, field calibration, alarms and control outputs for Waterbee sensors. Its 4–20 mA and RS-485 interfaces connect with conventional treatment panels and supervisory systems.',
         image: '/images/products/wbsc10-front.png',
+        visual: 'product',
         metrics: [['4.3 inch', 'TFT LCD'], ['4–20 mA', 'Analog Output'], ['RS-485', 'Field Communication']],
         points: ['Calibration and settings through a field keypad', 'Relay alarm and control outputs', 'Modbus RTU/TCP integration'],
       },
@@ -178,11 +184,17 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
       {copy.sections.map((section, index) => (
         <section key={section.eyebrow} className={index % 2 === 0 ? 'bg-white' : 'bg-[#f5f6f4]'}>
           <div className={`container-custom grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-20 lg:py-28 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-            <div className="relative flex h-[420px] items-center justify-center bg-[#eaeeeb] sm:h-[540px]">
-              <div className={`relative ${section.eyebrow === 'Field Controller' ? 'h-[72%] w-[76%]' : 'h-[86%] w-[78%]'}`}>
-                <Image src={section.image} alt={section.title} fill className="object-contain mix-blend-multiply" sizes="(max-width: 1024px) 100vw, 50vw" />
+            {section.visual === 'technical' ? (
+              <div className="relative aspect-[3/2] overflow-hidden bg-[#eceeed]">
+                <Image src={section.image} alt={section.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
-            </div>
+            ) : (
+              <div className="relative flex h-[420px] items-center justify-center bg-[#eaeeeb] sm:h-[540px]">
+                <div className="relative h-[72%] w-[76%]">
+                  <Image src={section.image} alt={section.title} fill className="object-contain mix-blend-multiply" sizes="(max-width: 1024px) 100vw, 50vw" />
+                </div>
+              </div>
+            )}
 
             <div>
               <div className="text-xs font-bold uppercase text-[#8c7200]">{section.eyebrow}</div>
