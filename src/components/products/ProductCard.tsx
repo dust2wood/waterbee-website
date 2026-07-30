@@ -17,14 +17,22 @@ const imageSizing: Record<string, string> = {
   'wbec-cond': 'h-[82%] w-[56%]',
   'ph-ec-board': 'h-[78%] w-[92%]',
   'sampling-tank': 'h-[82%] w-[78%]',
-  'wbcl10-electrode-kit': 'h-[74%] w-[82%]',
-  'wbtu10-lamp-kit': 'h-[74%] w-[82%]',
+  'wbtu10-lamp-kit': 'h-[66%] w-[66%]',
+  'wbcl10-electrode-kit': 'h-[74%] w-[78%]',
+  'wbcl10-ceramic-beads': 'h-[76%] w-[72%]',
 }
+
+const seamlessRenderSlugs = new Set([
+  'wbtu10-lamp-kit',
+  'wbcl10-electrode-kit',
+  'wbcl10-ceramic-beads',
+])
 
 export default function ProductCard({ product, className }: { product: Product; className?: string }) {
   const locale = useLocale()
   const isKo = locale === 'ko'
   const isPhoto = product.slug === 'filter-drain'
+  const isSeamlessRender = seamlessRenderSlugs.has(product.slug)
 
   return (
     <Link
@@ -47,9 +55,12 @@ export default function ProductCard({ product, className }: { product: Product; 
               alt={isKo ? product.name : product.nameEn}
               fill
               unoptimized={product.image.endsWith('.svg')}
-              className="object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.025]"
+              className={`object-contain transition-transform duration-500 group-hover:scale-[1.025] ${isSeamlessRender ? '' : 'mix-blend-multiply'}`}
               sizes="(max-width: 768px) 100vw, 33vw"
             />
+            {isSeamlessRender && (
+              <span className="pointer-events-none absolute inset-0 shadow-[inset_0_0_30px_26px_#f1f3f1]" />
+            )}
           </div>
         )}
       </div>

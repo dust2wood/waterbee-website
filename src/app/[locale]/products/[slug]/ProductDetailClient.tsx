@@ -19,9 +19,16 @@ const imageSizing: Record<string, string> = {
   'wbec-cond': 'h-[360px] w-[56%] sm:h-[475px]',
   'ph-ec-board': 'h-[310px] w-[92%] sm:h-[410px]',
   'sampling-tank': 'h-[360px] w-[82%] sm:h-[470px]',
-  'wbcl10-electrode-kit': 'h-[300px] w-[86%] sm:h-[400px]',
-  'wbtu10-lamp-kit': 'h-[300px] w-[86%] sm:h-[400px]',
+  'wbtu10-lamp-kit': 'h-[270px] w-[68%] sm:h-[360px]',
+  'wbcl10-electrode-kit': 'h-[300px] w-[80%] sm:h-[400px]',
+  'wbcl10-ceramic-beads': 'h-[310px] w-[74%] sm:h-[410px]',
 }
+
+const seamlessRenderSlugs = new Set([
+  'wbtu10-lamp-kit',
+  'wbcl10-electrode-kit',
+  'wbcl10-ceramic-beads',
+])
 
 export default function ProductDetailClient({ product }: { product: Product }) {
   const locale = useLocale()
@@ -30,6 +37,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
   const tNav = useTranslations('nav')
   const [activeImage, setActiveImage] = useState(product.image)
   const isPhoto = product.slug === 'filter-drain'
+  const isSeamlessRender = seamlessRenderSlugs.has(product.slug)
   const title = isKo ? product.name : product.nameEn
   const description = isKo ? product.description : product.descriptionEn
   const features = isKo ? product.features : product.featuresEn
@@ -62,9 +70,12 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                     fill
                     priority
                     unoptimized={activeImage.endsWith('.svg')}
-                    className="object-contain mix-blend-multiply"
+                    className={`object-contain ${isSeamlessRender ? '' : 'mix-blend-multiply'}`}
                     sizes="(max-width: 1024px) 100vw, 55vw"
                   />
+                  {isSeamlessRender && (
+                    <span className="pointer-events-none absolute inset-0 shadow-[inset_0_0_38px_32px_#f1f3f1]" />
+                  )}
                 </div>
               )}
             </div>
