@@ -1,7 +1,6 @@
 export type CompanyNewsItem = {
   id: string
   date: string
-  featuredOnAbout?: boolean
   category: { ko: string; en: string }
   publisher: { ko: string; en: string }
   title: { ko: string; en: string }
@@ -13,7 +12,6 @@ export const companyNewsItems: CompanyNewsItem[] = [
   {
     id: 'vietnam-suseuro-2026',
     date: '2026-07-03',
-    featuredOnAbout: true,
     category: { ko: '글로벌', en: 'Global' },
     publisher: { ko: '인더뉴스', en: 'InTheNews' },
     title: {
@@ -29,7 +27,6 @@ export const companyNewsItems: CompanyNewsItem[] = [
   {
     id: 'water-korea-global-mou-2026',
     date: '2026-03-25',
-    featuredOnAbout: true,
     category: { ko: '글로벌 협력', en: 'Global Partnership' },
     publisher: { ko: '국토일보', en: 'Korea Land Daily' },
     title: {
@@ -60,7 +57,6 @@ export const companyNewsItems: CompanyNewsItem[] = [
   {
     id: 'open-innovation-results-2025',
     date: '2025-12-09',
-    featuredOnAbout: true,
     category: { ko: '오픈이노베이션', en: 'Open Innovation' },
     publisher: { ko: '서울경제', en: 'Seoul Economic Daily' },
     title: {
