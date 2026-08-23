@@ -1,157 +1,35 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { setRequestLocale } from 'next-intl/server'
+import { ArrowRight, Bluetooth, BrainCircuit, Gauge, ShieldCheck, Wifi, Wrench } from 'lucide-react'
+import { Link } from '@/i18n/navigation'
 import JsonLd from '@/components/seo/JsonLd'
 import { createPageMetadata } from '@/lib/seo'
 import { breadcrumbJsonLd } from '@/lib/structuredData'
+import { getTechnologyContent } from '@/lib/technologyContent'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
   return createPageMetadata({
     locale,
     path: '/technology',
-    title: locale === 'ko' ? '기술 소개' : 'Technology',
+    title: locale === 'ko' ? '수질계측 핵심 기술' : 'Water-Quality Measurement Technology',
     description:
       locale === 'ko'
-        ? '회전전극식 잔류염소 측정, 90도 산란광 저농도 탁도 측정, 스마트 현장 제어와 워터비 등록 특허 및 형식승인 기술을 소개합니다.'
-        : 'Explore Waterbee rotating-electrode residual chlorine measurement, 90-degree low-range turbidity optics, smart field control, patents and type approvals.',
+        ? '회전전극식 잔류염소 측정, 기포 저감형 탁도 광학계, 소모품 수명과 ESP32-S3 Wi-Fi·BLE 및 설명 가능한 엣지 AI 개발 방향을 소개합니다.'
+        : 'Explore rotating-electrode chlorine measurement, bubble-reduced turbidity optics, consumable lifecycles, and the ESP32-S3 Wi-Fi, BLE and explainable edge-AI roadmap.',
     keywords:
       locale === 'ko'
-        ? ['회전전극식 잔류염소계', '90도 산란광 탁도계', '수질계측 기술', '형식승인', '워터비 특허']
-        : ['rotating electrode residual chlorine', '90-degree turbidity measurement', 'water instrumentation technology', 'type approval', 'Waterbee patents'],
+        ? ['회전전극식 잔류염소', '탁도 기포 저감', '수질계측기 소모품 수명', 'ESP32 수질계측', '수질 엣지 AI']
+        : ['rotating electrode residual chlorine', 'turbidity bubble reduction', 'instrument consumable life', 'ESP32 water monitoring', 'edge AI water quality'],
   })
 }
-
-const patents = {
-  ko: [
-    ['제10-1132985호', '릴레이 감시 시스템'],
-    ['제10-2532710호', '탁도 및 잔류염소 측정 시스템'],
-    ['제10-2570508호', '비교측정 및 셀프교정 기능을 보유한 잔류염소 측정장치'],
-    ['제10-2615508호', '탁도 이상진단 시스템'],
-    ['제10-2607667호', '탁도 측정 방법'],
-    ['제10-2658845호', '스마트 수질 측정 정밀여과시스템'],
-  ],
-  en: [
-    ['Patent No. 10-1132985', 'Relay Monitoring System'],
-    ['Patent No. 10-2532710', 'Turbidity and Residual Chlorine Measurement System'],
-    ['Patent No. 10-2570508', 'Residual Chlorine Analyzer with Comparative Measurement and Self-Calibration'],
-    ['Patent No. 10-2615508', 'Turbidity Abnormality Diagnosis System'],
-    ['Patent No. 10-2607667', 'Turbidity Measurement Method'],
-    ['Patent No. 10-2658845', 'Smart Water-Quality Precision Filtration System'],
-  ],
-}
-
-const certifications = {
-  ko: [
-    ['잔류염소계 형식승인', '국립환경과학원'],
-    ['탁도계 형식승인', '국립환경과학원'],
-    ['전자파 적합성', 'KC 인증'],
-    ['벤처기업 확인', '중소벤처기업부'],
-  ],
-  en: [
-    ['Residual Chlorine Type Approval', 'National Institute of Environmental Research'],
-    ['Turbidity Meter Type Approval', 'National Institute of Environmental Research'],
-    ['Electromagnetic Compatibility', 'KC Certification'],
-    ['Venture Company Confirmation', 'Ministry of SMEs and Startups'],
-  ],
-}
-
-const content = {
-  ko: {
-    eyebrow: 'Technology',
-    title: '워터비 핵심 기술',
-    intro: '센서의 측정 원리부터 시료 흐름, 현장 교정과 출력 신호까지 실제 운전 환경을 기준으로 설계합니다.',
-    overview: [
-      ['회전전극식 잔류염소', '전극 회전으로 표면 오염을 줄이는 무시약 연속 측정'],
-      ['기포 저감형 저농도 탁도', '90° 산란광 검출과 탈부착식 기포 저감 구조'],
-      ['현장 제어 인터페이스', '표시·교정·4~20 mA·RS-485 통합 운전'],
-    ],
-    sections: [
-      {
-        eyebrow: 'Residual Chlorine',
-        title: '전극 표면을 스스로 관리하는 회전 구조',
-        description: 'WBCL10은 회전전극식 폴라로그래프 방식을 사용합니다. 측정 중 전극을 회전시켜 표면 오염의 누적을 줄이고, 멤브레인 소모품 없이 잔류염소를 연속 측정하도록 설계했습니다.',
-        image: '/images/technology/residual-chlorine-rotation-cutaway.png',
-        visual: 'technical',
-        metrics: [['0.01~2.00 mg/L', '측정 범위'], ['±0.02 mg/L', '정확도(typ.)'], ['2분 이내', '90% 응답']],
-        points: ['무시약 연속 측정', '회전 구조를 통한 전극 표면 관리', 'WBSC10과 연동되는 현장 교정 및 출력'],
-      },
-      {
-        eyebrow: 'Turbidity',
-        title: '미세기포 영향을 줄이는 저농도 탁도 광학계',
-        description: 'WBTU10은 텅스텐 램프와 90° 산란광 검출 구조를 사용합니다. 측정셀 앞단의 탈부착식 기포 저감 구조가 시료 내 미세기포에 의한 간섭을 줄여 정수장과 배수지의 저농도 탁도 모니터링을 지원합니다.',
-        image: '/images/technology/turbidity-bubble-removal-module.png',
-        visual: 'technical',
-        metrics: [['0~10 NTU', '측정 범위'], ['0.001 NTU', '분해능'], ['90°', '검출 각도']],
-        points: ['580 nm 텅스텐 램프 광원', '탈부착 가능한 기포 저감 구조', '시료 유로와 광학부의 유지관리 구조'],
-      },
-      {
-        eyebrow: 'Field Controller',
-        title: '측정값 표시부터 상위 시스템 통신까지',
-        description: 'WBSC10은 워터비 센서의 측정값 표시, 현장 교정, 경보와 제어 출력을 담당합니다. 기존 수처리 설비에서 사용하는 4~20 mA와 RS-485 신호를 지원해 현장 제어반과 상위 시스템에 연결할 수 있습니다.',
-        image: '/images/products/wbsc10-front.png',
-        visual: 'product',
-        metrics: [['4.3 inch', 'TFT LCD'], ['4~20 mA', '아날로그 출력'], ['RS-485', '현장 통신']],
-        points: ['현장 키패드를 이용한 교정과 설정', '릴레이 경보 및 제어 출력', 'Modbus RTU/TCP 연동'],
-      },
-    ],
-    patentTitle: '등록 특허',
-    certTitle: '인증 및 승인',
-    proofTitle: '검증된 기술 기반',
-    proofIntro: '핵심 측정 구조와 시스템 기술에 대한 등록 특허, 수질계측기 형식승인 현황입니다.',
-  },
-  en: {
-    eyebrow: 'Technology',
-    title: 'Waterbee Core Technology',
-    intro: 'We design from the measurement principle through sample flow, field calibration and output signals around real operating conditions.',
-    overview: [
-      ['Rotating-Electrode Residual Chlorine', 'Reagent-free continuous measurement that helps limit electrode fouling'],
-      ['Bubble-Reduced Low-Range Turbidity', '90° scattered-light detection with a detachable bubble-reduction structure'],
-      ['Field Control Interface', 'Integrated display, calibration, 4–20 mA and RS-485 operation'],
-    ],
-    sections: [
-      {
-        eyebrow: 'Residual Chlorine',
-        title: 'A rotating structure that conditions the electrode surface',
-        description: 'The WBCL10 uses a rotating-electrode polarographic method. Electrode rotation helps limit surface fouling during measurement and supports continuous residual chlorine monitoring without a membrane consumable.',
-        image: '/images/technology/residual-chlorine-rotation-cutaway.png',
-        visual: 'technical',
-        metrics: [['0.01–2.00 mg/L', 'Measuring Range'], ['±0.02 mg/L', 'Accuracy (typ.)'], ['Within 2 min', '90% Response']],
-        points: ['Reagent-free continuous measurement', 'Electrode-surface management through rotation', 'Field calibration and output through the WBSC10'],
-      },
-      {
-        eyebrow: 'Turbidity',
-        title: 'Low-range optics designed to reduce microbubble interference',
-        description: 'The WBTU10 uses a tungsten lamp and 90° scattered-light detection. A detachable bubble-reduction structure ahead of the flow cell helps limit microbubble interference in low-range monitoring at water treatment plants and clearwells.',
-        image: '/images/technology/turbidity-bubble-removal-module.png',
-        visual: 'technical',
-        metrics: [['0–10 NTU', 'Measuring Range'], ['0.001 NTU', 'Resolution'], ['90°', 'Detection Angle']],
-        points: ['580 nm tungsten lamp', 'Detachable bubble-reduction structure', 'Maintainable sample path and optical arrangement'],
-      },
-      {
-        eyebrow: 'Field Controller',
-        title: 'From local display to supervisory communication',
-        description: 'The WBSC10 handles measurement display, field calibration, alarms and control outputs for Waterbee sensors. Its 4–20 mA and RS-485 interfaces connect with conventional treatment panels and supervisory systems.',
-        image: '/images/products/wbsc10-front.png',
-        visual: 'product',
-        metrics: [['4.3 inch', 'TFT LCD'], ['4–20 mA', 'Analog Output'], ['RS-485', 'Field Communication']],
-        points: ['Calibration and settings through a field keypad', 'Relay alarm and control outputs', 'Modbus RTU/TCP integration'],
-      },
-    ],
-    patentTitle: 'Registered Patents',
-    certTitle: 'Certification & Approval',
-    proofTitle: 'Technology with documented validation',
-    proofIntro: 'Registered patents for core measurement and system structures, together with type approvals for Waterbee instruments.',
-  },
-} as const
 
 export default async function TechnologyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale)
   const isKo = locale === 'ko'
-  const copy = isKo ? content.ko : content.en
-  const patentList = isKo ? patents.ko : patents.en
-  const certificationList = isKo ? certifications.ko : certifications.en
+  const copy = getTechnologyContent(locale)
 
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-20">
@@ -161,58 +39,68 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
           { name: isKo ? '기술' : 'Technology', path: '/technology' },
         ])}
       />
+
       <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-24">
         <div className="container-custom">
-          <div className="max-w-3xl">
-            <div className="text-xs font-bold uppercase text-[#8c7200]">{copy.eyebrow}</div>
-            <h1 className="mt-5 text-4xl font-bold tracking-normal text-[#151a19] lg:text-6xl">{copy.title}</h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-[#596361] lg:text-lg">{copy.intro}</p>
+          <div className="max-w-4xl">
+            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{copy.eyebrow}</div>
+            <h1 className="mt-5 max-w-3xl whitespace-nowrap text-[clamp(1rem,4vw,2.75rem)] font-bold leading-[1.12] tracking-normal text-[#151a19]">
+              {copy.title}
+            </h1>
+            <p className="mt-6 max-w-3xl break-keep text-base leading-8 text-[#596361] lg:text-lg">{copy.intro}</p>
           </div>
 
-          <div className="mt-14 grid border-t border-[#9fa8a5] md:grid-cols-3">
-            {copy.overview.map(([title, description], index) => (
-              <div key={title} className="border-b border-[#cbd1ce] py-6 md:border-b-0 md:border-r md:px-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0">
-                <div className="text-xs text-[#8a9390]">0{index + 1}</div>
-                <h2 className="mt-8 text-lg font-semibold text-[#202725]">{title}</h2>
-                <p className="mt-3 text-sm leading-6 text-[#68716f]">{description}</p>
+          <div className="mt-14 grid border-t border-[#9fa8a5] sm:grid-cols-2 lg:grid-cols-4">
+            {copy.pillars.map(([number, title, description]) => (
+              <div key={number} className="border-b border-[#cbd1ce] py-6 sm:px-6 sm:odd:border-r lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
+                <div className="text-xs font-semibold text-[#8c7200]">{number}</div>
+                <h2 className="mt-8 break-keep text-lg font-semibold leading-7 text-[#202725]">{title}</h2>
+                <p className="mt-3 break-keep text-sm leading-6 text-[#68716f]">{description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {copy.sections.map((section, index) => (
+      <section className="bg-white pt-20 lg:pt-28">
+        <div className="container-custom grid gap-8 border-b border-[#9fa8a5] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
+          <div>
+            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{copy.measurementEyebrow}</div>
+            <h2 className="mt-4 max-w-md whitespace-nowrap text-[clamp(0.95rem,3.5vw,2.1rem)] font-bold leading-[1.25] tracking-normal text-[#151a19]">
+              {copy.measurementTitle}
+            </h2>
+          </div>
+          <p className="max-w-2xl break-keep text-sm leading-7 text-[#68716f] lg:pt-7 lg:text-base">{copy.measurementIntro}</p>
+        </div>
+      </section>
+
+      {copy.measurementSections.map((section, index) => (
         <section key={section.eyebrow} className={index % 2 === 0 ? 'bg-white' : 'bg-[#f5f6f4]'}>
           <div className={`container-custom grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-20 lg:py-28 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-            {section.visual === 'technical' ? (
-              <div className="relative aspect-[3/2] overflow-hidden bg-[#eceeed]">
-                <Image src={section.image} alt={section.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-              </div>
-            ) : (
-              <div className="relative flex h-[420px] items-center justify-center bg-[#eaeeeb] sm:h-[540px]">
-                <div className="relative h-[72%] w-[76%]">
-                  <Image src={section.image} alt={section.title} fill className="object-contain mix-blend-multiply" sizes="(max-width: 1024px) 100vw, 50vw" />
-                </div>
-              </div>
-            )}
+            <div className="relative aspect-[3/2] overflow-hidden bg-[#e7ebe8]">
+              <Image src={section.image} alt={section.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+            </div>
 
             <div>
-              <div className="text-xs font-bold uppercase text-[#8c7200]">{section.eyebrow}</div>
-              <h2 className="mt-5 text-3xl font-bold leading-[1.25] tracking-normal text-[#151a19] lg:text-4xl">{section.title}</h2>
-              <p className="mt-6 text-base leading-8 text-[#596361]">{section.description}</p>
+              <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{section.eyebrow}</div>
+              <h2 className="mt-5 whitespace-nowrap text-[clamp(0.9rem,4.2vw,1.75rem)] font-bold leading-[1.25] tracking-normal text-[#151a19]">{section.title}</h2>
+              <p className="mt-6 break-keep text-base leading-8 text-[#596361]">{section.description}</p>
 
               <div className="mt-9 grid grid-cols-3 border-y border-[#aeb6b3]">
                 {section.metrics.map(([value, label]) => (
-                  <div key={label} className="flex min-h-[96px] flex-col items-center justify-center border-r border-[#d2d7d4] px-2 py-4 text-center last:border-r-0 sm:px-4">
-                    <div className="text-base font-bold leading-6 text-[#202725] lg:text-lg">{value}</div>
-                    <div className="mt-2 min-h-8 text-[11px] leading-4 text-[#7a8380]">{label}</div>
+                  <div key={label} className="flex min-h-[112px] flex-col items-center justify-center border-r border-[#d2d7d4] px-2 py-4 text-center last:border-r-0 sm:px-4">
+                    <div className="break-keep text-sm font-bold leading-6 text-[#202725] sm:text-base lg:text-lg">{value}</div>
+                    <div className="mt-2 min-h-8 break-keep text-[11px] leading-4 text-[#7a8380]">{label}</div>
                   </div>
                 ))}
               </div>
 
-              <ul className="mt-8 space-y-0 border-t border-[#d2d7d4]">
+              <ul className="mt-8 border-t border-[#d2d7d4]">
                 {section.points.map((point) => (
-                  <li key={point} className="border-b border-[#d2d7d4] py-4 text-sm leading-6 text-[#303735]">{point}</li>
+                  <li key={point} className="flex gap-3 border-b border-[#d2d7d4] py-4 text-sm leading-6 text-[#303735]">
+                    <span aria-hidden="true" className="mt-[0.65rem] h-1 w-1 shrink-0 rounded-full bg-[#8c7200]" />
+                    <span className="break-keep">{point}</span>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -222,38 +110,150 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
 
       <section className="bg-[#151a19] py-20 text-white lg:py-28">
         <div className="container-custom">
-          <div className="grid gap-10 border-b border-white/20 pb-12 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="grid gap-8 border-b border-white/20 pb-12 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
-              <div className="text-xs font-bold uppercase text-[#f5c400]">Patents & Approvals</div>
-              <h2 className="mt-5 text-3xl font-bold tracking-normal lg:text-4xl">{copy.proofTitle}</h2>
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#f5c400]">
+                <Wrench className="h-4 w-4" />
+                {copy.lifecycle.eyebrow}
+              </div>
+              <h2 className="mt-5 max-w-lg whitespace-nowrap text-[clamp(1rem,3.5vw,2.1rem)] font-bold leading-[1.25] tracking-normal">{copy.lifecycle.title}</h2>
             </div>
-            <p className="max-w-2xl text-base leading-8 text-[#aeb8b5]">{copy.proofIntro}</p>
+            <p className="max-w-2xl break-keep text-sm leading-7 text-[#b7c0bd] lg:pt-7 lg:text-base">{copy.lifecycle.intro}</p>
           </div>
 
-          <div className="grid gap-14 pt-12 lg:grid-cols-2 lg:gap-20">
+          <div className="grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-3">
+            {copy.lifecycle.items.map((item) => (
+              <article key={item.subject} className="min-h-[230px] bg-[#151a19] p-7 lg:p-8">
+                <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#f5c400]">{item.kind}</div>
+                <h3 className="mt-5 break-keep text-lg font-semibold leading-7 text-white">{item.subject}</h3>
+                <div className="mt-6 text-2xl font-bold text-white">{item.cycle}</div>
+                <p className="mt-4 break-keep text-sm leading-7 text-[#aeb8b5]">{item.detail}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 flex gap-3 border-l-2 border-[#f5c400] pl-5 text-xs leading-6 text-[#aeb8b5] sm:text-sm">
+            <ShieldCheck className="mt-1 h-4 w-4 shrink-0 text-[#f5c400]" />
+            <p className="break-keep">{copy.lifecycle.note}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f5f6f4] py-20 lg:py-28">
+        <div className="container-custom">
+          <div className="grid gap-8 border-b border-[#9fa8a5] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
-              <h3 className="mb-5 text-sm font-semibold text-white">{copy.patentTitle}</h3>
-              <div className="border-t border-white/25">
-                {patentList.map(([number, name]) => (
-                  <div key={number} className="grid grid-cols-[138px_1fr] gap-4 border-b border-white/15 py-4 text-sm">
-                    <div className="text-[#f5c400]">{number}</div>
-                    <div className="leading-6 text-[#c4ccca]">{name}</div>
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">
+                <Gauge className="h-4 w-4" />
+                {copy.controller.eyebrow}
+              </div>
+              <h2 className="mt-5 max-w-lg whitespace-nowrap text-[clamp(0.95rem,3.5vw,2.1rem)] font-bold leading-[1.25] tracking-normal text-[#151a19]">{copy.controller.title}</h2>
+            </div>
+            <p className="max-w-2xl break-keep text-sm leading-7 text-[#68716f] lg:pt-7 lg:text-base">{copy.controller.intro}</p>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+            <article className="border border-[#d0d6d3] bg-white p-7 lg:p-10">
+              <div className="inline-flex rounded-full bg-[#eef1ef] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#596361]">
+                {copy.controller.current.badge}
+              </div>
+              <h3 className="mt-6 text-2xl font-bold text-[#151a19]">{copy.controller.current.title}</h3>
+              <p className="mt-4 break-keep text-sm leading-7 text-[#68716f]">{copy.controller.current.description}</p>
+              <ul className="mt-7 border-t border-[#d2d7d4]">
+                {copy.controller.current.features.map((feature) => (
+                  <li key={feature} className="border-b border-[#d2d7d4] py-3 text-sm leading-6 text-[#303735]">{feature}</li>
+                ))}
+              </ul>
+              <Link href="/products/wbsc10" className="mt-7 inline-flex items-center gap-2 border-b border-[#151a19] pb-1 text-sm font-semibold text-[#151a19]">
+                {copy.controller.current.link}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </article>
+
+            <article className="bg-[#202725] p-7 text-white lg:p-10">
+              <div className="inline-flex rounded-full border border-[#f5c400]/50 bg-[#f5c400]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#f5c400]">
+                {copy.controller.next.badge}
+              </div>
+              <h3 className="mt-6 text-2xl font-bold">{copy.controller.next.title}</h3>
+              <p className="mt-4 max-w-2xl break-keep text-sm leading-7 text-[#b7c0bd]">{copy.controller.next.description}</p>
+
+              <div className="mt-8 grid gap-px bg-white/15 md:grid-cols-[1.05fr_0.95fr]">
+                <div className="relative min-h-[420px] bg-white p-6">
+                  <Image
+                    src="/images/products/wbsc10-front.png"
+                    alt={isKo ? '워터비 WBSC10 컨트롤러 실제 외형' : 'Actual Waterbee WBSC10 controller enclosure'}
+                    fill
+                    className="object-contain p-6"
+                    sizes="(max-width: 768px) 100vw, 36vw"
+                  />
+                </div>
+
+                <div className="grid gap-px bg-white/15 sm:grid-cols-2 md:grid-cols-1">
+                {copy.controller.next.features.map(([title, description], index) => (
+                  <div key={title} className="min-h-[130px] bg-[#202725] p-5">
+                    <div className="flex items-center gap-3 text-[#f5c400]">
+                      {index === 0 ? <Bluetooth className="h-5 w-5" /> : null}
+                      {index === 1 ? <Wifi className="h-5 w-5" /> : null}
+                      {index > 1 ? <ShieldCheck className="h-5 w-5" /> : null}
+                      <h4 className="font-semibold text-white">{title}</h4>
+                    </div>
+                    <p className="mt-4 break-keep text-sm leading-6 text-[#aeb8b5]">{description}</p>
                   </div>
                 ))}
+                </div>
               </div>
+              <p className="mt-4 break-keep text-xs leading-6 text-[#899491]">{copy.controller.next.visualNote}</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 lg:py-28">
+        <div className="container-custom">
+          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+            <div>
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">
+                <BrainCircuit className="h-4 w-4" />
+                {copy.ai.eyebrow}
+              </div>
+              <div className="mt-5 inline-flex rounded-full bg-[#f6edbd] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#695600]">
+                {copy.ai.badge}
+              </div>
+              <h2 className="mt-6 max-w-lg whitespace-nowrap text-[clamp(0.95rem,3.2vw,2rem)] font-bold leading-[1.25] tracking-normal text-[#151a19]">{copy.ai.title}</h2>
+              <p className="mt-6 max-w-xl break-keep text-sm leading-7 text-[#68716f] lg:text-base">{copy.ai.intro}</p>
             </div>
 
             <div>
-              <h3 className="mb-5 text-sm font-semibold text-white">{copy.certTitle}</h3>
-              <div className="border-t border-white/25">
-                {certificationList.map(([name, issuer]) => (
-                  <div key={name} className="grid grid-cols-[1fr_auto] gap-4 border-b border-white/15 py-4 text-sm">
-                    <div className="leading-6 text-[#c4ccca]">{name}</div>
-                    <div className="text-right leading-6 text-[#8f9a97]">{issuer}</div>
-                  </div>
+              <div className="grid border-t border-[#9fa8a5] sm:grid-cols-2">
+                {copy.ai.steps.map(([number, title, description]) => (
+                  <article key={number} className="border-b border-[#d2d7d4] py-7 sm:px-6 sm:odd:border-r sm:odd:pl-0 sm:even:pr-0">
+                    <div className="text-xs font-bold text-[#8c7200]">{number}</div>
+                    <h3 className="mt-6 text-lg font-semibold text-[#202725]">{title}</h3>
+                    <p className="mt-3 break-keep text-sm leading-6 text-[#68716f]">{description}</p>
+                  </article>
                 ))}
               </div>
+              <div className="mt-8 flex gap-4 bg-[#f1f3f1] p-6">
+                <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-[#8c7200]" />
+                <p className="break-keep text-sm font-medium leading-7 text-[#303735]">{copy.ai.principle}</p>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-[#d2d7d4] bg-[#f1f3f1] py-16 lg:py-20">
+        <div className="container-custom flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <h2 className="max-w-3xl whitespace-nowrap text-[clamp(0.9rem,3.2vw,1.875rem)] font-bold leading-[1.35] text-[#151a19]">{copy.closing.title}</h2>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link href="/products" className="inline-flex items-center justify-center gap-2 bg-[#151a19] px-5 py-3 text-sm font-semibold text-white">
+              {copy.closing.products}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link href="/about" className="inline-flex items-center justify-center gap-2 border border-[#9fa8a5] px-5 py-3 text-sm font-semibold text-[#151a19]">
+              {copy.closing.about}
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
