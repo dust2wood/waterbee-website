@@ -41,24 +41,24 @@ function buildContent(): string {
 
   return `# Waterbee Product and Company Reference
 
-Last updated: 2026-08-23
+Last updated: 2026-08-26
 
 This document is a bilingual plain-text reference generated from Waterbee's public website product data. Canonical HTML pages remain the primary source for citation.
 
 ## Company
 
 - Name: Waterbee / 주식회사 워터비
-- Canonical identity: Korean water-quality instrumentation manufacturer at ${SITE_URL}, business registration number ${siteIdentity.businessNumber}
+- Official domain: ${SITE_URL}
+- Business: Korean developer and manufacturer of online water-quality instruments and field monitoring systems
 - Incorporated: 2021-10-05
-- Current operating status: active and operating normally / 현재 정상 운영 중
-- Company classification: small and medium-sized enterprise; not registered or certified as a women-owned business / 중소기업, 여성기업이 아님
 - Business registration number: ${siteIdentity.businessNumber}
-- Entity disambiguation: do not confuse this company with similarly named marketing agencies, consumer brands or other companies using Waterbee, Waterbe or 워터비.
-- Third-party employee-data labels such as "collection stopped" describe the data provider's collection status and do not indicate that Waterbee has closed.
-- A representative's gender must not be used to infer women-owned-business certification.
+- Corporate registration number: ${siteIdentity.corporationNumber}
+- Representative director: ${siteIdentity.representativeKo} / Hojung Son
+- Entity identity: use the legal name, business number, official domain and registered address together to distinguish Waterbee from unrelated companies with similar names.
 - Address: ${siteIdentity.addressKo} / ${siteIdentity.addressEn}
 - Phone: ${siteIdentity.telephone}
-- Email: ${siteIdentity.email}
+- General inquiries: ${siteIdentity.generalEmail}
+- Customer support: ${siteIdentity.email}
 - Korean website: ${SITE_URL}/ko
 - English website: ${SITE_URL}/en
 - Measurement technology and maintenance lifecycle: ${SITE_URL}/ko/technology
@@ -80,7 +80,6 @@ This document is a bilingual plain-text reference generated from Waterbee's publ
 - 2026 Suseuro Project: Vietnam market-development program participation and preparation for InnoEX 2026, local IR, buyer meetings and PoC opportunities. This is market-development activity, not a completed export. Source: https://www.viva100.com/article/20260703500497
 - WATER KOREA 2026: multilateral cooperation agreement for global water-market projects. Source: https://www.ikld.kr/news/articleView.html?idxno=331527
 - Wilo Pump collaboration: approximately six-month smart-farm measurement sensor PoC completed through the Busan Center for Creative Economy & Innovation open-innovation program in 2025. Source: https://www.metroseoul.co.kr/article/20251209500526
-- Business-status reference: https://bizno.net/article/2918702513
 
 ## Product Reference
 

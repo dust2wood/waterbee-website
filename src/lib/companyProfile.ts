@@ -106,7 +106,7 @@ export const companyProfile = {
         {
           category: '전자파 적합등록',
           title: 'WBSC10 EMC 적합등록',
-          number: 'R-R-WBC-WBSC10',
+          number: 'R-R-WBc-WBSC10',
           detail: '스마트 수질측정기기',
           date: '2024.09.30',
         },
@@ -125,11 +125,11 @@ export const companyProfile = {
           date: '2026.01.12–2028.10.05',
         },
         {
-          category: '연구조직',
-          title: '연구개발전담부서 인정',
-          number: '제2022152873호',
-          detail: '연구개발전담부서',
-          date: '최신 인정 2022.05.12',
+          category: '기업 확인',
+          title: '중소기업 확인',
+          number: '제0010-2026-654835호',
+          detail: '중소기업기본법상 중소기업',
+          date: '2026.04.01–2027.03.31',
         },
         {
           category: '공공조달',
@@ -260,7 +260,7 @@ export const companyProfile = {
         {
           category: 'EMC registration',
           title: 'WBSC10 EMC conformity registration',
-          number: 'R-R-WBC-WBSC10',
+          number: 'R-R-WBc-WBSC10',
           detail: 'Smart water-quality instrument',
           date: '2024.09.30',
         },
@@ -279,11 +279,11 @@ export const companyProfile = {
           date: '2026.01.12–2028.10.05',
         },
         {
-          category: 'R&D organization',
-          title: 'Dedicated R&D department recognition',
-          number: '2022152873',
-          detail: 'Dedicated R&D department',
-          date: 'Latest certificate 2022.05.12',
+          category: 'Corporate confirmation',
+          title: 'SME confirmation',
+          number: '0010-2026-654835',
+          detail: 'Small and medium-sized enterprise under Korean law',
+          date: '2026.04.01–2027.03.31',
         },
         {
           category: 'Public procurement',
@@ -308,6 +308,21 @@ export const companyProfile = {
     },
   },
 } as const
+
+const patentPublicationNumbers: Record<string, string> = {
+  '10-2658845': 'KR102658845B1',
+  '10-2615508': 'KR102615508B1',
+  '10-2607667': 'KR102607667B1',
+  '10-2570508': 'KR102570508B1',
+  '10-2532710': 'KR102532710B1',
+  '10-1132985': 'KR101132985B1',
+}
+
+export function getPatentRecordUrl(number: string, locale: string) {
+  const publicationNumber = patentPublicationNumbers[number]
+  if (!publicationNumber) return undefined
+  return `https://patents.google.com/patent/${publicationNumber}/${locale === 'ko' ? 'ko' : 'en'}`
+}
 
 export function getCompanyProfile(locale: string) {
   return companyProfile[locale === 'ko' ? 'ko' : 'en']

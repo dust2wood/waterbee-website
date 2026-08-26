@@ -4,6 +4,7 @@ interface SectionTitleProps {
   badge?: string
   title: string
   subtitle?: string
+  as?: 'h1' | 'h2'
   align?: 'left' | 'center' | 'right'
   className?: string
   titleClassName?: string
@@ -13,6 +14,7 @@ export default function SectionTitle({
   badge,
   title,
   subtitle,
+  as: TitleTag = 'h2',
   align = 'center',
   className,
   titleClassName,
@@ -28,7 +30,7 @@ export default function SectionTitle({
       )}
     >
       {badge && <div className="mb-3 text-xs font-bold uppercase text-[#8c7200]">{badge}</div>}
-      <h2
+      <TitleTag
         className={clsx(
           'text-3xl lg:text-4xl font-bold text-[#151a19] leading-tight tracking-normal',
           titleClassName,

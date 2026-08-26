@@ -5,7 +5,9 @@ import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import JsonLd from '@/components/seo/JsonLd'
 import { SITE_URL } from '@/lib/seo'
+import { organizationJsonLd, websiteJsonLd } from '@/lib/structuredData'
 import '../globals.css'
 
 export function generateStaticParams() {
@@ -80,6 +82,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
+        <JsonLd data={organizationJsonLd(locale)} />
+        <JsonLd data={websiteJsonLd(locale)} />
         <NextIntlClientProvider messages={messages}>
           <Header />
           <main>{children}</main>

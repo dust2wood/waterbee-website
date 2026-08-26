@@ -5,9 +5,10 @@ import TechFeatures from '@/components/home/TechFeatures'
 import ApplicationsSection from '@/components/home/ApplicationsSection'
 import ProductHighlight from '@/components/home/ProductHighlight'
 import CtaBanner from '@/components/home/CtaBanner'
+import CompanyIdentitySection from '@/components/home/CompanyIdentitySection'
 import JsonLd from '@/components/seo/JsonLd'
 import { createPageMetadata } from '@/lib/seo'
-import { organizationJsonLd, websiteJsonLd } from '@/lib/structuredData'
+import { homePageJsonLd } from '@/lib/structuredData'
 
 export async function generateMetadata({
   params,
@@ -40,12 +41,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
   return (
     <>
-      <JsonLd data={organizationJsonLd(locale)} />
-      <JsonLd data={websiteJsonLd(locale)} />
+      <JsonLd data={homePageJsonLd(locale)} />
       <HeroSection />
       <ProductHighlight />
       <TechFeatures />
       <ApplicationsSection />
+      <CompanyIdentitySection locale={locale} />
       <CtaBanner />
     </>
   )

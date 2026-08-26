@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
-import { ArrowRight, BadgeCheck, Building2, FileCheck2 } from 'lucide-react'
+import { ArrowRight, BadgeCheck, Building2, ExternalLink, FileCheck2 } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import JsonLd from '@/components/seo/JsonLd'
-import { getCompanyProfile } from '@/lib/companyProfile'
+import { getCompanyProfile, getPatentRecordUrl } from '@/lib/companyProfile'
 import { createPageMetadata, siteIdentity } from '@/lib/seo'
-import { breadcrumbJsonLd } from '@/lib/structuredData'
+import { aboutPageJsonLd, breadcrumbJsonLd } from '@/lib/structuredData'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
@@ -33,9 +33,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
   const companyInfo = [
     [isKo ? '회사명' : 'Company', isKo ? siteIdentity.legalName : 'Waterbee Co., Ltd.'],
     [isKo ? '사업자등록번호' : 'Business registration no.', siteIdentity.businessNumber],
+    [isKo ? '법인등록번호' : 'Corporate registration no.', siteIdentity.corporationNumber],
+    [isKo ? '대표이사' : 'CEO', isKo ? siteIdentity.representativeKo : 'Hojung Son'],
     [isKo ? '주소' : 'Address', isKo ? siteIdentity.addressKo : siteIdentity.addressEn],
     [isKo ? '대표전화' : 'Phone', siteIdentity.telephone],
-    [isKo ? '이메일' : 'Email', siteIdentity.email],
+    [isKo ? '기업 문의' : 'General inquiries', siteIdentity.generalEmail],
+    [isKo ? '고객지원' : 'Customer support', siteIdentity.email],
   ]
 
   return (
@@ -46,6 +49,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
           { name: isKo ? '회사소개' : 'About', path: '/about' },
         ])}
       />
+      <JsonLd data={aboutPageJsonLd(locale)} />
 
       <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-24">
         <div className="container-custom grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
@@ -140,6 +144,15 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                   <div>
                     <h4 className="break-keep text-sm font-semibold leading-6 text-white sm:text-base">{patent.title}</h4>
                     <p className="mt-1 break-keep text-xs leading-5 text-[#929d9a]">{patent.ownership}</p>
+                    <a
+                      href={getPatentRecordUrl(patent.number, locale)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-[#f5c400] hover:text-white"
+                    >
+                      {isKo ? '공개 특허 원문' : 'Public patent record'}
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
                   </div>
                   <time className="text-xs text-[#aeb8b5] md:text-right" dateTime={patent.date.replaceAll('.', '-')}>{patent.date}</time>
                 </article>

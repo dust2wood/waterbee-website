@@ -7,17 +7,19 @@ const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.water
 export const SITE_URL = configuredSiteUrl.replace(/\/$/, '')
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`
 export const WEBSITE_ID = `${SITE_URL}/#website`
-export const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/images/home/water-landscape.jpg`
+export const DEFAULT_SOCIAL_IMAGE = `${SITE_URL}/images/social/waterbee-og.png`
 
 export const siteIdentity = {
   name: 'Waterbee',
   legalName: '주식회사 워터비',
   businessNumber: '291-87-02513',
+  corporationNumber: '180111-1395177',
+  representativeKo: '손호정',
   telephone: '1555-3534',
-  telephoneIntl: '+82-1555-3534',
   email: 'support@waterbee.co.kr',
-  addressKo: '부산광역시 강서구 에코델타스마트로 39, 3동 2호',
-  addressEn: 'Building 3, Unit 2, 39 Ecodeltasmart-ro, Gangseo-gu, Busan, Republic of Korea',
+  generalEmail: 'waterbee@waterbee.co.kr',
+  addressKo: '부산광역시 강서구 에코델타스마트로 39, 3동 2호(명지동)',
+  addressEn: 'Building 3, Unit 2, 39 Eco Delta Smart-ro, Gangseo-gu, Busan, Republic of Korea',
 } as const
 
 export function toSiteLocale(locale: string): SiteLocale {
@@ -75,6 +77,7 @@ export function createPageMetadata({
   const fullTitle = absoluteTitle || title.includes(brandName) ? title : `${title} | ${brandName}`
   const canonical = localizedUrl(locale, path)
   const socialImage = absoluteUrl(image)
+  const isDefaultSocialImage = socialImage === DEFAULT_SOCIAL_IMAGE
 
   return {
     title: absoluteTitle ? { absolute: title } : title,
@@ -96,6 +99,9 @@ export function createPageMetadata({
         {
           url: socialImage,
           alt: imageAlt || fullTitle,
+          ...(isDefaultSocialImage
+            ? { width: 1200, height: 630, type: 'image/png' }
+            : {}),
         },
       ],
     },

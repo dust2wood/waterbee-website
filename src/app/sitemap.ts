@@ -7,7 +7,7 @@ import {
 } from '@/lib/seo'
 
 const locales: SiteLocale[] = ['ko', 'en']
-const lastContentUpdate = new Date('2026-07-30T00:00:00+09:00')
+const lastContentUpdate = new Date('2026-08-26T00:00:00+09:00')
 
 const staticPages = [
   { path: '', changeFrequency: 'monthly' as const, priority: 1 },
