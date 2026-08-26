@@ -36,7 +36,7 @@ const nextConfig = {
       { source: '/32', destination: '/ko/contact', permanent: true },
       { source: '/33', destination: '/ko/products/wbsc10', permanent: true },
       { source: '/34', destination: '/ko/products/wbtu10', permanent: true },
-      { source: '/35', destination: '/ko/products/wbcl10', permanent: true },
+      { source: '/35', destination: '/ko/products/wbfc10', permanent: true },
       { source: '/37', destination: '/ko/products/wbec10', permanent: true },
       { source: '/38', destination: '/ko/products/wbph10', permanent: true },
       { source: '/About', destination: '/ko/about', permanent: true },
@@ -59,10 +59,16 @@ const nextConfig = {
       { source: '/:locale(ko|en)/products/wbtu-s',       destination: '/:locale/products/wbtu10',     permanent: true },
       { source: '/:locale(ko|en)/products/wbtb10',       destination: '/:locale/products/wbtu10',     permanent: true },
       { source: '/:locale(ko|en)/products/smartfarm-io', destination: '/:locale/products/ph-ec-board', permanent: true },
+      { source: '/:locale(ko|en)/products/wbcl10', destination: '/:locale/products/wbfc10', permanent: true },
+      { source: '/:locale(ko|en)/products/wbcl10-electrode-kit', destination: '/:locale/products/wbfc10-electrode-kit', permanent: true },
+      { source: '/:locale(ko|en)/products/wbcl10-ceramic-beads', destination: '/:locale/products/wbfc10-ceramic-beads', permanent: true },
       // 삭제된 제품 슬러그 (as-needed 시절 locale prefix 없는 구 URL)
       { source: '/products/wbtu-s',        destination: '/ko/products/wbtu10',     permanent: true },
       { source: '/products/wbtb10',        destination: '/ko/products/wbtu10',     permanent: true },
       { source: '/products/smartfarm-io',  destination: '/ko/products/ph-ec-board', permanent: true },
+      { source: '/products/wbcl10', destination: '/ko/products/wbfc10', permanent: true },
+      { source: '/products/wbcl10-electrode-kit', destination: '/ko/products/wbfc10-electrode-kit', permanent: true },
+      { source: '/products/wbcl10-ceramic-beads', destination: '/ko/products/wbfc10-ceramic-beads', permanent: true },
     ]
   },
 }

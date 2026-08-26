@@ -21,8 +21,8 @@ const heroProducts = [
     image: '/images/products/wbtu10-photo-front.png',
   },
   {
-    slug: 'wbcl10',
-    model: 'WBCL10',
+    slug: 'wbfc10',
+    model: 'WBFC10',
     nameKo: '온라인 잔류염소계',
     nameEn: 'Residual Chlorine Analyzer',
     image: '/images/products/wbcl10-photo-front.png',
@@ -39,7 +39,11 @@ export default function HeroSection() {
       <div className="relative min-h-[700px] lg:min-h-[570px] xl:min-h-[650px] 2xl:min-h-[clamp(720px,70vh,820px)]">
         <Image
           src="/images/home/water-landscape.jpg"
-          alt="Forested watershed and clear lake"
+          alt={
+            isKo
+              ? '워터비 수질계측 기술이 적용되는 깨끗한 수원 환경'
+              : 'Clean watershed environment monitored with Waterbee instrumentation'
+          }
           fill
           priority
           className="object-cover object-center"
@@ -54,15 +58,10 @@ export default function HeroSection() {
           </div>
 
           <h1
-            className={`max-w-[760px] font-bold leading-[1.12] tracking-normal text-white sm:text-5xl lg:text-6xl ${isKo ? 'text-[40px]' : 'text-[36px]'}`}
+            className={`max-w-[1040px] whitespace-nowrap font-bold leading-[1.12] tracking-normal text-white ${isKo ? 'text-[clamp(1.55rem,4.6vw,3.75rem)]' : 'text-[clamp(1.35rem,4.2vw,3.5rem)]'}`}
             style={{ wordBreak: 'keep-all' }}
           >
-            {t('title').split('\n').map((line, index) => (
-              <span key={line}>
-                {index > 0 && <br />}
-                {line}
-              </span>
-            ))}
+            {t('title')}
           </h1>
 
           <p
@@ -102,7 +101,6 @@ export default function HeroSection() {
                     src={product.image}
                     alt={isKo ? product.nameKo : product.nameEn}
                     fill
-                    priority
                     className="object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.025]"
                     sizes="(max-width: 1024px) 28vw, 110px"
                   />

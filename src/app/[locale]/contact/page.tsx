@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import JsonLd from '@/components/seo/JsonLd'
 import { createPageMetadata } from '@/lib/seo'
-import { breadcrumbJsonLd } from '@/lib/structuredData'
+import { breadcrumbJsonLd, contactPageJsonLd } from '@/lib/structuredData'
 import ContactForm from './ContactForm'
 
 export async function generateMetadata({
@@ -34,6 +34,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
           { name: locale === 'ko' ? '문의' : 'Contact', path: '/contact' },
         ])}
       />
+      <JsonLd data={contactPageJsonLd(locale)} />
       <ContactForm />
     </>
   )

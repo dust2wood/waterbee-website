@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#102019"/>
+  <rect x="650" width="550" height="630" fill="#f1f3f1"/>
+  <rect x="650" y="0" width="5" height="630" fill="#d4a017"/>
+
+  <image href="../logo.svg" x="68" y="58" width="330" height="64" preserveAspectRatio="xMinYMid meet"/>
+  <text x="70" y="220" fill="#f5c400" font-family="Apple SD Gothic Neo, sans-serif" font-size="22" font-weight="700" letter-spacing="2">WATER QUALITY INSTRUMENTATION</text>
+  <text x="70" y="290" fill="#ffffff" font-family="Apple SD Gothic Neo, sans-serif" font-size="43" font-weight="700">온라인 수질계측기 전문기업</text>
+  <text x="70" y="365" fill="#ffffff" font-family="Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="1">WATERBEE</text>
+  <line x1="70" y1="410" x2="560" y2="410" stroke="#6f7f79" stroke-width="1"/>
+  <text x="70" y="458" fill="#d6ddda" font-family="Apple SD Gothic Neo, sans-serif" font-size="21">탁도 · 잔류염소 · pH · EC · 스마트 컨트롤러</text>
+  <text x="70" y="516" fill="#94a39d" font-family="Arial, sans-serif" font-size="17" letter-spacing="1">BUSAN · REPUBLIC OF KOREA</text>
+  <text x="70" y="568" fill="#ffffff" font-family="Arial, sans-serif" font-size="19" font-weight="600">www.waterbee.co.kr</text>
+
+  <image href="../products/wbsc10-front.png" x="672" y="116" width="170" height="355" preserveAspectRatio="xMidYMid meet" style="mix-blend-mode:multiply"/>
+  <image href="../products/wbtu10-photo-front.png" x="838" y="88" width="170" height="405" preserveAspectRatio="xMidYMid meet" style="mix-blend-mode:multiply"/>
+  <image href="../products/wbcl10-photo-front.png" x="1005" y="88" width="170" height="405" preserveAspectRatio="xMidYMid meet" style="mix-blend-mode:multiply"/>
+
+  <text x="757" y="536" text-anchor="middle" fill="#202725" font-family="Arial, sans-serif" font-size="17" font-weight="700">WBSC10</text>
+  <text x="923" y="536" text-anchor="middle" fill="#202725" font-family="Arial, sans-serif" font-size="17" font-weight="700">WBTU10</text>
+  <text x="1090" y="536" text-anchor="middle" fill="#202725" font-family="Arial, sans-serif" font-size="17" font-weight="700">WBFC10</text>
+  <text x="925" y="577" text-anchor="middle" fill="#73807b" font-family="Apple SD Gothic Neo, sans-serif" font-size="16">현장을 기준으로 설계한 수질계측 솔루션</text>
+</svg>

@@ -12,7 +12,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb'
 const imageSizing: Record<string, string> = {
   wbsc10: 'h-[330px] w-[76%] sm:h-[440px]',
   wbtu10: 'h-[370px] w-[82%] sm:h-[490px]',
-  wbcl10: 'h-[370px] w-[82%] sm:h-[490px]',
+  wbfc10: 'h-[370px] w-[82%] sm:h-[490px]',
   wbph10: 'h-[330px] w-[42%] sm:h-[430px]',
   wbec10: 'h-[300px] w-[34%] sm:h-[400px]',
   'wbph-pbs01': 'h-[360px] w-[56%] sm:h-[475px]',
@@ -20,14 +20,14 @@ const imageSizing: Record<string, string> = {
   'ph-ec-board': 'h-[310px] w-[92%] sm:h-[410px]',
   'sampling-tank': 'h-[360px] w-[82%] sm:h-[470px]',
   'wbtu10-lamp-kit': 'h-[270px] w-[68%] sm:h-[360px]',
-  'wbcl10-electrode-kit': 'h-[300px] w-[80%] sm:h-[400px]',
-  'wbcl10-ceramic-beads': 'h-[310px] w-[74%] sm:h-[410px]',
+  'wbfc10-electrode-kit': 'h-[300px] w-[80%] sm:h-[400px]',
+  'wbfc10-ceramic-beads': 'h-[310px] w-[74%] sm:h-[410px]',
 }
 
 const seamlessRenderSlugs = new Set([
   'wbtu10-lamp-kit',
-  'wbcl10-electrode-kit',
-  'wbcl10-ceramic-beads',
+  'wbfc10-electrode-kit',
+  'wbfc10-ceramic-beads',
 ])
 
 export default function ProductDetailClient({ product }: { product: Product }) {

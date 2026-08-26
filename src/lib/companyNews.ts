@@ -52,7 +52,7 @@ export const companyNewsItems: CompanyNewsItem[] = [
       ko: '워터비를 포함한 6개 기업과 한국상하수도협회가 수질관리, 누수감지와 에너지 효율 기술을 결합한 해외 공동사업 모델 구축에 나섰습니다.',
       en: 'Waterbee and five other companies joined the Korea Water and Wastewater Works Association to develop an integrated overseas water-energy project model.',
     },
-    url: 'http://www.energydaily.co.kr/news/articleView.html?idxno=165635',
+    url: 'https://www.energydaily.co.kr/news/articleView.html?idxno=165635',
   },
   {
     id: 'open-innovation-results-2025',
@@ -98,21 +98,6 @@ export const companyNewsItems: CompanyNewsItem[] = [
       en: 'Waterbee is working with Wilo Pump through the Busan CCEI program to validate the precision and field applicability of its water-measurement technology.',
     },
     url: 'https://www.metroseoul.co.kr/article/20250723500563',
-  },
-  {
-    id: 'wilo-open-innovation-venturesquare-2025',
-    date: '2025-07-23',
-    category: { ko: '오픈이노베이션', en: 'Open Innovation' },
-    publisher: { ko: '벤처스퀘어', en: 'VentureSquare' },
-    title: {
-      ko: '오픈이노베이션 챌린지 2025 실증 파트너 선정',
-      en: 'Selected for the Open Innovation Challenge 2025 PoC',
-    },
-    summary: {
-      ko: '워터비는 윌로펌프의 실증 파트너로 선정돼 국산 센서와 ICT 기반 실시간 수질 측정·관리 솔루션의 정밀도와 현장 적용성을 검증했습니다.',
-      en: 'Waterbee was selected as Wilo Pump\'s PoC partner to validate the precision and field applicability of its Korean-made sensor and ICT solution.',
-    },
-    url: 'https://www.venturesquare.net/995366',
   },
   {
     id: 'wilo-open-innovation-kookje-2025',

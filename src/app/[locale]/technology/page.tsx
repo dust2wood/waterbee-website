@@ -5,7 +5,7 @@ import { ArrowRight, Bluetooth, BrainCircuit, Gauge, ShieldCheck, Wifi, Wrench }
 import { Link } from '@/i18n/navigation'
 import JsonLd from '@/components/seo/JsonLd'
 import { createPageMetadata } from '@/lib/seo'
-import { breadcrumbJsonLd } from '@/lib/structuredData'
+import { breadcrumbJsonLd, technologyPageJsonLd } from '@/lib/structuredData'
 import { getTechnologyContent } from '@/lib/technologyContent'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -39,6 +39,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
           { name: isKo ? '기술' : 'Technology', path: '/technology' },
         ])}
       />
+      <JsonLd data={technologyPageJsonLd(locale)} />
 
       <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-24">
         <div className="container-custom">
@@ -48,6 +49,10 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
               {copy.title}
             </h1>
             <p className="mt-6 max-w-3xl break-keep text-base leading-8 text-[#596361] lg:text-lg">{copy.intro}</p>
+            <div className="mt-5 text-xs font-medium text-[#7a8380]">
+              {isKo ? '기술자료 · 발행 주식회사 워터비 · 최종 업데이트 ' : 'Technical reference · Published by Waterbee · Updated '}
+              <time dateTime="2026-08-26">{isKo ? '2026.08.26' : 'August 26, 2026'}</time>
+            </div>
           </div>
 
           <div className="mt-14 grid border-t border-[#9fa8a5] sm:grid-cols-2 lg:grid-cols-4">

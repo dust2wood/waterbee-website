@@ -1,5 +1,6 @@
 import type { Product } from '@/lib/products'
-import { companyNewsItems, type CompanyNewsItem } from '@/lib/companyNews'
+import type { CompanyNewsItem } from '@/lib/companyNews'
+import { getCompanyProfile, getPatentRecordUrl } from '@/lib/companyProfile'
 import {
   absoluteUrl,
   localizedUrl,
@@ -10,18 +11,37 @@ import {
   WEBSITE_ID,
 } from '@/lib/seo'
 
+const BRAND_ID = `${SITE_URL}/#brand`
+
+function pageLanguage(locale: string) {
+  return toSiteLocale(locale) === 'ko' ? 'ko-KR' : 'en-US'
+}
+
+function pageReference(locale: string, path = '') {
+  const url = localizedUrl(toSiteLocale(locale), path)
+
+  return {
+    url,
+    id: `${url}#webpage`,
+  }
+}
+
+export function productEntityId(product: Product) {
+  return `${SITE_URL}/#product-${product.slug}`
+}
+
 export function organizationJsonLd(locale: string) {
   const isKo = toSiteLocale(locale) === 'ko'
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'Corporation',
     '@id': ORGANIZATION_ID,
     name: isKo ? '워터비' : 'Waterbee',
     legalName: siteIdentity.legalName,
     alternateName: isKo
-      ? ['Waterbee', '주식회사 워터비', 'Waterbee Co., Ltd.']
-      : ['워터비', '주식회사 워터비', 'Waterbee Co., Ltd.'],
+      ? ['Waterbee', 'WATERBEE', 'WaterBee', '(주)워터비']
+      : ['워터비', 'WATERBEE', 'WaterBee', '(주)워터비'],
     url: SITE_URL,
     logo: {
       '@type': 'ImageObject',
@@ -31,32 +51,56 @@ export function organizationJsonLd(locale: string) {
       height: 283,
     },
     description: isKo
-      ? '회전전극식 잔류염소계, 온라인 탁도계, pH계, 전기전도도계와 수질 모니터링 시스템을 개발하는 수질계측 전문기업입니다.'
-      : 'A water-quality instrumentation company developing rotating-electrode residual chlorine analyzers, online turbidity meters, pH and conductivity meters, and monitoring systems.',
+      ? '부산에 기반을 두고 회전전극식 잔류염소계, 온라인 탁도계, pH계, 전기전도도계와 수질 모니터링 시스템을 개발·제조하는 수질계측 전문기업입니다.'
+      : 'A Busan-based developer and manufacturer of rotating-electrode residual chlorine analyzers, online turbidity meters, pH and conductivity meters, and monitoring systems.',
     slogan: 'Right Technology, Bright Environment',
     foundingDate: '2021-10-05',
     taxID: siteIdentity.businessNumber,
-    identifier: {
-      '@type': 'PropertyValue',
-      propertyID: 'KR Business Registration Number',
-      value: siteIdentity.businessNumber,
-    },
-    email: siteIdentity.email,
-    telephone: siteIdentity.telephoneIntl,
+    identifier: [
+      {
+        '@type': 'PropertyValue',
+        propertyID: 'KR Business Registration Number',
+        value: siteIdentity.businessNumber,
+      },
+      {
+        '@type': 'PropertyValue',
+        propertyID: 'KR Corporate Registration Number',
+        value: siteIdentity.corporationNumber,
+      },
+    ],
+    email: siteIdentity.generalEmail,
+    telephone: siteIdentity.telephone,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: isKo ? '에코델타스마트로 39, 3동 2호' : 'Building 3, Unit 2, 39 Ecodeltasmart-ro',
+      streetAddress: isKo ? '에코델타스마트로 39, 3동 2호(명지동)' : 'Building 3, Unit 2, 39 Eco Delta Smart-ro',
       addressLocality: isKo ? '강서구' : 'Gangseo-gu',
       addressRegion: isKo ? '부산광역시' : 'Busan',
       addressCountry: 'KR',
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer support',
-      telephone: siteIdentity.telephoneIntl,
-      email: siteIdentity.email,
-      areaServed: 'KR',
-      availableLanguage: ['Korean', 'English'],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'sales',
+        telephone: siteIdentity.telephone,
+        email: siteIdentity.generalEmail,
+        areaServed: 'KR',
+        availableLanguage: ['Korean', 'English'],
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        telephone: siteIdentity.telephone,
+        email: siteIdentity.email,
+        areaServed: 'KR',
+        availableLanguage: ['Korean', 'English'],
+      },
+    ],
+    brand: {
+      '@type': 'Brand',
+      '@id': BRAND_ID,
+      name: 'WATERBEE',
+      alternateName: ['Waterbee', '워터비'],
+      logo: absoluteUrl('/images/logo-transparent.png'),
     },
     knowsAbout: [
       'Water quality instrumentation',
@@ -66,16 +110,6 @@ export function organizationJsonLd(locale: string) {
       'Electrical conductivity measurement',
       'Smart water monitoring',
     ],
-    subjectOf: companyNewsItems.slice(0, 5).map((item) => ({
-      '@type': 'NewsArticle',
-      headline: isKo ? item.title.ko : item.title.en,
-      datePublished: item.date,
-      url: item.url,
-      publisher: {
-        '@type': 'Organization',
-        name: isKo ? item.publisher.ko : item.publisher.en,
-      },
-    })),
   }
 }
 
@@ -96,6 +130,154 @@ export function websiteJsonLd(locale: string) {
     publisher: {
       '@id': ORGANIZATION_ID,
     },
+  }
+}
+
+export function homePageJsonLd(locale: string) {
+  const isKo = toSiteLocale(locale) === 'ko'
+  const page = pageReference(locale)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': page.id,
+    url: page.url,
+    name: isKo ? '수질계측기 전문기업 워터비' : 'Water Quality Instruments by Waterbee',
+    description: isKo
+      ? '워터비는 회전전극식 잔류염소계, 온라인 탁도계, pH계, 전기전도도계와 스마트 수질 모니터링 시스템을 개발하는 수질계측 전문기업입니다.'
+      : 'Waterbee develops rotating-electrode residual chlorine analyzers, online turbidity meters, pH and conductivity meters, and smart water-quality monitoring systems.',
+    inLanguage: pageLanguage(locale),
+    isPartOf: {
+      '@id': WEBSITE_ID,
+    },
+    about: {
+      '@id': ORGANIZATION_ID,
+    },
+    mainEntity: {
+      '@id': ORGANIZATION_ID,
+    },
+    primaryImageOfPage: {
+      '@type': 'ImageObject',
+      url: absoluteUrl('/images/home/water-landscape.jpg'),
+      contentUrl: absoluteUrl('/images/home/water-landscape.jpg'),
+    },
+  }
+}
+
+export function aboutPageJsonLd(locale: string) {
+  const isKo = toSiteLocale(locale) === 'ko'
+  const page = pageReference(locale, '/about')
+  const patentCitations = getCompanyProfile(locale).patents.registered
+    .map((patent) => getPatentRecordUrl(patent.number, locale))
+    .filter((url): url is string => Boolean(url))
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': page.id,
+    url: page.url,
+    name: isKo ? '회사 연혁·특허·인증' : 'Company History, Patents & Certifications',
+    description: isKo
+      ? '주식회사 워터비의 회사 연혁, 수질계측기 형식승인, 기업·제품 인증, 등록특허와 출원 현황을 소개합니다.'
+      : 'Waterbee company history, instrument type approvals, certifications, registered patents and pending application.',
+    inLanguage: pageLanguage(locale),
+    isPartOf: {
+      '@id': WEBSITE_ID,
+    },
+    about: {
+      '@id': ORGANIZATION_ID,
+    },
+    mainEntity: {
+      '@id': ORGANIZATION_ID,
+    },
+    citation: patentCitations,
+  }
+}
+
+export function contactPageJsonLd(locale: string) {
+  const isKo = toSiteLocale(locale) === 'ko'
+  const page = pageReference(locale, '/contact')
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': page.id,
+    url: page.url,
+    name: isKo ? '워터비 문의하기' : 'Contact Waterbee',
+    description: isKo
+      ? '워터비 수질계측기 제품 상담, 견적, 설치 검토와 기술지원 문의를 접수합니다.'
+      : 'Contact Waterbee for water-quality instrument consultation, quotations, installation review and technical support.',
+    inLanguage: pageLanguage(locale),
+    isPartOf: {
+      '@id': WEBSITE_ID,
+    },
+    about: {
+      '@id': ORGANIZATION_ID,
+    },
+    mainEntity: {
+      '@id': ORGANIZATION_ID,
+    },
+  }
+}
+
+export function technologyPageJsonLd(locale: string) {
+  const isKo = toSiteLocale(locale) === 'ko'
+  const page = pageReference(locale, '/technology')
+  const articleId = `${page.url}#article`
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebPage',
+        '@id': page.id,
+        url: page.url,
+        name: isKo ? '수질계측 핵심 기술' : 'Water-Quality Measurement Technology',
+        description: isKo
+          ? '회전전극식 잔류염소 측정, 기포 저감형 탁도 광학계, 소모품 수명과 ESP32-S3 Wi-Fi·BLE 및 설명 가능한 엣지 AI 개발 방향을 소개합니다.'
+          : 'Rotating-electrode chlorine measurement, bubble-reduced turbidity optics, consumable lifecycles, and the ESP32-S3 Wi-Fi, BLE and explainable edge-AI roadmap.',
+        inLanguage: pageLanguage(locale),
+        isPartOf: {
+          '@id': WEBSITE_ID,
+        },
+        about: {
+          '@id': ORGANIZATION_ID,
+        },
+        mainEntity: {
+          '@id': articleId,
+        },
+      },
+      {
+        '@type': 'TechArticle',
+        '@id': articleId,
+        headline: isKo ? '워터비 수질계측 핵심 기술' : 'Waterbee Water-Quality Measurement Technology',
+        description: isKo
+          ? '워터비의 잔류염소·탁도 측정 원리, 소모품 수명, 연결형 컨트롤러와 설명 가능한 엣지 AI 개발 방향을 설명합니다.'
+          : 'An overview of Waterbee residual-chlorine and turbidity measurement, consumable lifecycles, connected controllers and explainable edge AI.',
+        inLanguage: pageLanguage(locale),
+        mainEntityOfPage: {
+          '@id': page.id,
+        },
+        author: {
+          '@id': ORGANIZATION_ID,
+        },
+        publisher: {
+          '@id': ORGANIZATION_ID,
+        },
+        datePublished: '2026-08-23',
+        dateModified: '2026-08-26',
+        image: [
+          absoluteUrl('/images/technology/residual-chlorine-rotation-cutaway.png'),
+          absoluteUrl('/images/technology/turbidity-bubble-removal-module.png'),
+        ],
+        about: [
+          { '@type': 'Thing', name: isKo ? '회전전극식 잔류염소 측정' : 'Rotating-electrode residual chlorine measurement' },
+          { '@type': 'Thing', name: isKo ? '기포 저감형 탁도 측정' : 'Bubble-reduced turbidity measurement' },
+          { '@type': 'Thing', name: 'ESP32-S3 Wi-Fi and Bluetooth Low Energy' },
+          { '@type': 'Thing', name: isKo ? '수질 엣지 AI' : 'Water-quality edge AI' },
+        ],
+      },
+    ],
   }
 }
 
@@ -123,9 +305,14 @@ export function productPageJsonLd(locale: string, product: Product) {
   const siteLocale = toSiteLocale(locale)
   const isKo = siteLocale === 'ko'
   const productUrl = localizedUrl(siteLocale, `/products/${product.slug}`)
-  const equipmentId = `${productUrl}#equipment`
+  const equipmentId = productEntityId(product)
+  const productName = isKo ? product.name : product.nameEn
+  const productCategory = isKo ? product.category : product.categoryEn
+  const specificationId = `${equipmentId}-specifications`
+  const images = Array.from(new Set([product.image, ...product.gallery])).map((image) => absoluteUrl(image))
 
-  // Quote-only B2B pages are not eligible for Google's price-based Product rich results.
+  // These are quote-only B2B model pages. Keep the entity as Thing so Google does not
+  // treat pages without price, review or rating data as incomplete Product rich results.
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemPage',
@@ -140,6 +327,11 @@ export function productPageJsonLd(locale: string, product: Product) {
     publisher: {
       '@id': ORGANIZATION_ID,
     },
+    mentions: [
+      { '@id': BRAND_ID },
+      { '@id': ORGANIZATION_ID },
+      { '@type': 'Thing', name: productCategory },
+    ],
     primaryImageOfPage: {
       '@type': 'ImageObject',
       url: absoluteUrl(product.image),
@@ -152,14 +344,56 @@ export function productPageJsonLd(locale: string, product: Product) {
     mainEntity: {
       '@type': 'Thing',
       '@id': equipmentId,
-      name: isKo ? product.name : product.nameEn,
+      name: productName,
       alternateName: [product.model, isKo ? product.nameEn : product.name],
       description: isKo ? product.description : product.descriptionEn,
-      image: product.gallery.map((image) => absoluteUrl(image)),
-      identifier: {
-        '@type': 'PropertyValue',
-        propertyID: 'Waterbee model',
-        value: product.model,
+      url: productUrl,
+      image: images,
+      mainEntityOfPage: {
+        '@id': `${productUrl}#webpage`,
+      },
+      identifier: [
+        {
+          '@type': 'PropertyValue',
+          propertyID: 'model',
+          name: isKo ? '모델' : 'Model',
+          value: product.model,
+        },
+        {
+          '@type': 'PropertyValue',
+          propertyID: 'mpn',
+          name: isKo ? '제조사 부품 번호' : 'Manufacturer part number',
+          value: product.model,
+        },
+        {
+          '@type': 'PropertyValue',
+          propertyID: 'sku',
+          name: 'SKU',
+          value: product.model,
+        },
+      ],
+      subjectOf: {
+        '@type': 'Dataset',
+        '@id': specificationId,
+        name: isKo ? `${product.model} 제품 정보 및 사양` : `${product.model} product information and specifications`,
+        description: isKo
+          ? `${productName}의 브랜드, 제조사, 제품군과 공개 기술 사양입니다.`
+          : `Published brand, manufacturer, category and technical specifications for the ${productName}.`,
+        creator: {
+          '@id': ORGANIZATION_ID,
+        },
+        publisher: {
+          '@id': ORGANIZATION_ID,
+        },
+        about: {
+          '@id': equipmentId,
+        },
+        keywords: [product.model, 'WATERBEE', productCategory],
+        variableMeasured: product.specs.map((specification) => ({
+          '@type': 'PropertyValue',
+          name: isKo ? specification.label : specification.labelEn,
+          value: isKo ? specification.value : specification.valueEn,
+        })),
       },
     },
   }

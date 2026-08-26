@@ -54,6 +54,7 @@ export default async function ProductsPage({
             badge={t('badge')}
             title={t('title')}
             subtitle={t('subtitle')}
+            as="h1"
             align="left"
             className="mb-0"
           />

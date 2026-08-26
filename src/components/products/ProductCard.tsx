@@ -10,7 +10,7 @@ import type { Product } from '@/lib/products'
 const imageSizing: Record<string, string> = {
   wbsc10: 'h-[72%] w-[72%]',
   wbtu10: 'h-[84%] w-[82%]',
-  wbcl10: 'h-[84%] w-[82%]',
+  wbfc10: 'h-[84%] w-[82%]',
   wbph10: 'h-[62%] w-[42%]',
   wbec10: 'h-[54%] w-[35%]',
   'wbph-pbs01': 'h-[82%] w-[56%]',
@@ -18,14 +18,14 @@ const imageSizing: Record<string, string> = {
   'ph-ec-board': 'h-[78%] w-[92%]',
   'sampling-tank': 'h-[82%] w-[78%]',
   'wbtu10-lamp-kit': 'h-[66%] w-[66%]',
-  'wbcl10-electrode-kit': 'h-[74%] w-[78%]',
-  'wbcl10-ceramic-beads': 'h-[76%] w-[72%]',
+  'wbfc10-electrode-kit': 'h-[74%] w-[78%]',
+  'wbfc10-ceramic-beads': 'h-[76%] w-[72%]',
 }
 
 const seamlessRenderSlugs = new Set([
   'wbtu10-lamp-kit',
-  'wbcl10-electrode-kit',
-  'wbcl10-ceramic-beads',
+  'wbfc10-electrode-kit',
+  'wbfc10-ceramic-beads',
 ])
 
 export default function ProductCard({ product, className }: { product: Product; className?: string }) {
