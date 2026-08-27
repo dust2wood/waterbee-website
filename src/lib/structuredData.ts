@@ -308,7 +308,6 @@ export function productPageJsonLd(locale: string, product: Product) {
   const equipmentId = productEntityId(product)
   const productName = isKo ? product.name : product.nameEn
   const productCategory = isKo ? product.category : product.categoryEn
-  const specificationId = `${equipmentId}-specifications`
   const images = Array.from(new Set([product.image, ...product.gallery])).map((image) => absoluteUrl(image))
 
   // These are quote-only B2B model pages. Keep the entity as Thing so Google does not
@@ -372,29 +371,6 @@ export function productPageJsonLd(locale: string, product: Product) {
           value: product.model,
         },
       ],
-      subjectOf: {
-        '@type': 'Dataset',
-        '@id': specificationId,
-        name: isKo ? `${product.model} 제품 정보 및 사양` : `${product.model} product information and specifications`,
-        description: isKo
-          ? `${productName}의 브랜드, 제조사, 제품군과 공개 기술 사양입니다.`
-          : `Published brand, manufacturer, category and technical specifications for the ${productName}.`,
-        creator: {
-          '@id': ORGANIZATION_ID,
-        },
-        publisher: {
-          '@id': ORGANIZATION_ID,
-        },
-        about: {
-          '@id': equipmentId,
-        },
-        keywords: [product.model, 'WATERBEE', productCategory],
-        variableMeasured: product.specs.map((specification) => ({
-          '@type': 'PropertyValue',
-          name: isKo ? specification.label : specification.labelEn,
-          value: isKo ? specification.value : specification.valueEn,
-        })),
-      },
     },
   }
 }
