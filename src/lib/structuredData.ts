@@ -51,8 +51,8 @@ export function organizationJsonLd(locale: string) {
       height: 283,
     },
     description: isKo
-      ? '부산에 기반을 두고 회전전극식 잔류염소계, 온라인 탁도계, pH계, 전기전도도계와 수질 모니터링 시스템을 개발·제조하는 수질계측 전문기업입니다.'
-      : 'A Busan-based developer and manufacturer of rotating-electrode residual chlorine analyzers, online turbidity meters, pH and conductivity meters, and monitoring systems.',
+      ? '회전전극식 잔류염소계, 온라인 탁도계, pH계, 전기전도도계와 수질 모니터링 시스템을 개발·제조하는 수질계측 전문기업입니다.'
+      : 'A developer and manufacturer of rotating-electrode residual chlorine analyzers, online turbidity meters, pH and conductivity meters, and monitoring systems.',
     slogan: 'Right Technology, Bright Environment',
     foundingDate: '2021-10-05',
     taxID: siteIdentity.businessNumber,

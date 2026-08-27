@@ -11,15 +11,15 @@ export default function ApplicationsSection() {
   return (
     <section className="bg-[#161c1b] text-white">
       <div className="grid min-h-[640px] lg:grid-cols-[0.82fr_1.18fr]">
-        <div className="flex items-center px-5 py-16 sm:px-8 lg:px-[max(3rem,calc((100vw-80rem)/2))] lg:py-24 lg:pr-16">
+        <div className="flex items-center px-5 py-14 sm:px-8 lg:px-[max(3rem,calc((100vw-80rem)/2))] lg:py-24 lg:pr-16">
           <div className="max-w-lg">
             <div className="mb-5 text-xs font-bold uppercase text-[#f5c400]">{t('badge')}</div>
             <h2 className="text-3xl font-bold leading-[1.2] tracking-normal lg:text-5xl">{t('title')}</h2>
             <p className="mt-6 text-base leading-8 text-[#b7c0bd]">{t('subtitle')}</p>
 
-            <dl className="mt-10 border-t border-white/25">
+            <dl className="mt-8 border-t border-white/25 lg:mt-10">
               {[0, 1, 2].map((index) => (
-                <div key={index} className="grid grid-cols-[72px_1fr] gap-4 border-b border-white/15 py-5">
+                <div key={index} className="grid grid-cols-[60px_1fr] gap-4 border-b border-white/15 py-4 lg:grid-cols-[72px_1fr] lg:py-5">
                   <dt className="text-xs font-semibold text-[#f5c400]">0{index + 1}</dt>
                   <dd>
                     <div className="text-sm font-semibold text-white">{t(`items.${index}.title`)}</div>
@@ -31,7 +31,7 @@ export default function ApplicationsSection() {
 
             <Link
               href="/products/filter-drain"
-              className="mt-9 inline-flex h-12 items-center gap-2 bg-[#f5c400] px-6 text-sm font-semibold text-[#151a19] transition-colors hover:bg-[#ffd633]"
+              className="mt-7 inline-flex h-12 items-center gap-2 bg-[#f5c400] px-6 text-sm font-semibold text-[#151a19] transition-colors hover:bg-[#ffd633] lg:mt-9"
             >
               {t('cta')}
               <ArrowRight className="h-4 w-4" />
@@ -39,7 +39,7 @@ export default function ApplicationsSection() {
           </div>
         </div>
 
-        <div className="relative min-h-[420px] lg:min-h-full">
+        <div className="relative aspect-[390/295] lg:min-h-full lg:aspect-auto">
           <Image
             src="/images/products/filter-drain-1.jpg"
             alt="Waterbee Smart Filter-Drain System"

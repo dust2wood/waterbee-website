@@ -8,8 +8,8 @@ export default function CtaBanner() {
   const t = useTranslations('cta_banner')
 
   return (
-    <section className="bg-[#f5c400] py-14 lg:py-16">
-      <div className="container-custom flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+    <section className="bg-[#f5c400] py-12 lg:py-16">
+      <div className="container-custom flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between lg:gap-8">
         <div>
           <h2 className="text-3xl font-bold tracking-normal text-[#151a19] lg:text-4xl">{t('title')}</h2>
           <p className="mt-3 text-base text-[#4c4630]">{t('subtitle')}</p>

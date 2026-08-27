@@ -36,7 +36,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#102019] pt-16 lg:pt-20">
-      <div className="relative min-h-[700px] lg:min-h-[570px] xl:min-h-[650px] 2xl:min-h-[clamp(720px,70vh,820px)]">
+      <div className="relative min-h-[clamp(600px,calc(100svh-4rem),700px)] lg:min-h-[570px] xl:min-h-[650px] 2xl:min-h-[clamp(720px,70vh,820px)]">
         <Image
           src="/images/home/water-landscape.jpg"
           alt={
@@ -51,8 +51,8 @@ export default function HeroSection() {
         />
         <div className="absolute inset-0 bg-[#0c1814]/45" />
 
-        <div className="container-custom relative z-10 pt-14 sm:pt-16 lg:pt-20 xl:pt-24 2xl:pt-28">
-          <div className="mb-5 flex items-center gap-3 text-[11px] font-bold uppercase text-white/80">
+        <div className="container-custom relative z-10 pt-10 sm:pt-16 lg:pt-20 xl:pt-24 2xl:pt-28">
+          <div className="mb-4 flex items-center gap-3 text-[11px] font-bold uppercase text-white/80 sm:mb-5">
             <span className="h-0.5 w-8 bg-gold-500" />
             {t('badge')}
           </div>
@@ -65,13 +65,13 @@ export default function HeroSection() {
           </h1>
 
           <p
-            className="mt-5 max-w-[610px] text-[15px] leading-7 text-white/80 sm:text-base"
+            className="mt-4 max-w-[610px] text-[15px] leading-7 text-white/80 sm:mt-5 sm:text-base"
             style={{ wordBreak: 'keep-all' }}
           >
             {t('subtitle')}
           </p>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3">
+          <div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-7">
             <Link
               href="/products"
               className="inline-flex h-12 items-center gap-2 bg-white px-6 text-sm font-semibold text-[#151a19] transition-colors hover:bg-[#f1f3f1]"
@@ -88,15 +88,15 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 z-10 h-[205px] border-t border-white/20 bg-white lg:h-[170px]">
+        <div className="absolute inset-x-0 bottom-0 z-10 h-[190px] border-t border-white/20 bg-white lg:h-[170px]">
           <div className="container-custom grid h-full grid-cols-3 border-l border-[#d7dcda]">
             {heroProducts.map((product) => (
               <Link
                 key={product.slug}
                 href={`/products/${product.slug}`}
-                className="group relative flex min-w-0 items-center justify-center border-r border-[#d7dcda] px-2 pb-5 lg:justify-start lg:gap-5 lg:px-7 lg:pb-0"
+                className="group relative flex min-w-0 items-center justify-center border-r border-[#d7dcda] px-2 pb-4 lg:justify-start lg:gap-5 lg:px-7 lg:pb-0"
               >
-                <div className="relative h-[138px] w-[82px] shrink-0 sm:h-[150px] sm:w-[96px] lg:h-[150px] lg:w-[108px]">
+                <div className="relative h-[126px] w-[78px] shrink-0 sm:h-[150px] sm:w-[96px] lg:h-[150px] lg:w-[108px]">
                   <Image
                     src={product.image}
                     alt={isKo ? product.nameKo : product.nameEn}
@@ -111,7 +111,7 @@ export default function HeroSection() {
                     {isKo ? product.nameKo : product.nameEn}
                   </div>
                 </div>
-                <div className="absolute bottom-3 text-[10px] font-bold text-[#596361] lg:hidden">
+                <div className="absolute bottom-2.5 text-[10px] font-bold text-[#596361] lg:hidden">
                   {product.model}
                 </div>
               </Link>

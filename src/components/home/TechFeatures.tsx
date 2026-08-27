@@ -13,7 +13,7 @@ export default function TechFeatures() {
   }))
 
   return (
-    <section className="bg-[#f5f6f4] py-20 lg:py-28">
+    <section className="bg-[#f5f6f4] py-16 lg:py-28">
       <div className="container-custom">
         <div className="grid gap-8 lg:grid-cols-[0.85fr_1.5fr] lg:gap-20">
           <div>
@@ -36,13 +36,13 @@ export default function TechFeatures() {
             {items.map((item, index) => (
               <article
                 key={item.title}
-                className="border-b border-[#cbd1ce] py-7 md:border-b-0 md:border-r md:px-6 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+                className="border-b border-[#cbd1ce] py-6 md:border-b-0 md:border-r md:px-6 md:py-7 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-bold uppercase text-[#8c7200]">{item.tag}</span>
                   <span className="text-xs tabular-nums text-[#89918f]">0{index + 1}</span>
                 </div>
-                <h3 className="mt-12 text-xl font-semibold leading-7 text-[#171c1b]">{item.title}</h3>
+                <h3 className="mt-8 text-xl font-semibold leading-7 text-[#171c1b] md:mt-12">{item.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-[#68716f]">{item.description}</p>
               </article>
             ))}

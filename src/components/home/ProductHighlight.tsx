@@ -21,9 +21,9 @@ export default function ProductHighlight() {
   const products = getFeaturedProducts()
 
   return (
-    <section className="bg-white pb-20 pt-12 lg:pb-28 lg:pt-10">
+    <section className="bg-white pb-16 pt-10 lg:pb-28 lg:pt-10">
       <div className="container-custom">
-        <div className="mb-10 flex flex-col gap-5 border-b border-[#cfd5d2] pb-8 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-8 flex flex-col gap-5 border-b border-[#cfd5d2] pb-6 sm:flex-row sm:items-end sm:justify-between lg:mb-10 lg:pb-8">
           <div>
             <div className="mb-3 text-xs font-bold uppercase text-[#8c7200]">{t('badge')}</div>
             <h2 className="text-3xl font-bold tracking-normal text-[#151a19] lg:text-4xl">{t('title')}</h2>
@@ -43,9 +43,9 @@ export default function ProductHighlight() {
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
-              className="group flex min-h-[390px] flex-col border-b border-r border-[#d8ddda] bg-white transition-colors hover:bg-[#fafbf9] sm:min-h-[430px]"
+              className="group flex min-h-[360px] flex-col border-b border-r border-[#d8ddda] bg-white transition-colors hover:bg-[#fafbf9] sm:min-h-[430px]"
             >
-              <div className="relative flex h-[245px] items-center justify-center bg-[#f1f3f1] sm:h-[285px]">
+              <div className="relative flex h-[220px] items-center justify-center bg-[#f1f3f1] sm:h-[285px]">
                 <div className={`relative ${imageSizing[product.slug] ?? 'h-[78%] w-[78%]'}`}>
                   <Image
                     src={product.image}
@@ -57,7 +57,7 @@ export default function ProductHighlight() {
                 </div>
               </div>
 
-              <div className="flex flex-1 flex-col p-5">
+              <div className="flex flex-1 flex-col p-4 sm:p-5">
                 <div className="text-[11px] font-bold uppercase text-[#8c7200]">{product.model}</div>
                 <h3 className="mt-2 min-h-12 text-base font-semibold leading-6 text-[#171c1b]">
                   {isKo ? product.name : product.nameEn}
