@@ -59,11 +59,11 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       <section className="border-b border-[#d7dcda]">
         <div className="container-custom grid lg:grid-cols-[1.08fr_0.92fr]">
           <div className="border-[#d7dcda] py-8 lg:border-r lg:py-12 lg:pr-12">
-            <div className="relative flex h-[430px] items-center justify-center overflow-hidden bg-[#f1f3f1] sm:h-[540px]">
+            <div className="relative flex h-[350px] items-center justify-center overflow-hidden bg-[#f1f3f1] sm:h-[540px] [&_img]:max-h-full">
               {isPhoto ? (
                 <Image src={activeImage} alt={title} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
               ) : (
-                <div className={`relative ${imageSizing[product.slug] ?? 'h-[340px] w-[76%] sm:h-[450px]'}`}>
+                <div className={`relative max-h-[90%] ${imageSizing[product.slug] ?? 'h-[340px] w-[76%] sm:h-[450px]'}`}>
                   <Image
                     src={activeImage}
                     alt={title}
@@ -82,12 +82,13 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
             {product.gallery.length > 1 && (
               <div className="mt-3 grid grid-cols-3 gap-3">
-                {product.gallery.map((image) => (
+                {product.gallery.map((image, index) => (
                   <button
                     key={image}
                     type="button"
                     onClick={() => setActiveImage(image)}
-                    aria-label={`${product.model} image`}
+                    aria-label={`${product.model} ${isKo ? '제품 사진' : 'product view'} ${index + 1}`}
+                    aria-pressed={activeImage === image}
                     className={`relative h-20 overflow-hidden border bg-[#f1f3f1] ${activeImage === image ? 'border-[#151a19]' : 'border-[#d7dcda]'}`}
                   >
                     <Image
@@ -115,12 +116,21 @@ export default function ProductDetailClient({ product }: { product: Product }) {
 
               <dl className="mt-9 border-t border-[#aeb6b3]">
                 {product.specs.slice(0, 4).map((spec) => (
-                  <div key={spec.label} className="grid grid-cols-[120px_1fr] gap-5 border-b border-[#d7dcda] py-4 text-sm">
+                  <div key={spec.label} className="grid grid-cols-[minmax(0,0.8fr)_minmax(0,1.5fr)] gap-4 border-b border-[#d7dcda] py-4 text-sm">
                     <dt className="text-[#7a8380]">{isKo ? spec.label : spec.labelEn}</dt>
                     <dd className="font-semibold leading-6 text-[#202725]">{isKo ? spec.value : spec.valueEn}</dd>
                   </div>
                 ))}
               </dl>
+
+              {product.group === 'instrumentation' && (
+                <div className="mt-5 border-l-2 border-[#c9a72d] pl-4 text-sm leading-6 text-[#596361]">
+                  <p className="font-semibold text-[#202725]">{isKo ? '공급 구성' : 'System configuration'}</p>
+                  <p className="mt-1">{product.slug === 'wbsc10'
+                    ? (isKo ? '1채널 또는 2채널 구성. 연결 센서·출력 배정은 납품 사양 기준.' : 'One- or two-channel configurations. Sensor connections and output assignments follow the supplied specification.')
+                    : (isKo ? `${product.model} 센서 + WBSC10 컨트롤러. 신호 출력과 통신은 컨트롤러 구성 기준.` : `${product.model} sensor + WBSC10 controller. Outputs and communication depend on the controller configuration.`)}</p>
+                </div>
+              )}
 
               {product.purchasable && (
                 <div className="mt-5 border-l-2 border-gold-500 pl-4">
@@ -147,7 +157,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         </div>
       </section>
 
-      <section className="py-20 lg:py-28">
+      <section className="py-12 lg:py-20">
         <div className="container-custom grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
           <div>
             <div className="text-xs font-bold uppercase text-[#8c7200]">{t('overview')}</div>
@@ -167,7 +177,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         </div>
       </section>
 
-      <section className="bg-[#f3f5f3] py-20 lg:py-24">
+      <section className="bg-[#f3f5f3] py-12 lg:py-20">
         <div className="container-custom">
           <ProductSpecTable specs={product.specs} />
         </div>

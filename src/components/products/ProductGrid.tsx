@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useLocale } from 'next-intl'
 import type { Product, ProductGroup } from '@/lib/products'
 import ProductCard from './ProductCard'
+import InstrumentGuide from './InstrumentGuide'
 
 type GroupFilter = 'all' | ProductGroup
 
@@ -45,6 +46,7 @@ export default function ProductGrid({ products }: { products: Product[] }) {
 
   return (
     <div>
+      <InstrumentGuide products={products} isKo={isKo} />
       <div className="mb-14 flex flex-wrap gap-x-7 gap-y-3 border-b border-[#cfd5d2]">
         {(['all', ...groupOrder] as GroupFilter[]).map((group) => {
           const label = group === 'all' ? (isKo ? '전체 제품' : 'All Products') : (isKo ? groupCopy[group].ko : groupCopy[group].en)
@@ -53,6 +55,7 @@ export default function ProductGrid({ products }: { products: Product[] }) {
             <button
               key={group}
               type="button"
+              aria-pressed={active}
               onClick={() => setSelectedGroup(group)}
               className={`relative pb-4 text-sm font-semibold transition-colors ${active ? 'text-[#151a19]' : 'text-[#7a8380] hover:text-[#303735]'}`}
             >
