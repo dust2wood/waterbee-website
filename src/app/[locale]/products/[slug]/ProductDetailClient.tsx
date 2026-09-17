@@ -191,6 +191,23 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         </div>
       </section>
 
+      {isPhoto && (
+        <section aria-label={isKo ? '여과드레인 시스템 사진' : 'Filter-drain system photos'} className="border-t border-[#d7dcda] py-8 lg:py-12">
+          <div className="container-custom">
+            <div className="grid gap-6 md:grid-cols-2">
+              {[
+                { image: 'filter-drain-cheonan-20260917.webp', alt: isKo ? '여과드레인 시스템 배관 구성' : 'Filter-drain system piping configuration' },
+                { image: 'filter-drain-woojin-20260917.webp', alt: isKo ? '여과드레인 시스템 시험 설비' : 'Filter-drain system test setup' },
+              ].map((site) => (
+                <div key={site.image} className="relative aspect-[4/3] overflow-hidden bg-[#f1f3f1]">
+                  <Image src={`/images/installations/${site.image}`} alt={site.alt} fill className="object-contain" sizes="(max-width: 768px) 100vw, 50vw" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section id="specifications" className="scroll-mt-36 bg-[#f3f5f3] py-12 lg:scroll-mt-40 lg:py-20">
         <div className="container-custom">
           <ProductSpecTable specs={product.specs} />

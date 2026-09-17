@@ -22,7 +22,8 @@ export const technologyContent = {
         title: '회전전극식 잔류염소 측정',
         description:
           '측정 중 전극을 회전시켜 표면 오염의 누적을 줄입니다. 고정 주기로 교체하는 멤브레인과 시약을 사용하지 않으며, 진단 결과에 따라 전극과 측정조를 점검·세정하는 구조입니다.',
-        image: '/images/technology/residual-chlorine-rotation-cutaway.png',
+        image: '/images/technology/chlorine-rotation-20260917.webp',
+        imageCaption: '회전전극 측정부 · 구조 설명도',
         metrics: [
           ['무시약', '연속 측정'],
           ['멤브레인 없음', '고정 교체 부담 저감'],
@@ -39,7 +40,8 @@ export const technologyContent = {
         title: '기포 저감형 90° 산란광 탁도',
         description:
           '텅스텐 램프와 90° 산란광 검출 구조를 사용하고, 측정셀 앞단에 탈부착식 기포 저감 구조를 배치합니다. 정수장과 배수지의 저농도 영역에서 기포가 측정값에 미치는 영향을 줄이도록 설계했습니다.',
-        image: '/images/technology/turbidity-bubble-removal-module.png',
+        image: '/images/technology/turbidity-module-20260917.webp',
+        imageCaption: '탈부착식 기포 저감 모듈 · 구조 설명도',
         metrics: [
           ['0–10 NTU', '측정 범위'],
           ['0.001 NTU', '분해능'],
@@ -166,7 +168,8 @@ export const technologyContent = {
         title: 'Rotating-Electrode Chlorine',
         description:
           'The electrode rotates during measurement to help limit surface fouling. There is no fixed-cycle membrane or reagent; the electrode and measuring cell are inspected and cleaned in response to diagnostics.',
-        image: '/images/technology/residual-chlorine-rotation-cutaway.png',
+        image: '/images/technology/chlorine-rotation-20260917.webp',
+        imageCaption: 'Rotating-electrode assembly · structural illustration',
         metrics: [
           ['Reagent-free', 'Continuous measurement'],
           ['No membrane', 'Lower fixed replacement burden'],
@@ -183,7 +186,8 @@ export const technologyContent = {
         title: 'Bubble-Reduced 90° Turbidity',
         description:
           'A tungsten lamp and 90° scattered-light detector are paired with a detachable bubble-reduction stage ahead of the flow cell. The architecture is designed to reduce bubble interference in low-range monitoring at treatment plants and clearwells.',
-        image: '/images/technology/turbidity-bubble-removal-module.png',
+        image: '/images/technology/turbidity-module-20260917.webp',
+        imageCaption: 'Detachable bubble-reduction module · structural illustration',
         metrics: [
           ['0–10 NTU', 'Measuring range'],
           ['0.001 NTU', 'Resolution'],

@@ -51,7 +51,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
             <p className="mt-6 max-w-3xl break-keep text-base leading-8 text-[#596361] lg:text-lg">{copy.intro}</p>
             <div className="mt-5 text-xs font-medium text-[#7a8380]">
               {isKo ? '기술자료 · 발행 주식회사 워터비 · 최종 업데이트 ' : 'Technical reference · Published by Waterbee · Updated '}
-              <time dateTime="2026-08-26">{isKo ? '2026.08.26' : 'August 26, 2026'}</time>
+              <time dateTime="2026-09-17">{isKo ? '2026.09.17' : 'September 17, 2026'}</time>
             </div>
           </div>
 
@@ -80,15 +80,18 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
       </section>
 
       {copy.measurementSections.map((section, index) => (
-        <section key={section.eyebrow} className={index % 2 === 0 ? 'bg-white' : 'bg-[#f5f6f4]'}>
-          <div className={`container-custom grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-20 lg:py-28 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-            <div className="relative aspect-[3/2] overflow-hidden bg-[#e7ebe8]">
-              <Image src={section.image} alt={section.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-            </div>
+        <section key={section.eyebrow} className="border-b border-[#e4e8e5] bg-white">
+          <div className={`container-custom grid items-center gap-8 py-12 sm:gap-12 lg:grid-cols-2 lg:gap-16 lg:py-20 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+            <figure className="min-w-0">
+              <div className={`relative mx-auto w-full ${index === 0 ? 'aspect-[4/5] max-w-[480px]' : 'aspect-[4/3]'}`}>
+                <Image src={section.image} alt={section.imageCaption} fill className="object-contain" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw" />
+              </div>
+              <figcaption className="mt-4 text-center text-xs leading-5 text-[#68716f]">{section.imageCaption}</figcaption>
+            </figure>
 
             <div>
               <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{section.eyebrow}</div>
-              <h2 className="mt-5 whitespace-nowrap text-[clamp(0.9rem,4.2vw,1.75rem)] font-bold leading-[1.25] tracking-normal text-[#151a19]">{section.title}</h2>
+              <h2 className="mt-5 break-keep text-2xl font-bold leading-[1.35] tracking-normal text-[#151a19]">{section.title}</h2>
               <p className="mt-6 break-keep text-base leading-8 text-[#596361]">{section.description}</p>
 
               <div className="mt-9 grid grid-cols-3 border-y border-[#aeb6b3]">

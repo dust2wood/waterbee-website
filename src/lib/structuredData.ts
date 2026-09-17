@@ -265,10 +265,10 @@ export function technologyPageJsonLd(locale: string) {
           '@id': ORGANIZATION_ID,
         },
         datePublished: '2026-08-23',
-        dateModified: '2026-08-26',
+        dateModified: '2026-09-17',
         image: [
-          absoluteUrl('/images/technology/residual-chlorine-rotation-cutaway.png'),
-          absoluteUrl('/images/technology/turbidity-bubble-removal-module.png'),
+          absoluteUrl('/images/technology/chlorine-rotation-20260917.webp'),
+          absoluteUrl('/images/technology/turbidity-module-20260917.webp'),
         ],
         about: [
           { '@type': 'Thing', name: isKo ? '회전전극식 잔류염소 측정' : 'Rotating-electrode residual chlorine measurement' },

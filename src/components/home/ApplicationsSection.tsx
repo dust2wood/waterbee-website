@@ -41,8 +41,8 @@ export default function ApplicationsSection() {
 
         <div className="relative aspect-[390/295] lg:min-h-full lg:aspect-auto">
           <Image
-            src="/images/products/filter-drain-1.jpg"
-            alt="Waterbee Smart Filter-Drain System"
+            src="/images/installations/filter-drain-cheonan-20260917.webp"
+            alt={t('installationAlt')}
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 58vw"

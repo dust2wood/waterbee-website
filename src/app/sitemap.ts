@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     locales.map((locale) => ({
       url: localizedUrl(locale, page.path),
       lastModified: page.path === '/downloads' ? new Date(drawingRevision)
-        : ['/news', '/about', '/products'].includes(page.path) ? newsAndTankUpdate : lastContentUpdate,
+        : ['', '/news', '/about', '/products', '/technology'].includes(page.path) ? newsAndTankUpdate : lastContentUpdate,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
       alternates: {
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return locales.map((locale) => ({
       url: localizedUrl(locale, path),
       lastModified: getProductDrawing(product.slug) ? new Date(drawingRevision)
-        : product.slug === 'sampling-tank' ? newsAndTankUpdate : lastContentUpdate,
+        : ['sampling-tank', 'filter-drain'].includes(product.slug) ? newsAndTankUpdate : lastContentUpdate,
       changeFrequency: 'monthly' as const,
       priority: product.featured ? 0.9 : 0.75,
       alternates: {
