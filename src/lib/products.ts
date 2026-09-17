@@ -74,7 +74,7 @@ Its 4.3-inch TFT LCD and keypad support clear local operation, while 4–20 mA a
       { label: '통신', labelEn: 'Communication', value: 'RS-232, RS-485 / Ethernet 선택 사양', valueEn: 'RS-232, RS-485 / optional Ethernet' },
       { label: '릴레이 출력', labelEn: 'Relay Output', value: '3CH', valueEn: '3CH' },
       { label: '전원', labelEn: 'Power Supply', value: 'AC 110~240 V, DC 12 V', valueEn: 'AC 110–240 V, DC 12 V' },
-      { label: '크기', labelEn: 'Dimensions', value: '210 × 180 × 86.5 mm', valueEn: '210 × 180 × 86.5 mm' },
+      { label: '크기', labelEn: 'Dimensions', value: '외형도 적용 형상 및 납품 사양 확인', valueEn: 'See the applicable outline drawing and supplied configuration' },
     ],
     image: '/images/products/wbsc10-front.png',
     gallery: [

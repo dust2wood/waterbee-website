@@ -3,11 +3,13 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
-import { ArrowLeft, Check, Mail, Phone } from 'lucide-react'
+import { ArrowLeft, Check, Download, Mail, Phone } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import type { Product } from '@/lib/products'
 import ProductSpecTable from '@/components/products/ProductSpecTable'
 import Breadcrumb from '@/components/ui/Breadcrumb'
+import ProductDrawings from '@/components/products/ProductDrawings'
+import { getProductDrawing } from '@/lib/productDrawings'
 
 const imageSizing: Record<string, string> = {
   wbsc10: 'h-[330px] w-[76%] sm:h-[440px]',
@@ -41,6 +43,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
   const title = isKo ? product.name : product.nameEn
   const description = isKo ? product.description : product.descriptionEn
   const features = isKo ? product.features : product.featuresEn
+  const drawing = getProductDrawing(product.slug)
 
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-20">
@@ -139,7 +142,9 @@ export default function ProductDetailClient({ product }: { product: Product }) {
                 </div>
               )}
 
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              {drawing && <a href="#drawings" className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#596361] hover:text-[#151a19]"><Download className="h-4 w-4" />{isKo ? '외형도 · CAD 다운로드' : 'Outline drawing & CAD'}</a>}
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                 <a
                   href={`mailto:support@waterbee.co.kr?subject=${encodeURIComponent(`[WATERBEE] ${product.model} ${isKo ? '제품 문의' : 'Product Inquiry'}`)}`}
                   className="btn-primary justify-center sm:flex-1"
@@ -157,7 +162,16 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         </div>
       </section>
 
-      <section className="py-12 lg:py-20">
+      <nav aria-label={isKo ? '제품 상세 항목' : 'Product sections'} className="sticky top-16 z-20 border-b border-[#d7dcda] bg-white lg:top-20">
+        <div className="container-custom flex gap-4 whitespace-nowrap text-xs font-semibold sm:gap-9 sm:text-sm">
+          <a href="#overview" className="py-4 text-[#596361] hover:text-[#8c7200]">{t('overview')}</a>
+          <a href="#specifications" className="py-4 text-[#596361] hover:text-[#8c7200]">{isKo ? '주요 사양' : <><span className="sm:hidden">Specs</span><span className="hidden sm:inline">Specifications</span></>}</a>
+          {(drawing || product.slug === 'wbph10') && <a href="#drawings" className="py-4 text-[#596361] hover:text-[#8c7200]">{isKo ? '외형 치수' : 'Dimensions'}</a>}
+          {drawing && <a href="#downloads" className="py-4 text-[#596361] hover:text-[#8c7200]">{isKo ? '다운로드' : <><span className="sm:hidden">Files</span><span className="hidden sm:inline">Downloads</span></>}</a>}
+        </div>
+      </nav>
+
+      <section id="overview" className="scroll-mt-36 py-12 lg:scroll-mt-40 lg:py-20">
         <div className="container-custom grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
           <div>
             <div className="text-xs font-bold uppercase text-[#8c7200]">{t('overview')}</div>
@@ -177,11 +191,21 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         </div>
       </section>
 
-      <section className="bg-[#f3f5f3] py-12 lg:py-20">
+      <section id="specifications" className="scroll-mt-36 bg-[#f3f5f3] py-12 lg:scroll-mt-40 lg:py-20">
         <div className="container-custom">
           <ProductSpecTable specs={product.specs} />
         </div>
       </section>
+
+      {drawing && <ProductDrawings drawing={drawing} isKo={isKo} />}
+      {product.slug === 'wbph10' && (
+        <section id="drawings" className="scroll-mt-36 border-b border-[#d7dcda] py-12 lg:scroll-mt-40">
+          <div className="container-custom flex flex-wrap items-center justify-between gap-6">
+            <div><h2 className="text-2xl font-bold">{isKo ? '외형도 문의' : 'Outline drawing request'}</h2><p className="mt-3 text-sm leading-6 text-[#68716f]">{isKo ? '납품 센서 사양 확인 후 해당 구성의 도면을 안내해 드립니다.' : 'Contact us for the drawing matching your supplied sensor configuration.'}</p></div>
+            <Link href="/contact" className="btn-secondary"><Mail className="h-4 w-4" />{isKo ? '도면 문의' : 'Request a drawing'}</Link>
+          </div>
+        </section>
+      )}
 
       <div className="container-custom py-10">
         <Link href="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-[#596361] hover:text-[#151a19]">

@@ -18,6 +18,7 @@ const navItems = [
   { key: 'home', href: '/' },
   { key: 'products', href: '/products' },
   { key: 'technology', href: '/technology' },
+  { key: 'downloads', href: '/downloads' },
   { key: 'news', href: '/news' },
   { key: 'about', href: '/about' },
   { key: 'contact', href: '/contact' },
@@ -61,7 +62,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               </button>
             </div>
 
-            <nav className="flex-1 px-5 py-8">
+            <nav className="min-h-0 flex-1 overflow-y-auto px-5 py-6">
               <ul className="border-t border-[#dce1de]">
                 {navItems.map((item) => (
                   <li key={item.key} className="border-b border-[#dce1de]">

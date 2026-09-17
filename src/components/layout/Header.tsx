@@ -12,6 +12,7 @@ import MobileMenu from './MobileMenu'
 const navItems = [
   { key: 'products', href: '/products' },
   { key: 'technology', href: '/technology' },
+  { key: 'downloads', href: '/downloads' },
   { key: 'news', href: '/news' },
   { key: 'about', href: '/about' },
   { key: 'contact', href: '/contact' },
@@ -53,7 +54,7 @@ export default function Header() {
             </Link>
 
             {/* 데스크톱 네비게이션 */}
-            <nav className="hidden items-center gap-7 xl:gap-9 lg:flex">
+            <nav className="hidden items-center gap-5 xl:gap-8 lg:flex">
               {navItems.map((item) => (
                 <Link
                   key={item.key}
@@ -76,7 +77,7 @@ export default function Header() {
               <LanguageSwitcher />
               <a
                 href="tel:1555-3534"
-                className="flex items-center gap-1.5 text-sm text-[#56605e] transition-colors hover:text-[#151a19]"
+                className="hidden items-center gap-1.5 text-sm text-[#56605e] transition-colors hover:text-[#151a19] xl:flex"
               >
                 <Phone className="w-4 h-4" />
                 <span>1555-3534</span>

@@ -1,0 +1,4 @@
+# Preserve the exact bytes of public technical documents on every platform.
+public/downloads/drawings/**/*.pdf binary
+public/downloads/drawings/**/*.dwg binary
+public/downloads/drawings/**/*.dxf binary

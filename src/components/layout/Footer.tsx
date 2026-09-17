@@ -7,6 +7,7 @@ import { Link } from '@/i18n/navigation'
 const navLinks = [
   { key: 'products', href: '/products' },
   { key: 'technology', href: '/technology' },
+  { key: 'downloads', href: '/downloads' },
   { key: 'news', href: '/news' },
   { key: 'about', href: '/about' },
   { key: 'contact', href: '/contact' },

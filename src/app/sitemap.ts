@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getAllProducts } from '@/lib/products'
+import { getProductDrawing, drawingRevision } from '@/lib/productDrawings'
 import {
   languageAlternates,
   localizedUrl,
@@ -13,6 +14,7 @@ const staticPages = [
   { path: '', changeFrequency: 'monthly' as const, priority: 1 },
   { path: '/products', changeFrequency: 'monthly' as const, priority: 0.9 },
   { path: '/technology', changeFrequency: 'monthly' as const, priority: 0.8 },
+  { path: '/downloads', changeFrequency: 'monthly' as const, priority: 0.8 },
   { path: '/news', changeFrequency: 'weekly' as const, priority: 0.8 },
   { path: '/about', changeFrequency: 'monthly' as const, priority: 0.7 },
   { path: '/contact', changeFrequency: 'yearly' as const, priority: 0.6 },
@@ -24,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = staticPages.flatMap((page) =>
     locales.map((locale) => ({
       url: localizedUrl(locale, page.path),
-      lastModified: lastContentUpdate,
+      lastModified: page.path === '/downloads' ? new Date(drawingRevision) : lastContentUpdate,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
       alternates: {
@@ -38,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return locales.map((locale) => ({
       url: localizedUrl(locale, path),
-      lastModified: lastContentUpdate,
+      lastModified: getProductDrawing(product.slug) || product.slug === 'wbph10' ? new Date(drawingRevision) : lastContentUpdate,
       changeFrequency: 'monthly' as const,
       priority: product.featured ? 0.9 : 0.75,
       alternates: {
