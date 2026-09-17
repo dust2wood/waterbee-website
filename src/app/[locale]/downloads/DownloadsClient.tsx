@@ -50,6 +50,7 @@ export default function DownloadsClient({ isKo }: { isKo: boolean }) {
               <h2 className="mt-1 text-sm font-semibold text-[#596361]">{isKo ? item.name : item.nameEn}</h2>
               <p className="mt-3 text-sm leading-6 text-[#68716f]">{item.metrics.slice(0, 2).map((metric) => `${isKo ? metric.label : metric.labelEn} ${metric.value}`).join(' · ')}</p>
               {item.slug === 'wbsc10' && <p className="mt-1 text-xs leading-5 text-[#68716f]">{isKo ? '190 × 180 mm 본체형 · 깊이와 등각도는 REF' : '190 × 180 mm enclosure · depth and isometric view are REF'}</p>}
+              {item.slug === 'wbph10' && <p className="mt-1 text-xs leading-5 text-[#68716f]">{isKo ? '110 mm 구간은 참고치수(REF)' : '110 mm body segment: reference dimension (REF)'}</p>}
             </div>
             <div className="sm:col-start-2 lg:col-start-auto">
               <div className="flex gap-2">

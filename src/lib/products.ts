@@ -459,8 +459,8 @@ Its transparent acrylic body allows visual inspection and can be configured to m
       { label: '연결 구성', labelEn: 'Connections', value: '현장 맞춤', valueEn: 'Site-configured' },
       { label: '설치 방식', labelEn: 'Installation', value: '벽걸이형 / 스탠드형', valueEn: 'Wall-mount / stand-alone' },
     ],
-    image: '/images/products/wbst-main.png',
-    gallery: ['/images/products/wbst-main.png'],
+    image: '/images/products/wbst-render-20260917.png',
+    gallery: ['/images/products/wbst-render-20260917.png'],
   },
   {
     slug: 'wbtu10-lamp-kit',

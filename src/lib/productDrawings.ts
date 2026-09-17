@@ -53,6 +53,16 @@ export const productDrawings: ProductDrawing[] = [
     noteEn: 'Installation space varies with the piping and fittings supplied. Allow additional clearance for electrode and measurement-chamber maintenance.',
   },
   {
+    slug: 'wbph10', model: 'WBPH10', name: 'pH계', nameEn: 'pH Sensor', views: 1,
+    metrics: [
+      { label: '센서 지름', labelEn: 'Sensor diameter', value: 'Ø20 mm' },
+      { label: '체결 나사', labelEn: 'Connection', value: 'NPT 3/4' },
+      { label: '본체 구간 (참고)', labelEn: 'Body segment (reference)', value: '110 mm (REF)' },
+    ],
+    note: '본체 구간 110 mm는 참고치수(REF)입니다. 설치 전 실제 납품 센서의 형상과 치수를 확인해 주세요.',
+    noteEn: 'The 110 mm body segment is a reference dimension (REF). Confirm the supplied sensor configuration and dimensions before installation.',
+  },
+  {
     slug: 'wbec10', model: 'WBEC10', name: '전기전도도계', nameEn: 'Conductivity Sensor', views: 1,
     metrics: [
       { label: '도면 표시 구간 길이', labelEn: 'Indicated length', value: '184 mm' },

@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return createPageMetadata({
     locale, path: '/downloads',
     title: locale === 'ko' ? '자료실 | CAD·외형도' : 'Downloads | CAD & Dimensions',
-    description: locale === 'ko' ? '워터비 수질계측기 외형 치수와 설치홀 도면. 스마트 컨트롤러, 탁도계, 잔류염소계, 전기전도도계의 PDF·DWG·DXF 자료.' : 'Waterbee instrument outline dimensions and mounting drawings. PDF, DWG and DXF files for the smart controller, turbidity, residual chlorine and conductivity instruments.',
+    description: locale === 'ko' ? '워터비 수질계측기 외형 치수와 설치홀 도면. 스마트 컨트롤러, 탁도계, 잔류염소계, pH계, 전기전도도계의 PDF·DWG·DXF 자료.' : 'Waterbee instrument outline dimensions and mounting drawings. PDF, DWG and DXF files for the smart controller, turbidity, residual chlorine, pH and conductivity instruments.',
   })
 }
 

@@ -9,6 +9,7 @@ import {
 
 const locales: SiteLocale[] = ['ko', 'en']
 const lastContentUpdate = new Date('2026-08-26T00:00:00+09:00')
+const newsAndTankUpdate = new Date('2026-09-17T12:00:00+09:00')
 
 const staticPages = [
   { path: '', changeFrequency: 'monthly' as const, priority: 1 },
@@ -26,7 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries = staticPages.flatMap((page) =>
     locales.map((locale) => ({
       url: localizedUrl(locale, page.path),
-      lastModified: page.path === '/downloads' ? new Date(drawingRevision) : lastContentUpdate,
+      lastModified: page.path === '/downloads' ? new Date(drawingRevision)
+        : ['/news', '/about', '/products'].includes(page.path) ? newsAndTankUpdate : lastContentUpdate,
       changeFrequency: page.changeFrequency,
       priority: page.priority,
       alternates: {
@@ -40,7 +42,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return locales.map((locale) => ({
       url: localizedUrl(locale, path),
-      lastModified: getProductDrawing(product.slug) || product.slug === 'wbph10' ? new Date(drawingRevision) : lastContentUpdate,
+      lastModified: getProductDrawing(product.slug) ? new Date(drawingRevision)
+        : product.slug === 'sampling-tank' ? newsAndTankUpdate : lastContentUpdate,
       changeFrequency: 'monthly' as const,
       priority: product.featured ? 0.9 : 0.75,
       alternates: {

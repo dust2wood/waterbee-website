@@ -25,6 +25,21 @@ export const companyNewsItems: CompanyNewsItem[] = [
     url: 'https://www.inthenews.co.kr/news/article.html?no=88923',
   },
   {
+    id: 'uzbekistan-water-energy-2026',
+    date: '2026-03-27',
+    category: { ko: '글로벌 협력', en: 'Global Partnership' },
+    publisher: { ko: '에코뉴스', en: 'Eco News' },
+    title: {
+      ko: '우즈베키스탄 거점 물·에너지 공동사업 추진',
+      en: 'Joint water and energy initiative targeting Uzbekistan',
+    },
+    summary: {
+      ko: '워터비 등 6개 물기업과 한국상하수도협회가 WATER KOREA 2026에서 협약을 맺었습니다. 우즈베키스탄을 거점으로 수질관리·누수감지·에너지 기술을 결합한 시범사업을 추진할 계획입니다.',
+      en: 'Waterbee, five other companies and the Korea Water and Wastewater Works Association signed an agreement at WATER KOREA 2026. The partners plan a pilot in Uzbekistan combining water-quality management, leak detection and energy technologies.',
+    },
+    url: 'https://econews.co.kr/boards/304/view',
+  },
+  {
     id: 'water-korea-global-mou-2026',
     date: '2026-03-25',
     category: { ko: '글로벌 협력', en: 'Global Partnership' },
@@ -128,6 +143,21 @@ export const companyNewsItems: CompanyNewsItem[] = [
       en: 'Waterbee presented its ICT-based smart water-quality monitoring system and business direction in a water-tech focused IR session.',
     },
     url: 'https://www.viva100.com/20240514010004346',
+  },
+  {
+    id: 'water-startup-award-2023',
+    date: '2023-12-06',
+    category: { ko: '기술·수상', en: 'Technology & Awards' },
+    publisher: { ko: '비석세스', en: 'beSUCCESS' },
+    title: {
+      ko: '물산업 혁신창업 대전 사업화부문 장려상 선정',
+      en: 'Recognized in the Korea Water Industry Startup Competition',
+    },
+    summary: {
+      ko: '환경부 보도자료에서 워터비의 ICT 스마트 수질 측정 및 정밀여과기 시스템이 제4회 대한민국 물산업 혁신창업 대전 사업화부문 장려상 과제로 소개됐습니다.',
+      en: 'A Ministry of Environment release listed Waterbee\'s ICT smart water-quality measurement and precision filtration system among the commercialization-category encouragement award projects in the fourth Korea Water Industry Startup Competition.',
+    },
+    url: 'https://besuccess.com/환경부-제4회-대한민국-물산업-혁신창업-대전-개최/',
   },
 ]
 

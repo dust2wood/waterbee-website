@@ -489,7 +489,7 @@ $SKPOLY
   9
 $TDCREATE
  40
-2461301.458275463
+2461301.497361111
   9
 $TDUCREATE
  40
@@ -497,7 +497,7 @@ $TDUCREATE
   9
 $TDUPDATE
  40
-2461301.458275463
+2461301.497361111
   9
 $TDUUPDATE
  40
@@ -549,7 +549,7 @@ $SPLINESEGS
   9
 $HANDSEED
   5
-18E
+1A1
   9
 $SURFTAB1
  70
@@ -837,15 +837,15 @@ $PEXTMAX
   9
 $PLIMMIN
  10
-0.0
+-0.0
  20
-0.0
+-0.0
   9
 $PLIMMAX
  10
-420.0
- 20
 297.0
+ 20
+210.0
   9
 $UNITMODE
  70
@@ -929,7 +929,7 @@ $PSTYLEMODE
   9
 $VERSIONGUID
   2
-{6F856D3E-AB3D-4C88-A306-15DFAD9C48E6}
+{DCE76CE7-57F8-4B07-9B7C-D17A70D37B62}
   9
 $EXTNAMES
 290
@@ -1315,9 +1315,9 @@ ISM
   0
 CLASS
   1
-ACDBPLACEHOLDER
+LAYOUT
   2
-AcDbPlaceHolder
+AcDbLayout
   3
 ObjectDBX Classes
  90
@@ -1331,9 +1331,9 @@ ObjectDBX Classes
   0
 CLASS
   1
-LAYOUT
+ACDBPLACEHOLDER
   2
-AcDbLayout
+AcDbPlaceHolder
   3
 ObjectDBX Classes
  90
@@ -1855,7 +1855,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DMOVMAP_2013
+CAXA_DRAFT_DS_ISFILLDFM
  70
 0
   0
@@ -1869,7 +1869,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DS_DISPZTOOL
+CAXA_DRAFT_TXTSTYLE
  70
 0
   0
@@ -1883,7 +1883,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-ACAD_DSTYLE_DIMTEXT_FILL
+CDRAFT_TXTROT_2011R3
  70
 0
   0
@@ -1897,7 +1897,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_TXTSTYLE
+ACADSTRINGINFO
  70
 0
   0
@@ -1911,7 +1911,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_SDTSTY_2011R3
+CAXA_DRAFT_DMOVMAP_2013
  70
 0
   0
@@ -1925,7 +1925,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DMOVMAP_2011R3
+CAXA_DRAFT_DIMARROWREVERSE
  70
 0
   0
@@ -1939,7 +1939,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DS_SYMCOLOR
+CAXA_DRAFT_DIMARCLENSTYLE
  70
 0
   0
@@ -1953,7 +1953,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CDRAFT_TXTROT_2011R3
+CAXA_DRAFT_SDTSTY_2011R3
  70
 0
   0
@@ -1967,7 +1967,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DIMARROWREVERSE
+CAXA_DRAFT_DS_DISPZTOOL
  70
 0
   0
@@ -1981,7 +1981,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-ACAECLAYERSTANDARD
+CAXA_DRAFT_DS_SYMCOLOR
  70
 0
   0
@@ -1995,7 +1995,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DIMLEADER
+CAXA_DRAFT_DDTSTY_2011R3
  70
 0
   0
@@ -2009,7 +2009,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DIMARCLENSTYLE
+CAXA_DRAFT_DIMLEADER
  70
 0
   0
@@ -2023,7 +2023,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DS_ISFILLDFM
+ACAECLAYERSTANDARD
  70
 0
   0
@@ -2037,7 +2037,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_TXTSCALE
+CAXA_DRAFT_DIMSTY_AT_VPOS
  70
 0
   0
@@ -2051,7 +2051,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DIMSTY_AT_VPOS
+ACAD_DSTYLE_DIMTEXT_FILL
  70
 0
   0
@@ -2065,7 +2065,7 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-ACADSTRINGINFO
+CAXA_DRAFT_DMOVMAP_2011R3
  70
 0
   0
@@ -2079,13 +2079,13 @@ AcDbSymbolTableRecord
 100
 AcDbRegAppTableRecord
   2
-CAXA_DRAFT_DDTSTY_2011R3
+CAXA_DRAFT_TXTSCALE
  70
 0
   0
 APPID
   5
-18B
+19E
 330
 3
 100
@@ -2099,7 +2099,7 @@ HATCHBACKGROUNDCOLOR
   0
 APPID
   5
-18C
+19F
 330
 3
 100
@@ -14653,6 +14653,664 @@ ACAD_DSTYLE_DIMTEXT_FILL
 1070
 1
   0
+VIEWPORT
+  5
+18B
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+VIEWPORTS
+100
+AcDbViewport
+ 10
+148.5
+ 20
+105.0
+ 30
+0.0
+ 40
+326.70000000000005
+ 41
+231.00000000000003
+ 68
+1
+ 69
+1
+ 12
+148.5
+ 22
+105.0
+ 13
+0.0
+ 23
+0.0
+ 14
+10.0
+ 24
+10.0
+ 15
+10.0
+ 25
+10.0
+ 16
+0.0
+ 26
+0.0
+ 36
+1.0
+ 17
+0.0
+ 27
+0.0
+ 37
+0.0
+ 42
+50.0
+ 43
+0.0
+ 44
+0.0
+ 45
+231.00000000000003
+ 50
+0.0
+ 51
+0.0
+ 72
+100
+ 90
+557088
+  1
+
+281
+0
+ 71
+0
+ 74
+0
+110
+0.0
+120
+0.0
+130
+0.0
+111
+1.0
+121
+0.0
+131
+0.0
+112
+0.0
+122
+1.0
+132
+0.0
+ 79
+0
+146
+0.0
+282
+0
+  0
+LWPOLYLINE
+  5
+18C
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbPolyline
+ 90
+4
+ 70
+1
+ 10
+10.0
+ 20
+10.0
+ 10
+287.0
+ 20
+10.0
+ 10
+287.0
+ 20
+200.0
+ 10
+10.0
+ 20
+200.0
+  0
+LINE
+  5
+18D
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbLine
+ 10
+10.0
+ 20
+25.0
+ 30
+0.0
+ 11
+287.0
+ 21
+25.0
+ 31
+0.0
+  0
+LINE
+  5
+18E
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbLine
+ 10
+10.0
+ 20
+40.0
+ 30
+0.0
+ 11
+287.0
+ 21
+40.0
+ 31
+0.0
+  0
+LINE
+  5
+18F
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbLine
+ 10
+68.0
+ 20
+10.0
+ 30
+0.0
+ 11
+68.0
+ 21
+40.0
+ 31
+0.0
+  0
+LINE
+  5
+190
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbLine
+ 10
+206.0
+ 20
+10.0
+ 30
+0.0
+ 11
+206.0
+ 21
+40.0
+ 31
+0.0
+  0
+LINE
+  5
+191
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbLine
+ 10
+247.0
+ 20
+10.0
+ 30
+0.0
+ 11
+247.0
+ 21
+40.0
+ 31
+0.0
+  0
+TEXT
+  5
+192
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+14.0
+ 20
+32.0
+ 30
+0.0
+ 40
+4.0
+  1
+WATERBEE
+100
+AcDbText
+  0
+TEXT
+  5
+193
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+14.0
+ 20
+16.0
+ 30
+0.0
+ 40
+2.4
+  1
+waterbee.co.kr
+100
+AcDbText
+  0
+TEXT
+  5
+194
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+72.0
+ 20
+33.0
+ 30
+0.0
+ 40
+3.0
+  1
+CONDUCTIVITY SENSOR
+100
+AcDbText
+  0
+TEXT
+  5
+195
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+72.0
+ 20
+28.0
+ 30
+0.0
+ 40
+2.4
+  1
+External dimensions
+100
+AcDbText
+  0
+TEXT
+  5
+196
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+72.0
+ 20
+16.0
+ 30
+0.0
+ 40
+3.0
+  1
+WBEC10-OUTLINE
+100
+AcDbText
+  0
+TEXT
+  5
+197
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+210.0
+ 20
+33.0
+ 30
+0.0
+ 40
+2.4
+  1
+UNITS: mm
+100
+AcDbText
+  0
+TEXT
+  5
+198
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+210.0
+ 20
+28.0
+ 30
+0.0
+ 40
+2.4
+  1
+MODEL: 1:1
+100
+AcDbText
+  0
+TEXT
+  5
+199
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+210.0
+ 20
+16.0
+ 30
+0.0
+ 40
+2.4
+  1
+REV: R2
+100
+AcDbText
+  0
+TEXT
+  5
+19A
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+251.0
+ 20
+33.0
+ 30
+0.0
+ 40
+2.4
+  1
+2026-09-17
+100
+AcDbText
+  0
+TEXT
+  5
+19B
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+251.0
+ 20
+16.0
+ 30
+0.0
+ 40
+2.4
+  1
+SHEET 1/1
+100
+AcDbText
+  0
+TEXT
+  5
+19C
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+0
+100
+AcDbText
+ 10
+14.0
+ 20
+45.0
+ 30
+0.0
+ 40
+2.2
+  1
+Installation reference. Confirm the supplied configuration before fabrication. Do not scale the PDF.
+100
+AcDbText
+  0
+VIEWPORT
+  5
+19D
+330
+1B
+100
+AcDbEntity
+ 67
+1
+  8
+VIEWPORTS
+100
+AcDbViewport
+ 10
+148.5
+ 20
+124.0
+ 30
+0.0
+ 40
+267.0
+ 41
+140.0
+ 68
+2
+ 69
+3
+ 12
+153.520982272944
+ 22
+124.97901772705599
+ 13
+0.0
+ 23
+0.0
+ 14
+10.0
+ 24
+10.0
+ 15
+10.0
+ 25
+10.0
+ 16
+0.0
+ 26
+0.0
+ 36
+1.0
+ 17
+0.0
+ 27
+0.0
+ 37
+0.0
+ 42
+50.0
+ 43
+0.0
+ 44
+0.0
+ 45
+119.88240245281959
+ 50
+0.0
+ 51
+0.0
+ 72
+100
+ 90
+16384
+  1
+
+281
+0
+ 71
+0
+ 74
+0
+110
+0.0
+120
+0.0
+130
+0.0
+111
+1.0
+121
+0.0
+131
+0.0
+112
+0.0
+122
+1.0
+132
+0.0
+ 79
+0
+146
+0.0
+282
+0
+  0
 ENDSEC
   0
 SECTION
@@ -14751,7 +15409,7 @@ Model
 350
 1A
   3
-Layout1
+SHEET-1
 350
 1E
   0
@@ -15002,22 +15660,24 @@ D
 AcDbPlotSettings
   1
 
+  2
+DWG to PDF.pc3
   4
-A3
+ezdxf_(297.00_x_210.00_MM)
   6
 
  40
-7.5
+0.0
  41
-20.0
+0.0
  42
-7.5
+0.0
  43
-20.0
+0.0
  44
-420.0
- 45
 297.0
+ 45
+210.0
  46
 0.0
  47
@@ -15035,7 +15695,7 @@ A3
 143
 1.0
  70
-0
+672
  72
 1
  73
@@ -15061,19 +15721,19 @@ A3
 100
 AcDbLayout
   1
-Layout1
+SHEET-1
  70
 1
  71
 1
  10
-0.0
+-0.0
  20
-0.0
+-0.0
  11
-420.0
- 21
 297.0
+ 21
+210.0
  12
 0.0
  22
@@ -15116,6 +15776,8 @@ Layout1
 1
 330
 1B
+331
+18B
   0
 MATERIAL
   5
@@ -15651,7 +16313,7 @@ TITLE
   3
 WRITTEN_BY_EZDXF
 350
-18D
+1A0
   0
 DICTIONARYVAR
   5
@@ -15663,7 +16325,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-17T01:59:55.000715+00:00
+1.4.4 @ 2026-09-17T02:56:12.054632+00:00
   0
 DICTIONARYVAR
   5
@@ -15691,7 +16353,7 @@ WBEC10 outline and mounting dimensions
   0
 DICTIONARYVAR
   5
-18D
+1A0
 330
 2D
 100
@@ -15699,7 +16361,7 @@ DictionaryVariables
 280
 0
   1
-1.4.4 @ 2026-09-17T01:59:55.016719+00:00
+1.4.4 @ 2026-09-17T02:56:12.082638+00:00
   0
 ENDSEC
   0

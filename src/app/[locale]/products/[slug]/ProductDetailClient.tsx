@@ -166,7 +166,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         <div className="container-custom flex gap-4 whitespace-nowrap text-xs font-semibold sm:gap-9 sm:text-sm">
           <a href="#overview" className="py-4 text-[#596361] hover:text-[#8c7200]">{t('overview')}</a>
           <a href="#specifications" className="py-4 text-[#596361] hover:text-[#8c7200]">{isKo ? '주요 사양' : <><span className="sm:hidden">Specs</span><span className="hidden sm:inline">Specifications</span></>}</a>
-          {(drawing || product.slug === 'wbph10') && <a href="#drawings" className="py-4 text-[#596361] hover:text-[#8c7200]">{isKo ? '외형 치수' : 'Dimensions'}</a>}
+          {drawing && <a href="#drawings" className="py-4 text-[#596361] hover:text-[#8c7200]">{isKo ? '외형 치수' : 'Dimensions'}</a>}
           {drawing && <a href="#downloads" className="py-4 text-[#596361] hover:text-[#8c7200]">{isKo ? '다운로드' : <><span className="sm:hidden">Files</span><span className="hidden sm:inline">Downloads</span></>}</a>}
         </div>
       </nav>
@@ -198,7 +198,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       </section>
 
       {drawing && <ProductDrawings drawing={drawing} isKo={isKo} />}
-      {product.slug === 'wbph10' && (
+      {product.slug === 'wbph10' && !drawing && (
         <section id="drawings" className="scroll-mt-36 border-b border-[#d7dcda] py-12 lg:scroll-mt-40">
           <div className="container-custom flex flex-wrap items-center justify-between gap-6">
             <div><h2 className="text-2xl font-bold">{isKo ? '외형도 문의' : 'Outline drawing request'}</h2><p className="mt-3 text-sm leading-6 text-[#68716f]">{isKo ? '납품 센서 사양 확인 후 해당 구성의 도면을 안내해 드립니다.' : 'Contact us for the drawing matching your supplied sensor configuration.'}</p></div>
