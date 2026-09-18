@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useLocale } from 'next-intl'
 import type { Product, ProductGroup } from '@/lib/products'
 import ProductCard from './ProductCard'
-import InstrumentGuide from './InstrumentGuide'
 
 type GroupFilter = 'all' | ProductGroup
 
@@ -46,7 +45,6 @@ export default function ProductGrid({ products }: { products: Product[] }) {
 
   return (
     <div>
-      <InstrumentGuide products={products} isKo={isKo} />
       <div className="mb-14 flex flex-wrap gap-x-7 gap-y-3 border-b border-[#cfd5d2]">
         {(['all', ...groupOrder] as GroupFilter[]).map((group) => {
           const label = group === 'all' ? (isKo ? '전체 제품' : 'All Products') : (isKo ? groupCopy[group].ko : groupCopy[group].en)
