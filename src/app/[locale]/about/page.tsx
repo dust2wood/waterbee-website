@@ -51,30 +51,30 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       />
       <JsonLd data={aboutPageJsonLd(locale)} />
 
-      <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-24">
-        <div className="container-custom grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-20">
+      <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-10 lg:py-14">
+        <div className="container-custom grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:gap-12">
           <div>
             <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{copy.hero.eyebrow}</div>
-            <h1 className="mt-5 max-w-3xl whitespace-nowrap text-[clamp(1.35rem,5vw,3.75rem)] font-bold leading-[1.12] tracking-normal text-[#151a19]">{copy.hero.title}</h1>
+            <h1 className="mt-4 max-w-3xl break-keep text-3xl font-bold leading-tight tracking-normal text-[#151a19] lg:text-4xl">{copy.hero.title}</h1>
             <p className="mt-6 max-w-3xl break-keep text-base leading-8 text-[#596361] lg:text-lg">{copy.hero.intro}</p>
           </div>
 
           <dl className="grid grid-cols-3 border-y border-[#9fa8a5]">
             {copy.hero.metrics.map(([value, label]) => (
-              <div key={label} className="border-r border-[#cbd1ce] px-3 py-6 text-center last:border-r-0 sm:px-5">
-                <dt className="whitespace-nowrap text-[11px] leading-5 text-[#7a8380]">{label}</dt>
-                <dd className="mt-3 whitespace-nowrap text-base font-bold text-[#202725] lg:text-xl">{value}</dd>
+              <div key={label} className="min-w-0 border-r border-[#cbd1ce] px-1 py-5 text-center last:border-r-0 sm:px-5">
+                <dt className="min-h-10 break-keep text-[11px] leading-5 text-[#7a8380] sm:min-h-0">{label}</dt>
+                <dd className="mt-2 whitespace-nowrap text-xs font-bold text-[#202725] sm:text-base lg:text-xl">{value}</dd>
               </div>
             ))}
           </dl>
         </div>
       </section>
 
-      <section className="py-20 lg:py-28">
-        <div className="container-custom grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+      <section className="py-10 lg:py-16">
+        <div className="container-custom grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-12">
           <div>
             <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{copy.identity.eyebrow}</div>
-            <h2 className="mt-4 max-w-lg whitespace-nowrap text-[clamp(1.12rem,4.8vw,1.875rem)] font-bold leading-[1.3] tracking-normal text-[#151a19]">{copy.identity.title}</h2>
+            <h2 className="mt-4 max-w-lg break-keep text-2xl font-bold leading-[1.3] tracking-normal text-[#151a19] lg:text-3xl">{copy.identity.title}</h2>
             <p className="mt-6 max-w-lg break-keep text-sm leading-7 text-[#68716f]">{copy.identity.intro}</p>
           </div>
 
@@ -91,7 +91,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
-      <section id="history" className="scroll-mt-24 bg-[#f5f6f4] py-20 lg:py-28">
+      <section id="history" className="scroll-mt-24 bg-[#f5f6f4] py-10 lg:py-16">
         <div className="container-custom">
           <div className="grid gap-8 border-b border-[#9fa8a5] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
@@ -99,7 +99,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 <Building2 className="h-4 w-4" />
                 {copy.history.eyebrow}
               </div>
-              <h2 className="mt-4 whitespace-nowrap text-[clamp(1.12rem,4.8vw,2.25rem)] font-bold tracking-normal text-[#151a19]">{copy.history.title}</h2>
+              <h2 className="mt-4 break-keep text-2xl font-bold tracking-normal text-[#151a19] lg:text-3xl">{copy.history.title}</h2>
             </div>
             <p className="max-w-2xl break-keep text-sm leading-7 text-[#68716f] lg:pt-6">{copy.history.intro}</p>
           </div>
@@ -122,7 +122,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
-      <section id="patents" className="scroll-mt-24 bg-[#151a19] py-20 text-white lg:py-28">
+      <section id="patents" className="scroll-mt-24 bg-[#151a19] py-10 text-white lg:py-16">
         <div className="container-custom">
           <div className="grid gap-8 border-b border-white/20 pb-12 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
@@ -130,7 +130,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 <FileCheck2 className="h-4 w-4" />
                 {copy.patents.eyebrow}
               </div>
-              <h2 className="mt-5 max-w-lg whitespace-nowrap text-[clamp(1.35rem,4.8vw,2.25rem)] font-bold leading-[1.25] tracking-normal">{copy.patents.title}</h2>
+              <h2 className="mt-4 max-w-lg break-keep text-2xl font-bold leading-[1.25] tracking-normal lg:text-3xl">{copy.patents.title}</h2>
             </div>
             <p className="max-w-2xl break-keep text-sm leading-7 text-[#b7c0bd] lg:pt-7 lg:text-base">{copy.patents.intro}</p>
           </div>
@@ -176,7 +176,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
-      <section id="certifications" className="scroll-mt-24 bg-white py-20 lg:py-28">
+      <section id="certifications" className="scroll-mt-24 bg-white py-10 lg:py-16">
         <div className="container-custom">
           <div className="grid gap-8 border-b border-[#9fa8a5] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
@@ -184,7 +184,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
                 <BadgeCheck className="h-4 w-4" />
                 {copy.certifications.eyebrow}
               </div>
-              <h2 className="mt-4 max-w-lg whitespace-nowrap text-[clamp(1.35rem,4.8vw,2.25rem)] font-bold leading-[1.25] tracking-normal text-[#151a19]">{copy.certifications.title}</h2>
+              <h2 className="mt-4 max-w-lg break-keep text-2xl font-bold leading-[1.25] tracking-normal text-[#151a19] lg:text-3xl">{copy.certifications.title}</h2>
             </div>
             <p className="max-w-2xl break-keep text-sm leading-7 text-[#68716f] lg:pt-6 lg:text-base">{copy.certifications.intro}</p>
           </div>
@@ -208,11 +208,11 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
 
-      <section className="border-t border-[#d2d7d4] bg-[#f5f6f4] py-20 lg:py-24">
-        <div className="container-custom grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
+      <section className="border-t border-[#d2d7d4] bg-[#f5f6f4] py-10 lg:py-16">
+        <div className="container-custom grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:gap-12">
           <div>
             <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">Company Info</div>
-            <h2 className="mt-4 whitespace-nowrap text-3xl font-bold tracking-normal text-[#151a19]">{isKo ? '회사 기본정보' : 'Company information'}</h2>
+            <h2 className="mt-4 break-keep text-2xl font-bold tracking-normal text-[#151a19] lg:text-3xl">{isKo ? '회사 기본정보' : 'Company information'}</h2>
             <div className="mt-8 flex flex-col items-start gap-4">
               <Link href="/news" className="inline-flex items-center gap-2 border-b border-[#151a19] pb-1 text-sm font-semibold text-[#151a19]">
                 {copy.links.news}
@@ -225,9 +225,9 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
             </div>
           </div>
 
-          <dl className="border-t border-[#9fa8a5] text-sm">
+          <dl className="min-w-0 border-t border-[#9fa8a5] text-sm">
             {companyInfo.map(([label, value]) => (
-              <div key={label} className="grid grid-cols-[120px_1fr] gap-5 border-b border-[#d2d7d4] py-4 sm:grid-cols-[190px_1fr]">
+              <div key={label} className="grid gap-2 border-b border-[#d2d7d4] py-4 sm:grid-cols-[190px_minmax(0,1fr)] sm:gap-5">
                 <dt className="text-[#7a8380]">{label}</dt>
                 <dd className="break-keep font-semibold leading-6 text-[#202725]">{value}</dd>
               </div>

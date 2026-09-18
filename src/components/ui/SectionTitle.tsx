@@ -1,4 +1,5 @@
 import { clsx } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 interface SectionTitleProps {
   badge?: string
@@ -21,13 +22,13 @@ export default function SectionTitle({
 }: SectionTitleProps) {
   return (
     <div
-      className={clsx(
+      className={twMerge(clsx(
         'mb-12',
         align === 'center' && 'text-center',
         align === 'left' && 'text-left',
         align === 'right' && 'text-right',
         className,
-      )}
+      ))}
     >
       {badge && <div className="mb-3 text-xs font-bold uppercase text-[#8c7200]">{badge}</div>}
       <TitleTag

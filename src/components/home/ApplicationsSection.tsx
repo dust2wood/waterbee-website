@@ -10,8 +10,8 @@ export default function ApplicationsSection() {
 
   return (
     <section className="bg-[#161c1b] text-white">
-      <div className="grid min-h-[640px] lg:grid-cols-[0.82fr_1.18fr]">
-        <div className="flex items-center px-5 py-14 sm:px-8 lg:px-[max(3rem,calc((100vw-80rem)/2))] lg:py-24 lg:pr-16">
+      <div className="grid lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="flex items-center px-5 py-10 sm:px-8 lg:px-[max(3rem,calc((100vw-80rem)/2))] lg:py-16 lg:pr-16">
           <div className="max-w-lg">
             <div className="mb-5 text-xs font-bold uppercase text-[#f5c400]">{t('badge')}</div>
             <h2 className="text-3xl font-bold leading-[1.2] tracking-normal lg:text-5xl">{t('title')}</h2>

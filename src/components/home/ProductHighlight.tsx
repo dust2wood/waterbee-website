@@ -21,9 +21,9 @@ export default function ProductHighlight() {
   const products = getFeaturedProducts()
 
   return (
-    <section className="bg-white pb-16 pt-10 lg:pb-28 lg:pt-10">
+    <section className="bg-white py-8 lg:py-12">
       <div className="container-custom">
-        <div className="mb-8 flex flex-col gap-5 border-b border-[#cfd5d2] pb-6 sm:flex-row sm:items-end sm:justify-between lg:mb-10 lg:pb-8">
+        <div className="mb-6 flex flex-col gap-5 border-b border-[#cfd5d2] pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <div className="mb-3 text-xs font-bold uppercase text-[#8c7200]">{t('badge')}</div>
             <h2 className="text-3xl font-bold tracking-normal text-[#151a19] lg:text-4xl">{t('title')}</h2>
@@ -43,9 +43,9 @@ export default function ProductHighlight() {
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
-              className="group flex min-h-[360px] flex-col border-b border-r border-[#d8ddda] bg-white transition-colors hover:bg-[#fafbf9] sm:min-h-[430px]"
+              className="group flex flex-col border-b border-r border-[#d8ddda] bg-white transition-colors hover:bg-[#fafbf9]"
             >
-              <div className="relative flex h-[220px] items-center justify-center bg-[#f1f3f1] sm:h-[285px]">
+              <div className="relative flex h-[180px] shrink-0 items-center justify-center bg-[#f1f3f1] sm:h-[220px]">
                 <div className={`relative ${imageSizing[product.slug] ?? 'h-[78%] w-[78%]'}`}>
                   <Image
                     src={product.image}

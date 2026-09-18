@@ -41,11 +41,11 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
       />
       <JsonLd data={technologyPageJsonLd(locale)} />
 
-      <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-24">
+      <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-10 lg:py-14">
         <div className="container-custom">
           <div className="max-w-4xl">
             <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{copy.eyebrow}</div>
-            <h1 className="mt-5 max-w-3xl whitespace-nowrap text-[clamp(1rem,4vw,2.75rem)] font-bold leading-[1.12] tracking-normal text-[#151a19]">
+            <h1 className="mt-4 max-w-3xl break-keep text-3xl font-bold leading-tight tracking-normal text-[#151a19] lg:text-4xl">
               {copy.title}
             </h1>
             <p className="mt-6 max-w-3xl break-keep text-base leading-8 text-[#596361] lg:text-lg">{copy.intro}</p>
@@ -55,11 +55,11 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
             </div>
           </div>
 
-          <div className="mt-14 grid border-t border-[#9fa8a5] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid border-t border-[#9fa8a5] sm:grid-cols-2 lg:grid-cols-4">
             {copy.pillars.map(([number, title, description]) => (
               <div key={number} className="border-b border-[#cbd1ce] py-6 sm:px-6 sm:odd:border-r lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
                 <div className="text-xs font-semibold text-[#8c7200]">{number}</div>
-                <h2 className="mt-8 break-keep text-lg font-semibold leading-7 text-[#202725]">{title}</h2>
+                <h2 className="mt-4 break-keep text-lg font-semibold leading-7 text-[#202725]">{title}</h2>
                 <p className="mt-3 break-keep text-sm leading-6 text-[#68716f]">{description}</p>
               </div>
             ))}
@@ -67,11 +67,11 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
-      <section className="bg-white pt-20 lg:pt-28">
-        <div className="container-custom grid gap-8 border-b border-[#9fa8a5] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
+      <section className="bg-white pt-10 lg:pt-16">
+        <div className="container-custom grid gap-6 border-b border-[#9fa8a5] pb-8 lg:grid-cols-[0.75fr_1.25fr]">
           <div>
             <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{copy.measurementEyebrow}</div>
-            <h2 className="mt-4 max-w-md whitespace-nowrap text-[clamp(0.95rem,3.5vw,2.1rem)] font-bold leading-[1.25] tracking-normal text-[#151a19]">
+            <h2 className="mt-4 max-w-md break-keep text-2xl font-bold leading-[1.25] tracking-normal text-[#151a19] lg:text-3xl">
               {copy.measurementTitle}
             </h2>
           </div>
@@ -81,7 +81,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
 
       {copy.measurementSections.map((section, index) => (
         <section key={section.eyebrow} className="border-b border-[#e4e8e5] bg-white">
-          <div className={`container-custom grid items-center gap-8 py-12 sm:gap-12 lg:grid-cols-2 lg:gap-16 lg:py-20 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+          <div className={`container-custom grid items-center gap-6 py-8 sm:gap-8 lg:grid-cols-2 lg:gap-12 lg:py-12 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
             <figure className="min-w-0">
               <div className={`relative mx-auto w-full ${index === 0 ? 'aspect-[4/5] max-w-[480px]' : 'aspect-[4/3]'}`}>
                 <Image src={section.image} alt={section.imageCaption} fill className="object-contain" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw" />
@@ -94,7 +94,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
               <h2 className="mt-5 break-keep text-2xl font-bold leading-[1.35] tracking-normal text-[#151a19]">{section.title}</h2>
               <p className="mt-6 break-keep text-base leading-8 text-[#596361]">{section.description}</p>
 
-              <div className="mt-9 grid grid-cols-3 border-y border-[#aeb6b3]">
+              <div className="mt-6 grid grid-cols-3 border-y border-[#aeb6b3]">
                 {section.metrics.map(([value, label]) => (
                   <div key={label} className="flex min-h-[112px] flex-col items-center justify-center border-r border-[#d2d7d4] px-2 py-4 text-center last:border-r-0 sm:px-4">
                     <div className="break-keep text-sm font-bold leading-6 text-[#202725] sm:text-base lg:text-lg">{value}</div>
@@ -103,7 +103,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
                 ))}
               </div>
 
-              <ul className="mt-8 border-t border-[#d2d7d4]">
+              <ul className="mt-6 border-t border-[#d2d7d4]">
                 {section.points.map((point) => (
                   <li key={point} className="flex gap-3 border-b border-[#d2d7d4] py-4 text-sm leading-6 text-[#303735]">
                     <span aria-hidden="true" className="mt-[0.65rem] h-1 w-1 shrink-0 rounded-full bg-[#8c7200]" />
@@ -116,25 +116,25 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
         </section>
       ))}
 
-      <section className="bg-[#151a19] py-20 text-white lg:py-28">
+      <section className="bg-[#151a19] py-10 text-white lg:py-16">
         <div className="container-custom">
-          <div className="grid gap-8 border-b border-white/20 pb-12 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="grid gap-6 border-b border-white/20 pb-8 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#f5c400]">
                 <Wrench className="h-4 w-4" />
                 {copy.lifecycle.eyebrow}
               </div>
-              <h2 className="mt-5 max-w-lg whitespace-nowrap text-[clamp(1rem,3.5vw,2.1rem)] font-bold leading-[1.25] tracking-normal">{copy.lifecycle.title}</h2>
+              <h2 className="mt-4 max-w-lg break-keep text-2xl font-bold leading-[1.25] tracking-normal lg:text-3xl">{copy.lifecycle.title}</h2>
             </div>
             <p className="max-w-2xl break-keep text-sm leading-7 text-[#b7c0bd] lg:pt-7 lg:text-base">{copy.lifecycle.intro}</p>
           </div>
 
           <div className="grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-3">
             {copy.lifecycle.items.map((item) => (
-              <article key={item.subject} className="min-h-[230px] bg-[#151a19] p-7 lg:p-8">
+              <article key={item.subject} className="bg-[#151a19] p-6">
                 <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#f5c400]">{item.kind}</div>
                 <h3 className="mt-5 break-keep text-lg font-semibold leading-7 text-white">{item.subject}</h3>
-                <div className="mt-6 text-2xl font-bold text-white">{item.cycle}</div>
+                <div className="mt-4 text-2xl font-bold text-white">{item.cycle}</div>
                 <p className="mt-4 break-keep text-sm leading-7 text-[#aeb8b5]">{item.detail}</p>
               </article>
             ))}
@@ -147,20 +147,20 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
-      <section id="controller" className="scroll-mt-24 bg-[#f5f6f4] py-20 lg:py-28">
+      <section id="controller" className="scroll-mt-24 bg-[#f5f6f4] py-10 lg:py-16">
         <div className="container-custom">
-          <div className="grid gap-8 border-b border-[#9fa8a5] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="grid gap-6 border-b border-[#9fa8a5] pb-8 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">
                 <Gauge className="h-4 w-4" />
                 {copy.controller.eyebrow}
               </div>
-              <h2 className="mt-5 max-w-lg whitespace-nowrap text-[clamp(0.95rem,3.5vw,2.1rem)] font-bold leading-[1.25] tracking-normal text-[#151a19]">{copy.controller.title}</h2>
+              <h2 className="mt-4 max-w-lg break-keep text-2xl font-bold leading-[1.25] tracking-normal text-[#151a19] lg:text-3xl">{copy.controller.title}</h2>
             </div>
             <p className="max-w-2xl break-keep text-sm leading-7 text-[#68716f] lg:pt-7 lg:text-base">{copy.controller.intro}</p>
           </div>
 
-          <div className="mt-10 grid items-start gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+          <div className="mt-8 grid items-start gap-6 lg:grid-cols-[0.82fr_1.18fr]">
             <article className="border border-[#d0d6d3] bg-white p-7 lg:p-10">
               <div className="inline-flex rounded-full bg-[#eef1ef] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#596361]">
                 {copy.controller.current.badge}
@@ -216,7 +216,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
-      <section className="bg-white py-20 lg:py-28">
+      <section className="bg-white py-10 lg:py-16">
         <div className="container-custom">
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
             <div>
@@ -227,7 +227,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
               <div className="mt-5 inline-flex rounded-full bg-[#f6edbd] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#695600]">
                 {copy.ai.badge}
               </div>
-              <h2 className="mt-6 max-w-lg whitespace-nowrap text-[clamp(0.95rem,3.2vw,2rem)] font-bold leading-[1.25] tracking-normal text-[#151a19]">{copy.ai.title}</h2>
+              <h2 className="mt-6 max-w-lg break-keep text-2xl font-bold leading-[1.25] tracking-normal text-[#151a19] lg:text-3xl">{copy.ai.title}</h2>
               <p className="mt-6 max-w-xl break-keep text-sm leading-7 text-[#68716f] lg:text-base">{copy.ai.intro}</p>
             </div>
 
@@ -250,9 +250,9 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
-      <section className="border-t border-[#d2d7d4] bg-[#f1f3f1] py-16 lg:py-20">
+      <section className="border-t border-[#d2d7d4] bg-[#f1f3f1] py-10 lg:py-12">
         <div className="container-custom flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <h2 className="max-w-3xl whitespace-nowrap text-[clamp(0.9rem,3.2vw,1.875rem)] font-bold leading-[1.35] text-[#151a19]">{copy.closing.title}</h2>
+          <h2 className="max-w-3xl break-keep text-2xl font-bold leading-[1.35] text-[#151a19] lg:text-3xl">{copy.closing.title}</h2>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link href="/products" className="inline-flex items-center justify-center gap-2 bg-[#151a19] px-5 py-3 text-sm font-semibold text-white">
               {copy.closing.products}

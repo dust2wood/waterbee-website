@@ -45,7 +45,7 @@ export default function ProductGrid({ products }: { products: Product[] }) {
 
   return (
     <div>
-      <div className="mb-14 flex flex-wrap gap-x-7 gap-y-3 border-b border-[#cfd5d2]">
+      <div className="mb-6 flex flex-wrap gap-x-7 gap-y-3 border-b border-[#cfd5d2] lg:mb-8">
         {(['all', ...groupOrder] as GroupFilter[]).map((group) => {
           const label = group === 'all' ? (isKo ? '전체 제품' : 'All Products') : (isKo ? groupCopy[group].ko : groupCopy[group].en)
           const active = selectedGroup === group
@@ -64,7 +64,7 @@ export default function ProductGrid({ products }: { products: Product[] }) {
         })}
       </div>
 
-      <div className="space-y-20">
+      <div className="space-y-10 lg:space-y-12">
         {visibleGroups.map((group) => {
           const groupProducts = products.filter((product) => product.group === group)
           if (groupProducts.length === 0) return null
@@ -72,7 +72,7 @@ export default function ProductGrid({ products }: { products: Product[] }) {
 
           return (
             <section key={group}>
-              <div className="mb-7 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+              <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <h2 className="text-2xl font-bold tracking-normal text-[#151a19]">
                     {isKo ? copy.ko : copy.en}

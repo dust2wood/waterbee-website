@@ -5,7 +5,7 @@ export const technologyContent = {
     eyebrow: 'Technology',
     title: '신뢰를 지키는 수질계측 기술',
     intro:
-      '제품 모델을 다시 나열하는 대신, 센서가 오염과 기포를 다루는 방식부터 유지관리 기준, 연결형 제어와 AI 검증 방향까지 운전 신뢰성을 만드는 기술을 설명합니다.',
+      '회전전극과 기포 저감 광학계로 오염과 기포의 영향을 줄이고, 현장 교정·진단·제어 기술로 안정적인 수질 측정을 지원합니다.',
     pillars: [
       ['01', '오염에 강한 측정 구조', '회전전극과 관리 가능한 유로로 현장 오염의 영향을 줄입니다.'],
       ['02', '기포 영향을 줄인 광학계', '90° 산란광 검출과 기포 저감 구조로 저농도 탁도를 읽습니다.'],
@@ -15,7 +15,7 @@ export const technologyContent = {
     measurementEyebrow: 'Measurement Principles',
     measurementTitle: '센서 구조가 만드는 측정 신뢰도',
     measurementIntro:
-      '각 제품의 판매 사양은 제품 페이지에서, 측정 원리와 현장 우수성은 이곳에서 확인할 수 있습니다.',
+      '잔류염소는 회전전극으로, 탁도는 90° 산란광으로 측정합니다. 전극 표면과 시료 유로의 오염을 관리하고 기포 간섭을 줄이는 구조입니다.',
     measurementSections: [
       {
         eyebrow: 'Rotating Electrode',
@@ -58,7 +58,7 @@ export const technologyContent = {
       eyebrow: 'Lifecycle & Maintenance',
       title: '소모품 수명과 관리 기준',
       intro:
-        '교체 주기가 있는 부품과 상태를 보고 관리하는 부품을 구분했습니다. 실제 수명은 원수 수질, 유량, 가동시간, 세정 및 설치 조건에 따라 달라질 수 있습니다.',
+        '부품별 권장 교체 주기와 진단 상태를 기준으로 점검합니다. 실제 수명은 원수 수질, 유량, 가동시간, 세정 및 설치 조건에 따라 달라질 수 있습니다.',
       items: [
         {
           subject: '회전전극식 잔류염소 측정부',
@@ -143,7 +143,7 @@ export const technologyContent = {
         '초기에는 제어에 개입하지 않는 관찰 모드로 검증하고, 재현성과 오경보 수준이 확인된 기능만 단계적으로 적용합니다.',
     },
     closing: {
-      title: '제품 사양과 기술 근거를 구분했습니다.',
+      title: '현장에 맞는 수질계측 솔루션',
       products: '제품 라인업 보기',
       about: '특허·인증과 회사 연혁 보기',
     },
@@ -152,17 +152,17 @@ export const technologyContent = {
     eyebrow: 'Technology',
     title: 'Reliable Water-Quality Measurement',
     intro:
-      'Rather than repeating product models, this page explains how Waterbee manages fouling and bubbles, defines maintenance lifecycles, and validates connected control and AI for dependable operation.',
+      'Rotating electrodes and bubble-reduced optics limit fouling and bubble interference. Field calibration, diagnostics and control support dependable water-quality measurement.',
     pillars: [
       ['01', 'Fouling-resilient measurement', 'Rotating electrodes and serviceable flow paths help reduce field fouling.'],
       ['02', 'Bubble-reduced optics', '90° scattered-light detection and a bubble-reduction stage support low-range turbidity.'],
-      ['03', 'Lifecycle-based maintenance', 'Fixed replacement and condition-based inspection are clearly separated.'],
+      ['03', 'Lifecycle-based maintenance', 'Component life and diagnostics guide replacement and inspection.'],
       ['04', 'Connected control and AI roadmap', 'Wi-Fi, Bluetooth and explainable edge analytics are under validation.'],
     ],
     measurementEyebrow: 'Measurement Principles',
     measurementTitle: 'Sensor Design Builds Confidence',
     measurementIntro:
-      'Product pages provide model specifications and configurations; this page explains measurement principles and field advantages.',
+      'Rotating electrodes measure residual chlorine, while 90° scattered-light detection measures turbidity. Serviceable electrodes and sample paths help manage fouling and reduce bubble interference.',
     measurementSections: [
       {
         eyebrow: 'Rotating Electrode',
@@ -205,7 +205,7 @@ export const technologyContent = {
       eyebrow: 'Lifecycle & Maintenance',
       title: 'Consumable Life & Maintenance',
       intro:
-        'Components with a recommended replacement interval are separated from condition-based items. Actual life varies with sample quality, flow, operating hours, cleaning and installation.',
+        'Recommended replacement intervals and diagnostics guide component maintenance. Actual life varies with sample quality, flow, operating hours, cleaning and installation.',
       items: [
         {
           subject: 'Rotating-electrode chlorine measurement unit',
@@ -290,7 +290,7 @@ export const technologyContent = {
         'Validation starts in shadow mode with no control authority. Only functions with demonstrated reproducibility and acceptable false-alarm behavior advance in stages.',
     },
     closing: {
-      title: 'Product Specs & Engineering Evidence',
+      title: 'Water-Quality Instruments for Your Process',
       products: 'Explore products',
       about: 'View patents, approvals and company history',
     },

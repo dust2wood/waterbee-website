@@ -51,14 +51,14 @@ export default function HeroSection() {
         />
         <div className="absolute inset-0 bg-[#0c1814]/45" />
 
-        <div className="container-custom relative z-10 pt-10 sm:pt-16 lg:pt-20 xl:pt-24 2xl:pt-28">
+        <div className="container-custom relative z-10 pb-[220px] pt-10 sm:pt-16 lg:pb-[200px] lg:pt-20 xl:pt-24 2xl:pt-28">
           <div className="mb-4 flex items-center gap-3 text-[11px] font-bold uppercase text-white/80 sm:mb-5">
             <span className="h-0.5 w-8 bg-gold-500" />
             {t('badge')}
           </div>
 
           <h1
-            className={`max-w-[1040px] whitespace-nowrap font-bold leading-[1.12] tracking-normal text-white ${isKo ? 'text-[clamp(1.55rem,4.6vw,3.75rem)]' : 'text-[clamp(1.35rem,4.2vw,3.5rem)]'}`}
+            className="max-w-[1040px] text-2xl font-bold leading-tight tracking-normal text-white sm:text-4xl lg:text-5xl xl:text-[56px]"
             style={{ wordBreak: 'keep-all' }}
           >
             {t('title')}

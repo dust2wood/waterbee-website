@@ -19,7 +19,7 @@ export default function CompanyIdentitySection({ locale }: { locale: string }) {
       ]
 
   return (
-    <section className="border-t border-[#d2d7d4] bg-[#f5f6f4] py-16 lg:py-28">
+    <section className="border-t border-[#d2d7d4] bg-[#f5f6f4] py-10 lg:py-16">
       <div className="container-custom grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
         <div>
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">
@@ -33,8 +33,8 @@ export default function CompanyIdentitySection({ locale }: { locale: string }) {
           </h2>
           <p className="mt-5 max-w-xl break-keep text-sm leading-7 text-[#68716f] lg:mt-6 lg:text-base">
             {isKo
-              ? '주식회사 워터비는 센서의 측정 원리부터 현장 제어와 통신까지 직접 설계합니다. 제품 사양, 기술 근거, 특허·인증과 회사 연혁을 공식 홈페이지에서 확인할 수 있습니다.'
-              : 'Waterbee designs measurement principles, field control and communications as one instrumentation system. Product specifications, technical evidence, patents, certifications and company history are published on this official website.'}
+              ? '주식회사 워터비는 센서의 측정 원리부터 현장 제어와 통신까지 직접 설계합니다.'
+              : 'Waterbee designs measurement principles, field control and communications as one instrumentation system.'}
           </p>
 
           <div className="mt-7 flex flex-wrap gap-5 lg:mt-8">

@@ -3,7 +3,7 @@ export const companyProfile = {
     hero: {
       eyebrow: 'Company',
       title: '워터비 연혁·기술자산',
-      intro: '2021년 법인 설립 이후 주요 연혁과 수질계측기 형식승인, 등록특허, 기업·제품 인증을 정리했습니다.',
+      intro: '2021년 설립한 수질계측기 개발·제조 기업. 탁도와 잔류염소 측정 기술을 기반으로 현장 계측·제어·여과 시스템을 개발합니다.',
       metrics: [
         ['2021.10.05', '법인설립'],
         ['6건', '등록특허'],
@@ -22,7 +22,7 @@ export const companyProfile = {
     history: {
       eyebrow: 'History',
       title: '법인 설립 이후 주요 연혁',
-      intro: '지원사업을 나열하기보다 법인, 연구조직, 제품 승인과 기술자산의 주요 전환점을 기준으로 정리했습니다.',
+      intro: '수질계측기 개발과 형식승인 취득, 공동기술 개발과 국내외 사업 협력으로 이어지는 워터비의 발자취.',
       items: [
         ['2026', ['㈜에이치에스씨엠티와 글로벌 스마트 물관리 사업 상생협력 MOU 체결(01.23)', 'WATER KOREA 2026에서 한국상하수도협회·물에너지 기업들과 우즈베키스탄 거점 공동사업 다자간 MOU 체결(03.20)', 'K-water 성능개선 성과공유제 계약 체결(04.10)']],
         ['2024', ['하남 공장 등록(01.09)', '스마트 수질 측정 및 정밀 여과 시스템 K-water 공동특허 등록(04.15)', '잔류염소계 형식승인 취득(04.17)', 'HSCMT와 업무제휴협약 체결(06.16)', '벤처나라 지정, WBSC10 EMC 적합등록 및 탁도계·잔류염소계 시범구매제품 확인', '워터비·K-water 공동특허가 대한민국 발명특허대전 특허청장상 수상(11.27)']],
@@ -34,7 +34,7 @@ export const companyProfile = {
     patents: {
       eyebrow: 'Intellectual Property',
       title: '등록특허와 출원 현황',
-      intro: '등록특허와 출원 중인 기술을 분리하고, 공동권리와 이전 취득 여부도 함께 표시합니다.',
+      intro: '탁도·잔류염소 측정, 이상진단, 정밀여과와 릴레이 감시 분야의 기술자산.',
       registeredLabel: '등록특허 6건',
       registered: [
         {
@@ -87,7 +87,7 @@ export const companyProfile = {
     certifications: {
       eyebrow: 'Certifications',
       title: '인증 목록',
-      intro: '제품 형식승인, 기업 확인과 공공조달 관련 인증을 정리했습니다.',
+      intro: '수질계측기 형식승인, 전자파 적합등록 및 기업·공공조달 인증.',
       items: [
         {
           category: '제품 형식승인',
@@ -157,7 +157,7 @@ export const companyProfile = {
     hero: {
       eyebrow: 'Company',
       title: 'Waterbee History & IP',
-      intro: 'Company milestones, instrument type approvals, registered patents and certifications since incorporation in 2021.',
+      intro: 'Established in 2021, Waterbee develops and manufactures water-quality instruments, field control and filtration systems built on turbidity and residual chlorine measurement technology.',
       metrics: [
         ['2021.10.05', 'Incorporated'],
         ['6', 'Registered patents'],
@@ -176,7 +176,7 @@ export const companyProfile = {
     history: {
       eyebrow: 'History',
       title: 'Milestones Since Incorporation',
-      intro: 'The timeline focuses on turning points in the company, R&D organization, product approvals and technology assets rather than listing every support program.',
+      intro: 'Instrument development, type approvals, joint R&D and business partnerships in Korea and abroad.',
       items: [
         ['2026', ['Signed a smart-water-management cooperation MOU with HSCMT (Jan 23)', 'Signed a multilateral MOU with KWWA and water-energy companies at WATER KOREA 2026 for joint projects based in Uzbekistan (Mar 20)', 'Signed a K-water performance-improvement benefit-sharing agreement (Apr 10)']],
         ['2024', ['Registered the Hanam factory (Jan 9)', 'Registered a joint K-water patent for smart water-quality measurement and precision filtration (Apr 15)', 'Obtained residual chlorine analyzer type approval (Apr 17)', 'Signed a business cooperation agreement with HSCMT (Jun 16)', 'Received Venture Nara designation, WBSC10 EMC registration and pilot-purchase confirmation for turbidity and chlorine analyzers', "The Waterbee–K-water joint patent received the KIPO Commissioner's Award at the Korea Invention Patent Exhibition (Nov 27)"]],
@@ -188,7 +188,7 @@ export const companyProfile = {
     patents: {
       eyebrow: 'Intellectual Property',
       title: 'Patents & Applications',
-      intro: 'Registered patents are separated from the pending application, with joint ownership and transferred rights clearly identified.',
+      intro: 'Technology assets in turbidity and residual chlorine measurement, fault diagnostics, precision filtration and relay monitoring.',
       registeredLabel: '6 registered patents',
       registered: [
         {

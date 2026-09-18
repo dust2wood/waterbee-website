@@ -40,7 +40,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
       />
       <JsonLd data={companyNewsCollectionJsonLd(locale, companyNewsItems)} />
 
-      <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-16 lg:py-24">
+      <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-10 lg:py-14">
         <div className="container-custom grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-end lg:gap-20">
           <div>
             <div className="text-xs font-bold uppercase text-[#8c7200]">News &amp; Press</div>
@@ -51,7 +51,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
           <div className="max-w-2xl">
             <p className="break-keep text-base leading-8 text-[#596361] lg:text-lg">
               {isKo
-                ? '수질계측 기술 실증과 기업 협력, 국내외 시장에서 이어지는 워터비의 활동을 언론보도 원문과 함께 전합니다.'
+                ? '수질계측 기술 실증, 기업 협력과 국내외 사업 활동에 관한 워터비 소식.'
                 : 'Press coverage of Waterbee technology validation, corporate collaboration and market development in Korea and abroad.'}
             </p>
             <div className="mt-7 flex gap-8 border-t border-[#c8cecb] pt-5 text-sm text-[#68716f]">
@@ -62,7 +62,7 @@ export default async function NewsPage({ params }: { params: Promise<{ locale: s
         </div>
       </section>
 
-      <section className="py-16 lg:py-24">
+      <section className="py-10 lg:py-16">
         <div className="container-custom">
           {years.map((year) => {
             const yearItems = items.filter((item) => item.date.startsWith(year))

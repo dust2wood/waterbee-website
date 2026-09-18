@@ -37,9 +37,9 @@ export default function ProductCard({ product, className }: { product: Product; 
   return (
     <Link
       href={`/products/${product.slug}`}
-      className={clsx('group flex min-h-[520px] flex-col border-b border-r border-[#d7dcda] bg-white', className)}
+      className={clsx('group flex flex-col border-b border-r border-[#d7dcda] bg-white', className)}
     >
-      <div className="relative flex h-[330px] items-center justify-center overflow-hidden bg-[#f1f3f1]">
+      <div className="relative flex h-[240px] shrink-0 items-center justify-center overflow-hidden bg-[#f1f3f1] lg:h-[260px]">
         {isPhoto ? (
           <Image
             src={product.image}
@@ -65,19 +65,19 @@ export default function ProductCard({ product, className }: { product: Product; 
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-6 lg:p-7">
+      <div className="flex flex-1 flex-col p-5 lg:p-6">
         <div className="flex items-center justify-between gap-4">
           <span className="text-xs font-bold uppercase text-[#8c7200]">{product.model}</span>
           <span className="text-[11px] text-[#7b8481]">{isKo ? product.category : product.categoryEn}</span>
         </div>
-        <h3 className="mt-3 text-xl font-semibold leading-7 text-[#171c1b]">
+        <h3 className="mt-2 text-xl font-semibold leading-7 text-[#171c1b]">
           {isKo ? product.name : product.nameEn}
         </h3>
-        <p className="mt-3 line-clamp-2 text-sm leading-6 text-[#68716f]">
+        <p className="mb-4 mt-2 text-sm leading-6 text-[#68716f]">
           {isKo ? product.shortDescription : product.shortDescriptionEn}
         </p>
 
-        <div className="mt-auto flex items-end justify-between gap-4 border-t border-[#e0e4e2] pt-5">
+        <div className="mt-auto flex items-end justify-between gap-4 border-t border-[#e0e4e2] pt-4">
           <div className="grid gap-1 text-xs">
             <span className="text-[#8a9390]">{isKo ? product.specs[0].label : product.specs[0].labelEn}</span>
             <span className="font-medium text-[#303735]">{isKo ? product.specs[0].value : product.specs[0].valueEn}</span>

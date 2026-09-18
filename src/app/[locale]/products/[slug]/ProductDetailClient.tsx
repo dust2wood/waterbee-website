@@ -171,8 +171,8 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         </div>
       </nav>
 
-      <section id="overview" className="scroll-mt-36 py-12 lg:scroll-mt-40 lg:py-20">
-        <div className="container-custom grid gap-14 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
+      <section id="overview" className="scroll-mt-36 py-8 lg:scroll-mt-40 lg:py-12">
+        <div className="container-custom grid gap-6 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12">
           <div>
             <div className="text-xs font-bold uppercase text-[#8c7200]">{t('overview')}</div>
             <h2 className="mt-4 break-keep text-3xl font-bold tracking-normal text-[#151a19]">{title}</h2>
@@ -208,7 +208,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
         </section>
       )}
 
-      <section id="specifications" className="scroll-mt-36 bg-[#f3f5f3] py-12 lg:scroll-mt-40 lg:py-20">
+      <section id="specifications" className="scroll-mt-36 bg-[#f3f5f3] py-8 lg:scroll-mt-40 lg:py-12">
         <div className="container-custom">
           <ProductSpecTable specs={product.specs} />
         </div>

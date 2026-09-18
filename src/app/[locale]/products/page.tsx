@@ -48,7 +48,7 @@ export default async function ProductsPage({
         ])}
       />
       <JsonLd data={productCollectionJsonLd(locale, products)} />
-      <div className="border-b border-[#d7dcda] bg-[#f3f5f3] py-12 lg:py-14">
+      <div className="border-b border-[#d7dcda] bg-[#f3f5f3] py-8 lg:py-10">
         <div className="container-custom">
           <SectionTitle
             badge={t('badge')}
@@ -61,7 +61,7 @@ export default async function ProductsPage({
         </div>
       </div>
 
-      <div className="container-custom py-16 lg:py-20">
+      <div className="container-custom py-8 lg:py-10">
         <ProductGrid products={products} />
       </div>
     </div>
