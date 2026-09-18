@@ -234,8 +234,8 @@ export function technologyPageJsonLd(locale: string) {
         url: page.url,
         name: isKo ? '수질계측 핵심 기술' : 'Water-Quality Measurement Technology',
         description: isKo
-          ? '회전전극식 잔류염소 측정, 기포 저감형 탁도 광학계, 소모품 수명과 ESP32-S3 Wi-Fi·BLE 및 설명 가능한 엣지 AI 개발 방향을 소개합니다.'
-          : 'Rotating-electrode chlorine measurement, bubble-reduced turbidity optics, consumable lifecycles, and the ESP32-S3 Wi-Fi, BLE and explainable edge-AI roadmap.',
+          ? '회전전극식 잔류염소 측정, 기포 저감형 탁도 광학계, 소모품 수명과 Wi-Fi·Bluetooth 무선 연결 및 설명 가능한 엣지 AI 개발 방향을 소개합니다.'
+          : 'Rotating-electrode chlorine measurement, bubble-reduced turbidity optics, consumable lifecycles, and the Wi-Fi, Bluetooth and explainable edge-AI roadmap.',
         inLanguage: pageLanguage(locale),
         isPartOf: {
           '@id': WEBSITE_ID,
@@ -265,15 +265,16 @@ export function technologyPageJsonLd(locale: string) {
           '@id': ORGANIZATION_ID,
         },
         datePublished: '2026-08-23',
-        dateModified: '2026-09-17',
+        dateModified: '2026-09-18',
         image: [
           absoluteUrl('/images/technology/chlorine-rotation-20260917.webp'),
           absoluteUrl('/images/technology/turbidity-module-20260917.webp'),
+          absoluteUrl('/images/technology/controller-wireless-concept-20260918.webp'),
         ],
         about: [
           { '@type': 'Thing', name: isKo ? '회전전극식 잔류염소 측정' : 'Rotating-electrode residual chlorine measurement' },
           { '@type': 'Thing', name: isKo ? '기포 저감형 탁도 측정' : 'Bubble-reduced turbidity measurement' },
-          { '@type': 'Thing', name: 'ESP32-S3 Wi-Fi and Bluetooth Low Energy' },
+          { '@type': 'Thing', name: isKo ? 'Wi-Fi·Bluetooth 무선 연결 개발' : 'Wi-Fi and Bluetooth connectivity development' },
           { '@type': 'Thing', name: isKo ? '수질 엣지 AI' : 'Water-quality edge AI' },
         ],
       },

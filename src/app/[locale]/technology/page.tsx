@@ -16,12 +16,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title: locale === 'ko' ? '수질계측 핵심 기술' : 'Water-Quality Measurement Technology',
     description:
       locale === 'ko'
-        ? '회전전극식 잔류염소 측정, 기포 저감형 탁도 광학계, 소모품 수명과 ESP32-S3 Wi-Fi·BLE 및 설명 가능한 엣지 AI 개발 방향을 소개합니다.'
-        : 'Explore rotating-electrode chlorine measurement, bubble-reduced turbidity optics, consumable lifecycles, and the ESP32-S3 Wi-Fi, BLE and explainable edge-AI roadmap.',
+        ? '회전전극식 잔류염소 측정, 기포 저감형 탁도 광학계, 소모품 수명과 Wi-Fi·Bluetooth 무선 연결 및 설명 가능한 엣지 AI 개발 방향을 소개합니다.'
+        : 'Explore rotating-electrode chlorine measurement, bubble-reduced turbidity optics, consumable lifecycles, and the Wi-Fi, Bluetooth and explainable edge-AI roadmap.',
     keywords:
       locale === 'ko'
-        ? ['회전전극식 잔류염소', '탁도 기포 저감', '수질계측기 소모품 수명', 'ESP32 수질계측', '수질 엣지 AI']
-        : ['rotating electrode residual chlorine', 'turbidity bubble reduction', 'instrument consumable life', 'ESP32 water monitoring', 'edge AI water quality'],
+        ? ['회전전극식 잔류염소', '탁도 기포 저감', '수질계측기 소모품 수명', '수질계측기 무선 연결', '수질 엣지 AI']
+        : ['rotating electrode residual chlorine', 'turbidity bubble reduction', 'instrument consumable life', 'wireless water monitoring', 'edge AI water quality'],
   })
 }
 
@@ -51,7 +51,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
             <p className="mt-6 max-w-3xl break-keep text-base leading-8 text-[#596361] lg:text-lg">{copy.intro}</p>
             <div className="mt-5 text-xs font-medium text-[#7a8380]">
               {isKo ? '기술자료 · 발행 주식회사 워터비 · 최종 업데이트 ' : 'Technical reference · Published by Waterbee · Updated '}
-              <time dateTime="2026-09-17">{isKo ? '2026.09.17' : 'September 17, 2026'}</time>
+              <time dateTime="2026-09-18">{isKo ? '2026.09.18' : 'September 18, 2026'}</time>
             </div>
           </div>
 
@@ -147,7 +147,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
         </div>
       </section>
 
-      <section className="bg-[#f5f6f4] py-20 lg:py-28">
+      <section id="controller" className="scroll-mt-24 bg-[#f5f6f4] py-20 lg:py-28">
         <div className="container-custom">
           <div className="grid gap-8 border-b border-[#9fa8a5] pb-10 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
@@ -160,7 +160,7 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
             <p className="max-w-2xl break-keep text-sm leading-7 text-[#68716f] lg:pt-7 lg:text-base">{copy.controller.intro}</p>
           </div>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+          <div className="mt-10 grid items-start gap-6 lg:grid-cols-[0.82fr_1.18fr]">
             <article className="border border-[#d0d6d3] bg-white p-7 lg:p-10">
               <div className="inline-flex rounded-full bg-[#eef1ef] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#596361]">
                 {copy.controller.current.badge}
@@ -178,39 +178,39 @@ export default async function TechnologyPage({ params }: { params: Promise<{ loc
               </Link>
             </article>
 
-            <article className="bg-[#202725] p-7 text-white lg:p-10">
+            <article className="min-w-0 bg-[#202725] p-5 text-white sm:p-7 lg:p-10">
               <div className="inline-flex rounded-full border border-[#f5c400]/50 bg-[#f5c400]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#f5c400]">
                 {copy.controller.next.badge}
               </div>
-              <h3 className="mt-6 text-2xl font-bold">{copy.controller.next.title}</h3>
+              <h3 className="mt-6 break-keep text-2xl font-bold">{copy.controller.next.title}</h3>
               <p className="mt-4 max-w-2xl break-keep text-sm leading-7 text-[#b7c0bd]">{copy.controller.next.description}</p>
 
-              <div className="mt-8 grid gap-px bg-white/15 md:grid-cols-[1.05fr_0.95fr]">
-                <div className="relative min-h-[420px] bg-white p-6">
+              <figure className="mt-8">
+                <div className="relative aspect-[3/2] w-full bg-white">
                   <Image
-                    src="/images/products/wbsc10-front.png"
-                    alt={isKo ? '워터비 WBSC10 컨트롤러 실제 외형' : 'Actual Waterbee WBSC10 controller enclosure'}
+                    src="/images/technology/controller-wireless-concept-20260918.webp"
+                    alt={copy.controller.next.imageAlt}
                     fill
-                    className="object-contain p-6"
-                    sizes="(max-width: 768px) 100vw, 36vw"
+                    className="object-contain"
+                    sizes="(max-width: 1023px) 100vw, 55vw"
                   />
                 </div>
+                <figcaption className="mt-4 break-keep text-xs leading-6 text-[#b7c0bd]">{copy.controller.next.visualNote}</figcaption>
+              </figure>
 
-                <div className="grid gap-px bg-white/15 sm:grid-cols-2 md:grid-cols-1">
+              <div className="mt-7 grid gap-px bg-white/15 sm:grid-cols-2">
                 {copy.controller.next.features.map(([title, description], index) => (
                   <div key={title} className="min-h-[130px] bg-[#202725] p-5">
-                    <div className="flex items-center gap-3 text-[#f5c400]">
-                      {index === 0 ? <Bluetooth className="h-5 w-5" /> : null}
-                      {index === 1 ? <Wifi className="h-5 w-5" /> : null}
-                      {index > 1 ? <ShieldCheck className="h-5 w-5" /> : null}
-                      <h4 className="font-semibold text-white">{title}</h4>
+                    <div className="flex items-start gap-3 text-[#f5c400]">
+                      {index === 0 ? <Bluetooth className="mt-0.5 h-5 w-5 shrink-0" /> : null}
+                      {index === 1 ? <Wifi className="mt-0.5 h-5 w-5 shrink-0" /> : null}
+                      {index > 1 ? <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0" /> : null}
+                      <h4 className="break-keep font-semibold text-white">{title}</h4>
                     </div>
                     <p className="mt-4 break-keep text-sm leading-6 text-[#aeb8b5]">{description}</p>
                   </div>
                 ))}
-                </div>
               </div>
-              <p className="mt-4 break-keep text-xs leading-6 text-[#899491]">{copy.controller.next.visualNote}</p>
             </article>
           </div>
         </div>

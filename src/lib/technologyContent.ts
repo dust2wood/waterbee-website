@@ -10,7 +10,7 @@ export const technologyContent = {
       ['01', '오염에 강한 측정 구조', '회전전극과 관리 가능한 유로로 현장 오염의 영향을 줄입니다.'],
       ['02', '기포 영향을 줄인 광학계', '90° 산란광 검출과 기포 저감 구조로 저농도 탁도를 읽습니다.'],
       ['03', '수명 기준이 있는 유지관리', '고정 교체와 상태 기반 점검을 구분해 관리 계획을 세울 수 있습니다.'],
-      ['04', '연결형 제어와 AI 로드맵', 'ESP32-S3 기반 Wi-Fi·BLE와 설명 가능한 엣지 분석을 검증하고 있습니다.'],
+      ['04', '연결형 제어와 AI 로드맵', 'Wi-Fi·Bluetooth 무선 연결과 설명 가능한 엣지 분석을 검증하고 있습니다.'],
     ],
     measurementEyebrow: 'Measurement Principles',
     measurementTitle: '센서 구조가 만드는 측정 신뢰도',
@@ -103,7 +103,7 @@ export const technologyContent = {
       eyebrow: 'Connected Controller',
       title: '현행 제어와 차세대 연결 기술',
       intro:
-        '현재 공급 중인 WBSC10과 개발 중인 ESP32-S3 기반 제어기를 분리해 안내합니다. 개발 기능은 EVT와 현장 검증을 거쳐 최종 사양이 확정됩니다.',
+        '현재 공급 중인 WBSC10에 이어, 스마트폰과 PC에서 설정·상태를 확인하는 무선 연결 기술을 개발하고 있습니다. 개발 기능은 EVT와 현장 검증을 거쳐 최종 사양이 확정됩니다.',
       current: {
         badge: '현재 공급',
         title: 'WBSC10 현장 컨트롤러',
@@ -114,7 +114,7 @@ export const technologyContent = {
       },
       next: {
         badge: '개발 중 · EVT 검증 예정',
-        title: 'ESP32-S3 연결형 제어기',
+        title: 'Wi-Fi·Bluetooth 무선 연결',
         description:
           '기존 현장 신호를 유지하면서 무선 설정과 원격 상태 확인을 더하는 차세대 구조를 개발하고 있습니다.',
         features: [
@@ -123,7 +123,8 @@ export const technologyContent = {
           ['기존 설비 연동', '4–20 mA, RS-485, 릴레이·PLC 신호 통합'],
           ['검증 우선', 'RF, 동시 통신, 부하와 노이즈 시험 후 사양 확정'],
         ],
-        visualNote: '실제 WBSC10 외형을 기준으로 연결 기능만 표현한 개발 콘셉트입니다.',
+        imageAlt: '워터비 컨트롤러와 스마트폰·노트북의 Wi-Fi 및 Bluetooth 연결을 표현한 개발 개념도',
+        visualNote: '무선 연결 개발 개념도. 화면은 기능 설명용 예시이며, 지원 기능은 검증 후 확정됩니다.',
       },
     },
     ai: {
@@ -131,11 +132,11 @@ export const technologyContent = {
       badge: 'R&D 로드맵 · 검증 전',
       title: '설명 가능한 AI·독립 안전 제어',
       intro:
-        '장기 수질 데이터에서 이상징후와 센서 드리프트를 찾는 설명 가능한 경량 분석 구조를 개발하고 있습니다. 서버에서 학습·검증하고 ESP32에서는 위험도 추론만 수행하도록 역할을 나눕니다.',
+        '장기 수질 데이터에서 이상징후와 센서 드리프트를 찾는 설명 가능한 경량 분석 구조를 개발하고 있습니다. 서버에서 학습·검증하고 현장 제어기에서는 위험도 추론만 수행하도록 역할을 나눕니다.',
       steps: [
         ['01', '데이터 품질 판정', '결측·고정값·범위 이탈과 동시 이상을 먼저 걸러냅니다.'],
         ['02', '강건한 이상 탐지', 'Hampel, MAD, EWMA·CUSUM 등 설명 가능한 통계를 적용합니다.'],
-        ['03', '경량 위험도 추론', '검증된 얕은 모델을 ESP32에 배치해 현장 위험도를 계산합니다.'],
+        ['03', '경량 위험도 추론', '검증된 얕은 모델을 현장 제어기에 배치해 위험도를 계산합니다.'],
         ['04', '독립 안전 제어', 'AI와 분리된 상태 머신이 릴레이 한도와 복구 조건을 최종 판단합니다.'],
       ],
       principle:
@@ -156,7 +157,7 @@ export const technologyContent = {
       ['01', 'Fouling-resilient measurement', 'Rotating electrodes and serviceable flow paths help reduce field fouling.'],
       ['02', 'Bubble-reduced optics', '90° scattered-light detection and a bubble-reduction stage support low-range turbidity.'],
       ['03', 'Lifecycle-based maintenance', 'Fixed replacement and condition-based inspection are clearly separated.'],
-      ['04', 'Connected control and AI roadmap', 'ESP32-S3 Wi-Fi, BLE and explainable edge analytics are under validation.'],
+      ['04', 'Connected control and AI roadmap', 'Wi-Fi, Bluetooth and explainable edge analytics are under validation.'],
     ],
     measurementEyebrow: 'Measurement Principles',
     measurementTitle: 'Sensor Design Builds Confidence',
@@ -249,7 +250,7 @@ export const technologyContent = {
       eyebrow: 'Connected Controller',
       title: 'Control Today, Connectivity Next',
       intro:
-        'The shipping WBSC10 and the ESP32-S3 controller under development are presented separately. Development features will be finalized only after EVT and field validation.',
+        'Building on the shipping WBSC10, wireless connectivity is being developed for setup and status checks on smartphones and PCs. Development features will be finalized only after EVT and field validation.',
       current: {
         badge: 'Shipping now',
         title: 'WBSC10 field controller',
@@ -260,7 +261,7 @@ export const technologyContent = {
       },
       next: {
         badge: 'In development · EVT pending',
-        title: 'ESP32-S3 connected controller',
+        title: 'Wi-Fi & Bluetooth Connectivity',
         description:
           'The next-generation architecture is being developed to add wireless setup and remote status visibility while retaining conventional field signals.',
         features: [
@@ -269,7 +270,8 @@ export const technologyContent = {
           ['Plant integration', '4–20 mA, RS-485, relay and PLC signal integration'],
           ['Validation first', 'Final specifications follow RF, concurrent communication, load and noise testing'],
         ],
-        visualNote: 'Development concept using the actual WBSC10 enclosure to show connectivity functions only.',
+        imageAlt: 'Development concept showing Wi-Fi and Bluetooth links between a Waterbee controller, smartphone and laptop',
+        visualNote: 'Wireless connectivity development concept. Screens are illustrative; supported functions will be finalized after validation.',
       },
     },
     ai: {
@@ -277,11 +279,11 @@ export const technologyContent = {
       badge: 'R&D roadmap · not yet validated',
       title: 'Explainable AI & Safe Control',
       intro:
-        'Waterbee is developing explainable lightweight analytics for abnormal water-quality signals and sensor drift. Training and validation run on a server, while the ESP32 performs risk-score inference only.',
+        'Waterbee is developing explainable lightweight analytics for abnormal water-quality signals and sensor drift. Training and validation run on a server, while the field controller performs risk-score inference only.',
       steps: [
         ['01', 'Data quality gate', 'Screen missing, stuck, out-of-range and simultaneous abnormal values first.'],
         ['02', 'Robust anomaly detection', 'Apply explainable statistics such as Hampel, MAD, EWMA and CUSUM.'],
-        ['03', 'Lightweight risk inference', 'Deploy a validated shallow model to calculate a field risk score on the ESP32.'],
+        ['03', 'Lightweight risk inference', 'Deploy a validated shallow model to calculate a risk score on the field controller.'],
         ['04', 'Independent safety control', 'A separate state machine enforces relay limits and recovery conditions.'],
       ],
       principle:
