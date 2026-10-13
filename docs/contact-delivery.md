@@ -32,8 +32,28 @@ abuse prevention system. Apply platform rate limits before a high-volume launch.
 4. Verify provider acceptance, delivery status, and receipt in the support inbox.
 5. Verify Reply-To and that a failed request retains entered values.
 
-On 2026-10-13 the local mocked tests passed, but production had no sending key
-or sender configuration. No real test email was sent.
+## Production commissioning: 2026-10-13
+
+- Resend workspace: `waterbee`, signed in using the company account.
+- Verified sending domain: `notify.waterbee.co.kr`, North Virginia (`us-east-1`).
+- Sender: `website@notify.waterbee.co.kr`; recipient: `support@waterbee.co.kr`.
+- API key: Sending access restricted to this domain, stored as a Vercel
+  Production Secret. The key value is not included in source or backups.
+- TLS: Enforced. Open/click tracking was not configured. Receiving is disabled.
+- DNS: new DKIM TXT and two return-path CNAME records only. Existing root
+  Google Workspace MX, SPF, DKIM and DMARC records were preserved.
+- Production deployment: `dpl_BJ7Bv45Myk7vCmho2dBhcE9HXGMZ`, source `0fe05c7`.
+- Both Korean and English inquiry forms are enabled.
+- One approved test, `WB-CONTACT-20261013`, submitted through the public Korean
+  form at 13:54 KST. The page showed success and reset the fields.
+- Resend receipt `01a1339c-69ea-78af-b6f7-fe610b25d937`: Delivered.
+- Gmail message `1a1339c72f68e926`: received in the support inbox, not Spam.
+- Received headers: SPF, DKIM and DMARC pass; TLS 1.3; Reply-To correctly
+  matches the test sender. Do not resend this commissioning test on resume.
+- Mocked contact tests: 16 passed; lint, TypeScript and production build passed.
+
+The initial missing-credentials issue is resolved. Free-plan limits and abuse
+controls still need routine operational attention; no paid upgrade was enabled.
 
 ## Provider references
 
