@@ -46,10 +46,8 @@ export const products: Product[] = [
     featured: true,
     shortDescription: '센서 표시, 교정, 출력 및 통신을 하나의 현장 제어기로 통합',
     shortDescriptionEn: 'Integrated field controller for sensor display, calibration, output and communication',
-    description: `WBSC10은 워터비 수질 센서의 측정값 표시와 현장 교정, 경보 출력, 상위 시스템 통신을 담당하는 스마트 컨트롤러입니다.
-4.3인치 TFT LCD와 직관적인 키패드를 적용했으며, 4~20 mA와 RS-485 기반의 기존 제어 설비에 연결할 수 있습니다.`,
-    descriptionEn: `The WBSC10 is a smart field controller for Waterbee instruments, combining measurement display, field calibration, alarm output and communication with supervisory systems.
-Its 4.3-inch TFT LCD and keypad support clear local operation, while 4–20 mA and RS-485 interfaces connect to existing plant control systems.`,
+    description: '센서 측정값 표시·현장 교정·경보 출력 통합\n4.3인치 TFT LCD와 현장용 키패드\n4–20 mA·RS-485 기반 제어반 및 상위 시스템 연동',
+    descriptionEn: 'Integrated measurement display, calibration and alarms\n4.3-inch TFT LCD and field keypad\n4–20 mA and RS-485 plant-system integration',
     features: [
       '4.3인치 TFT LCD와 현장용 키패드',
       '센서 측정값 표시 및 현장 교정',
@@ -95,10 +93,8 @@ Its 4.3-inch TFT LCD and keypad support clear local operation, while 4–20 mA a
     featured: true,
     shortDescription: '저농도 수질을 위한 90° 산란광 방식 연속 탁도 측정',
     shortDescriptionEn: 'Continuous low-range turbidity measurement using 90° scattered light',
-    description: `WBTU10은 정수장과 배수지의 저농도 탁도를 연속 측정하는 온라인 탁도계입니다.
-텅스텐 램프 광원과 90도 산란광 검출 구조를 적용했으며, 탈부착 가능한 기포 저감 구조로 미세기포에 의한 측정 간섭을 줄였습니다.`,
-    descriptionEn: `The WBTU10 is an online turbidity meter for continuous low-range monitoring at water treatment plants and clearwells.
-It uses a tungsten lamp and 90-degree scattered-light detection, together with a detachable bubble-reduction structure that helps limit microbubble interference.`,
+    description: '정수장·배수지 저농도 탁도 연속 측정\n텅스텐 광원과 90° 산란광 검출\n탈부착식 기포 저감 구조를 통한 미세기포 간섭 저감',
+    descriptionEn: 'Continuous low-range monitoring at treatment plants and clearwells\nTungsten source and 90° scattered-light detection\nDetachable bubble-reduction stage for reduced microbubble interference',
     features: [
       '90° 산란광 방식의 저농도 연속 측정',
       '0~10 NTU 측정 범위',
@@ -141,10 +137,8 @@ It uses a tungsten lamp and 90-degree scattered-light detection, together with a
     featured: true,
     shortDescription: '무시약 회전전극식으로 잔류염소를 연속 측정하는 현장 계측기',
     shortDescriptionEn: 'Reagent-free rotating-electrode analyzer for continuous residual chlorine measurement',
-    description: `WBFC10은 회전전극식 폴라로그래프 방식을 적용한 온라인 잔류염소계입니다.
-측정 전극의 자동 회전 구조로 표면 오염을 줄이고, 멤브레인 교체 부담 없이 정수 공정의 잔류염소를 연속 모니터링할 수 있습니다.`,
-    descriptionEn: `The WBFC10 is an online residual chlorine analyzer based on a rotating-electrode polarographic method.
-Continuous electrode rotation helps limit surface fouling and supports reagent-free monitoring without the membrane replacement burden of conventional analyzers.`,
+    description: '회전전극식 폴라로그래프 기반 잔류염소 연속 측정\n전극 자동 회전으로 표면 오염 저감\n무시약·비멤브레인 구조의 정수 공정 모니터링',
+    descriptionEn: 'Continuous rotating-electrode polarographic measurement\nElectrode rotation for reduced surface fouling\nReagent-free, membrane-free treatment-process monitoring',
     features: [
       '무시약 회전전극식 폴라로그래프 방식',
       '0~2.00 mg/L 측정 범위',
@@ -187,10 +181,8 @@ Continuous electrode rotation helps limit surface fouling and supports reagent-f
     featured: true,
     shortDescription: '온도 보정과 현장 교정을 지원하는 연속식 pH 측정기',
     shortDescriptionEn: 'Continuous pH meter with temperature compensation and field calibration',
-    description: `WBPH10은 정수 공정과 수질 관리 현장의 pH를 연속 측정하는 온라인 계측기입니다.
-온도 자동 보정과 버퍼 2점 교정, 스팬 1점 교정을 지원하며, WBSC10 컨트롤러를 통해 측정값과 출력 신호를 통합 관리할 수 있습니다.`,
-    descriptionEn: `The WBPH10 continuously measures pH in water treatment and water-quality monitoring applications.
-It supports automatic temperature compensation, two-point buffer calibration and one-point span calibration, with measurement and output management through the WBSC10 controller.`,
+    description: '정수 공정 및 수질 관리 현장 pH 연속 측정\n자동 온도 보정·버퍼 2점 교정·스팬 1점 교정\nWBSC10 기반 측정값·출력 신호 통합 관리',
+    descriptionEn: 'Continuous pH monitoring for water-treatment processes\nAutomatic temperature compensation; two-point buffer and one-point span calibration\nWBSC10 measurement and output integration',
     features: [
       '0~14 pH 연속 측정',
       '온도 자동 보정',
@@ -227,10 +219,8 @@ It supports automatic temperature compensation, two-point buffer calibration and
     featured: true,
     shortDescription: '온도 보정을 지원하는 연속식 전기전도도(EC/TDS) 측정기',
     shortDescriptionEn: 'Continuous electrical conductivity meter with temperature compensation',
-    description: `WBEC10은 정수 공정과 수질 관리 현장의 전기전도도를 연속 측정하는 온라인 계측기입니다.
-온도 자동 보정 기능을 지원하며, WBSC10 컨트롤러를 통해 EC/TDS 측정값과 출력 신호를 통합 관리할 수 있습니다.`,
-    descriptionEn: `The WBEC10 continuously measures electrical conductivity in water treatment and water-quality monitoring applications.
-It supports automatic temperature compensation and integrates EC/TDS measurement and output management through the WBSC10 controller.`,
+    description: '정수 공정 및 수질 관리 현장 전기전도도 연속 측정\n교류 2전극 방식·자동 온도 보정\nWBSC10 기반 EC/TDS 측정값·출력 신호 통합 관리',
+    descriptionEn: 'Continuous conductivity monitoring for water-treatment processes\nAC two-electrode method and automatic temperature compensation\nWBSC10 EC/TDS measurement and output integration',
     features: [
       '전기전도도(EC/TDS) 연속 측정',
       '온도 자동 보정',
@@ -267,10 +257,8 @@ It supports automatic temperature compensation and integrates EC/TDS measurement
     featured: false,
     shortDescription: '양액과 관수 수질 측정을 위한 PT1000 내장형 소형 pH 복합전극',
     shortDescriptionEn: 'Compact pH combination electrode with PT1000 for nutrient solution and irrigation water',
-    description: `WBPH-E01은 스마트팜 양액과 관수 수질의 pH 측정을 위한 소형 복합전극입니다.
-12 mm 외경의 투명 폴리카보네이트 케이스에 PT1000 온도 보정과 Ag/AgCl 참조 겔을 내장해 제한된 배관과 수조에도 설치할 수 있습니다.`,
-    descriptionEn: `The WBPH-E01 is a compact combination electrode for pH measurement in smart-farm nutrient solutions and irrigation water.
-Its 12 mm transparent polycarbonate body integrates PT1000 temperature compensation and an Ag/AgCl gel reference for installation in compact piping and tanks.`,
+    description: '스마트팜 양액·관수용 소형 pH 복합전극\n외경 12 mm 투명 폴리카보네이트 케이스\nPT1000 온도 보정·Ag/AgCl 참조 겔 내장',
+    descriptionEn: 'Compact pH combination electrode for nutrient solutions and irrigation\n12 mm transparent polycarbonate casing\nIntegrated PT1000 compensation and Ag/AgCl gel reference',
     features: [
       '12 mm 외경 × 120 mm 소형 복합전극',
       '투명 폴리카보네이트 케이스',
@@ -308,10 +296,8 @@ Its 12 mm transparent polycarbonate body integrates PT1000 temperature compensat
     featured: false,
     shortDescription: '양액 농도 관리를 위한 흑연 감응부와 PT1000 내장형 전기전도도 전극',
     shortDescriptionEn: 'Conductivity electrode with graphite sensing element and PT1000 for nutrient management',
-    description: `WBEC-COND는 스마트팜 양액과 관수 수질의 전기전도도를 측정하는 소형 EC 센서입니다.
-흑연 원판 감응부와 K=1 셀 상수, PT1000 온도 보정 구조를 적용해 1 μS/cm부터 20 mS/cm까지 측정할 수 있습니다.`,
-    descriptionEn: `The WBEC-COND is a compact EC sensor for electrical conductivity measurement in smart-farm nutrient solutions and irrigation water.
-Its graphite disc sensing element, K=1 cell constant and PT1000 temperature compensation support a range from 1 μS/cm to 20 mS/cm.`,
+    description: '스마트팜 양액·관수용 소형 전기전도도 센서\n흑연 원판 감응부·K=1 셀 상수·PT1000 온도 보정\n1 μS/cm–20 mS/cm 측정 범위',
+    descriptionEn: 'Compact EC sensor for nutrient solutions and irrigation\nGraphite disc, K=1 cell constant and PT1000 compensation\n1 μS/cm–20 mS/cm measuring range',
     features: [
       'Ø12 × 120 mm Black ABS 본체',
       '흑연 원판 감응부',
@@ -350,10 +336,8 @@ Its graphite disc sensing element, K=1 cell constant and PT1000 temperature comp
     featured: false,
     shortDescription: 'pH·EC 센서 신호와 온도를 RS-485/Modbus RTU로 변환하는 현장용 컨버터',
     shortDescriptionEn: 'Field converters for pH, EC and temperature signals over RS-485/Modbus RTU',
-    description: `pH·EC 센서 컨버터는 pH와 EC 센서 신호 및 PT1000 온도 값을 현장 제어반의 RS-485/Modbus RTU 통신으로 전달합니다.
-pH와 EC가 독립 보드로 구성되며, 12~24 VDC 전원과 현장 설치용 방수 케이스 구성을 지원합니다.`,
-    descriptionEn: `The pH and EC sensor converters transmit pH, conductivity and PT1000 temperature values to field control panels over RS-485/Modbus RTU.
-Dedicated pH and EC boards operate from 12–24 VDC and support installation in compact weather-resistant enclosures.`,
+    description: 'pH·EC·PT1000 신호의 RS-485/Modbus RTU 변환\npH·EC 독립 보드 및 12–24 VDC 전원\n현장 설치용 소형 방수 케이스 구성',
+    descriptionEn: 'RS-485/Modbus RTU conversion of pH, EC and PT1000 signals\nDedicated pH and EC boards; 12–24 VDC supply\nCompact weather-resistant enclosure configuration',
     features: [
       'pH 및 EC 전용 컨버터 보드 구성',
       'PT1000 온도 입력 및 보정',
@@ -393,10 +377,8 @@ Dedicated pH and EC boards operate from 12–24 VDC and support installation in 
     featured: false,
     shortDescription: '정밀여과와 수질 계측, 자동 배수 제어를 결합한 관로 관리 시스템',
     shortDescriptionEn: 'Pipeline management system combining precision filtration, monitoring and automatic drain control',
-    description: `스마트 여과드레인 시스템은 정밀여과, 수질 계측, 자동 드레인 제어를 하나의 설비로 구성한 관로 수질 관리 시스템입니다.
-현장 관경과 요구 성능에 따라 PVC 또는 STS304 구조, 필터 정밀도, 계측 구성과 제어 방식을 선택할 수 있습니다.`,
-    descriptionEn: `The Smart Filter-Drain System combines precision filtration, water-quality monitoring and automatic drain control in one pipeline-management package.
-PVC or STS304 construction, filtration grade, instrument configuration and control method can be selected to match site requirements.`,
+    description: '정밀여과·수질계측·자동 드레인 통합 관로 관리\nPVC / STS304 재질 및 현장 관경별 구성\n필터 정밀도·계측 항목·제어 방식 선택',
+    descriptionEn: 'Integrated filtration, water-quality measurement and automatic drain control\nPVC / STS304 construction configured to pipe size\nSelectable filtration grade, instruments and control method',
     features: [
       '정밀여과와 자동 드레인 통합',
       '여과 전후 수질 비교 계측',
@@ -435,10 +417,8 @@ PVC or STS304 construction, filtration grade, instrument configuration and contr
     featured: false,
     shortDescription: '수질계측기에 안정적인 시료를 공급하는 오버플로우형 전처리 수조',
     shortDescriptionEn: 'Overflow pretreatment tank for stable sample supply to water-quality instruments',
-    description: `WB-ST 샘플링 수조는 탁도계, 잔류염소계, pH계와 전기전도도계에 균일한 시료를 공급하기 위한 전처리 장치입니다.
-투명 아크릴 구조로 수위와 내부 상태를 확인할 수 있으며, 현장 배관과 계측기 구성에 맞춰 제작할 수 있습니다.`,
-    descriptionEn: `The WB-ST sampling tank supplies a stable sample to turbidity, residual chlorine, pH and conductivity instruments.
-Its transparent acrylic body allows visual inspection and can be configured to match site piping and instrumentation.`,
+    description: '탁도·잔류염소·pH·전기전도도 계측용 시료 전처리\n투명 아크릴 구조와 오버플로우 방식\n현장 배관·계측기 구성에 따른 맞춤 제작',
+    descriptionEn: 'Sample pretreatment for turbidity, chlorine, pH and conductivity\nTransparent acrylic body and overflow supply\nSite-specific piping and instrument configuration',
     features: [
       '투명 아크릴 구조',
       '오버플로우 방식의 연속 시료 공급',
@@ -474,8 +454,8 @@ Its transparent acrylic body allows visual inspection and can be configured to m
     featured: false,
     shortDescription: 'WBTU10 전용 소형 보드 일체형 텅스텐 램프 모듈',
     shortDescriptionEn: 'Compact board-mounted tungsten lamp module for the WBTU10',
-    description: 'WBTU10 탁도계의 광원을 교체하기 위한 소형 보드 일체형 텅스텐 램프 모듈입니다. 램프가 전용 보드에 직접 장착되어 모듈 단위로 교체할 수 있습니다.',
-    descriptionEn: 'A compact board-mounted tungsten lamp module for replacing the WBTU10 light source. The lamp is mounted directly on its dedicated board for module-level replacement.',
+    description: 'WBTU10 전용 보드 일체형 텅스텐 램프\n소형 보드 직접 장착·모듈 단위 교체',
+    descriptionEn: 'WBTU10 board-mounted tungsten lamp\nCompact dedicated board and module-level replacement',
     features: ['WBTU10 전용', '약 17 x 17 mm 소형 보드', '580 nm 텅스텐 램프'],
     featuresEn: ['For WBTU10', 'Approx. 17 x 17 mm compact board', '580 nm tungsten lamp'],
     specs: [
@@ -504,8 +484,8 @@ Its transparent acrylic body allows visual inspection and can be configured to m
     featured: false,
     shortDescription: 'WBFC10 전용 정품 전극 교체 부품',
     shortDescriptionEn: 'Genuine replacement electrode kit for the WBFC10',
-    description: 'WBFC10 잔류염소계의 측정 전극 교체를 위한 정품 유지보수 부품입니다.',
-    descriptionEn: 'A genuine maintenance part for replacing the measuring electrodes in the WBFC10 analyzer.',
+    description: 'WBFC10 잔류염소계 전용 측정 전극\n정품 유지보수·교체 부품',
+    descriptionEn: 'WBFC10 replacement measuring electrode\nGenuine service part',
     features: ['WBFC10 전용', 'Gold / Silver 전극 구성', '현장 교체 지원'],
     featuresEn: ['For WBFC10', 'Gold / Silver electrode set', 'Field replacement support'],
     specs: [
@@ -532,8 +512,8 @@ Its transparent acrylic body allows visual inspection and can be configured to m
     featured: false,
     shortDescription: 'WBFC10 회전전극 표면 세정을 위한 지르코니아 세라믹 비즈',
     shortDescriptionEn: 'Zirconia ceramic cleaning beads for the WBFC10 rotating electrode',
-    description: 'WBFC10 잔류염소계의 필터 하우징 내부에서 회전전극 표면의 이물질 부착을 줄이는 세정용 소모품입니다.',
-    descriptionEn: 'A cleaning consumable used inside the WBFC10 filter housing to help limit deposits on the rotating-electrode surface.',
+    description: 'WBFC10 필터 하우징용 세정 소모품\n회전전극 표면의 이물질 부착 저감',
+    descriptionEn: 'Cleaning consumable for the WBFC10 filter housing\nReduced deposits on the rotating-electrode surface',
     features: ['WBFC10 전용', '이트리아 안정화 지르코니아', '직경 1.0-1.2 mm 구형 비즈'],
     featuresEn: ['For WBFC10', 'Yttria-stabilized zirconia', '1.0-1.2 mm spherical beads'],
     specs: [

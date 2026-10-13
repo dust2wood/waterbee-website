@@ -80,7 +80,7 @@ export default function ProductDrawings({ drawing, isKo }: { drawing: ProductDra
           </div>
         </div>
         <div className="mt-5 flex flex-wrap justify-between gap-3 text-xs leading-5 text-[#68716f]">
-          <p>{isKo ? 'PDF 축척 측정 금지. 제작·설치 전 납품 형상과 치수를 확인해 주세요.' : 'Do not scale the PDF. Confirm the supplied configuration and dimensions before fabrication or installation.'}</p>
+          <p>{isKo ? '도면 기입 치수 기준 · 제작·설치 전 납품 형상 및 치수 확인' : 'Written drawing dimensions · Supplied configuration and dimension check before fabrication or installation'}</p>
           <Link href="/downloads" className="inline-flex items-center gap-2 font-semibold text-[#202725]">{isKo ? '전체 자료실' : 'All downloads'}<ArrowRight className="h-3.5 w-3.5" /></Link>
         </div>
       </div>

@@ -3,7 +3,7 @@ export const companyProfile = {
     hero: {
       eyebrow: 'Company',
       title: '워터비 연혁·기술자산',
-      intro: '2021년 설립한 수질계측기 개발·제조 기업. 탁도와 잔류염소 측정 기술을 기반으로 현장 계측·제어·여과 시스템을 개발합니다.',
+      intro: '2021년 설립 · 탁도·잔류염소 측정 기술 기반 계측·제어·여과 시스템 개발·제조',
       metrics: [
         ['2021.10.05', '법인설립'],
         ['6건', '등록특허'],
@@ -13,11 +13,11 @@ export const companyProfile = {
     identity: {
       eyebrow: 'Waterbee',
       title: '정확한 계측, 더 나은 물 관리',
-      intro: '워터비는 현장 수질계측기와 제어·여과 시스템을 직접 개발하는 기술기업입니다. 측정 신뢰성, 유지관리성, 기존 설비와의 연결성을 함께 설계합니다.',
+      intro: '수질계측기와 제어·여과 시스템 자체 개발 · 측정 신뢰성·유지관리성·설비 연결성 통합 설계',
       missionLabel: 'Mission',
-      mission: '신뢰할 수 있는 수질 데이터를 더 많은 현장에 제공합니다.',
+      mission: '신뢰할 수 있는 수질 데이터의 현장 적용 확대',
       visionLabel: 'Vision',
-      vision: '측정과 유지관리가 연결되는 실용적인 물 관리 표준을 만듭니다.',
+      vision: '측정과 유지관리를 연결하는 실용적 물 관리 표준',
     },
     history: {
       eyebrow: 'History',
@@ -146,7 +146,7 @@ export const companyProfile = {
           date: '2024.10.16–2026.10.15',
         },
       ],
-      note: '인증 범위와 대상 모델은 계약 또는 조달 전에 최신 증서를 확인해 주세요.',
+      note: '인증 범위·대상 모델·유효기간: 계약 및 조달 시 최신 증서 기준',
     },
     links: {
       news: '최근 활동과 언론보도 보기',
@@ -157,7 +157,7 @@ export const companyProfile = {
     hero: {
       eyebrow: 'Company',
       title: 'Waterbee History & IP',
-      intro: 'Established in 2021, Waterbee develops and manufactures water-quality instruments, field control and filtration systems built on turbidity and residual chlorine measurement technology.',
+      intro: 'Established in 2021 · In-house water-quality instrumentation, field control and filtration systems',
       metrics: [
         ['2021.10.05', 'Incorporated'],
         ['6', 'Registered patents'],
@@ -167,11 +167,11 @@ export const companyProfile = {
     identity: {
       eyebrow: 'Waterbee',
       title: 'Dependable Measurement, Better Water',
-      intro: 'Waterbee develops field water-quality instruments and control/filtration systems. Measurement confidence, maintainability and integration with existing facilities are designed together.',
+      intro: 'In-house instrumentation and control/filtration development · Measurement reliability, serviceability and plant integration',
       missionLabel: 'Mission',
-      mission: 'Make dependable water-quality data available to more operating sites.',
+      mission: 'Dependable water-quality data across more operating sites',
       visionLabel: 'Vision',
-      vision: 'Create a practical water-management standard that connects measurement and maintenance.',
+      vision: 'Practical water management connecting measurement and maintenance',
     },
     history: {
       eyebrow: 'History',

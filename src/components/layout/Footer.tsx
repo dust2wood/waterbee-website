@@ -19,8 +19,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#151a19] text-white">
-      <div className="container-custom py-14 lg:py-16">
-        <div className="grid gap-12 border-b border-white/15 pb-12 lg:grid-cols-[1.2fr_0.8fr]">
+      <div className="container-custom py-8 lg:py-12">
+        <div className="grid gap-7 border-b border-white/15 pb-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
           <div>
             <Image
               src="/images/logo-new.png"
@@ -32,10 +32,10 @@ export default function Footer() {
             <p className="mt-6 max-w-md text-sm leading-7 text-[#aeb8b5]">{t('description')}</p>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-[0.7fr_1.3fr]">
+          <div className="grid gap-7 sm:grid-cols-[minmax(120px,0.7fr)_minmax(230px,1.3fr)]">
             <nav>
               <div className="mb-4 text-[11px] font-bold uppercase text-[#f5c400]">{t('links')}</div>
-              <ul className="space-y-3">
+              <ul className="grid grid-cols-3 gap-x-3 gap-y-3 sm:grid-cols-1">
                 {navLinks.map((link) => (
                   <li key={link.key}>
                     <Link href={link.href} className="text-sm text-[#c8cfcd] transition-colors hover:text-white">
@@ -50,7 +50,7 @@ export default function Footer() {
               <div className="mb-4 text-[11px] font-bold uppercase text-[#f5c400]">Contact</div>
               <div className="space-y-3 text-sm leading-6 text-[#c8cfcd]">
                 <a href="tel:1555-3534" className="block hover:text-white">1555-3534</a>
-                <a href="mailto:support@waterbee.co.kr" className="block break-all hover:text-white">support@waterbee.co.kr</a>
+                <a href="mailto:support@waterbee.co.kr" className="contact-email block hover:text-white">support@waterbee.co.kr</a>
                 <p>{t('address_value')}</p>
               </div>
             </div>

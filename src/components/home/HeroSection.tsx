@@ -36,7 +36,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#102019] pt-16 lg:pt-20">
-      <div className="relative min-h-[clamp(600px,calc(100svh-4rem),700px)] lg:min-h-[570px] xl:min-h-[650px] 2xl:min-h-[clamp(720px,70vh,820px)]">
+      <div className="relative min-h-[530px] sm:min-h-[600px] lg:min-h-[570px] xl:min-h-[650px] 2xl:min-h-[clamp(720px,70vh,820px)]">
         <Image
           src="/images/home/water-landscape.jpg"
           alt={

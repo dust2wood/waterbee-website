@@ -35,7 +35,7 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
         ])}
       />
       <JsonLd data={contactPageJsonLd(locale)} />
-      <ContactForm />
+      <ContactForm deliveryReady={Boolean(process.env.RESEND_API_KEY?.trim() && process.env.CONTACT_FROM_EMAIL?.trim())} />
     </>
   )
 }

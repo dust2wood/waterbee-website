@@ -33,8 +33,8 @@ export default function CompanyIdentitySection({ locale }: { locale: string }) {
           </h2>
           <p className="mt-5 max-w-xl break-keep text-sm leading-7 text-[#68716f] lg:mt-6 lg:text-base">
             {isKo
-              ? '주식회사 워터비는 센서의 측정 원리부터 현장 제어와 통신까지 직접 설계합니다.'
-              : 'Waterbee designs measurement principles, field control and communications as one instrumentation system.'}
+              ? '센싱 원리부터 현장 제어·통신까지 자체 설계·제조'
+              : 'In-house sensing, field control and communications design'}
           </p>
 
           <div className="mt-7 flex flex-wrap gap-5 lg:mt-8">

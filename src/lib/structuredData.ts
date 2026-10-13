@@ -265,7 +265,7 @@ export function technologyPageJsonLd(locale: string) {
           '@id': ORGANIZATION_ID,
         },
         datePublished: '2026-08-23',
-        dateModified: '2026-09-18',
+        dateModified: '2026-10-13',
         image: [
           absoluteUrl('/images/technology/chlorine-rotation-20260917.webp'),
           absoluteUrl('/images/technology/turbidity-module-20260917.webp'),

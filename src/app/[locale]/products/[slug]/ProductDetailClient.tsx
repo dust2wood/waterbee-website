@@ -108,7 +108,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
             )}
           </div>
 
-          <div className="flex items-center py-10 lg:py-14 lg:pl-14">
+          <div className="flex min-w-0 items-center pb-8 pt-2 lg:py-12 lg:pl-14">
             <div className="w-full">
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold uppercase">
                 <span className="text-[#8c7200]">{product.model}</span>
@@ -178,8 +178,8 @@ export default function ProductDetailClient({ product }: { product: Product }) {
             <h2 className="mt-4 break-keep text-3xl font-bold tracking-normal text-[#151a19]">{title}</h2>
           </div>
           <div>
-            <p className="whitespace-pre-line text-base leading-8 text-[#596361]" style={{ wordBreak: 'keep-all' }}>{description}</p>
-            <div className="mt-10 grid gap-x-8 gap-y-0 border-t border-[#aeb6b3] sm:grid-cols-2">
+            <ul className="space-y-2 text-base leading-7 text-[#596361]">{description.split('\n').map(point => <li key={point} className="flex gap-3"><span aria-hidden="true" className="mt-3 h-1 w-1 shrink-0 bg-[#8c7200]" /><span>{point}</span></li>)}</ul>
+            <div className="mt-6 grid gap-x-8 gap-y-0 border-t border-[#aeb6b3] sm:grid-cols-2">
               {features.map((feature) => (
                 <div key={feature} className="flex gap-3 border-b border-[#d7dcda] py-4 text-sm leading-6 text-[#303735]">
                   <Check className="mt-1 h-4 w-4 shrink-0 text-[#8c7200]" />
@@ -218,7 +218,7 @@ export default function ProductDetailClient({ product }: { product: Product }) {
       {product.slug === 'wbph10' && !drawing && (
         <section id="drawings" className="scroll-mt-36 border-b border-[#d7dcda] py-12 lg:scroll-mt-40">
           <div className="container-custom flex flex-wrap items-center justify-between gap-6">
-            <div><h2 className="text-2xl font-bold">{isKo ? '외형도 문의' : 'Outline drawing request'}</h2><p className="mt-3 text-sm leading-6 text-[#68716f]">{isKo ? '납품 센서 사양 확인 후 해당 구성의 도면을 안내해 드립니다.' : 'Contact us for the drawing matching your supplied sensor configuration.'}</p></div>
+            <div><h2 className="text-2xl font-bold">{isKo ? '외형도 문의' : 'Outline drawing request'}</h2><p className="mt-3 text-sm leading-6 text-[#68716f]">{isKo ? '납품 센서 사양별 외형도 안내' : 'Drawings matched to the supplied sensor configuration'}</p></div>
             <Link href="/contact" className="btn-secondary"><Mail className="h-4 w-4" />{isKo ? '도면 문의' : 'Request a drawing'}</Link>
           </div>
         </section>

@@ -12,7 +12,7 @@
   "hero": {
     "badge": "Water Quality Instrumentation",
     "title": "Water Quality Instruments by Waterbee",
-    "subtitle": "Waterbee designs and manufactures online turbidity meters, rotating-electrode residual chlorine analyzers, pH and conductivity meters, and smart field controllers.",
+    "subtitle": "In-house design and manufacture of turbidity, residual chlorine, pH and conductivity instruments and field controllers",
     "cta_primary": "Explore Products",
     "cta_secondary": "Technical Inquiry",
     "scroll": "Scroll",
@@ -24,38 +24,38 @@
     "pillars": [
       {
         "title": "Measurement You Can Act On",
-        "description": "We design sensor technologies that stay dependable under real operating conditions and support better site decisions."
+        "description": "Reliable sensing and measurement data for changing field conditions"
       },
       {
         "title": "Sustainable Operation",
-        "description": "We focus on long-term continuous use through auto-cleaning concepts and structures that reduce maintenance burden."
+        "description": "Continuous operation with automatic cleaning and serviceable structures"
       },
       {
         "title": "Connected Systems",
-        "description": "We connect sensors, controllers, and higher-level systems through both wired and wireless monitoring flows."
+        "description": "Sensor and plant-system integration; wireless connectivity development"
       }
     ]
   },
   "tech_features": {
     "badge": "Core Technology",
-    "title": "Designed around\nreal operating conditions",
-    "subtitle": "Measurement principles, maintainable structures and field-control signals are connected as one practical operating system.",
+    "title": "Precision Measurement & Field Control",
+    "subtitle": "Integrated measurement principles, serviceable structures and plant-control signals",
     "cta": "Explore Core Technology",
     "items": [
       {
         "tag": "Residual Chlorine",
         "title": "Continuous Rotating Electrode",
-        "description": "The rotating structure helps limit electrode fouling and measures residual chlorine continuously without a membrane."
+        "description": "Electrode rotation for reduced fouling and reagent-free monitoring"
       },
       {
         "tag": "Turbidity",
         "title": "90° Low-Range Scattered Light",
-        "description": "A detachable bubble-reduction structure and scattered-light detection help limit microbubble interference."
+        "description": "Detachable bubble-reduction stage for reduced microbubble interference"
       },
       {
         "tag": "Field Control",
         "title": "Integrated Display, Calibration and Output",
-        "description": "The WBSC10 manages local display, calibration, 4–20 mA output and RS-485 communication in one controller."
+        "description": "WBSC10 display, calibration, 4–20 mA output and RS-485 communication"
       }
     ]
   },
@@ -75,17 +75,17 @@
     "items": [
       {
         "title": "Precision Filtration",
-        "description": "Select 10 / 50 / 100 μm filtration to match the operating condition.",
+        "description": "10 / 50 / 100 μm filtration options",
         "products": "Filtration"
       },
       {
         "title": "Pre/Post Water Monitoring",
-        "description": "Configure turbidity and residual chlorine instruments for the operating objective.",
+        "description": "Selectable turbidity and residual chlorine configurations",
         "products": "Instrumentation"
       },
       {
         "title": "Automatic Drain Control",
-        "description": "PLC/HMI and supervisory systems control draining according to operating conditions.",
+        "description": "PLC/HMI integration and operating-condition-based drain control",
         "products": "Control"
       }
     ]
@@ -96,8 +96,8 @@
     "subtitle": "Waterbee instrumentation for water treatment plants, clearwells and field monitoring"
   },
   "cta_banner": {
-    "title": "Looking for the right field instrument setup?",
-    "subtitle": "We review the required parameters and installation conditions to recommend a practical configuration.",
+    "title": "Instrumentation for Your Process",
+    "subtitle": "Technical consultation by measurement parameter, installation and control requirements",
     "cta": "Request Technical Advice",
     "phone": "Call"
   },
@@ -131,7 +131,7 @@
   "contact": {
     "badge": "Contact",
     "title": "Technical Consultation Inquiry",
-    "subtitle": "Leave your inquiry about products and solutions, and our specialist will contact you promptly.",
+    "subtitle": "Product selection · Quotations · Installation review · Technical support",
     "form": {
       "name": "Name",
       "name_placeholder": "John Doe",
@@ -173,13 +173,13 @@
       "address_value": "39, Ecodeltasmart-ro, Gangseo-gu, Busan, 3-dong 2-ho",
       "hours": "Business Hours",
       "hours_value": "Weekdays 09:00 ~ 18:00 (Closed on weekends & holidays)",
-      "emergency": "For urgent technical support, please contact us by phone for prompt assistance."
+      "emergency": "Urgent technical support: +82 1555-3534"
     }
   },
   "footer": {
     "company": "Waterbee Co., Ltd.",
     "tagline": "Water Quality Measurement Specialist",
-    "description": "Supporting accurate and dependable water management with field-oriented instrumentation.",
+    "description": "Water-quality instrumentation, control and filtration systems",
     "address_value": "39, Ecodeltasmart-ro, Gangseo-gu, Busan, 3-dong 2-ho",
     "links": "Quick Links",
     "legal": "Legal",

@@ -62,7 +62,33 @@
   }
 
   .section-padding {
-    @apply py-20 lg:py-28;
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+
+  .tech-section {
+    @apply scroll-mt-20 py-8 lg:scroll-mt-24 lg:py-12;
+  }
+
+  .tech-kicker {
+    @apply text-xs font-bold uppercase text-[#8c7200];
+  }
+
+  .tech-heading {
+    @apply mt-3 text-2xl font-bold leading-snug lg:text-3xl;
+  }
+
+  .tech-intro {
+    @apply mt-3 max-w-3xl text-sm leading-7 text-[#596361];
+  }
+
+  .tech-link {
+    @apply inline-flex min-h-11 items-center gap-2 text-sm font-semibold hover:text-[#8c7200];
+  }
+
+  .contact-email {
+    @apply whitespace-nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
   }
 
   .nav-link {

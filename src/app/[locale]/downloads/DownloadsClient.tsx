@@ -65,8 +65,8 @@ export default function DownloadsClient({ isKo }: { isKo: boolean }) {
         {!items.length && <div className="py-16 text-center"><p className="text-[#596361]">{isKo ? '일치하는 공개 도면이 없습니다.' : 'No matching drawings.'}</p><button type="button" onClick={() => { setQuery(''); setModel('all') }} className="mt-4 text-sm font-semibold underline underline-offset-4">{isKo ? '검색 초기화' : 'Reset filters'}</button></div>}
       </div>
       <div className="mt-8 grid gap-6 text-sm leading-7 text-[#68716f] lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-12">
-        <p>{isKo ? '치수는 각 도면의 적용 형상 기준입니다. 설치·제작 전 납품 제품의 하우징, 센서 및 배관 구성을 확인해 주세요. PDF는 축척 측정용이 아닙니다.' : 'Dimensions apply to the configuration shown in each drawing. Confirm the housing, sensor and piping supplied before installation or fabrication. Do not scale the PDF.'}</p>
-        <div><p className="font-semibold text-[#202725]">{isKo ? '다른 구성의 도면이 필요하신가요?' : 'Need a different configuration?'}</p><Link href="/contact" className="inline-flex min-h-11 items-center gap-2 text-[#202725]">{isKo ? '도면 문의' : 'Request a drawing'}<ArrowUpRight className="h-4 w-4" /></Link></div>
+        <p>{isKo ? '도면 기입 치수 기준 · 설치·제작 전 납품 형상과 배관 구성 확인 · REF: 참고치수' : 'Written drawing dimensions · Supplied configuration check before installation or fabrication · REF: reference dimension'}</p>
+        <div><p className="font-semibold text-[#202725]">{isKo ? '맞춤 구성 도면' : 'Configuration-specific drawings'}</p><Link href="/contact" className="inline-flex min-h-11 items-center gap-2 text-[#202725]">{isKo ? '도면 문의' : 'Request a drawing'}<ArrowUpRight className="h-4 w-4" /></Link></div>
       </div>
     </div>
   )

@@ -27,8 +27,8 @@ export const productDrawings: ProductDrawing[] = [
       { label: '벽 고정홀 간격', labelEn: 'Mounting centres', value: '148 × 166 mm' },
       { label: '벽 고정홀', labelEn: 'Mounting holes', value: '4 × Ø4.2 mm' },
     ],
-    note: '190 × 180 mm 본체 형상 기준. 납품 하우징과 형상을 대조해 주세요. 깊이 86.5 mm와 측면·하부·등각도는 참고값(REF)이며 조립품 실측값이 아닙니다. 글랜드·버튼 캡 등 부착품은 제외됩니다.',
-    noteEn: 'Applies to the 190 × 180 mm enclosure shown. Check against the supplied housing. The 86.5 mm depth and side, bottom and isometric views are reference only (REF), not as-built measurements. Glands, button caps and accessories are excluded.',
+    note: '190 × 180 mm 본체 기준 · 깊이 86.5 mm 및 측면·하부·등각도: 참고값(REF) · 납품 하우징 실측 확인 · 글랜드·버튼 캡 제외',
+    noteEn: '190 × 180 mm enclosure · 86.5 mm depth and side/bottom/isometric views: REF · Supplied-housing measurement check · Glands and button caps excluded',
   },
   {
     slug: 'wbtu10', model: 'WBTU10', name: '온라인 탁도계', nameEn: 'Online Turbidity Meter', views: 1,
@@ -38,7 +38,7 @@ export const productDrawings: ProductDrawing[] = [
       { label: '고정홀 간격', labelEn: 'Mounting centres', value: '170 × 70 mm' },
       { label: '고정홀 지름', labelEn: 'Mounting-hole diameter', value: 'Ø5.5 mm' },
     ],
-    note: '배관·피팅 구성에 따라 설치 공간이 달라질 수 있습니다. 배관 연결과 하부 점검 공간을 별도로 확보해 주세요.',
+    note: '배관·피팅 구성별 설치 공간 확인 · 배관 연결 및 하부 점검 공간 추가 확보',
     noteEn: 'Installation space varies with the piping and fittings supplied. Allow additional clearance for pipe connections and maintenance below the instrument.',
   },
   {
@@ -49,7 +49,7 @@ export const productDrawings: ProductDrawing[] = [
       { label: '고정홀 간격', labelEn: 'Mounting centres', value: '150 × 70 mm' },
       { label: '고정홀 지름', labelEn: 'Mounting-hole diameter', value: 'Ø5.5 mm' },
     ],
-    note: '배관·피팅 구성에 따라 설치 공간이 달라질 수 있습니다. 전극과 측정조의 점검·교체 공간을 별도로 확보해 주세요.',
+    note: '배관·피팅 구성별 설치 공간 확인 · 전극·측정조 점검 및 교체 공간 추가 확보',
     noteEn: 'Installation space varies with the piping and fittings supplied. Allow additional clearance for electrode and measurement-chamber maintenance.',
   },
   {
@@ -59,7 +59,7 @@ export const productDrawings: ProductDrawing[] = [
       { label: '체결 나사', labelEn: 'Connection', value: 'NPT 3/4' },
       { label: '본체 구간 (참고)', labelEn: 'Body segment (reference)', value: '110 mm (REF)' },
     ],
-    note: '본체 구간 110 mm는 참고치수(REF)입니다. 설치 전 실제 납품 센서의 형상과 치수를 확인해 주세요.',
+    note: '본체 구간 110 mm: 참고치수(REF) · 설치 전 납품 센서의 실제 형상 및 치수 확인',
     noteEn: 'The 110 mm body segment is a reference dimension (REF). Confirm the supplied sensor configuration and dimensions before installation.',
   },
   {
@@ -70,7 +70,7 @@ export const productDrawings: ProductDrawing[] = [
       { label: '체결 나사', labelEn: 'Connection', value: 'NPT 3/4' },
       { label: '공구 체결부', labelEn: 'Wrench size', value: 'SW29' },
     ],
-    note: '184 mm는 도면의 68 + 101 + 15 mm 구간 합계입니다. 끝단 글랜드와 케이블 인출 공간은 포함하지 않습니다.',
+    note: '표시 구간 합계: 68 + 101 + 15 = 184 mm · 끝단 글랜드 및 케이블 인출 공간 별도 확보',
     noteEn: '184 mm is the sum of the indicated 68 + 101 + 15 mm segments. The end gland and cable-exit clearance are not included.',
   },
 ]

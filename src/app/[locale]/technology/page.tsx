@@ -1,268 +1,123 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { setRequestLocale } from 'next-intl/server'
-import { ArrowRight, Bluetooth, BrainCircuit, Gauge, ShieldCheck, Wifi, Wrench } from 'lucide-react'
+import { ArrowUpRight, Bluetooth, BrainCircuit, Download, ShieldCheck, Wifi } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import JsonLd from '@/components/seo/JsonLd'
 import { createPageMetadata } from '@/lib/seo'
 import { breadcrumbJsonLd, technologyPageJsonLd } from '@/lib/structuredData'
 import { getTechnologyContent } from '@/lib/technologyContent'
+import { products } from '@/lib/products'
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params
-  return createPageMetadata({
-    locale,
-    path: '/technology',
+  return createPageMetadata({ locale, path: '/technology',
     title: locale === 'ko' ? '수질계측 핵심 기술' : 'Water-Quality Measurement Technology',
-    description:
-      locale === 'ko'
-        ? '회전전극식 잔류염소 측정, 기포 저감형 탁도 광학계, 소모품 수명과 Wi-Fi·Bluetooth 무선 연결 및 설명 가능한 엣지 AI 개발 방향을 소개합니다.'
-        : 'Explore rotating-electrode chlorine measurement, bubble-reduced turbidity optics, consumable lifecycles, and the Wi-Fi, Bluetooth and explainable edge-AI roadmap.',
-    keywords:
-      locale === 'ko'
-        ? ['회전전극식 잔류염소', '탁도 기포 저감', '수질계측기 소모품 수명', '수질계측기 무선 연결', '수질 엣지 AI']
-        : ['rotating electrode residual chlorine', 'turbidity bubble reduction', 'instrument consumable life', 'wireless water monitoring', 'edge AI water quality'],
+    description: locale === 'ko' ? '회전전극식 잔류염소, 기포 저감형 탁도, 현장 컨트롤러와 센서별 유지관리. Wi-Fi·Bluetooth 및 AI 진단 개발.' : 'Rotating-electrode chlorine, bubble-reduced turbidity, field control and sensor maintenance. Wireless connectivity and AI diagnostic development.',
   })
 }
+
+const sectionIds = ['measurement', 'controller', 'connectivity', 'maintenance']
+const featureIcons = [Bluetooth, Wifi, BrainCircuit, ShieldCheck]
+const partSlugs = ['wbtu10-lamp-kit', 'wbfc10-electrode-kit', 'wbfc10-ceramic-beads']
 
 export default async function TechnologyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   setRequestLocale(locale)
   const isKo = locale === 'ko'
   const copy = getTechnologyContent(locale)
+  const parts = products.filter(p => partSlugs.includes(p.slug))
 
   return (
-    <div className="min-h-screen bg-white pt-16 lg:pt-20">
-      <JsonLd
-        data={breadcrumbJsonLd(locale, [
-          { name: isKo ? '홈' : 'Home' },
-          { name: isKo ? '기술' : 'Technology', path: '/technology' },
-        ])}
-      />
+    <div className="technology-page bg-white pt-16 lg:pt-20">
+      <JsonLd data={breadcrumbJsonLd(locale, [{ name: isKo ? '홈' : 'Home' }, { name: isKo ? '기술' : 'Technology', path: '/technology' }])} />
       <JsonLd data={technologyPageJsonLd(locale)} />
-
-      <section className="border-b border-[#d7dcda] bg-[#f1f3f1] py-10 lg:py-14">
+      <header className="border-b border-[#d7dcda] bg-[#f1f3f1] py-8 lg:py-12">
         <div className="container-custom">
-          <div className="max-w-4xl">
-            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{copy.eyebrow}</div>
-            <h1 className="mt-4 max-w-3xl break-keep text-3xl font-bold leading-tight tracking-normal text-[#151a19] lg:text-4xl">
-              {copy.title}
-            </h1>
-            <p className="mt-6 max-w-3xl break-keep text-base leading-8 text-[#596361] lg:text-lg">{copy.intro}</p>
-            <div className="mt-5 text-xs font-medium text-[#7a8380]">
-              {isKo ? '기술자료 · 발행 주식회사 워터비 · 최종 업데이트 ' : 'Technical reference · Published by Waterbee · Updated '}
-              <time dateTime="2026-09-18">{isKo ? '2026.09.18' : 'September 18, 2026'}</time>
-            </div>
-          </div>
-
-          <div className="mt-8 grid border-t border-[#9fa8a5] sm:grid-cols-2 lg:grid-cols-4">
-            {copy.pillars.map(([number, title, description]) => (
-              <div key={number} className="border-b border-[#cbd1ce] py-6 sm:px-6 sm:odd:border-r lg:border-b-0 lg:border-r lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0">
-                <div className="text-xs font-semibold text-[#8c7200]">{number}</div>
-                <h2 className="mt-4 break-keep text-lg font-semibold leading-7 text-[#202725]">{title}</h2>
-                <p className="mt-3 break-keep text-sm leading-6 text-[#68716f]">{description}</p>
-              </div>
-            ))}
-          </div>
+          <p className="tech-kicker">Technology</p>
+          <h1 className="mt-3 text-3xl font-bold leading-tight lg:text-4xl">{copy.title}</h1>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-[#596361] sm:text-base">{copy.intro}</p>
+          <nav aria-label={isKo ? '기술 바로가기' : 'Technology sections'} className="mt-6 grid grid-cols-2 border-t border-[#bfc7c4] sm:flex sm:flex-wrap sm:gap-x-8">
+            {copy.nav.map((label, i) => <a key={label} href={`#${sectionIds[i]}`} className="flex min-h-12 items-center gap-2 text-sm font-semibold hover:text-[#8c7200]"><span className="text-xs text-[#8c7200]">0{i + 1}</span>{label}<ArrowUpRight className="h-3.5 w-3.5" /></a>)}
+          </nav>
         </div>
-      </section>
-
-      <section className="bg-white pt-10 lg:pt-16">
-        <div className="container-custom grid gap-6 border-b border-[#9fa8a5] pb-8 lg:grid-cols-[0.75fr_1.25fr]">
-          <div>
-            <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{copy.measurementEyebrow}</div>
-            <h2 className="mt-4 max-w-md break-keep text-2xl font-bold leading-[1.25] tracking-normal text-[#151a19] lg:text-3xl">
-              {copy.measurementTitle}
-            </h2>
-          </div>
-          <p className="max-w-2xl break-keep text-sm leading-7 text-[#68716f] lg:pt-7 lg:text-base">{copy.measurementIntro}</p>
-        </div>
-      </section>
-
-      {copy.measurementSections.map((section, index) => (
-        <section key={section.eyebrow} className="border-b border-[#e4e8e5] bg-white">
-          <div className={`container-custom grid items-center gap-6 py-8 sm:gap-8 lg:grid-cols-2 lg:gap-12 lg:py-12 ${index % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-            <figure className="min-w-0">
-              <div className={`relative mx-auto w-full ${index === 0 ? 'aspect-[4/5] max-w-[480px]' : 'aspect-[4/3]'}`}>
-                <Image src={section.image} alt={section.imageCaption} fill className="object-contain" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 50vw" />
-              </div>
-              <figcaption className="mt-4 text-center text-xs leading-5 text-[#68716f]">{section.imageCaption}</figcaption>
-            </figure>
-
-            <div>
-              <div className="text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">{section.eyebrow}</div>
-              <h2 className="mt-5 break-keep text-2xl font-bold leading-[1.35] tracking-normal text-[#151a19]">{section.title}</h2>
-              <p className="mt-6 break-keep text-base leading-8 text-[#596361]">{section.description}</p>
-
-              <div className="mt-6 grid grid-cols-3 border-y border-[#aeb6b3]">
-                {section.metrics.map(([value, label]) => (
-                  <div key={label} className="flex min-h-[112px] flex-col items-center justify-center border-r border-[#d2d7d4] px-2 py-4 text-center last:border-r-0 sm:px-4">
-                    <div className="break-keep text-sm font-bold leading-6 text-[#202725] sm:text-base lg:text-lg">{value}</div>
-                    <div className="mt-2 min-h-8 break-keep text-[11px] leading-4 text-[#7a8380]">{label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <ul className="mt-6 border-t border-[#d2d7d4]">
-                {section.points.map((point) => (
-                  <li key={point} className="flex gap-3 border-b border-[#d2d7d4] py-4 text-sm leading-6 text-[#303735]">
-                    <span aria-hidden="true" className="mt-[0.65rem] h-1 w-1 shrink-0 rounded-full bg-[#8c7200]" />
-                    <span className="break-keep">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-      ))}
-
-      <section className="bg-[#151a19] py-10 text-white lg:py-16">
+      </header>
+      <section id="measurement" className="tech-section">
         <div className="container-custom">
-          <div className="grid gap-6 border-b border-white/20 pb-8 lg:grid-cols-[0.75fr_1.25fr]">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#f5c400]">
-                <Wrench className="h-4 w-4" />
-                {copy.lifecycle.eyebrow}
-              </div>
-              <h2 className="mt-4 max-w-lg break-keep text-2xl font-bold leading-[1.25] tracking-normal lg:text-3xl">{copy.lifecycle.title}</h2>
-            </div>
-            <p className="max-w-2xl break-keep text-sm leading-7 text-[#b7c0bd] lg:pt-7 lg:text-base">{copy.lifecycle.intro}</p>
-          </div>
-
-          <div className="grid gap-px bg-white/15 sm:grid-cols-2 lg:grid-cols-3">
-            {copy.lifecycle.items.map((item) => (
-              <article key={item.subject} className="bg-[#151a19] p-6">
-                <div className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#f5c400]">{item.kind}</div>
-                <h3 className="mt-5 break-keep text-lg font-semibold leading-7 text-white">{item.subject}</h3>
-                <div className="mt-4 text-2xl font-bold text-white">{item.cycle}</div>
-                <p className="mt-4 break-keep text-sm leading-7 text-[#aeb8b5]">{item.detail}</p>
+          <p className="tech-kicker">01 / Measurement</p>
+          <h2 className="tech-heading">{copy.measurementTitle}</h2>
+          <div className="mt-6 divide-y divide-[#d7dcda]">
+            {copy.measurements.map(item => (
+              <article key={item.model} className="grid gap-5 py-6 first:pt-0 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-12 lg:py-9">
+                <figure className="relative h-64 sm:h-80 lg:h-[360px]">
+                  <Image src={item.image} alt={item.alt} fill className="object-contain" sizes="(max-width: 1023px) 90vw, 45vw" />
+                </figure>
+                <div className="min-w-0">
+                  <p className="tech-kicker">{item.model}</p>
+                  <h3 className="mt-2 text-xl font-bold leading-snug lg:text-2xl">{item.title}</h3>
+                  <ul className="mt-4 space-y-2 text-sm leading-6 text-[#596361]">{item.points.map(point => <li className="flex gap-2" key={point}><span aria-hidden="true" className="mt-2.5 h-1 w-1 shrink-0 bg-[#8c7200]" /><span>{point}</span></li>)}</ul>
+                  <dl className="mt-5 grid grid-cols-3 divide-x divide-[#d7dcda] border-y border-[#d7dcda] py-4">
+                    {item.metrics.map(([value, label]) => <div key={label} className="px-2 text-center first:pl-0 last:pr-0"><dt className="text-xs text-[#68716f]">{label}</dt><dd className="mt-2 text-sm font-bold sm:text-base">{value}</dd></div>)}
+                  </dl>
+                  <p className="mt-4 text-sm leading-6 text-[#596361]"><span className="mr-2 font-semibold text-[#202725]">{copy.care}</span>{item.careText}</p>
+                  <Link href={`/products/${item.slug}`} className="tech-link mt-2">{copy.detail}<ArrowUpRight className="h-4 w-4" /></Link>
+                </div>
               </article>
             ))}
           </div>
-
-          <div className="mt-8 flex gap-3 border-l-2 border-[#f5c400] pl-5 text-xs leading-6 text-[#aeb8b5] sm:text-sm">
-            <ShieldCheck className="mt-1 h-4 w-4 shrink-0 text-[#f5c400]" />
-            <p className="break-keep">{copy.lifecycle.note}</p>
+          <div className="grid border-t border-[#bfc7c4] sm:grid-cols-2 sm:gap-8">
+            {copy.sensors.map(sensor => <Link key={sensor.model} href={`/products/${sensor.slug}`} className="group flex items-start justify-between gap-4 border-b border-[#d7dcda] py-5"><div><h3 className="font-semibold">{sensor.model} <span className="ml-2 text-[#596361]">{sensor.title}</span></h3><p className="mt-2 text-sm leading-6 text-[#68716f]">{sensor.text}</p></div><ArrowUpRight className="mt-1 h-4 w-4 shrink-0 group-hover:text-[#8c7200]" /></Link>)}
           </div>
         </div>
       </section>
-
-      <section id="controller" className="scroll-mt-24 bg-[#f5f6f4] py-10 lg:py-16">
+      <section id="controller" className="tech-section bg-[#f3f5f3]">
         <div className="container-custom">
-          <div className="grid gap-6 border-b border-[#9fa8a5] pb-8 lg:grid-cols-[0.75fr_1.25fr]">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">
-                <Gauge className="h-4 w-4" />
-                {copy.controller.eyebrow}
-              </div>
-              <h2 className="mt-4 max-w-lg break-keep text-2xl font-bold leading-[1.25] tracking-normal text-[#151a19] lg:text-3xl">{copy.controller.title}</h2>
+          <p className="tech-kicker">02 / Controller</p>
+          <h2 className="tech-heading">{copy.controller.title}</h2>
+          <p className="tech-intro">{copy.controller.intro}</p>
+          <div className="mt-6 grid items-center gap-6 lg:grid-cols-[0.65fr_1.35fr] lg:gap-12">
+            <div className="relative h-52 lg:h-72"><Image src="/images/products/wbsc10-front.png" alt="WBSC10" fill className="object-contain mix-blend-multiply" sizes="(max-width: 1023px) 280px, 360px" /></div>
+            <div className="min-w-0">
+              <dl className="grid grid-cols-2 border-t border-[#bfc7c4] sm:grid-cols-4">{copy.controller.specs.map(([value, label]) => <div key={label} className="border-b border-[#bfc7c4] px-2 py-4 text-center"><dt className="text-xs text-[#68716f]">{label}</dt><dd className="mt-2 text-lg font-bold">{value}</dd></div>)}</dl>
+              <ul className="mt-4 space-y-2 text-sm leading-6 text-[#596361]">{copy.controller.points.map(point => <li key={point}>{point}</li>)}</ul>
+              <Link href="/products/wbsc10" className="tech-link mt-3">{copy.detail}<ArrowUpRight className="h-4 w-4" /></Link>
             </div>
-            <p className="max-w-2xl break-keep text-sm leading-7 text-[#68716f] lg:pt-7 lg:text-base">{copy.controller.intro}</p>
-          </div>
-
-          <div className="mt-8 grid items-start gap-6 lg:grid-cols-[0.82fr_1.18fr]">
-            <article className="border border-[#d0d6d3] bg-white p-7 lg:p-10">
-              <div className="inline-flex rounded-full bg-[#eef1ef] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#596361]">
-                {copy.controller.current.badge}
-              </div>
-              <h3 className="mt-6 text-2xl font-bold text-[#151a19]">{copy.controller.current.title}</h3>
-              <p className="mt-4 break-keep text-sm leading-7 text-[#68716f]">{copy.controller.current.description}</p>
-              <ul className="mt-7 border-t border-[#d2d7d4]">
-                {copy.controller.current.features.map((feature) => (
-                  <li key={feature} className="border-b border-[#d2d7d4] py-3 text-sm leading-6 text-[#303735]">{feature}</li>
-                ))}
-              </ul>
-              <Link href="/products/wbsc10" className="mt-7 inline-flex items-center gap-2 border-b border-[#151a19] pb-1 text-sm font-semibold text-[#151a19]">
-                {copy.controller.current.link}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </article>
-
-            <article className="min-w-0 bg-[#202725] p-5 text-white sm:p-7 lg:p-10">
-              <div className="inline-flex rounded-full border border-[#f5c400]/50 bg-[#f5c400]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.1em] text-[#f5c400]">
-                {copy.controller.next.badge}
-              </div>
-              <h3 className="mt-6 break-keep text-2xl font-bold">{copy.controller.next.title}</h3>
-              <p className="mt-4 max-w-2xl break-keep text-sm leading-7 text-[#b7c0bd]">{copy.controller.next.description}</p>
-
-              <figure className="mt-8">
-                <div className="relative aspect-[3/2] w-full bg-white">
-                  <Image
-                    src="/images/technology/controller-wireless-concept-20260918.webp"
-                    alt={copy.controller.next.imageAlt}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 1023px) 100vw, 55vw"
-                  />
-                </div>
-                <figcaption className="mt-4 break-keep text-xs leading-6 text-[#b7c0bd]">{copy.controller.next.visualNote}</figcaption>
-              </figure>
-
-              <div className="mt-7 grid gap-px bg-white/15 sm:grid-cols-2">
-                {copy.controller.next.features.map(([title, description], index) => (
-                  <div key={title} className="min-h-[130px] bg-[#202725] p-5">
-                    <div className="flex items-start gap-3 text-[#f5c400]">
-                      {index === 0 ? <Bluetooth className="mt-0.5 h-5 w-5 shrink-0" /> : null}
-                      {index === 1 ? <Wifi className="mt-0.5 h-5 w-5 shrink-0" /> : null}
-                      {index > 1 ? <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0" /> : null}
-                      <h4 className="break-keep font-semibold text-white">{title}</h4>
-                    </div>
-                    <p className="mt-4 break-keep text-sm leading-6 text-[#aeb8b5]">{description}</p>
-                  </div>
-                ))}
-              </div>
-            </article>
           </div>
         </div>
       </section>
-
-      <section className="bg-white py-10 lg:py-16">
+      <section id="connectivity" className="tech-section">
         <div className="container-custom">
-          <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+          <div className="flex flex-wrap items-center gap-3"><p className="tech-kicker">03 / Connectivity & Diagnostics</p><span className="border-l-2 border-[#d3ac00] pl-3 text-xs font-semibold text-[#68716f]">{copy.connected.badge}</span></div>
+          <h2 className="tech-heading">{copy.connected.title}</h2>
+          <p className="tech-intro">{copy.connected.intro}</p>
+          <div className="mt-6 grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
+            <div className="relative aspect-[3/2]"><Image src="/images/technology/controller-wireless-concept-20260918.webp" alt={copy.connected.imageAlt} fill className="object-contain" sizes="(max-width: 1023px) 90vw, 45vw" /></div>
             <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-[#8c7200]">
-                <BrainCircuit className="h-4 w-4" />
-                {copy.ai.eyebrow}
-              </div>
-              <div className="mt-5 inline-flex rounded-full bg-[#f6edbd] px-3 py-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#695600]">
-                {copy.ai.badge}
-              </div>
-              <h2 className="mt-6 max-w-lg break-keep text-2xl font-bold leading-[1.25] tracking-normal text-[#151a19] lg:text-3xl">{copy.ai.title}</h2>
-              <p className="mt-6 max-w-xl break-keep text-sm leading-7 text-[#68716f] lg:text-base">{copy.ai.intro}</p>
-            </div>
-
-            <div>
-              <div className="grid border-t border-[#9fa8a5] sm:grid-cols-2">
-                {copy.ai.steps.map(([number, title, description]) => (
-                  <article key={number} className="border-b border-[#d2d7d4] py-7 sm:px-6 sm:odd:border-r sm:odd:pl-0 sm:even:pr-0">
-                    <div className="text-xs font-bold text-[#8c7200]">{number}</div>
-                    <h3 className="mt-6 text-lg font-semibold text-[#202725]">{title}</h3>
-                    <p className="mt-3 break-keep text-sm leading-6 text-[#68716f]">{description}</p>
-                  </article>
-                ))}
-              </div>
-              <div className="mt-8 flex gap-4 bg-[#f1f3f1] p-6">
-                <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-[#8c7200]" />
-                <p className="break-keep text-sm font-medium leading-7 text-[#303735]">{copy.ai.principle}</p>
-              </div>
+              <div className="divide-y divide-[#d7dcda] border-y border-[#bfc7c4]">{copy.connected.features.map(([title, description], i) => { const Icon = featureIcons[i]; return <div key={title} className="flex gap-4 py-4"><Icon className="mt-1 h-5 w-5 shrink-0 text-[#8c7200]" /><div><h3 className="font-semibold">{title}</h3><p className="mt-1 text-sm leading-6 text-[#68716f]">{description}</p></div></div>})}</div>
+              <p className="mt-3 text-xs leading-5 text-[#68716f]">{copy.connected.validation}</p>
             </div>
           </div>
         </div>
       </section>
-
-      <section className="border-t border-[#d2d7d4] bg-[#f1f3f1] py-10 lg:py-12">
-        <div className="container-custom flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-          <h2 className="max-w-3xl break-keep text-2xl font-bold leading-[1.35] text-[#151a19] lg:text-3xl">{copy.closing.title}</h2>
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Link href="/products" className="inline-flex items-center justify-center gap-2 bg-[#151a19] px-5 py-3 text-sm font-semibold text-white">
-              {copy.closing.products}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link href="/about" className="inline-flex items-center justify-center gap-2 border border-[#9fa8a5] px-5 py-3 text-sm font-semibold text-[#151a19]">
-              {copy.closing.about}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
+      <section id="maintenance" className="tech-section border-t border-[#d7dcda]">
+        <div className="container-custom">
+          <p className="tech-kicker">04 / Maintenance</p>
+          <h2 className="tech-heading">{copy.maintenance.title}</h2>
+          <p className="tech-intro">{copy.maintenance.intro}</p>
+          <div className="mt-6 border-t border-[#9fa8a5]">
+            {copy.maintenance.items.map(([model, name, inspection, interval]) => <div key={model} className="grid gap-2 border-b border-[#d7dcda] py-4 sm:grid-cols-[170px_1fr_1fr] sm:gap-5"><h3 className="text-sm font-semibold">{model}<span className="ml-2 font-normal text-[#68716f] sm:ml-0 sm:block">{name}</span></h3><p className="text-sm leading-6 text-[#596361]">{inspection}</p><p className="text-sm leading-6 text-[#596361]">{interval}</p></div>)}
           </div>
+          <p className="mt-3 text-xs leading-5 text-[#68716f]">{copy.maintenance.condition}</p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
+            {parts.map(part => <Link key={part.slug} href={`/products/${part.slug}`} className="flex min-w-0 items-center gap-4 border-y border-[#d7dcda] py-3 sm:flex-col sm:items-start"><div className="relative h-20 w-24 shrink-0 sm:h-28 sm:w-full"><Image src={part.image} alt={isKo ? part.name : part.nameEn} fill className="object-contain" sizes="(max-width: 639px) 96px, 240px" /></div><div className="flex w-full min-w-0 items-center justify-between gap-2 text-sm font-semibold"><span>{isKo ? part.name : part.nameEn}</span><ArrowUpRight className="h-4 w-4 shrink-0" /></div></Link>)}
+          </div>
+          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 bg-[#f3f5f3] px-5 py-4"><div><h3 className="text-sm font-semibold">{copy.maintenance.filter}</h3><p className="mt-1 text-sm leading-6 text-[#68716f]">{copy.maintenance.filterText}</p></div><Link href="/products/filter-drain" className="tech-link">{copy.detail}<ArrowUpRight className="h-4 w-4" /></Link></div>
+        </div>
+      </section>
+      <section className="border-t border-[#d7dcda] bg-[#f3f5f3] py-7 lg:py-9">
+        <div className="container-custom flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+          <div><h2 className="text-xl font-bold">{copy.resources.title}</h2><p className="mt-2 text-sm leading-6 text-[#68716f]">{copy.resources.intro}</p></div>
+          <div className="flex flex-wrap gap-3"><Link href="/downloads" className="btn-primary"><Download className="h-4 w-4" />{copy.resources.drawings}</Link><Link href="/contact" className="btn-secondary">{copy.resources.contact}<ArrowUpRight className="h-4 w-4" /></Link></div>
         </div>
       </section>
     </div>
